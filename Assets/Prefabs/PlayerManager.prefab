@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &907325190265572271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8198242960030704211}
+  - component: {fileID: 9028038789729509016}
+  - component: {fileID: -937024169184617000}
+  - component: {fileID: 8988121599895072750}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8198242960030704211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907325190265572271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1247.8872, y: 626.91266, z: -323.08228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9028038789729509016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907325190265572271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &-937024169184617000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907325190265572271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+--- !u!114 &8988121599895072750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907325190265572271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed5109840510da4a9bb8fb83df56a61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  GameManager: {fileID: 0}
+  PlayerArea: {fileID: 0}
+  EnemyArea: {fileID: 0}
+  PlayerFountain: {fileID: 0}
+  EnemyFountain: {fileID: 0}
+  Board: {fileID: 0}
+  cards:
+  - {fileID: 8760139744906464567, guid: 538da16d20edde843bf0daa534fe0425, type: 3}
+  - {fileID: 7776162097009012135, guid: dadd78e4a58189d43ad30a5770fcfb4d, type: 3}
+  - {fileID: 6671270733437516949, guid: 415ac5a8237b37141995d2d237388f29, type: 3}
+  - {fileID: 2208013922623095459, guid: eed1e559a4a022647a1376857a667b12, type: 3}
+  - {fileID: 6671270733437516949, guid: 415ac5a8237b37141995d2d237388f29, type: 3}
+  - {fileID: 9103224167920831293, guid: 70cc1769c0e21534d8b4221788d0ee21, type: 3}
+  - {fileID: 6295182374217624289, guid: 54bac0022f13167438852bfc2ad9fc0a, type: 3}
+  - {fileID: 9092219171095232178, guid: 656c3f54b45106d4e9e71a603534064d, type: 3}
+  heroes:
+  - {fileID: 8538881162259127091, guid: 76fb0c9d7a4fcd54ebd7618687bd2489, type: 3}
+  - {fileID: 8538881162259127091, guid: 76fb0c9d7a4fcd54ebd7618687bd2489, type: 3}
+  - {fileID: 5309091480148534931, guid: a726e139260b26945a76bc3bbffac1a9, type: 3}
+  - {fileID: 7656949213937005757, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+  - {fileID: 7656949213937005757, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+  laneCreep: {fileID: 5606982541690348536, guid: 8410494326a63544b86794e3ce2a13d4, type: 3}
+  IsMyTurn: 1
