@@ -53,9 +53,12 @@ public class PlayerManager : NetworkBehaviour
     void RpcSetRandomSeed(int seed)
     {
         UnityEngine.Random.InitState(seed);
+        print("RpcSetRandomSeed");
     }
+    [ClientRpc]
     void RpcRandomSetTurn()
     {
+        print("RpcRandomSetTurn");
         PlayerManager pm = NetworkClient.connection.identity.GetComponent<PlayerManager>();
         pm.IsMyTurn = UnityEngine.Random.value > 0.5;
         if (isClientOnly)
@@ -68,8 +71,11 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     public void CmdStartGame()
     {
-        if (isServer) { RpcSetRandomSeed((int)System.DateTime.Now.Ticks); }
-        RpcRandomSetTurn();
+        if (isServer && hasAuthority) {
+            RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
+            RpcRandomSetTurn();
+        } // works but is called 2x without the hasAuthority
+        
 
         for (int i=0; i < 5; i++)
         {
