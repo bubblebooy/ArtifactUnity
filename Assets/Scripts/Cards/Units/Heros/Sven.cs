@@ -16,12 +16,12 @@ public class Sven : Hero
 
             if (target != null)
             {
-                Strike(target, attack + cleave);
+                Strike(target, attack + cleave, piercing);
             }
             else
             {
                 TowerManager tower = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                tower.Damage(attack);
+                tower.Damage(attack, piercing);
             }
             for (int i = -1; i <= 1; i++)
             {
@@ -31,7 +31,7 @@ public class Sven : Hero
                 target = targetSlot.GetComponentInChildren<Unit>();
                 if (target != null)
                 {
-                    Strike(target, attack + cleave);
+                    Strike(target, attack + cleave, piercing);
                 }
             }
 

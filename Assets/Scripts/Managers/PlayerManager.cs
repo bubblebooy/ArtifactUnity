@@ -17,6 +17,8 @@ public class PlayerManager : NetworkBehaviour
     public List<GameObject> heroes = new List<GameObject>();
     public GameObject laneCreep; // dict of all creeps
 
+    System.Random rand = new System.Random();
+
     public bool IsMyTurn = true;
 
     //[SyncVar]
@@ -34,10 +36,6 @@ public class PlayerManager : NetworkBehaviour
         EnemyFountain = GameObject.Find("EnemyFountain");
         Board = GameObject.Find("Board");
 
-        if (isClientOnly)
-        {
-            IsMyTurn = false;
-        }
     }
 
     //[Server]
@@ -46,13 +44,34 @@ public class PlayerManager : NetworkBehaviour
 
     //}
 
+    [Command]
+    void CmdRandomSeed()
+    {
+        RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
+    }
+    [ClientRpc]
+    void RpcSetRandomSeed(int seed)
+    {
+        UnityEngine.Random.InitState(seed);
+        IsMyTurn = UnityEngine.Random.value > 0.5;
+        if (isClientOnly)
+        {
+            PlayerManager pm = NetworkClient.connection.identity.GetComponent<PlayerManager>();
+            pm.IsMyTurn = !pm.IsMyTurn;
+        }
+    }
+
 
     [Command]
     public void CmdStartGame()
     {
+        if (isServer) { CmdRandomSeed(); }
+
+        
+
         for (int i=0; i < 5; i++)
         {
-            GameObject card = Instantiate(cards[Random.Range(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
         }
@@ -64,6 +83,7 @@ public class PlayerManager : NetworkBehaviour
             RpcShowCard(hero, "Hero");
             RpcSetHeroRespawn(hero, Mathf.Max(0, i - 2));
         }
+        //CmdRandomSeed();
         RpcGameChangeState("Flop");
     }
 
@@ -106,7 +126,7 @@ public class PlayerManager : NetworkBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            GameObject card = Instantiate(cards[Random.Range(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
         }

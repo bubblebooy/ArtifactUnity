@@ -45,7 +45,7 @@ public class TowerManager : NetworkBehaviour
         }
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage, bool piercing = false)
     {
         
         armor -= damage;

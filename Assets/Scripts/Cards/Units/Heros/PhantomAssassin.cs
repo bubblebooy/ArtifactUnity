@@ -6,15 +6,16 @@ using UnityEngine;
 public class PhantomAssassin : Hero // Unit : Card
 {
 
-    public override void Strike(Unit target, int damage)
+    public override void Strike(Unit target, int damage, bool piercing = false)
     {
         if (target is Hero)
         {
-            target.Damage(2 * damage);
+            base.Strike(target, 2 * damage, piercing);
+            //target.Damage(2 * damage);
         }
         else
         {
-            target.Damage( damage);
+            base.Strike(target, damage, piercing);
         }
             
     }

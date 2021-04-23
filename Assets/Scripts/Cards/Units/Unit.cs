@@ -15,6 +15,7 @@ public class Unit : Card
     public int cleave = 0;
     public bool disarmed = false;
     public bool caster = false;
+    public bool piercing = false;
 
     public string targetTag = "Card Slot";
 
@@ -88,9 +89,9 @@ public class Unit : Card
         CardUpdate();
     }
 
-    public virtual void Strike(Unit target, int damage)
+    public virtual void Strike(Unit target, int damage, bool piercing = false)
     {
-        target.Damage(damage);
+        target.Damage(damage, piercing);
     }
 
     public virtual void Damage(int damage, bool piercing = false)
@@ -119,12 +120,12 @@ public class Unit : Card
 
             if (target != null)
             {
-                Strike(target, attack + cleave);
+                Strike(target, attack + cleave, piercing);
             }
             else
             {
                 TowerManager tower = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                tower.Damage(attack);
+                tower.Damage(attack, piercing);
             }
             if (cleave != 0)
             {
@@ -136,7 +137,7 @@ public class Unit : Card
                     target = targetSlot.GetComponentInChildren<Unit>();
                     if (targetSlot.GetChild(0).gameObject != null)
                     {
-                        Strike(target, cleave);
+                        Strike(target, cleave, piercing);
                     }
                 }
             }

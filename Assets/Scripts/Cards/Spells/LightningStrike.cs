@@ -31,12 +31,12 @@ public class LightningStrike : Spell
 
         if (target != null)
         {
-            target.Damage(damage);
+            target.Damage(damage,true);
         }
         else
         {
             TowerManager tower = caster.GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-            tower.Damage(damage);
+            tower.Damage(damage,true);
         }
         DestroyCard(); // this might take too long
     }
