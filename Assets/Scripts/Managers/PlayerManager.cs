@@ -44,19 +44,22 @@ public class PlayerManager : NetworkBehaviour
 
     //}
 
-    [Command]
-    void CmdRandomSeed()
-    {
-        RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
-    }
+    //[Command]
+    //void CmdRandomSeed()
+    //{
+    //    RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
+    //}
     [ClientRpc]
     void RpcSetRandomSeed(int seed)
     {
         UnityEngine.Random.InitState(seed);
-        IsMyTurn = UnityEngine.Random.value > 0.5;
+    }
+    void RpcRandomSetTurn()
+    {
+        PlayerManager pm = NetworkClient.connection.identity.GetComponent<PlayerManager>();
+        pm.IsMyTurn = UnityEngine.Random.value > 0.5;
         if (isClientOnly)
         {
-            PlayerManager pm = NetworkClient.connection.identity.GetComponent<PlayerManager>();
             pm.IsMyTurn = !pm.IsMyTurn;
         }
     }
@@ -65,9 +68,8 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     public void CmdStartGame()
     {
-        if (isServer) { CmdRandomSeed(); }
-
-        
+        if (isServer) { RpcSetRandomSeed((int)System.DateTime.Now.Ticks); }
+        RpcRandomSetTurn();
 
         for (int i=0; i < 5; i++)
         {

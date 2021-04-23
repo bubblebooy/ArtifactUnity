@@ -9,8 +9,8 @@ public class Spell : Card
 
     public override bool IsVaildPlay(GameObject target)
     {
-        base.IsVaildPlay(target);
-        if (target.tag == targetTag)
+        if (base.IsVaildPlay(target) && 
+            target.tag == targetTag)
         {
             return true;
         }

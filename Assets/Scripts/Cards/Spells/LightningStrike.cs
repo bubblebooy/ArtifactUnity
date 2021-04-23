@@ -8,9 +8,10 @@ public class LightningStrike : Spell
 
     public override bool IsVaildPlay(GameObject target)
     {
-        base.IsVaildPlay(target);
-        if (target.tag == targetTag &&
-            target.GetComponentInChildren<Unit>().caster == true)
+        
+        if (base.IsVaildPlay(target) && 
+            target.GetComponent<Unit>().caster == true &&
+            target.GetComponent<Unit>().GetSide() == "PlayerSide")
         {
             return true;
         }

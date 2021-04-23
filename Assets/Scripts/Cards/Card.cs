@@ -62,6 +62,7 @@ public abstract class Card : NetworkBehaviour
     public virtual void DestroyCard()
     {
         // Move to graveyard based on player ownership? does artifact have a graveyard?
+        gameObject.transform.SetParent(null);
         Destroy(gameObject);
     }
 
