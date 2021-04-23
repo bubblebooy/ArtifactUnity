@@ -75,14 +75,19 @@ public class PlayerManager : NetworkBehaviour
             RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
             RpcRandomSetTurn();
         } // works but is called 2x without the hasAuthority
-        
 
+        GameObject card;
         for (int i=0; i < 5; i++)
         {
-            GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
         }
+        //*******For test alway draw the last card
+        card = Instantiate(cards[cards.Count-1], new Vector2(0, 0), Quaternion.identity);
+        NetworkServer.Spawn(card, connectionToClient);
+        RpcShowCard(card, "Dealt");
+        //*****************************************//
         for (int i= 0; i < 5; i++)
         {
             GameObject hero = Instantiate(heroes[i], new Vector2(0, 0), Quaternion.identity);

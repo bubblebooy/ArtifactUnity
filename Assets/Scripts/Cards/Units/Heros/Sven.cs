@@ -8,33 +8,29 @@ public class Sven : Hero
     {
         if (quick == quickstrike && !disarmed)
         {
-            int slotNumber = transform.parent.GetSiblingIndex();
-            int numberOfSlots = transform.parent.parent.GetComponentsInChildren<CardSlot>().Length;
-            bool player = transform.parent.parent.name == "PlayerSide";
-            Transform targetSlot = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetChild(slotNumber + arrow);
-            Unit target = targetSlot.GetComponentInChildren<Unit>();
-
+            Unit target = GetCombatTarget();
             if (target != null)
             {
                 Strike(target, attack + cleave, piercing);
             }
             else
             {
-                TowerManager tower = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
+                bool player = GetSide() == "PlayerSide";
+                TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
                 tower.Damage(attack, piercing);
             }
+            Unit[] AdjacentEnemies = GetAdjacentEnemies();
             for (int i = -1; i <= 1; i++)
             {
                 if (i == arrow) { continue; }
-                if (slotNumber + i < 0 || slotNumber + i >= numberOfSlots) { continue; }
-                targetSlot = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetChild(slotNumber + i);
-                target = targetSlot.GetComponentInChildren<Unit>();
+                print("CLEAVE");
+                target = AdjacentEnemies[i + 1];
                 if (target != null)
                 {
+                    print("Not Null");
                     Strike(target, attack + cleave, piercing);
                 }
             }
-
 
         }
     }

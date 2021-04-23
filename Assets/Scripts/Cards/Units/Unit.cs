@@ -108,40 +108,32 @@ public class Unit : Card
     {
         if (quick == quickstrike && !disarmed)
         {
-            int slotNumber = transform.parent.GetSiblingIndex();
-            int numberOfSlots = transform.parent.parent.GetComponentsInChildren<CardSlot>().Length;
-            bool player = transform.parent.parent.name == "PlayerSide";
-            // Assume that the target is pointer at a card slot. the arrow should be managed in CardUpdate()
-            Transform targetSlot = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetChild(slotNumber + arrow);
-            //player ? "PlayerSide" : "EnemySide" + $"/Card Slot ({slotNumber + arrow})";
-            Unit target = targetSlot.GetComponentInChildren<Unit>();
-            //Debug.Log($"{transform.parent.name} : {slotNumber}");
-            //Debug.Log(targetSlot.name);
-
+            Unit target = GetCombatTarget();
             if (target != null)
             {
                 Strike(target, attack + cleave, piercing);
             }
             else
             {
-                TowerManager tower = transform.parent.parent.parent.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
+                bool player = GetSide() == "PlayerSide";
+                TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
                 tower.Damage(attack, piercing);
             }
+
             if (cleave != 0)
             {
-                for (int i = -1; i <= 1; i ++)
+                Unit[] AdjacentEnemies = GetAdjacentEnemies();
+                for (int i = -1; i <= 1; i++)
                 {
                     if (i == arrow) { continue; }
-                    if (slotNumber + i < 0 || slotNumber + i >= numberOfSlots) { continue; }
-                    targetSlot = transform.parent.parent.parent.Find(player ? "PlayerSide" : "EnemySide").GetChild(slotNumber + i);
-                    target = targetSlot.GetComponentInChildren<Unit>();
-                    if (targetSlot.GetChild(0).gameObject != null)
+                    target = AdjacentEnemies[i+1];
+                    if (target != null)
                     {
                         Strike(target, cleave, piercing);
                     }
                 }
             }
-            
+
         }
     }
 
@@ -170,6 +162,33 @@ public class Unit : Card
     {
         CardSlot cardSlot = transform.parent.GetComponent<CardSlot>();
         return cardSlot.GetLane();
+    }
+
+    public Unit GetCombatTarget()
+    {
+        int slotNumber = transform.parent.GetSiblingIndex();
+        bool player = GetSide() == "PlayerSide";
+        Transform targetSlot = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetChild(slotNumber + arrow);
+        Unit target = targetSlot.GetComponentInChildren<Unit>();
+        return target;
+    }
+
+    public Unit[] GetAdjacentEnemies()
+    {
+        int numberOfSlots = transform.parent.parent.GetComponentsInChildren<CardSlot>().Length;
+        int slotNumber = transform.parent.GetSiblingIndex();
+        bool player = GetSide() == "PlayerSide";
+        Transform targetSlot;
+        Unit target;
+        Unit[] AdjEnemies = new Unit[3] ;
+        for (int i = -1; i <= 1; i++)
+        {
+            if (slotNumber + i < 0 || slotNumber + i >= numberOfSlots) {continue;}
+            targetSlot = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetChild(slotNumber + i);
+            target = targetSlot.GetComponentInChildren<Unit>();
+            AdjEnemies[i + 1] = target;
+        }
+        return AdjEnemies;
     }
 
 }
