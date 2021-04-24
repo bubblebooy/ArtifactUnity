@@ -99,6 +99,14 @@ PrefabInstance:
       propertyPath: m_text
       value: <sprite=0>3
       objectReference: {fileID: 0}
+    - target: {fileID: 1766947016470945055, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766947016470945055, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
       value: Bronze Legionnaire

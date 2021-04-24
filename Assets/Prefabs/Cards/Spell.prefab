@@ -16,10 +16,12 @@ MonoBehaviour:
   syncInterval: 0.1
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
   isDraggable: 1
   color: 
   cardName: 
   mana: 0
+  CardText: 
   targetTag: Lane
 --- !u!1001 &8937861359884693759
 PrefabInstance:
@@ -36,9 +38,25 @@ PrefabInstance:
       propertyPath: targetTag
       value: Lane
       objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -62
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 2951581096987451892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951581096987451892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_fontSize
+      value: 8.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426427280598444582, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4384361439473272320, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_Pivot.x
@@ -107,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 5328039620299072892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_Name
       value: Spell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921164037078831070, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6460034260581400188, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_Color.b

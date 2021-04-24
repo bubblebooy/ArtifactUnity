@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 7.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2116661299087531621, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2632203690828503576, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_AssetId
       value: 
@@ -128,12 +132,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: CardText
+      value: Quickstrike.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: cardName
       value: Assassin's Shadow
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: quickstrike
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989245877962161053, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_text
+      value: Quickstrike.
       objectReference: {fileID: 0}
     - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Sprite

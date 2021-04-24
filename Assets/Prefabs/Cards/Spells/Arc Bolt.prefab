@@ -21,6 +21,8 @@ MonoBehaviour:
   color: blue
   cardName: Arc Bolt
   mana: 1
+  CardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
+    1 piercing damage."
   targetTag: Unit
   damage: 1
 --- !u!1001 &9217164938166207716
@@ -43,6 +45,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5f8d2adbff59994478580d306ca39ef9, type: 3}
@@ -57,6 +63,11 @@ PrefabInstance:
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325234172275670817, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_text
+      value: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and
+        deal 1 piercing damage."
       objectReference: {fileID: 0}
     - target: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Name
@@ -148,6 +159,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438084732954496999, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018133980985613017, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}

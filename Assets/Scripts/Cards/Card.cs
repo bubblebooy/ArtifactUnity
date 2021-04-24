@@ -17,7 +17,11 @@ public abstract class Card : NetworkBehaviour
     public string color;
     public string cardName;
     public int mana = 0;
+    [TextArea]
+    public string CardText;
+
     private TextMeshProUGUI displayMana;
+    private TextMeshProUGUI displayCardText;
 
     private Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
     {
@@ -33,7 +37,19 @@ public abstract class Card : NetworkBehaviour
         gameObject.transform.Find("Color/Card Name").GetComponent<TextMeshProUGUI>().text = cardName;
         displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
         displayMana.text = mana.ToString();
-        
+
+        if (!string.IsNullOrEmpty(CardText))
+        {
+            gameObject.transform.Find("Color/Card Text").gameObject.SetActive(true);
+            displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
+            displayCardText.text = CardText;
+        }
+        else
+        {
+            gameObject.transform.Find("Color/Card Text").gameObject.SetActive(false);
+        }
+
+
         if (color != null)
         {
             color = color.ToLower();
@@ -53,6 +69,7 @@ public abstract class Card : NetworkBehaviour
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
         ManaManager = GameObject.Find(( hasAuthority ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
         displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
+        displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true); 
 
         //InitializeCard();  // should prob just do Start({base.Start()})
     }
@@ -100,6 +117,7 @@ public abstract class Card : NetworkBehaviour
     public virtual void CardUpdate()
     {
         if (displayMana != null) { displayMana.text = mana.ToString(); }
+        if (!string.IsNullOrEmpty(CardText)) {displayCardText.text = CardText;}
     }
 
     //    public abstract void OnPlay();

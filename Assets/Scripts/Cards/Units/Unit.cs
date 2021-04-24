@@ -9,6 +9,7 @@ public class Unit : Card
     public int attack, armor, health;
     protected int maxArmor, maxHealth;
     private TextMeshProUGUI displayAttack, displayArmor, displayHealth;
+    private Transform displayArrow;
 
     public int arrow = 0;
     public bool quickstrike = false;
@@ -58,6 +59,7 @@ public class Unit : Card
     public override void CardUpdate()
     {
         base.CardUpdate();
+
         displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
         displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
         displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
@@ -65,12 +67,25 @@ public class Unit : Card
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
 
-        // is alive
-        // check arrow
+        if (arrow != 0 && GetCombatTarget() == null)
+        {
+            arrow = 0;
+        }
+        displayArrow = gameObject.transform.Find("Color/Arrow");
+        if (arrow != 0)
+        {
+            displayArrow.gameObject.SetActive(true);
+            int side = GetSide() == "PlayerSide" ? 1 : -1;
+            displayArrow.localPosition = new Vector3(20 * arrow, 70 * side, 0);
+            displayArrow.localEulerAngles = new Vector3(0, 0, arrow * (-90 + 60 * side));
+        }
+        else { displayArrow.gameObject.SetActive(false); }
+
         if (health <= 0)
         {
             DestroyCard();
         }
+
     }
 
     public virtual void Bounce()

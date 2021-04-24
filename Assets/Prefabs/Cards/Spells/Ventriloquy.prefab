@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &35717610149154272
+--- !u!114 &8158651527768077128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9092219171095232178}
+  m_GameObject: {fileID: 859432860723201145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8a35c1c94c9b0469c73cd099f3716b, type: 3}
+  m_Script: {fileID: 11500000, guid: 78b4ccaf27c37f0479e2d5179595ee72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
@@ -19,14 +19,13 @@ MonoBehaviour:
   ManaManager: {fileID: 0}
   isDraggable: 1
   color: blue
-  cardName: Lightning Strike
+  cardName: Ventriloquy
   mana: 1
-  CardText: 'Deal 4 piercing damage to caster''s combat target.
-
-    (Can hit towers).'
+  CardText: Choose unit. It taunts, then each unit pointing at it strikes it for
+    1 <sprite=0>.
   targetTag: Unit
-  damage: 4
---- !u!1001 &5464937186407181105
+  damage: 1
+--- !u!1001 &4473208994328711674
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2fc80534e041422459016b15100a7685, type: 3}
+      objectReference: {fileID: 21300000, guid: 501bee30bc3506d4d993023abae13f60, type: 3}
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -63,14 +62,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325234172275670817, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: 'Deal 4 piercing damage to caster''s combat target.
-
-        (Can hit
-        towers).'
+      value: Choose unit. It taunts, then each unit pointing at it strikes it for
+        1 <sprite=0>.
       objectReference: {fileID: 0}
     - target: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Name
-      value: Lightning Strike
+      value: Ventriloquy
       objectReference: {fileID: 0}
     - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Pivot.x
@@ -166,11 +163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: Lightning Strike
-      objectReference: {fileID: 0}
-    - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
-      propertyPath: m_fontSize
-      value: 8.85
+      value: Ventriloquy
       objectReference: {fileID: 0}
     - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_AssetId
@@ -179,8 +172,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3611571970488368778, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
---- !u!1 &9092219171095232178 stripped
+--- !u!1 &859432860723201145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
-  m_PrefabInstance: {fileID: 5464937186407181105}
+  m_PrefabInstance: {fileID: 4473208994328711674}
   m_PrefabAsset: {fileID: 0}
