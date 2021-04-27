@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: Meele Creep
+      value: Melee Creep
       objectReference: {fileID: 0}
     - target: {fileID: 2632203690828503576, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_AssetId
@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: cardName
-      value: Meele Creep
+      value: Melee Creep
       objectReference: {fileID: 0}
     - target: {fileID: 5799540982887977805, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Color.b
@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8872661395717017919, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Name
-      value: Meele Creep
+      value: Melee Creep
       objectReference: {fileID: 0}
     - target: {fileID: 8946657103212382184, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_CullTransparentMesh

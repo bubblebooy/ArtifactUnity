@@ -162,8 +162,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Generic Card Text <sprite=2>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb4b44b28295ca6439b840ec01da5a32, type: 2}
+  m_sharedMaterial: {fileID: -1933743281300231511, guid: fb4b44b28295ca6439b840ec01da5a32, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -841,8 +841,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Card Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f70b2bdc64fb47498bb6fa2b5e0b67b, type: 2}
+  m_sharedMaterial: {fileID: -9003443873194647231, guid: 8f70b2bdc64fb47498bb6fa2b5e0b67b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.95
+  m_fontSize: 10
   m_fontSizeBase: 8.92
   m_fontWeight: 400
   m_enableAutoSizing: 1

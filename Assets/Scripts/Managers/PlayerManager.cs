@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Mirror;
 
@@ -15,7 +16,8 @@ public class PlayerManager : NetworkBehaviour
 
     public List<GameObject> cards = new List<GameObject>();
     public List<GameObject> heroes = new List<GameObject>();
-    public GameObject laneCreep; // dict of all creeps
+    private Dictionary<string, GameObject> cardDict; // = cards.ToDictionary(x => x.name, x => x);
+    //public GameObject laneCreep; // dict of all creeps
 
     System.Random rand = new System.Random();
 
@@ -23,6 +25,7 @@ public class PlayerManager : NetworkBehaviour
 
     //[SyncVar]
     //int expamle = 0;
+
 
     // Start is called before the first frame update
     public override void OnStartClient()
@@ -36,19 +39,10 @@ public class PlayerManager : NetworkBehaviour
         EnemyFountain = GameObject.Find("EnemyFountain");
         Board = GameObject.Find("Board");
 
+        cardDict = cards.ToDictionary(x => x.name, x => x);
+
     }
 
-    //[Server]
-    //public override void OnStartServer()
-    //{
-
-    //}
-
-    //[Command]
-    //void CmdRandomSeed()
-    //{
-    //    RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
-    //}
     [ClientRpc]
     void RpcSetRandomSeed(int seed)
     {
@@ -67,6 +61,12 @@ public class PlayerManager : NetworkBehaviour
         }
     }
 
+    [ClientRpc]
+    void RpcOnSpawn(GameObject card)
+    {
+        card.GetComponent<Card>().OnSpawn();
+    }
+    
 
     [Command]
     public void CmdStartGame()
@@ -81,17 +81,20 @@ public class PlayerManager : NetworkBehaviour
         {
             card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
+            RpcOnSpawn(card);
             RpcShowCard(card, "Dealt");
         }
         //*******For test alway draw the last card
         card = Instantiate(cards[cards.Count-1], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
+        RpcOnSpawn(card);
         RpcShowCard(card, "Dealt");
         //*****************************************//
         for (int i= 0; i < 5; i++)
         {
             GameObject hero = Instantiate(heroes[i], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(hero, connectionToClient);
+            RpcOnSpawn(hero);
             //can I set deploy order here? Mathf.Max(0, i - 2);
             RpcShowCard(hero, "Hero");
             RpcSetHeroRespawn(hero, Mathf.Max(0, i - 2));
@@ -141,6 +144,7 @@ public class PlayerManager : NetworkBehaviour
         {
             GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
+            RpcOnSpawn(card);
             RpcShowCard(card, "Dealt");
         }
         RpcGameChangeState("ResolveDeploy");
@@ -173,8 +177,9 @@ public class PlayerManager : NetworkBehaviour
     void CmdSpawnLaneCreeps(GameObject lane)
     {
         //https://answers.unity.com/questions/1063917/command-cant-pass-gameobject-parameter-from-remote.html
-        GameObject card = Instantiate(laneCreep, new Vector2(0, 0), Quaternion.identity);
+        GameObject card = Instantiate(cardDict["Melee Creep"], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
+        RpcOnSpawn(card);
         RpcSpawnLaneCreeps(lane, card);
     }
 
@@ -190,6 +195,16 @@ public class PlayerManager : NetworkBehaviour
             }
         }
     }
+
+    [Command]
+    public void CmdSummon(string unit, List<string> targetLineage) 
+    {
+        GameObject card = Instantiate(cardDict[unit], new Vector2(0, 0), Quaternion.identity); 
+        NetworkServer.Spawn(card, connectionToClient);
+        RpcOnSpawn(card);
+        RpcMoveCard(card, targetLineage);
+    }
+
 
     public void PlayCard(GameObject card, List<string> targetLineage)
     {

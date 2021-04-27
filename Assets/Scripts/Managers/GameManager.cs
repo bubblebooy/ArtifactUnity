@@ -157,19 +157,6 @@ public class GameManager : NetworkBehaviour
         UIManager.ButtonInteractable(true);
     }
 
-    void RoundStart()
-    {
-        Card[] cards = Board.GetComponentsInChildren<Card>();
-        foreach (Card card in cards){ card.RoundStart(); }
-        TowerManager[] towers = Board.GetComponentsInChildren<TowerManager>();
-        //Board.GetComponent<BoardManager>().RoundStart();
-        foreach (TowerManager tower in towers) { tower.RoundStart(); }
-        foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()){ hero.respawn -= 1; }
-        foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
-        PlayerMana.GetComponent<ManaManager>().RoundStart();
-        EnemyMana.GetComponent<ManaManager>().RoundStart();
-        GameUpdate();
-    }
 
     void ResolveDeploy()
     {
@@ -229,4 +216,29 @@ public class GameManager : NetworkBehaviour
         PlayerMana.GetComponent<ManaManager>().ManaUpdate();
         EnemyMana.GetComponent<ManaManager>().ManaUpdate();
     }
+
+    void RoundStart()
+    {
+        Card[] cards = Board.GetComponentsInChildren<Card>();
+        foreach (Card card in cards) { card.RoundStart(); }
+        TowerManager[] towers = Board.GetComponentsInChildren<TowerManager>();
+        //Board.GetComponent<BoardManager>().RoundStart();
+        foreach (TowerManager tower in towers) { tower.RoundStart(); }
+        foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
+        foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
+        foreach (UnitModifier mod in Board.GetComponentsInChildren<UnitModifier>()) { mod.RoundStart(); }
+        PlayerMana.GetComponent<ManaManager>().RoundStart();
+        EnemyMana.GetComponent<ManaManager>().RoundStart();
+        GameUpdate();
+    }
+
+    // Is there anypoint of having both a round end and a round start. yes round start after deploy and round end is before deploy
+    //void RoundEnd()
+    //{
+    //    Card[] cards = Board.GetComponentsInChildren<Card>();
+    //    foreach (Card card in cards) { card.RoundEnd(); }
+    //    TowerManager[] towers = Board.GetComponentsInChildren<TowerManager>();
+    //    foreach (TowerManager tower in towers) { tower.RoundEnd(); }
+    //    GameUpdate();
+    //}
 }

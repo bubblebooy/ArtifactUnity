@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 7e2ed862c48c62d4c837633e8ab86ac3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Radiance
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 33613555cd40ce44094892235658399b, type: 3}
+  - {fileID: 12800000, guid: 236ed48132694554fa08eff4ccbcfc73, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

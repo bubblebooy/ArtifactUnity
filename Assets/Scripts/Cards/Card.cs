@@ -17,6 +17,7 @@ public abstract class Card : NetworkBehaviour
     public string color;
     public string cardName;
     public int mana = 0;
+    protected int baseMana;
     [TextArea]
     public string CardText;
 
@@ -62,14 +63,15 @@ public abstract class Card : NetworkBehaviour
 
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    public virtual void OnSpawn()
     {
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
         ManaManager = GameObject.Find(( hasAuthority ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
         displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
-        displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true); 
+        displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
+        baseMana = mana;
 
         //InitializeCard();  // should prob just do Start({base.Start()})
     }

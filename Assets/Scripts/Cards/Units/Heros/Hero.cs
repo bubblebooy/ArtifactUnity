@@ -9,6 +9,7 @@ public class Hero : Unit
     public int respawn = 0;
     private TextMeshProUGUI displayRespawn;
 
+
     public override void OnValidate()
     {
         base.OnValidate();
@@ -16,9 +17,9 @@ public class Hero : Unit
         gameObject.transform.Find("Color/ManaIcon").gameObject.SetActive(false);
     }
 
-    protected override void Start()
+    public override void OnSpawn()
     {
-        base.Start();
+        base.OnSpawn();
         displayRespawn = gameObject.transform.Find("Respawn").GetComponent<TextMeshProUGUI>();
         displayRespawn.text = respawn.ToString();
         displayRespawn.enabled = respawn != 0;

@@ -29,12 +29,10 @@ public class ArcBolt : Spell
         for (int i =0; i < 3; i++)
         {
             if(side.GetComponentsInChildren<Unit>().Length <= 1 && target != null) { break; }
-            print("Jump");
             int rnd = (Random.value > 0.5) ? -1 : 1;
             int j = slotNumber + rnd;
             while (true)
             {
-                print(j.ToString());
                 if (j < 0 || j >= numberOfSlots)
                 {
                     rnd = rnd * -1;

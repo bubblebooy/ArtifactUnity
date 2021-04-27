@@ -7,16 +7,32 @@ using TMPro;
 public class Unit : Card
 {
     public int attack, armor, health;
-    protected int maxArmor, maxHealth;
+    protected int baseAttack;//, baseArmor, baseHealth;
+    [HideInInspector]
+    public int maxArmor, maxHealth;
+    protected int baseMaxArmor, baseMaxHealth;
+
     private TextMeshProUGUI displayAttack, displayArmor, displayHealth;
     private Transform displayArrow;
 
+    // for now think it is best to have these all be the base values and if a card has one of these inherently add it to the onStart and onUpdate
+    [HideInInspector]
     public int arrow = 0;
+    [HideInInspector]
     public bool quickstrike = false;
+    [HideInInspector]
     public int cleave = 0;
+    [HideInInspector]
     public bool disarmed = false;
+    [HideInInspector]
     public bool caster = false;
+    [HideInInspector]
     public bool piercing = false;
+    [HideInInspector]
+    public bool trample = false;
+    [HideInInspector]
+    public bool feeble = false;
+
 
     public string targetTag = "Card Slot";
 
@@ -32,17 +48,23 @@ public class Unit : Card
         displayHealth.text = "<sprite=2>" + health.ToString();
     }
 
-    protected override void Start()
+    public override void OnSpawn()
     {
-        base.Start();
+        base.OnSpawn();
         maxArmor = armor;
         maxHealth = health;
+        baseAttack = attack;
+        //baseArmor = armor;
+        //baseHealth = health;
+        baseMaxArmor = maxArmor;
+        baseMaxHealth = maxHealth;
         displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
         displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
         displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
+        if (disarmed) { displayAttack.color = Color.grey; }
     }
 
     public override bool IsVaildPlay(GameObject target)
@@ -59,6 +81,26 @@ public class Unit : Card
     public override void CardUpdate()
     {
         base.CardUpdate();
+
+        attack = baseAttack;
+        //armor = baseArmor;
+        //health = baseHealth;
+        maxArmor = baseMaxArmor;
+        maxHealth = baseMaxHealth;
+
+        cleave = 0;
+
+        quickstrike = false;
+        disarmed = false;
+        //caster = false;
+        piercing = false;
+        trample = false;
+        feeble = false;
+
+        foreach (UnitModifier mod in gameObject.GetComponentsInChildren<UnitModifier>())
+        {
+            mod.ModifyCard();
+        }
 
         displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
         displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
@@ -80,6 +122,9 @@ public class Unit : Card
             displayArrow.localEulerAngles = new Vector3(0, 0, arrow * (-90 + 60 * side));
         }
         else { displayArrow.gameObject.SetActive(false); }
+
+        if (disarmed) { displayAttack.color = Color.grey; }
+        else { displayAttack.color = Color.white; }
 
         if (health <= 0)
         {
@@ -104,19 +149,20 @@ public class Unit : Card
         CardUpdate();
     }
 
-    public virtual void Strike(Unit target, int damage, bool piercing = false)
+    public virtual int Strike(Unit target, int damage, bool piercing = false)
     {
-        target.Damage(damage, piercing);
+        return target.Damage(damage, piercing);
     }
 
-    public virtual void Damage(int damage, bool piercing = false)
+    public virtual int Damage(int damage, bool piercing = false)
     {
         armor -= damage;
         if (armor < 0)
         {
             health += armor;
             armor = 0;
-        } 
+        }
+        return health;
     }
 
     public virtual void Combat( bool quick = false)
@@ -126,7 +172,13 @@ public class Unit : Card
             Unit target = GetCombatTarget();
             if (target != null)
             {
-                Strike(target, attack + cleave, piercing);
+                int targetHealth = Strike(target, attack + cleave, piercing);
+                if ((trample || target.feeble) && targetHealth < 0)
+                {
+                    bool player = GetSide() == "PlayerSide";
+                    TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
+                    tower.Damage(-1 * targetHealth, piercing);
+                }
             }
             else
             {

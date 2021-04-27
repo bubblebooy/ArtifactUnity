@@ -11,7 +11,13 @@ public class Sven : Hero
             Unit target = GetCombatTarget();
             if (target != null)
             {
-                Strike(target, attack + cleave, piercing);
+                int targetHealth = Strike(target, attack + cleave, piercing);
+                if ((trample || target.feeble) && targetHealth < 0)
+                {
+                    bool player = GetSide() == "PlayerSide";
+                    TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
+                    tower.Damage(-1 * targetHealth, piercing);
+                }
             }
             else
             {
@@ -23,11 +29,9 @@ public class Sven : Hero
             for (int i = -1; i <= 1; i++)
             {
                 if (i == arrow) { continue; }
-                print("CLEAVE");
                 target = AdjacentEnemies[i + 1];
                 if (target != null)
                 {
-                    print("Not Null");
                     Strike(target, attack + cleave, piercing);
                 }
             }
