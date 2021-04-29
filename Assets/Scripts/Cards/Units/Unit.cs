@@ -65,6 +65,7 @@ public class Unit : Card
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
         if (disarmed) { displayAttack.color = Color.grey; }
+        displayArrow = gameObject.transform.Find("Color/Arrow");
     }
 
     public override bool IsVaildPlay(GameObject target)
@@ -97,14 +98,14 @@ public class Unit : Card
         trample = false;
         feeble = false;
 
-        foreach (UnitModifier mod in gameObject.GetComponentsInChildren<UnitModifier>())
+        foreach (IModifier mod in gameObject.GetComponentsInChildren<IModifier>())
         {
             mod.ModifyCard();
         }
-
-        displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
-        displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
-        displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
+        // If this is needed I think we have bigger problems
+        //displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
+        //displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
+        //displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
@@ -113,7 +114,7 @@ public class Unit : Card
         {
             arrow = 0;
         }
-        displayArrow = gameObject.transform.Find("Color/Arrow");
+        //displayArrow = gameObject.transform.Find("Color/Arrow");
         if (arrow != 0)
         {
             displayArrow.gameObject.SetActive(true);

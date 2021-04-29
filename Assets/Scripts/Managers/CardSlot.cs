@@ -35,7 +35,7 @@ public class CardSlot : NetworkBehaviour
         Card[] cards = transform.GetComponentsInChildren<Unit>();
         foreach(Card card in cards)
         {
-            if (card.staged) { card.unStage(); }
+            if (card.staged) { card.UnStage(); }
         }
     }
 

@@ -16,17 +16,25 @@ MonoBehaviour:
   syncInterval: 0.1
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
   isDraggable: 1
   color: 
-  CardName: 
+  cardName: 
+  mana: 0
+  cardText: 
   attack: 5
   armor: 1
   health: 7
+  maxArmor: 0
+  maxHealth: 0
   arrow: 0
   quickstrike: 0
   cleave: 0
   disarmed: 0
   caster: 1
+  piercing: 0
+  trample: 0
+  feeble: 0
   targetTag: Card Slot
   respawn: 0
 --- !u!1 &1398267296674709258
@@ -59,7 +67,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2263740562113845185}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -170,6 +178,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 408883653956684635, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509838741630839882, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1011788425932796483, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -256,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030285483841519653, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: 5
+      value: <sprite=0>5
       objectReference: {fileID: 0}
     - target: {fileID: 1030285483841519653, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_fontSize
@@ -270,21 +286,33 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 8.92
       objectReference: {fileID: 0}
+    - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_margin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2632203690828503576, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_AssetId
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5355243582859117384, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: 1
+      value: <sprite=1>1
       objectReference: {fileID: 0}
     - target: {fileID: 5355243582859117384, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_fontSize
       value: 13.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6308832336626011341, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7934435837985257655, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: 7
+      value: <sprite=2>7
       objectReference: {fileID: 0}
     - target: {fileID: 7934435837985257655, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_fontSize

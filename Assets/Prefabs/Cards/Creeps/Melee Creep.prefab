@@ -175,10 +175,6 @@ PrefabInstance:
       propertyPath: m_Maskable
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7934435837985257655, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
       value: <sprite=2>2

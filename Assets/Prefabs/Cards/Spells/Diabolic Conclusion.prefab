@@ -21,8 +21,8 @@ MonoBehaviour:
   color: blue
   cardName: Diabolic Conclusion
   mana: 1
-  CardText: Give caster Trample. Disarm your creeps and give their <sprite=0> to
-    the caster.
+  cardText: "Give caster Trample. Disarm your creeps and give their \u25A3 to the
+    caster."
   targetTag: Unit
 --- !u!1001 &3114444507669295209
 PrefabInstance:
@@ -65,8 +65,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325234172275670817, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: Give caster Trample. Disarm your creeps and give their <sprite=0> to
-        the caster.
+      value: "Give caster Trample. Disarm your creeps and give their \u25A3 to the
+        caster."
       objectReference: {fileID: 0}
     - target: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Name
@@ -170,7 +170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_fontSize
-      value: 6.95
+      value: 8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223451557725788579, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_AssetId

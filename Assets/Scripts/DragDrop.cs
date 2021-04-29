@@ -9,7 +9,7 @@ public class DragDrop : NetworkBehaviour
     //public PlayerManager PlayerManager;
     public GameManager GameManager;
 
-    private bool isDragging = false;
+    public bool isDragging = false;
     private List<GameObject> dropZone = new List<GameObject>();
     private Card card;
     private Vector2 startPosition;
@@ -80,10 +80,10 @@ public class DragDrop : NetworkBehaviour
 
         }
 
-        gameObject.GetComponent<Card>().unStage();
+        gameObject.GetComponent<Card>().UnStage();
 
     }
-    public void unStage()
+    public void UnStage()
     {
         if (gameObject.GetComponent<Hero>() != null)
         {

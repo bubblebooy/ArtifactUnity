@@ -1,43 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4682089011527468079
-MonoBehaviour:
+--- !u!1001 &5175517803524505886
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8538881162259127091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0546093db6d67b847ab63818b34cc2e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  PlayerManager: {fileID: 0}
-  GameManager: {fileID: 0}
-  ManaManager: {fileID: 0}
-  isDraggable: 1
-  color: black
-  cardName: Phantom Assassin
-  mana: 0
-  CardText: 
-  attack: 4
-  armor: 0
-  health: 6
-  maxArmor: 0
-  maxHealth: 0
-  arrow: 0
-  quickstrike: 0
-  cleave: 0
-  disarmed: 0
-  caster: 1
-  piercing: 0
-  trample: 0
-  feeble: 0
-  targetTag: Card Slot
-  respawn: 0
---- !u!1001 &2072431606795153294
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4168443735735685208}
+    m_Modifications:
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Name
+      value: Berserker's Call
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+--- !u!1001 &7166864306709026020
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -46,35 +106,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: armor
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: color
-      value: black
+      value: red
       objectReference: {fileID: 0}
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: attack
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: health
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: CardText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: cardName
+      value: Axe
+      objectReference: {fileID: 0}
     - target: {fileID: 811793818548973621, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_text
-      value: Phantom Assassin
+      value: Axe
       objectReference: {fileID: 0}
     - target: {fileID: 811793818548973621, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_fontSize
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2246375966018282919, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-      propertyPath: m_text
-      value: <sprite=0>4
+    - target: {fileID: 882441674206149607, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632202995414076202, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2246375966018282919, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-      propertyPath: m_fontSize
-      value: 13.4
+      propertyPath: m_text
+      value: <sprite=0>3
       objectReference: {fileID: 0}
     - target: {fileID: 2263740562113845185, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Pivot.x
@@ -164,26 +236,38 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4691888732976494287, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691888732976494287, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691888732976494287, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6571123010326046410, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_text
-      value: <sprite=1>0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6571123010326046410, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6571123010326046410, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-      propertyPath: m_fontSize
-      value: 13.4
+      value: <sprite=1>2
       objectReference: {fileID: 0}
     - target: {fileID: 7656949213937005757, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Name
-      value: Phantom Assassin
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187049489365671455, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_text
+      value: "\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fade941bc3cf0fb418ee8259665fc9cb, type: 3}
+      objectReference: {fileID: 21300000, guid: 2789cb7cf5b57374ca54e28261a11c41, type: 3}
     - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -200,15 +284,10 @@ PrefabInstance:
       propertyPath: m_text
       value: <sprite=2>6
       objectReference: {fileID: 0}
-    - target: {fileID: 9186273833376439605, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-      propertyPath: m_fontSize
-      value: 13.4
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
---- !u!1 &8538881162259127091 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7656949213937005757, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-  m_PrefabInstance: {fileID: 2072431606795153294}
+--- !u!224 &4168443735735685208 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6533764712598537404, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+  m_PrefabInstance: {fileID: 7166864306709026020}
   m_PrefabAsset: {fileID: 0}

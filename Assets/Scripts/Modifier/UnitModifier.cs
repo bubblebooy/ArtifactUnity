@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitModifier : MonoBehaviour
+public class UnitModifier : MonoBehaviour, IModifier
 {
     private Unit unit;
 

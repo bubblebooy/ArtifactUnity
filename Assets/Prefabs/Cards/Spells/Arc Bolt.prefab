@@ -21,7 +21,7 @@ MonoBehaviour:
   color: blue
   cardName: Arc Bolt
   mana: 1
-  CardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
+  cardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
     1 piercing damage."
   targetTag: Unit
   damage: 1
@@ -168,6 +168,14 @@ PrefabInstance:
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
       value: Arc Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223451557725788579, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_AssetId

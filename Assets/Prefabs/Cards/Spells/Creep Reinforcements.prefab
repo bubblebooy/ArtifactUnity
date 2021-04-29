@@ -21,7 +21,7 @@ MonoBehaviour:
   color: blue
   cardName: Creep Reinforcements
   mana: 2
-  CardText: Push caster and Summon a Melee Creep in its place.
+  cardText: Push caster and Summon a Melee Creep in its place.
   targetTag: Unit
 --- !u!1001 &5439970458752487203
 PrefabInstance:
@@ -168,11 +168,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_fontSize
-      value: 6.05
+      value: 7.95
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223451557725788579, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_AssetId

@@ -19,7 +19,7 @@ public abstract class Card : NetworkBehaviour
     public int mana = 0;
     protected int baseMana;
     [TextArea]
-    public string CardText;
+    public string cardText;
 
     private TextMeshProUGUI displayMana;
     private TextMeshProUGUI displayCardText;
@@ -39,11 +39,11 @@ public abstract class Card : NetworkBehaviour
         displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
         displayMana.text = mana.ToString();
 
-        if (!string.IsNullOrEmpty(CardText))
+        if (!string.IsNullOrEmpty(cardText))
         {
             gameObject.transform.Find("Color/Card Text").gameObject.SetActive(true);
             displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
-            displayCardText.text = CardText;
+            displayCardText.text = cardText;
         }
         else
         {
@@ -110,16 +110,16 @@ public abstract class Card : NetworkBehaviour
         PlayerManager.PlayCard(gameObject, GetLineage());
     }
 
-    public virtual void unStage()
+    public virtual void UnStage()
     {
-        gameObject.GetComponent<DragDrop>().unStage();
+        gameObject.GetComponent<DragDrop>().UnStage();
         staged = false;
     }
 
     public virtual void CardUpdate()
     {
         if (displayMana != null) { displayMana.text = mana.ToString(); }
-        if (!string.IsNullOrEmpty(CardText)) {displayCardText.text = CardText;}
+        if (!string.IsNullOrEmpty(cardText)) {displayCardText.text = cardText;}
     }
 
     //    public abstract void OnPlay();

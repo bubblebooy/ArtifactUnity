@@ -16,17 +16,25 @@ MonoBehaviour:
   syncInterval: 0.1
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
   isDraggable: 1
   color: red
-  CardName: Sven
+  cardName: Sven
+  mana: 0
+  CardText: 
   attack: 4
   armor: 0
   health: 5
+  maxArmor: 0
+  maxHealth: 0
   arrow: 0
   quickstrike: 0
   cleave: 0
   disarmed: 0
   caster: 1
+  piercing: 0
+  trample: 0
+  feeble: 0
   targetTag: Card Slot
   respawn: 0
 --- !u!1001 &2589389669534110254
@@ -39,6 +47,14 @@ PrefabInstance:
     - target: {fileID: 811793818548973621, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_text
       value: Sven
+      objectReference: {fileID: 0}
+    - target: {fileID: 811793818548973621, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246375966018282919, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_text
+      value: <sprite=0>4
       objectReference: {fileID: 0}
     - target: {fileID: 2263740562113845185, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Pivot.x
@@ -128,6 +144,22 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4691888732976494287, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691888732976494287, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691888732976494287, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571123010326046410, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_text
+      value: <sprite=1>0
+      objectReference: {fileID: 0}
     - target: {fileID: 7656949213937005757, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Name
       value: Sven
@@ -147,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186273833376439605, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_text
+      value: <sprite=2>5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}

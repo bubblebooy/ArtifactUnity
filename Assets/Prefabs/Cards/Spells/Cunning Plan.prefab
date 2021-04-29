@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4328000394329938708
+--- !u!114 &8336791747320945105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3249747563830499163}
+  m_GameObject: {fileID: 795150405964462447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbbc150b68bdda54087758320b6b788e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d373269d694976419ca4af056f6a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
@@ -18,13 +18,12 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   isDraggable: 1
-  color: red
-  cardName: Poised to Strike
+  color: blue
+  cardName: Cunning Plan
   mana: 1
-  cardText: "Repeat three times: \u25A1 Deal 1 damage to a random enemy with the
-    least <sprite=2>."
-  targetTag: Lane
---- !u!1001 &1792496919527883480
+  cardText: Swap a unit to another slot.
+  targetTag: Unit
+--- !u!1001 &4535590294665243884
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -33,7 +32,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.g
@@ -41,7 +40,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.r
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Type
@@ -50,7 +49,7 @@ PrefabInstance:
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bc369bb62ed04cd4bac3d669d592fb95, type: 3}
+      objectReference: {fileID: 21300000, guid: ebb3de5d3e39abb47ad46c9a007c36f2, type: 3}
     - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -65,12 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325234172275670817, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: "Repeat three times: \u25A1 Deal 1 damage to a random enemy with the
-        least <sprite=2>."
+      value: Swap a unit to another slot.
       objectReference: {fileID: 0}
     - target: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Name
-      value: Poised to Strike
+      value: Cunning Plan
       objectReference: {fileID: 0}
     - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Pivot.x
@@ -166,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: Poised to Strike
+      value: Cunning Plan
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_fontSize
@@ -183,8 +181,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3611571970488368778, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
---- !u!1 &3249747563830499163 stripped
+--- !u!1 &795150405964462447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
-  m_PrefabInstance: {fileID: 1792496919527883480}
+  m_PrefabInstance: {fileID: 4535590294665243884}
   m_PrefabAsset: {fileID: 0}

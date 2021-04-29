@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardZoom : MonoBehaviour
 {
 
     public GameObject Canvas;
 
-    public GameObject placeholderPrefab;
     private GameObject placeholder;
-    private int position;
+    private GameObject color;
 
     private bool hover = false;
+
+    //public void OnValidate()
+    //{
+    //    color = gameObject.transform.Find("Color").gameObject;
+    //    foreach (Image image in color.GetComponentsInChildren<Image>())
+    //    {
+    //        image.raycastTarget = false;
+    //    }
+    //    placeholder = gameObject.transform.Find("Placeholder").gameObject;
+    //    placeholder.GetComponent<Image>().raycastTarget = true;
+    //}
 
     public void Awake()
     {
         Canvas = GameObject.Find("Main Canvas");
+        color = gameObject.transform.Find("Color").gameObject;
+        placeholder = gameObject.transform.Find("Placeholder").gameObject;
     }
 
     public void OnHoverEnter()
@@ -28,15 +41,13 @@ public class CardZoom : MonoBehaviour
     public IEnumerator DelayedHover(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        if (hover && placeholder == null)
+        if (hover & !GetComponent<DragDrop>().isDragging) // && placeholder == null
         {
-            position = transform.GetSiblingIndex();
-            placeholder = Instantiate(placeholderPrefab, gameObject.transform.parent);
-            placeholder.transform.SetSiblingIndex(position);
+            color.transform.SetParent(Canvas.transform, true);
 
-            gameObject.transform.SetParent(Canvas.transform, true);
+            color.GetComponent<RectTransform>().localScale = new Vector3(2, 2, 1);
 
-            gameObject.transform.Find("Color").GetComponent<RectTransform>().localScale = new Vector3(2, 2, 1);
+
         }
     }
 
@@ -45,10 +56,10 @@ public class CardZoom : MonoBehaviour
         hover = false;
         if (placeholder != null)
         {
-            gameObject.transform.Find("Color").GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            gameObject.transform.SetParent(placeholder.transform.parent, true);
-            gameObject.transform.SetSiblingIndex(position);
-            Destroy(placeholder);
+            color.transform.SetParent(placeholder.transform.parent, true);
+            color.transform.SetSiblingIndex(1);
+            color.GetComponent<RectTransform>().localPosition = placeholder.GetComponent<RectTransform>().localPosition;
+            color.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }       
     }
 }

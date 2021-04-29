@@ -191,6 +191,7 @@ public class PlayerManager : NetworkBehaviour
             if (slot.childCount == 0)
             {
                 creep.transform.SetParent(slot, false);
+                creep.GetComponent<Card>().isDraggable = false;
                 break;
             }
         }
@@ -210,6 +211,11 @@ public class PlayerManager : NetworkBehaviour
     {
         CmdPlayCard(card, targetLineage);     
     }
+    public void PlayCard(GameObject card, List<string> targetLineage, List<string> secondaryTargetLineage)
+    {
+        CmdPlayTargetedCard(card, targetLineage, secondaryTargetLineage);
+    }
+
 
     [Command]
     void CmdPlayCard(GameObject card, List<string> targetLineage)
@@ -219,10 +225,49 @@ public class PlayerManager : NetworkBehaviour
         RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
     }
 
+    [Command]
+    void CmdPlayTargetedCard(GameObject card, List<string> targetLineage, List<string> secondaryTargetLineage)
+    {
+        RpcMoveCard(card, targetLineage);
+        RpcPlayTargetedCard(card, secondaryTargetLineage); 
+        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+    }
+
     [ClientRpc]
     void RpcGameChangeState(string stateRequest)
     {
         GameManager.ChangeGameState(stateRequest);
+    }
+
+    [ClientRpc]
+    void RpcPlayCard(GameObject card)
+    {
+        card.GetComponent<Card>().OnPlay();
+        GameManager.CardPlayed();
+    }
+
+    [ClientRpc]
+    void RpcPlayTargetedCard(GameObject card, List<string> secondaryTargetLineage)
+    {
+        Transform target = GameObject.Find("Main Canvas").transform;
+        foreach (string s in secondaryTargetLineage)
+        {
+            if (hasAuthority)
+            {
+                target = target.Find(s);
+            }
+            else
+            {
+                string _s = s;
+                _s = _s.Replace("Player", "ENEMY");
+                _s = _s.Replace("Enemy", "Player");
+                _s = _s.Replace("ENEMY", "Enemy");
+                target = target.Find(_s);
+            }
+
+        }
+        card.GetComponent<ITargets>().OnPlay(target.gameObject);
+        GameManager.CardPlayed();
     }
 
     [ClientRpc]
@@ -250,13 +295,6 @@ public class PlayerManager : NetworkBehaviour
                 card.transform.SetParent(EnemyFountain.transform, false);
             }
         }
-    }
-
-    [ClientRpc]
-    void RpcPlayCard(GameObject card)
-    {
-        card.GetComponent<Card>().OnPlay();
-        GameManager.CardPlayed();
     }
 
     [ClientRpc]

@@ -21,7 +21,7 @@ MonoBehaviour:
   color: blue
   cardName: Ventriloquy
   mana: 1
-  CardText: Choose unit. It taunts, then each unit pointing at it strikes it for
+  cardText: Choose unit. It taunts, then each unit pointing at it strikes it for
     1 <sprite=0>.
   targetTag: Unit
   damage: 1
@@ -164,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
       value: Ventriloquy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223451557725788579, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_AssetId
