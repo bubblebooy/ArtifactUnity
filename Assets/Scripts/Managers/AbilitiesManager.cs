@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AbilitiesManager : MonoBehaviour
 {
-    private GameObject abilities;
+    public GameObject abilities;
     private GameObject Canvas;
     private GridLayoutGroup abilitiesGridLayoutGroup;
 
@@ -27,21 +27,42 @@ public class AbilitiesManager : MonoBehaviour
         collapsedAnchoredPosition = abilities.GetComponent<RectTransform>().anchoredPosition;
     }
 
+    public virtual void CardUpdate()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.CardUpdate();
+        }
+    }
+
+    public virtual void RoundStart()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.RoundStart();
+        }
+    }
+
+    public void OnActivate(int abilityIndex)
+    {
+        abilities.transform.GetChild(abilityIndex).GetComponent<ActiveAbility>().OnActivate();
+    }
+
     public void OnClick()
     {
         
         if (expanded)
         {
-            collapse();
+            Collapse();
         }
-        else if (true)//GetComponentInParent<LaneManager>() != null && !GetComponent<Card>().staged)  // transform.IsChildOf(Canvas.transform.find("Board")
+        else if (GetComponentInParent<LaneManager>() != null && !GetComponent<Card>().staged)  // transform.IsChildOf(Canvas.transform.find("Board")
         {
-            expand();
+            Expand();
         }
         
     }
 
-    private void expand()
+    private void Expand()
     {
         expanded = true;
         sibIndex = abilities.transform.GetSiblingIndex();
@@ -56,11 +77,11 @@ public class AbilitiesManager : MonoBehaviour
         abilitiesGridLayoutGroup.cellSize = new Vector2(expandedWidth - 2*abilitiesGridLayoutGroup.spacing.x, 15);
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
         {
-            ability.expand();
+            ability.Expand();
         }
     }
 
-    private void collapse()
+    public void Collapse()
     {
         expanded = false;
         abilities.transform.SetParent(transform.Find("Color"));
@@ -76,7 +97,7 @@ public class AbilitiesManager : MonoBehaviour
 
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
         {
-            ability.collapse();
+            ability.Collapse();
         }
     }
 }

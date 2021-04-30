@@ -1,107 +1,152 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4453329158311874332
+--- !u!114 &-4020004609338112097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906247210821009672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b3ec500676f154aac590b7f90e95d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: f1bdfad6325ae4840bec781bbc3a001d, type: 3}
+  abilityName: Berserker's Call
+  abilityText: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
+  mana: 1
+  baseCooldown: 2
+  cooldown: 0
+  PlayerManager: {fileID: 0}
+  displayCooldown: {fileID: 6415753953674966645}
+--- !u!1001 &152383364585269836
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: -4599495931085897684, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: abilityIcon
       value: 
       objectReference: {fileID: 21300000, guid: f1bdfad6325ae4840bec781bbc3a001d, type: 3}
-    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: -4599495931085897684, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: abilityName
       value: Berserker's Call
       objectReference: {fileID: 0}
-    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: -4599495931085897684, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: abilityText
       value: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
       objectReference: {fileID: 0}
-    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: -2387730983430884866, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2387730983430884866, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Delegates.Array.data[2].eventID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -2387730983430884866, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764859104290567765, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_text
       value: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
       objectReference: {fileID: 0}
-    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_fontSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3953646877435126322, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_EffectColor.b
-      value: 0.3584906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3953646877435126322, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_EffectColor.g
-      value: 0.3584906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3953646877435126322, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_EffectColor.r
-      value: 0.3584906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3953646877435126322, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_UseGraphicAlpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312887639793151181, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 5137725598981403445, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: abilityIcon
       value: 
       objectReference: {fileID: 21300000, guid: f1bdfad6325ae4840bec781bbc3a001d, type: 3}
-    - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Name
+    - target: {fileID: 5137725598981403445, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: abilityName
       value: Berserker's Call
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5137725598981403445, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: abilityText
+      value: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8318430772261123108, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 5673523914028677944, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8629272518127448410, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Name
-      value: abilityText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629272518127448410, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 6562881441855839289, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_text
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+    - target: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Name
+      value: Berserker's Call
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662459812701184977, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1bdfad6325ae4840bec781bbc3a001d, type: 3}
+    - target: {fileID: 7662459812701184977, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662459812701184977, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_FillOrigin
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4599495931085897684, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+--- !u!1 &6906247210821009672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_PrefabInstance: {fileID: 152383364585269836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6415753953674966645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6562881441855839289, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_PrefabInstance: {fileID: 152383364585269836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

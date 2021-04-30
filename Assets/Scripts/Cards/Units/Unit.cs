@@ -83,6 +83,8 @@ public class Unit : Card
     {
         base.CardUpdate();
 
+        GetComponent<AbilitiesManager>().CardUpdate();
+
         attack = baseAttack;
         //armor = baseArmor;
         //health = baseHealth;
@@ -134,6 +136,12 @@ public class Unit : Card
 
     }
 
+    public override void OnPlay()
+    {
+        base.OnPlay();
+        displayCardText.transform.parent.gameObject.SetActive(false);
+    }
+
     public virtual void Bounce()
     {
         // Move to hand based on player ownership? or just player side?
@@ -141,6 +149,7 @@ public class Unit : Card
             GameObject.Find(hasAuthority ? "PlayerArea" : "EnemyArea").transform,
             false);
         isDraggable = true;
+        displayCardText.transform.parent.gameObject.SetActive(true);
     }
 
 
@@ -165,6 +174,8 @@ public class Unit : Card
         }
         return health;
     }
+
+    //void Battle
 
     public virtual void Combat( bool quick = false)
     {

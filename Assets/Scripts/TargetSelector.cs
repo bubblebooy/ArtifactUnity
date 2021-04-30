@@ -29,6 +29,7 @@ public class TargetSelector : MonoBehaviour
                 }
             }
             gameObject.GetComponent<Card>().UnStage();
+            Destroy(this);
         }
     }
 }

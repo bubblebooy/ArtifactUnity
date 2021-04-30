@@ -603,6 +603,10 @@ PrefabInstance:
       value: Card Slot
       objectReference: {fileID: 0}
     - target: {fileID: 102498106445287765, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 102498106445287765, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0.000022888
       objectReference: {fileID: 0}

@@ -15,9 +15,13 @@ public class CunningPlan : Spell, ITargets
     {
         if (transform.parent.gameObject == target) { return false; }
         // not sure if I should use isVaildPlay here. but in this case I think it should work
-        return IsVaildPlay(target) &&
-               transform.parent.gameObject != target &&
-               target.GetComponent<Unit>().GetSide() == transform.parent.gameObject.GetComponent<Unit>().GetSide();
+        return PlayerManager.IsMyTurn &&
+               GameManager.GameState == "Play" &&
+               ManaManager.mana >= mana &&
+               target.tag == "Card Slot" &&
+               transform.parent.parent.gameObject != target &&
+               target.GetComponent<CardSlot>().GetLane() == transform.parent.gameObject.GetComponent<Unit>().GetLane() &&
+               target.GetComponent<CardSlot>().GetSide() == transform.parent.gameObject.GetComponent<Unit>().GetSide();
     }
 
     public void TargetSelected(GameObject target)
@@ -29,12 +33,13 @@ public class CunningPlan : Spell, ITargets
     {
         OnPlay();
         CardSlot cardSlot = gameObject.GetComponentInParent<CardSlot>();
-        CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
+        CardSlot targetSlot = target.GetComponent<CardSlot>();
 
         Unit card = transform.parent.GetComponent<Unit>();
 
+        target.GetComponentInChildren<Unit>()?.transform.SetParent(cardSlot.transform, false);
         card.transform.SetParent(targetSlot.transform,false);
-        target.transform.SetParent(cardSlot.transform,false);
+        
 
         DestroyCard();
     }

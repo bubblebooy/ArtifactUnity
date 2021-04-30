@@ -18,14 +18,14 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool trample = false;
     public bool feeble = false;
 
-    private void Start()
+    private void Awake()
     {
         unit = GetComponentInParent<Unit>();
     }
 
     public void ModifyCard()
     {
-        unit = GetComponentInParent<Unit>();
+        unit = unit ?? GetComponentInParent<Unit>();
         unit.attack += attack;
         //unit.armor += armor;
         //unit.health += health;

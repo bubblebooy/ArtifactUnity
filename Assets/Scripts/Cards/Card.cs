@@ -22,7 +22,7 @@ public abstract class Card : NetworkBehaviour
     public string cardText;
 
     private TextMeshProUGUI displayMana;
-    private TextMeshProUGUI displayCardText;
+    protected TextMeshProUGUI displayCardText;
 
     private Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
     {
@@ -71,6 +71,7 @@ public abstract class Card : NetworkBehaviour
         ManaManager = GameObject.Find(( hasAuthority ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
         displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
         displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
+        displayCardText.transform.parent.SetAsLastSibling();
         baseMana = mana;
 
         //InitializeCard();  // should prob just do Start({base.Start()})
@@ -81,6 +82,7 @@ public abstract class Card : NetworkBehaviour
     public virtual void DestroyCard()
     {
         // Move to graveyard based on player ownership? does artifact have a graveyard?
+        GetComponent<CardZoom>().OnHoverExit();
         gameObject.transform.SetParent(null);
         Destroy(gameObject);
     }

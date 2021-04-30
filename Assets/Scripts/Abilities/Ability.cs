@@ -11,32 +11,37 @@ public class Ability : MonoBehaviour
     [TextArea]
     public string abilityText;
 
-    private Unit card;
+    protected Unit card;
+    public bool broken = false;
     private bool expanded = false;
 
-    public void Awake()
+    protected virtual void Awake()
     {
         card = GetComponentInParent<Unit>();
     }
 
+    public virtual void CardUpdate() { }
+    public virtual void RoundStart() { }
+
+
     public virtual void OnValidate()
     {
         transform.Find("abilityIcon").GetComponent<Image>().sprite = abilityIcon;
-        GetComponentInChildren<TextMeshProUGUI>(true).text = abilityText;
+        transform.Find("abilityText").GetComponent<TextMeshProUGUI>().text = abilityText;
     }
 
-    public void expand()
+    public void Expand()
     {
         expanded = true;
-        GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(true);
+        //GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(true);
         transform.Find("background").GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }
 
-    public void collapse()
+    public void Collapse()
     {
         expanded = false;
-        GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(false);
+        //GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(false);
         transform.Find("background").GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }

@@ -270,6 +270,24 @@ public class PlayerManager : NetworkBehaviour
         GameManager.CardPlayed();
     }
 
+    public void ActivateAbility(GameObject card, int abilityIndex)
+    {
+        CmdActivateAbility(card, abilityIndex);
+    }
+
+    [Command]
+    void CmdActivateAbility(GameObject card, int abilityIndex)
+    {
+        RpcActivateAbility(card, abilityIndex);  // this prob needs to pass the card so on play effects can happen
+        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+    }
+    [ClientRpc]
+    void RpcActivateAbility(GameObject card, int abilityIndex)
+    {
+        card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex);
+        GameManager.CardPlayed(); // should prob rename to action taken
+    }
+
     [ClientRpc]
     void RpcShowCard(GameObject card, string type)
     {
