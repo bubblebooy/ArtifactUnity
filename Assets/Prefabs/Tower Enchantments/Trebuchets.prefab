@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2825053248518847530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7104381718152155746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606c01a8307eb8d408e7df1494d4dec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: bc99d96f93d22ba469a947762e393cd7, type: 3}
+  abilityName: Trebuchets
+  abilityText: 'Enchant Tower
+
+    Combat: Deal 2 piercing damage to the enemy tower.'
+  broken: 0
+--- !u!1001 &8800678126537341882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1780504775791733208, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_Name
+      value: Trebuchets
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778425507406999993, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778425507406999993, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297069890567101092, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: abilityIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: bc99d96f93d22ba469a947762e393cd7, type: 3}
+    - target: {fileID: 4297069890567101092, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: abilityName
+      value: Trebuchets
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297069890567101092, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: abilityText
+      value: 'Enchant Tower
+
+        Combat: Deal 2 piercing damage to the enemy
+        tower.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5925041769187057125, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bc99d96f93d22ba469a947762e393cd7, type: 3}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603488519031008618, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160623834259387593, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_text
+      value: 'Enchant Tower
+
+        Combat: Deal 2 piercing damage to the enemy
+        tower.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160623834259387593, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160623834259387593, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4297069890567101092, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+--- !u!1 &7104381718152155746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780504775791733208, guid: 9a8cf5ab5f25518418c727820cf6e2b5, type: 3}
+  m_PrefabInstance: {fileID: 8800678126537341882}
+  m_PrefabAsset: {fileID: 0}

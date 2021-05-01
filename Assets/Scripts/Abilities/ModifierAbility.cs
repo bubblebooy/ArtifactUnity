@@ -5,7 +5,7 @@ using UnityEngine;
 public class ModifierAbility : Ability, IModifier
 {
 
-    public int attack;//, armor, health;
+    public int attack;
     public int maxArmor, maxHealth;
 
     public int cleave = 0;
@@ -21,19 +21,17 @@ public class ModifierAbility : Ability, IModifier
     {
         card = GetComponentInParent<Unit>();
         card.attack += attack;
-        //unit.armor += armor;
-        //unit.health += health;
         card.maxArmor += maxArmor;
         card.maxHealth += maxHealth;
 
         card.cleave += cleave;
 
-        card.quickstrike = quickstrike;
-        card.disarmed = disarmed;
-        card.caster = caster;
-        card.piercing = piercing;
-        card.trample = trample;
-        card.feeble = feeble;
+        card.quickstrike |= quickstrike; // ? true : card.quickstrike;
+        card.disarmed |= disarmed; // ? true : card.disarmed; 
+        card.caster |= caster; // ? true : card.caster; 
+        card.piercing |= piercing; // ? true : card.piercing; 
+        card.trample |= trample; // ? true : card.trample; 
+        card.feeble |= feeble; // ? true : card.feeble; 
     }
 
 }

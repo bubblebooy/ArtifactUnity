@@ -21,7 +21,8 @@ MonoBehaviour:
   color: 
   cardName: 
   mana: 0
-  CardText: 
+  cardText: 
+  Ability: {fileID: 0}
 --- !u!1001 &7311214480585846274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,13 +38,21 @@ PrefabInstance:
       propertyPath: targetTag
       value: Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -62
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 2951581096987451892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2951581096987451892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_fontSize
-      value: 8.95
+      value: 8.92
       objectReference: {fileID: 0}
     - target: {fileID: 3426427280598444582, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_IsActive

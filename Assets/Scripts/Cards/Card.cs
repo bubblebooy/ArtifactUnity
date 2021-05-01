@@ -7,11 +7,15 @@ using TMPro;
 
 public abstract class Card : NetworkBehaviour
 {
+    [HideInInspector]
     public PlayerManager PlayerManager;
+    [HideInInspector]
     public GameManager GameManager;
+    [HideInInspector]
     public ManaManager ManaManager;
 
     public bool staged { get; protected set; } = false;
+    [HideInInspector]
     public bool isDraggable = true;
 
     public string color;

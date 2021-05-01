@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+#pragma warning disable 0414 
 public class Ability : MonoBehaviour
 {
     public Sprite abilityIcon;
@@ -15,6 +16,12 @@ public class Ability : MonoBehaviour
     public bool broken = false;
     private bool expanded = false;
 
+    public virtual void OnValidate()
+    {
+        transform.Find("abilityIcon").GetComponent<Image>().sprite = abilityIcon;
+        transform.Find("abilityText").GetComponent<TextMeshProUGUI>().text = abilityText;
+    }
+
     protected virtual void Awake()
     {
         card = GetComponentInParent<Unit>();
@@ -22,13 +29,6 @@ public class Ability : MonoBehaviour
 
     public virtual void CardUpdate() { }
     public virtual void RoundStart() { }
-
-
-    public virtual void OnValidate()
-    {
-        transform.Find("abilityIcon").GetComponent<Image>().sprite = abilityIcon;
-        transform.Find("abilityText").GetComponent<TextMeshProUGUI>().text = abilityText;
-    }
 
     public void Expand()
     {
@@ -45,4 +45,5 @@ public class Ability : MonoBehaviour
         transform.Find("background").GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }
+#pragma warning restore 0414
 }

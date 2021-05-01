@@ -21,7 +21,12 @@ public class LaneManager : NetworkBehaviour
             Unit[] units = gameObject.GetComponentsInChildren<Unit>();
             //List<Unit> units = new List<Unit>(gameObject.GetComponentsInChildren<Unit>());
             TowerManager[] towers = gameObject.GetComponentsInChildren<TowerManager>();
+            TowerEnchantment[] towerEnchantments = gameObject.GetComponentsInChildren<TowerEnchantment>();
 
+            foreach (TowerEnchantment towerEnchantment in towerEnchantments)
+            {
+                towerEnchantment.Combat();
+            }
             foreach (Unit unit in units)
             {
                 unit.Combat(true);

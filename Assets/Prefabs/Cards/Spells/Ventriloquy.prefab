@@ -24,6 +24,10 @@ MonoBehaviour:
   cardText: Choose unit. It taunts, then each unit pointing at it strikes it for
     1 <sprite=0>.
   targetTag: Unit
+  targetOnlyEnemySide: 0
+  targetOnlyPlayerSide: 0
+  targetCaster: 0
+  targetHero: 0
   damage: 1
 --- !u!1001 &4473208994328711674
 PrefabInstance:

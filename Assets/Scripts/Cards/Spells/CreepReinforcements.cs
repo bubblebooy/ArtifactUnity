@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CreepReinforcements : Spell
 {
-    public override bool IsVaildPlay(GameObject target)
-    {
+    //public override bool IsVaildPlay(GameObject target)
+    //{
 
-        if (base.IsVaildPlay(target) &&
-            target.GetComponent<Unit>().caster == true &&
-            target.GetComponent<Unit>().GetSide() == "PlayerSide")
-        {
-            return true;
-        }
-        return false;
-    }
+    //    if (base.IsVaildPlay(target) &&
+    //        target.GetComponent<Unit>().caster == true &&
+    //        target.GetComponent<Unit>().GetSide() == "PlayerSide")
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
     public override void OnPlay() {
         CardSlot cardSlot = gameObject.GetComponentInParent<CardSlot>();

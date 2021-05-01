@@ -34,7 +34,7 @@ public class Unit : Card
     public bool feeble = false;
 
 
-    public string targetTag = "Card Slot";
+    protected string targetTag = "Card Slot";
 
 
     public override void OnValidate()
@@ -162,8 +162,14 @@ public override void OnPlay()
 
     public virtual int Strike(Unit target, int damage, bool piercing = false)
     {
+        //retaliate
         return target.Damage(damage, piercing);
     }
+
+    //public virtual int Strike(TowerManager target, int damage, bool piercing = false)
+    //{
+    //    return target.Damage(damage, piercing);
+    //}
 
     public virtual int Damage(int damage, bool piercing = false)
     {

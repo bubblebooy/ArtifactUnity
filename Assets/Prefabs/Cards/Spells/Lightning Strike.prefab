@@ -25,6 +25,10 @@ MonoBehaviour:
 
     (Can hit towers).'
   targetTag: Unit
+  targetOnlyEnemySide: 0
+  targetOnlyPlayerSide: 1
+  targetCaster: 1
+  targetHero: 0
   damage: 4
 --- !u!1001 &5464937186407181105
 PrefabInstance:

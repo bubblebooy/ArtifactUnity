@@ -6,13 +6,13 @@ public class ArcBolt : Spell
 {
     public int damage = 1;
 
-    public override bool IsVaildPlay(GameObject target)
-    {
-        if (base.IsVaildPlay(target) &&
-            target.GetComponent<Unit>().GetSide() == "EnemySide")
-        { return true; }
-        return false;
-    }
+    //public override bool IsVaildPlay(GameObject target)
+    //{
+    //    if (base.IsVaildPlay(target) &&
+    //        target.GetComponent<Unit>().GetSide() == "EnemySide")
+    //    { return true; }
+    //    return false;
+    //}
 
     public override void OnPlay()
     {

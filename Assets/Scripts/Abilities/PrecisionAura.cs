@@ -11,7 +11,7 @@ public class PrecisionAura : Ability, IAura
         {
             if( unit != card && unit.GetSide() == card.GetSide())
             {
-                unit.attack += 1;
+                unit.attack += damage;
             }
             unit.CardUIUpdate();
         }

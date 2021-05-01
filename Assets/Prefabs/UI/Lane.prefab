@@ -317,9 +317,37 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 110
       objectReference: {fileID: 0}
+    - target: {fileID: 5681662728445239065, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681662728445239065, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681662728445239065, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681662728445239065, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681662728445239065, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6022618365425009493, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
       propertyPath: m_AssetId
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324392654252621027, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_StartCorner
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324392654252621027, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8034188898564281954, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
       propertyPath: m_AssetId
@@ -430,6 +458,14 @@ PrefabInstance:
     - target: {fileID: 6022618365425009493, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
       propertyPath: m_AssetId
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324392654252621027, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324392654252621027, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8034188898564281954, guid: 8c337682c821eeb4abb5dbe1a5de364c, type: 3}
       propertyPath: m_AssetId

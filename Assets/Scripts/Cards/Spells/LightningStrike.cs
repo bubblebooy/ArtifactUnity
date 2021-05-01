@@ -6,17 +6,17 @@ public class LightningStrike : Spell
 {
     public int damage = 4;
 
-    public override bool IsVaildPlay(GameObject target)
-    {
+    //public override bool IsVaildPlay(GameObject target)
+    //{
         
-        if (base.IsVaildPlay(target) && 
-            target.GetComponent<Unit>().caster == true &&
-            target.GetComponent<Unit>().GetSide() == "PlayerSide")
-        {
-            return true;
-        }
-        return false;
-    }
+    //    if (base.IsVaildPlay(target) && 
+    //        target.GetComponent<Unit>().caster == true &&
+    //        target.GetComponent<Unit>().GetSide() == "PlayerSide")
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
     public override void OnPlay()
     {
