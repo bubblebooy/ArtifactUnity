@@ -120,8 +120,24 @@ public abstract class Card : NetworkBehaviour
 
     public virtual void CardUpdate()
     {
+        // would be more efficnt to remove CardUIUpdate
+        // but then would have to call it manually when updating heros in the fountain
+        // as is it is being called 2x for every card.
+        CardUIUpdate(); 
+    }
+
+    public virtual void CardAuras()
+    {
+        foreach (IAura aura in gameObject.GetComponentsInChildren<IAura>())
+        {
+            aura.ContinuousEffect();
+        }
+    }
+
+    public virtual void CardUIUpdate()
+    {
         if (displayMana != null) { displayMana.text = mana.ToString(); }
-        if (!string.IsNullOrEmpty(cardText)) {displayCardText.text = cardText;}
+        if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
     }
 
     //    public abstract void OnPlay();

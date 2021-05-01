@@ -25,7 +25,7 @@ public class Unit : Card
     [HideInInspector]
     public bool disarmed = false;
     [HideInInspector]
-    public bool caster = false;
+    public bool caster;
     [HideInInspector]
     public bool piercing = false;
     [HideInInspector]
@@ -54,8 +54,7 @@ public class Unit : Card
         maxArmor = armor;
         maxHealth = health;
         baseAttack = attack;
-        //baseArmor = armor;
-        //baseHealth = health;
+        caster = this is Hero;
         baseMaxArmor = maxArmor;
         baseMaxHealth = maxHealth;
         displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
@@ -81,13 +80,9 @@ public class Unit : Card
 
     public override void CardUpdate()
     {
-        base.CardUpdate();
-
         GetComponent<AbilitiesManager>().CardUpdate();
 
         attack = baseAttack;
-        //armor = baseArmor;
-        //health = baseHealth;
         maxArmor = baseMaxArmor;
         maxHealth = baseMaxHealth;
 
@@ -95,7 +90,7 @@ public class Unit : Card
 
         quickstrike = false;
         disarmed = false;
-        //caster = false;
+        caster = this is Hero;
         piercing = false;
         trample = false;
         feeble = false;
@@ -104,6 +99,24 @@ public class Unit : Card
         {
             mod.ModifyCard();
         }
+        
+        if (arrow != 0 && GetCombatTarget() == null)
+        {
+            arrow = 0;
+        }
+        //displayArrow = gameObject.transform.Find("Color/Arrow");
+
+        if (health <= 0)
+        {
+            DestroyCard();
+        }
+
+        base.CardUpdate();
+    }
+
+    public override void CardUIUpdate()
+    {
+        base.CardUIUpdate();
         // If this is needed I think we have bigger problems
         //displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
         //displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
@@ -112,11 +125,6 @@ public class Unit : Card
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
 
-        if (arrow != 0 && GetCombatTarget() == null)
-        {
-            arrow = 0;
-        }
-        //displayArrow = gameObject.transform.Find("Color/Arrow");
         if (arrow != 0)
         {
             displayArrow.gameObject.SetActive(true);
@@ -128,15 +136,10 @@ public class Unit : Card
 
         if (disarmed) { displayAttack.color = Color.grey; }
         else { displayAttack.color = Color.white; }
-
-        if (health <= 0)
-        {
-            DestroyCard();
-        }
-
     }
 
-    public override void OnPlay()
+
+public override void OnPlay()
     {
         base.OnPlay();
         displayCardText.transform.parent.gameObject.SetActive(false);
@@ -155,8 +158,6 @@ public class Unit : Card
 
     public override void RoundStart() {
         armor = maxArmor;
-
-        CardUpdate();
     }
 
     public virtual int Strike(Unit target, int damage, bool piercing = false)

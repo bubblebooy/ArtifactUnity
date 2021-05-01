@@ -25,9 +25,9 @@ public class Hero : Unit
         displayRespawn.enabled = respawn != 0;
     }
 
-    public override void CardUpdate()
+    public override void CardUIUpdate()
     {
-        base.CardUpdate();
+        base.CardUIUpdate();
         displayRespawn = gameObject.transform.Find("Respawn").GetComponent<TextMeshProUGUI>();
         displayRespawn.text = respawn.ToString();
         displayRespawn.enabled = respawn != 0;

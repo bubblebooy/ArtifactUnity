@@ -29,6 +29,7 @@ public class AbilitiesManager : MonoBehaviour
 
     public virtual void CardUpdate()
     {
+        Collapse();
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
         {
             ability.CardUpdate();
@@ -85,7 +86,7 @@ public class AbilitiesManager : MonoBehaviour
     {
         expanded = false;
         abilities.transform.SetParent(transform.Find("Color"));
-        abilities.transform.SetSiblingIndex(sibIndex);
+        abilities.transform.SetAsLastSibling();//.SetSiblingIndex(sibIndex);
         //abilities.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         abilities.GetComponent<RectTransform>().sizeDelta = collapsedSizeDelta;
         abilities.GetComponent<RectTransform>().anchoredPosition = collapsedAnchoredPosition;

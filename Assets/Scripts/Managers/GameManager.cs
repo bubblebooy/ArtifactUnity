@@ -206,10 +206,16 @@ public class GameManager : NetworkBehaviour
     public void GameUpdate()
     {
         CardSlot[] cardSlots = Board.GetComponentsInChildren<CardSlot>();
-        Card[] cards = Board.GetComponentsInChildren<Card>();
         TowerManager[] towers = Board.GetComponentsInChildren<TowerManager>();
         foreach (CardSlot slot in cardSlots) { slot.SlotUpdate(); }
-        foreach (Card card in cards) { card.CardUpdate(); } // should loop untill it no longer does anything, incase there are chain reactions
+        Card[] cards;
+        //While(any card died)
+        cards = Board.GetComponentsInChildren<Card>();
+        foreach (Card card in cards) { card.CardUpdate(); }
+        cards = Board.GetComponentsInChildren<Card>();
+        foreach (Card card in cards) { card.CardAuras(); }
+        foreach (Card card in cards) { card.CardUIUpdate(); }
+        // should loop untill it no longer does anything, incase there are chain reactions
         foreach (TowerManager tower in towers) { tower.TowerUpdate(); }
         foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }
         foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }

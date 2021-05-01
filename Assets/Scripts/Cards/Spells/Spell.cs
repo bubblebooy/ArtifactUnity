@@ -19,6 +19,6 @@ public class Spell : Card
 
     public override void CardUpdate()
     {
-
+        base.CardUpdate();
     }
 }
