@@ -18,6 +18,7 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   isDraggable: 1
+  cardArt: {fileID: 21300000, guid: cfd2643ffbdfa3b419f84e95ff0c5808, type: 3}
   color: red
   cardName: Sven
   mana: 0
@@ -35,7 +36,6 @@ MonoBehaviour:
   piercing: 0
   trample: 0
   feeble: 0
-  targetTag: Card Slot
   respawn: 0
 --- !u!1001 &2589389669534110254
 PrefabInstance:

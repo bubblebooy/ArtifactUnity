@@ -136,6 +136,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 0632c0f1986f60b43b5931745c1863b3, type: 3}
+    - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: CardText
       value: Quickstrike.
       objectReference: {fileID: 0}

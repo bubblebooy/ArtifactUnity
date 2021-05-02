@@ -221,7 +221,7 @@ public class PlayerManager : NetworkBehaviour
     void CmdPlayCard(GameObject card, List<string> targetLineage)
     {
         RpcMoveCard(card, targetLineage);
-        RpcPlayCard(card);  // this prob needs to pass the card so on play effects can happen
+        RpcPlayCard(card); 
         RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
     }
 
@@ -249,23 +249,7 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     void RpcPlayTargetedCard(GameObject card, List<string> secondaryTargetLineage)
     {
-        Transform target = GameObject.Find("Main Canvas").transform;
-        foreach (string s in secondaryTargetLineage)
-        {
-            if (hasAuthority)
-            {
-                target = target.Find(s);
-            }
-            else
-            {
-                string _s = s;
-                _s = _s.Replace("Player", "ENEMY");
-                _s = _s.Replace("Enemy", "Player");
-                _s = _s.Replace("ENEMY", "Enemy");
-                target = target.Find(_s);
-            }
-
-        }
+        Transform target = LineageToTransform(secondaryTargetLineage);
         card.GetComponent<ITargets>().OnPlay(target.gameObject);
         GameManager.CardPlayed();
     }
@@ -287,6 +271,33 @@ public class PlayerManager : NetworkBehaviour
         card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex);
         GameManager.CardPlayed(); // should prob rename to action taken
     }
+
+    public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null)
+    {
+        CmdActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage);
+    }
+
+    [Command]
+    void CmdActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage)
+    {
+        RpcActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage);  // this prob needs to pass the card so on play effects can happen
+        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+    }
+
+    [ClientRpc]
+    void RpcActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage)
+    {
+        Transform target = LineageToTransform(targetLineage);
+        Transform secondaryTarget = LineageToTransform(secondaryTargetLineage);
+        if (!hasAuthority)
+        {
+            side = side == "PlayerSide" ? "EnemySide" : "PlayerSide";
+        }
+        ITargets towerEnchantment = Lane.transform.Find(side + "/Enchantments").GetChild(enchantmentIndex).GetComponent<ITargets>();
+        towerEnchantment.OnPlay(target.gameObject, secondaryTarget?.gameObject);
+        GameManager.CardPlayed();
+    }
+
 
     [ClientRpc]
     void RpcShowCard(GameObject card, string type)
@@ -318,23 +329,7 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     void RpcMoveCard(GameObject card, List<string> targetLineage)
     {
-        Transform target = GameObject.Find("Main Canvas").transform;
-        foreach (string s in targetLineage)
-        {
-            if (hasAuthority)
-            {
-                target = target.Find(s);
-            }
-            else
-            {
-                string _s = s;
-                _s = _s.Replace("Player", "ENEMY");
-                _s = _s.Replace("Enemy", "Player");
-                _s = _s.Replace("ENEMY", "Enemy");
-                target = target.Find(_s);
-            }
-
-        }
+        Transform target = LineageToTransform(targetLineage);
         card.transform.SetParent(target, false);
         ////////  CHECK TO SEE IF THIS WORKS IN THE PLAYER?
         Transform t = card.transform;
@@ -353,5 +348,28 @@ public class PlayerManager : NetworkBehaviour
     public void CmdEndCombat()
     {
         RpcGameChangeState("Shop");
+    }
+
+    Transform LineageToTransform(List<string> lineage)
+    {
+        if(lineage == null) { return null; }
+        Transform transform = GameObject.Find("Main Canvas").transform;
+        foreach (string s in lineage)
+        {
+            if (hasAuthority)
+            {
+                transform = transform.Find(s);
+            }
+            else
+            {
+                string _s = s;
+                _s = _s.Replace("Player", "ENEMY");
+                _s = _s.Replace("Enemy", "Player");
+                _s = _s.Replace("ENEMY", "Enemy");
+                transform = transform.Find(_s);
+            }
+
+        }
+        return transform;
     }
 }

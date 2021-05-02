@@ -18,6 +18,7 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   isDraggable: 1
+  cardArt: {fileID: 21300000, guid: 9122ba1dbae39384bb7c86a7932aea78, type: 3}
   color: blue
   cardName: Diabolic Conclusion
   mana: 1

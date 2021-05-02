@@ -85,7 +85,7 @@ public class AbilitiesManager : MonoBehaviour
     public void Collapse()
     {
         expanded = false;
-        abilities.transform.SetParent(transform.Find("Color"));
+        abilities.transform.SetParent(transform.Find("Color"),false);
         abilities.transform.SetAsLastSibling();//.SetSiblingIndex(sibIndex);
         //abilities.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         abilities.GetComponent<RectTransform>().sizeDelta = collapsedSizeDelta;

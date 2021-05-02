@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 #pragma warning disable 0414 
 public class TowerEnchantment : MonoBehaviour
@@ -28,18 +29,29 @@ public class TowerEnchantment : MonoBehaviour
 
     protected virtual void Awake()
     {
+        EventTrigger m_EventTrigger = GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((eventData) => { Expand(); });
+        m_EventTrigger.triggers.Add(entry);
+
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerExit;
+        entry.callback.AddListener((eventData) => { Collapse(); });
+        m_EventTrigger.triggers.Add(entry);
+
         displayAbilityText = transform.Find("abilityText").gameObject;
         Canvas = GameObject.Find("Main Canvas");
     }
 
-    public virtual void TowerUpdate() { } // for dealing with retaliate and armor
+    public virtual void EnchantmentUpdate() { } // for dealing with retaliate and armor
     public virtual void RoundStart() { }
     public virtual void Combat() { }
 
     public void Expand()
     {
         expanded = true;
-        displayAbilityText.GetComponent<RectTransform>().sizeDelta = new Vector2(200,0);
+        displayAbilityText.GetComponent<RectTransform>().sizeDelta = new Vector2(300,0);
         displayAbilityText.transform.SetParent(Canvas.transform,true);
     }
 

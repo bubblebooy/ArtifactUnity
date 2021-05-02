@@ -140,6 +140,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 98ba96d985c6fd5488f7dd0d3fa91c72, type: 3}
+    - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: cardName
       value: Bronze Legionnaire
       objectReference: {fileID: 0}

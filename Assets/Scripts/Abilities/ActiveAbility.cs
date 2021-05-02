@@ -60,6 +60,7 @@ public class ActiveAbility : Ability
         card.GetComponent<AbilitiesManager>().Collapse();
         if (IsVaildPlay())
         {
+            //move to the ability so can handle selecting targets
             PlayerManager.ActivateAbility(card.gameObject, transform.GetSiblingIndex());
         }
     }

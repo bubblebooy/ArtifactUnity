@@ -25,10 +25,11 @@ public class TargetSelector : MonoBehaviour
                 if (GetComponent<ITargets>().IsVaildTarget(hit.collider.gameObject))
                 {
                     GetComponent<ITargets>().TargetSelected(hit.collider.gameObject);
+                    Destroy(this);
                     return;
                 }
             }
-            gameObject.GetComponent<Card>().UnStage();
+            gameObject.GetComponent<ITargets>().TargetCanceled();
             Destroy(this);
         }
     }

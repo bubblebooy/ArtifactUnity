@@ -516,6 +516,7 @@ MonoBehaviour:
   - {fileID: 7266079026993811455, guid: c071dd7a256b6fb418b7c05def14768b, type: 3}
   - {fileID: 1635553572286077581, guid: b1a641b83b8b5f64fb70f94882cca350, type: 3}
   - {fileID: 1190852253991325703, guid: 82ba2ab90693f8146b9279318bc7db58, type: 3}
+  - {fileID: 7302700234738206029, guid: 5cdb0de4ee9bb8645878e22f1db6fd43, type: 3}
 --- !u!4 &1102289581
 Transform:
   m_ObjectHideFlags: 0
@@ -1364,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 468207895267696488, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 484693735772019716, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: sceneId
@@ -1584,7 +1585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5686936285714864484, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5861352728146860526, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: sceneId
@@ -1652,7 +1653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8311174186525596842, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8311174186525596842, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_AnchorMax.y

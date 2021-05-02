@@ -18,6 +18,7 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   isDraggable: 1
+  cardArt: {fileID: 21300000, guid: 582e9267587a91f418b6c4aaa09d45a2, type: 3}
   color: black
   cardName: Trebuchets
   mana: 1

@@ -7,7 +7,7 @@ public class LaneManager : NetworkBehaviour
 {
 
     public bool combated = false;
-    GameManager GameManager;
+    public GameManager GameManager;
 
     private void Start()
     {
@@ -45,5 +45,11 @@ public class LaneManager : NetworkBehaviour
             Debug.Log(gameObject.name + $" : {units.Length}");
         }
         yield return new WaitForSeconds(0.5f);
+    }
+
+    public PlayerManager GetPlayerManager()
+    {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        return networkIdentity.GetComponent<PlayerManager>();
     }
 }

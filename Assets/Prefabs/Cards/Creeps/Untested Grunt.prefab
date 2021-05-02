@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030285483841519653, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: 3
+      value: <sprite=0>3
       objectReference: {fileID: 0}
     - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: attack
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 152e9a9c6f2b30645abc09e9a13a965d, type: 3}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: cardName
       value: Untested Grunt

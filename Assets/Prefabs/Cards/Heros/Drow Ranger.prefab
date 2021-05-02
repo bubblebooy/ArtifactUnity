@@ -24,6 +24,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: dd9a2eaf98c87984da7be17cfdb80ec2, type: 3}
+    - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: cardName
       value: Drow
       objectReference: {fileID: 0}

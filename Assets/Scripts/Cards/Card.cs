@@ -18,6 +18,7 @@ public abstract class Card : NetworkBehaviour
     [HideInInspector]
     public bool isDraggable = true;
 
+    public Sprite cardArt;
     public string color;
     public string cardName;
     public int mana = 0;
@@ -63,6 +64,10 @@ public abstract class Card : NetworkBehaviour
                 gameObject.transform.Find("Color").GetComponent<Image>().color = colorDict[color];
             }
         }
+
+        //cardArt;
+        transform.Find("Color/Image").GetComponent<Image>().sprite = cardArt;
+        if(cardArt != null) { transform.Find("Color/Image").GetComponent<Image>().color = Color.white; }
     }
 
 
@@ -146,7 +151,7 @@ public abstract class Card : NetworkBehaviour
 
     //    public abstract void OnPlay();
 
-    public List<string> GetLineage(Transform t)
+    public static List<string> GetLineage(Transform t)
     {
         List<string> lineage = new List<string>();
         while (t.name != t.root.name)

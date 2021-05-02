@@ -219,6 +219,7 @@ public class GameManager : NetworkBehaviour
         }
         while (false); // should loop untill it no longer does anything, incase there are chain reactions
         foreach (TowerManager tower in towers) { tower.TowerUpdate(); }
+        foreach (TowerEnchantment towerEnchantment in Board.GetComponentsInChildren<TowerEnchantment>()) { towerEnchantment.EnchantmentUpdate(); }
         foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }
         foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }
         PlayerMana.GetComponent<ManaManager>().ManaUpdate();
@@ -227,14 +228,13 @@ public class GameManager : NetworkBehaviour
 
     void RoundStart()
     {
-        Card[] cards = Board.GetComponentsInChildren<Card>();
-        foreach (Card card in cards) { card.RoundStart(); }
-        TowerManager[] towers = Board.GetComponentsInChildren<TowerManager>();
+        foreach (Card card in Board.GetComponentsInChildren<Card>()) { card.RoundStart(); }
         //Board.GetComponent<BoardManager>().RoundStart();
-        foreach (TowerManager tower in towers) { tower.RoundStart(); }
+        foreach (TowerManager tower in Board.GetComponentsInChildren<TowerManager>()) { tower.RoundStart(); }
         foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
         foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
         foreach (UnitModifier mod in Board.GetComponentsInChildren<UnitModifier>()) { mod.RoundStart(); }
+        foreach (TowerEnchantment towerEnchantment in Board.GetComponentsInChildren<TowerEnchantment>()) { towerEnchantment.RoundStart(); }
         PlayerMana.GetComponent<ManaManager>().RoundStart();
         EnemyMana.GetComponent<ManaManager>().RoundStart();
         GameUpdate();

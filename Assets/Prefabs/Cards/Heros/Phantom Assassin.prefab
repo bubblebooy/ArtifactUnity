@@ -18,6 +18,7 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   isDraggable: 1
+  cardArt: {fileID: 21300000, guid: fade941bc3cf0fb418ee8259665fc9cb, type: 3}
   color: black
   cardName: Phantom Assassin
   mana: 0
@@ -35,7 +36,6 @@ MonoBehaviour:
   piercing: 0
   trample: 0
   feeble: 0
-  targetTag: Card Slot
   respawn: 0
 --- !u!1001 &2072431606795153294
 PrefabInstance:

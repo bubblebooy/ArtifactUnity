@@ -29,7 +29,7 @@ public class CunningPlan : Spell, ITargets
         PlayerManager.PlayCard(gameObject, GetLineage(), GetLineage(target.transform));
     }
 
-    public void OnPlay(GameObject target)
+    public void OnPlay(GameObject target, GameObject secondaryTarget = null)
     {
         OnPlay();
         CardSlot cardSlot = gameObject.GetComponentInParent<CardSlot>();
@@ -42,5 +42,10 @@ public class CunningPlan : Spell, ITargets
         
 
         DestroyCard();
+    }
+
+    public void TargetCanceled()
+    {
+        UnStage();
     }
 }

@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8610954100708798445
+--- !u!114 &5292090228558383622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635553572286077581}
+  m_GameObject: {fileID: 7302700234738206029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558cbad22137f274fa6c9d13ea2bef76, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a76071d2717b334b834a618cae63819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
@@ -18,49 +18,33 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   isDraggable: 1
-  cardArt: {fileID: 21300000, guid: 65c24858a9de50944b4e1d45d485296b, type: 3}
-  color: red
-  cardName: Heroic Resolve
+  cardArt: {fileID: 21300000, guid: 78c0e418893ab4649a4d88d9d8962e09, type: 3}
+  color: black
+  cardName: Keenfolk Turret
   mana: 2
-  cardText: 'Enchant Caster
-
-    Caster has +1<sprite=0> per missing <sprite=2>.'
-  Ability: {fileID: 2936536661562203131, guid: 19038ad811fd4084996f88a956c3ae64, type: 3}
-  enchantCaster: 1
-  enchantHero: 0
---- !u!1001 &4194256796868366835
+  cardText: "Enchant Tower\r\nActive 1\u25A0, 1 Mana: Deal 2 piercing damage to a
+    unit."
+  Ability: {fileID: 7686190729390017691, guid: 8827af3bc16dbc54a8767a0044c1562b, type: 3}
+--- !u!1001 &5322760216844652083
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 565276894165174540, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 565276894165174540, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 565276894165174540, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-      propertyPath: m_Color.r
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Name
-      value: Heroic Resolve
+      value: Keenfolk Turret
       objectReference: {fileID: 0}
     - target: {fileID: 3988664816421315036, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_text
-      value: 'Enchant Caster
-
-        Caster has +1<sprite=0> per missing <sprite=2>.'
+      value: "Enchant Tower\r\nActive 1\u25A0, 1 Mana: Deal 2 piercing damage to
+        a unit."
       objectReference: {fileID: 0}
     - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 65c24858a9de50944b4e1d45d485296b, type: 3}
+      objectReference: {fileID: 21300000, guid: 78c0e418893ab4649a4d88d9d8962e09, type: 3}
     - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -79,11 +63,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_text
-      value: Heroic Resolve
-      objectReference: {fileID: 0}
-    - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-      propertyPath: m_fontSize
-      value: 10
+      value: Keenfolk Turret
       objectReference: {fileID: 0}
     - target: {fileID: 5911249495024554266, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_text
@@ -180,8 +160,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1070878725135988414, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
---- !u!1 &1635553572286077581 stripped
+--- !u!1 &7302700234738206029 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-  m_PrefabInstance: {fileID: 4194256796868366835}
+  m_PrefabInstance: {fileID: 5322760216844652083}
   m_PrefabAsset: {fileID: 0}
