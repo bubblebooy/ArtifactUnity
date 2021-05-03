@@ -27,7 +27,7 @@ public class AbilitiesManager : MonoBehaviour
         collapsedAnchoredPosition = abilities.GetComponent<RectTransform>().anchoredPosition;
     }
 
-    public virtual void CardUpdate()
+    public void CardUpdate()
     {
         Collapse();
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
@@ -36,7 +36,15 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
-    public virtual void RoundStart()
+    public void OnPlay()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.OnPlay();
+        }
+    }
+
+    public void RoundStart()
     {
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
         {

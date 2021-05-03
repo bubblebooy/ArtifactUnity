@@ -139,10 +139,12 @@ public class Unit : Card
     }
 
 
-public override void OnPlay()
+    public override void OnPlay()
     {
         base.OnPlay();
         displayCardText.transform.parent.gameObject.SetActive(false);
+        GetComponent<AbilitiesManager>().OnPlay();
+
     }
 
     public virtual void Bounce()

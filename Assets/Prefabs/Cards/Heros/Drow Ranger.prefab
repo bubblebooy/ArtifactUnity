@@ -31,10 +31,6 @@ PrefabInstance:
       propertyPath: cardName
       value: Drow
       objectReference: {fileID: 0}
-    - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
-      propertyPath: cardText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 811793818548973621, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_text
       value: Drow
