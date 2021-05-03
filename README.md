@@ -6,7 +6,7 @@ Used [How to Build a Multiplayer Card Game with Unity 2D and Mirror by M. S. Far
 
 ## Running the Game
 
-The game is currently Multiplayer only so you need 2 instances running to test most things. Build and Run the game (Ctrl-B) as one instance and run the game in Unity as the other instance.
+The game is currently Multiplayer only so you need 2 instances running to test most things. Build and Run the game (Ctrl-B) as one instance and run the game in Unity as the other instance. Running 1 instances of the game as host can sometime be helpfull just to make sure not everything crashes.
 
 ## How To Add Cards
 
@@ -27,4 +27,5 @@ If you are making an Enchantment start making the Enchantment/ability first.
 
 ## How to Make an Enchantment or ability
 
-Similar to making a card... (*will finnish this later*)
+Similar to making a card... (*will finnish this later*)  
+while testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
