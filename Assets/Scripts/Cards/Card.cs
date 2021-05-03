@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public abstract class Card : NetworkBehaviour
@@ -92,8 +93,11 @@ public abstract class Card : NetworkBehaviour
     {
         // Move to graveyard based on player ownership? does artifact have a graveyard?
         GetComponent<CardZoom>().OnHoverExit();
-        gameObject.transform.SetParent(null);
-        Destroy(gameObject);
+        GetComponent<EventTrigger>().enabled = false;
+        Transform discard = GameObject.Find((hasAuthority ? "Player" : "Enemy") + "Discard/Pile").transform;
+        gameObject.transform.SetParent(discard);
+
+        //Destroy(gameObject);
     }
 
     public virtual void OnPlay()

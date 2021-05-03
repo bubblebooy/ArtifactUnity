@@ -119,6 +119,7 @@ public class GameManager : NetworkBehaviour
     public void CardPlayed()
     {
         ReadyClicks = 0;
+        //push cardplayed event
         GameUpdate();
     }
 
@@ -228,8 +229,8 @@ public class GameManager : NetworkBehaviour
 
     void RoundStart()
     {
-        foreach (Card card in Board.GetComponentsInChildren<Card>()) { card.RoundStart(); }
         //Board.GetComponent<BoardManager>().RoundStart();
+        foreach (Card card in Board.GetComponentsInChildren<Card>()) { card.RoundStart(); }
         foreach (TowerManager tower in Board.GetComponentsInChildren<TowerManager>()) { tower.RoundStart(); }
         foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
         foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
