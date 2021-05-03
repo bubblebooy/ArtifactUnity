@@ -25,7 +25,8 @@ If you are making an Enchantment start making the Enchantment/ability first.
 7. Add your new card to the *Player Manager* Prefab either as a Card or a Heros.
      * The last card in the Cards list will alway be drawn in your starting hand for testing purposes
 
-## How to Make an Enchantment or ability
+## How to Make an Enchantment or Ability
 
 Similar to making a card... (*will finnish this later*)  
+Unit Enchantments are the same thing as Abilities  
 while testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
