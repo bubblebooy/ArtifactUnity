@@ -32,7 +32,8 @@ Unit Enchantments are the same thing as Abilities
 while testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
 
 ### TaskList
-- [ ] Discard pile instead of destroying card (a history is required to handle cards such as Spell Steal)
+- [ ] Discard pile instead of destroying card
+- [ ] Play History (a history is required to handle cards such as Spell Steal)
 - [ ] Draw from deck instead of spawning cards as needed (required to handle eclipse)
 - [ ] OnCardPlayed trigger (ex. Zues's Static Field)
 - [ ] OnUnitKillled tigger (ex. Kanna's Prey On The Weak)
