@@ -166,10 +166,11 @@ public override void OnPlay()
         return target.Damage(damage, piercing);
     }
 
-    //public virtual int Strike(TowerManager target, int damage, bool piercing = false)
-    //{
-    //    return target.Damage(damage, piercing);
-    //}
+    public virtual void Strike(TowerManager target, int damage, bool piercing = false)
+    {
+        //retaliate
+        target.Damage(damage, piercing);
+    }
 
     public virtual int Damage(int damage, bool piercing = false)
     {
@@ -204,14 +205,14 @@ public override void OnPlay()
                 {
                     bool player = GetSide() == "PlayerSide";
                     TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                    tower.Damage(-1 * targetHealth, piercing);
+                    Strike(tower, -1 * targetHealth, piercing);
                 }
             }
             else
             {
                 bool player = GetSide() == "PlayerSide";
                 TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                tower.Damage(attack, piercing);
+                Strike(tower, attack, piercing);
             }
 
             if (cleave != 0)

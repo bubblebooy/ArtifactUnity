@@ -76,17 +76,21 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
 
     public void TargetSelected(GameObject target)
     {
-        if (hasSecondTarget && primaryTarget != null)
+        if (hasSecondTarget && primaryTarget == null)
         {
             primaryTarget = target;
             TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
         }
         else
         {
-            PlayerManager.ActivateTowerEnchantment(GetLane().gameObject,
-                                                   GetSide(),
-                                                   transform.GetSiblingIndex(),
-                                                   Card.GetLineage(target.transform));
+            PlayerManager.ActivateTowerEnchantment
+                (
+                    GetLane().gameObject,
+                    GetSide(),
+                    transform.GetSiblingIndex(),
+                    Card.GetLineage(primaryTarget?.transform) ?? Card.GetLineage(target.transform),
+                    primaryTarget == null ? null : Card.GetLineage(target.transform)
+                );
         }
 
     }

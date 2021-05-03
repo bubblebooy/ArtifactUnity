@@ -16,14 +16,14 @@ public class GreatCleave : Ability
                 {
                     bool player = card.GetSide() == "PlayerSide";
                     TowerManager tower = card.GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                    tower.Damage(-1 * targetHealth, card.piercing);
+                    card.Strike(tower, -1 * targetHealth, card.piercing);
                 }
             }
             else
             {
                 bool player = card.GetSide() == "PlayerSide";
                 TowerManager tower = card.GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                tower.Damage(card.attack, card.piercing);
+                card.Strike(tower, card.attack, card.piercing);
             }
             Unit[] AdjacentEnemies = card.GetAdjacentEnemies();
             for (int i = -1; i <= 1; i++)

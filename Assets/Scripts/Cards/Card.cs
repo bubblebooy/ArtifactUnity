@@ -153,6 +153,7 @@ public abstract class Card : NetworkBehaviour
 
     public static List<string> GetLineage(Transform t)
     {
+        if (t == null) { return null; }
         List<string> lineage = new List<string>();
         while (t.name != t.root.name)
         {

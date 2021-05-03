@@ -47,13 +47,20 @@ public class TowerManager : NetworkBehaviour
 
     public void Damage(int damage, bool piercing = false)
     {
-        
-        armor -= damage;
-        if (armor < 0)
+        if (!piercing)
         {
-            health += armor;
-            armor = 0;
-            Debug.Log(health);
+            armor -= damage;
+            if (armor < 0)
+            {
+                damage = -1 * armor;
+                armor = 0;
+            }
+            else
+            {
+                damage = 0;
+            }
         }
+        health -= damage;
+        //return health;
     }
 }
