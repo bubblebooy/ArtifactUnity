@@ -34,12 +34,12 @@ public class UnitModifier : MonoBehaviour, IModifier
 
         unit.cleave += cleave;
 
-        unit.quickstrike = quickstrike;
-        unit.disarmed = disarmed;
-        unit.caster = caster;
-        unit.piercing = piercing;
-        unit.trample = trample;
-        unit.feeble = feeble;
+        unit.quickstrike |= quickstrike;
+        unit.disarmed |= disarmed;
+        unit.caster |= caster;
+        unit.piercing |= piercing;
+        unit.trample |= trample;
+        unit.feeble |= feeble;
     }
 
     public virtual void RoundStart()

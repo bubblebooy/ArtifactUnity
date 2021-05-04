@@ -24,7 +24,6 @@ public class Unit : Card
     public int cleave = 0;
     [HideInInspector]
     public bool disarmed = false;
-    [HideInInspector]
     public bool caster;
     [HideInInspector]
     public bool piercing = false;
@@ -46,6 +45,7 @@ public class Unit : Card
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
+        caster = this is Hero;
     }
 
     public override void OnSpawn()

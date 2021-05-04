@@ -2,7 +2,7 @@
 
 Max Garber
 
-Used [How to Build a Multiplayer Card Game with Unity 2D and Mirror by M. S. Farzan](https://www.freecodecamp.org/news/how-to-build-a-multiplayer-card-game-with-unity-2d-and-mirror/) as a starting point for the project: 
+Used [How to Build a Multiplayer Card Game with Unity 2D and Mirror by M. S. Farzan](https://www.freecodecamp.org/news/how-to-build-a-multiplayer-card-game-with-unity-2d-and-mirror/) as a starting point for the project:
 
 ## Running the Game
 
@@ -21,7 +21,7 @@ If you are making an Enchantment start making the Enchantment/ability first.
 4. Fill out the attributes on the *Card* script in the inspector
 5. If you are making a Creep or hero with an ability **make the ability** then open up the prefab and add it as a child of the Abilities GameObject
      * you can skip this and comeback to it later
-6. Add your new card to *Registered Spawnable Prefabs* attribute in the NetworkManager 
+6. Add your new card to *Registered Spawnable Prefabs* attribute in the NetworkManager
 7. Add your new card to the *Player Manager* Prefab either as a Card or a Heros.
      * The last card in the Cards list will alway be drawn in your starting hand for testing purposes
 
@@ -48,6 +48,7 @@ while testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSid
 - [ ] Purge
 - [ ] Untargetable
 - [ ] Retaliate
+- [ ] Card Back / unrevealed cards
 ---
 - [ ] Items
 - [ ] Shop
@@ -56,4 +57,4 @@ while testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSid
 - [ ] Set Deck via deck code
 - [ ] Deck Builder
 - [ ] Networking over the internet
-
+- [x] Cards linger after played / discarded

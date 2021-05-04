@@ -30,6 +30,8 @@ public abstract class Card : NetworkBehaviour
     private TextMeshProUGUI displayMana;
     protected TextMeshProUGUI displayCardText;
 
+    //time card takes to be destroyed
+
     private Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
     {
         { "red", new Color(0.4f, 0.0f, 0.0f, 1.0f) },
@@ -88,16 +90,22 @@ public abstract class Card : NetworkBehaviour
     }
 
     //public virtual void InitializeCard(){}
-
     public virtual void DestroyCard()
     {
         // Move to graveyard based on player ownership? does artifact have a graveyard?
         GetComponent<CardZoom>().OnHoverExit();
         GetComponent<EventTrigger>().enabled = false;
+        gameObject.transform.SetParent(GameObject.Find("Main Canvas").transform,true);
+        gameObject.transform.Translate(new Vector3(10, 10, 0));
+        StartCoroutine(Discard());
+
+    }
+
+    protected virtual IEnumerator Discard()
+    {
+        yield return new WaitForSeconds(0.0f);
         Transform discard = GameObject.Find((hasAuthority ? "Player" : "Enemy") + "Discard/Pile").transform;
         gameObject.transform.SetParent(discard);
-
-        //Destroy(gameObject);
     }
 
     public virtual void OnPlay()
