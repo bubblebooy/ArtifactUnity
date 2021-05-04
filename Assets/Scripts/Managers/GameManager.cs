@@ -8,6 +8,7 @@ public class GameManager : NetworkBehaviour
 {
     public UIManager UIManager;
     public PlayerManager PlayerManager;
+    public GameHistory GameHistory;
     public GameObject Board;
     public GameObject PlayerFountain;
     public GameObject EnemyFountain;
@@ -35,6 +36,7 @@ public class GameManager : NetworkBehaviour
         EnemyFountain = GameObject.Find("EnemyFountain");
         PlayerMana = GameObject.Find("PlayerMana");
         EnemyMana = GameObject.Find("EnemyMana");
+        GameHistory = GetComponent<GameHistory>();
 
     }
 
@@ -116,8 +118,9 @@ public class GameManager : NetworkBehaviour
         //Debug.Log($"State: {GameState}, Request: {stateRequest}");
     }
 
-    public void CardPlayed()
+    public void CardPlayed(GameObject card, int? index = null, string side = null)
     {
+        GameHistory.CardPlayed(card, index, side);
         ReadyClicks = 0;
         //push cardplayed event
         GameUpdate();
@@ -125,6 +128,7 @@ public class GameManager : NetworkBehaviour
 
     public void Passed()
     {
+        GameHistory.Passed(PlayerManager.IsMyTurn); // how do I know who passed?
         if (ReadyClicks == 1)
         {
             ChangeGameState("Combat");

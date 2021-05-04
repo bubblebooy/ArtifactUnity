@@ -47,6 +47,7 @@ public class PlayerManager : NetworkBehaviour
     void RpcSetRandomSeed(int seed)
     {
         UnityEngine.Random.InitState(seed);
+        GameManager.gameObject.GetComponent<GameHistory>().randomSeed = seed;
         print("RpcSetRandomSeed");
     }
     [ClientRpc]
@@ -112,8 +113,9 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     public void CmdPass()
     {
-        RpcNextTurn();
         RpcPass();
+        RpcNextTurn();
+        
     }
 
     [ClientRpc]
@@ -243,7 +245,7 @@ public class PlayerManager : NetworkBehaviour
     void RpcPlayCard(GameObject card)
     {
         card.GetComponent<Card>().OnPlay();
-        GameManager.CardPlayed();
+        GameManager.CardPlayed(card);
     }
 
     [ClientRpc]
@@ -251,7 +253,7 @@ public class PlayerManager : NetworkBehaviour
     {
         Transform target = LineageToTransform(secondaryTargetLineage);
         card.GetComponent<ITargets>().OnPlay(target.gameObject);
-        GameManager.CardPlayed();
+        GameManager.CardPlayed(card);
     }
 
     public void ActivateAbility(GameObject card, int abilityIndex)
@@ -269,7 +271,7 @@ public class PlayerManager : NetworkBehaviour
     void RpcActivateAbility(GameObject card, int abilityIndex)
     {
         card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex);
-        GameManager.CardPlayed(); // should prob rename to action taken
+        GameManager.CardPlayed(card, abilityIndex); // should prob rename to action taken
     }
 
     public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null)
@@ -295,7 +297,7 @@ public class PlayerManager : NetworkBehaviour
         }
         ITargets towerEnchantment = Lane.transform.Find(side + "/Enchantments").GetChild(enchantmentIndex).GetComponent<ITargets>();
         towerEnchantment.OnPlay(target.gameObject, secondaryTarget?.gameObject);
-        GameManager.CardPlayed();
+        GameManager.CardPlayed(Lane, enchantmentIndex, side);
     }
 
 
