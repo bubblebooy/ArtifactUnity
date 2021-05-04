@@ -9,6 +9,7 @@ Used [How to Build a Multiplayer Card Game with Unity 2D and Mirror by M. S. Far
 The game is currently Multiplayer only so you need 2 instances running to test most things. Build and Run the game (Ctrl-B) as one instance and run the game in Unity as the other instance. Running 1 instances of the game as host can sometime be helpfull just to make sure not everything crashes.
 
 ## How To Add Cards
+Check [Cards.md](Cards.md) to see what cards have been implemented.
 
 If you are making an Enchantment start making the Enchantment/ability first.  
 **Do not change any of the existing scripts. If functionality is missing and not yet implemented either work on a different card or message me.**
