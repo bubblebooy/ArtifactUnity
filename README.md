@@ -34,9 +34,10 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 
 <details>
    <summary>Click to expand!</summary>
+   
    Similar to making a card... (*will finnish this later*)  
    Unit Enchantments are the same thing as Abilities  
-   while testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
+   While testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
    </details>
 
 ### TaskList
