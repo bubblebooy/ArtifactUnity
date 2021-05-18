@@ -14,7 +14,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 <details>
    <summary>Click to expand!</summary>
    If you are making an Enchantment Card start making the Enchantment/ability first.   
-   
+
    **Do not change any of the existing scripts. If functionality is missing and not yet implemented either work on a different card or message me.**
 
    1. Create a Prefab Variant of the type of card you are making
@@ -34,7 +34,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 
 <details>
    <summary>Click to expand!</summary>
-   
+
    Similar to making a card... (*will finnish this later*)  
    Unit Enchantments are the same thing as Abilities  
    While testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
@@ -50,7 +50,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 - [ ] BeforeYourTurn tigger (ex. Kanna's Prey On The Weak)
 - [ ] Make global auras linger during combat ( Drow's PRECISION AURA)
 ---
-- [ ] Devour
+- [x] Devour
 - [ ] Scheme (ex. Oglodi Catapult)
 - [ ] Death Shield (ex. Rumusque Redeemer)
 - [ ] Damage Immunity (ex. Divine Purpose)

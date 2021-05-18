@@ -7,13 +7,14 @@
 
 <details>
   <summary> (Click to expand)  </summary>
- 
+
 |   | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
 |:heavy_check_mark:| Assassin's Apprentice | Done | Max Garber
 |✔️| Assassin's Shadow| Done | Max Garber |
 |✔️| Bronze Legionnaire| Done | Max Garber |
 |✔️| Bronze Legionnaire| Done | Max Garber |
+|✔️| Hound of War| Done | Max Garber |
 |✔️| Naked Greevil| Done | Max Garber |
 |✔️| Ogre Conscript| Done | Max Garber |
 |✔️| Untested Grunt| Done | Max Garber |
@@ -23,7 +24,7 @@
 ## Enchantments
 <details>
   <summary> (Click to expand)  </summary>
-  
+
 | | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
 |✔️| Escape Route | Done | Max Garber |
@@ -35,8 +36,8 @@
 ## Spells
 <details>
   <summary> (Click to expand)  </summary>
-    
-    
+
+
 | | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
 |✔️| Arc Bolt | Done | Max
@@ -51,8 +52,8 @@
 ## Heroes
 <details>
   <summary> (Click to expand)  </summary>
-  
-  
+
+
 | | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
 |✔️| Axe | Done | Max Garber |
