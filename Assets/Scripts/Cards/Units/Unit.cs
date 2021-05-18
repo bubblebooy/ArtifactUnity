@@ -144,7 +144,11 @@ public class Unit : Card
         base.OnPlay();
         displayCardText.transform.parent.gameObject.SetActive(false);
         GetComponent<AbilitiesManager>().OnPlay();
+    }
 
+    public void PlacedOnTopOf(Unit unit)
+    {
+        GetComponent<AbilitiesManager>().PlacedOnTopOf(unit);
     }
 
     public virtual void Bounce()

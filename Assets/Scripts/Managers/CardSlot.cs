@@ -19,8 +19,14 @@ public class CardSlot : NetworkBehaviour
         //NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         //PlayerManager = networkIdentity.GetComponent<PlayerManager>();
         // Card[] cards = transform.GetComponentsInChildren<Unit>(); // Not sure about order if I do this
+
+        //transform.GetChild(transform.childCount - 1).gameObject.GetComponent<Unit>().Devour();
+        //does not matter for any card currently, does matter for Hunger Mode
+
+
         for (int i = transform.childCount - 2; i >= 0 ; i--)
         {
+            transform.GetChild(transform.childCount - 1).gameObject.GetComponent<Unit>().PlacedOnTopOf(transform.GetChild(i).gameObject.GetComponent<Unit>());
             if (GameManager.GameState == "ResolveDeploy" && transform.GetChild(i).gameObject.GetComponent<Hero>() != null)
             {
                 transform.GetChild(i).gameObject.GetComponent<Hero>().Bounce();

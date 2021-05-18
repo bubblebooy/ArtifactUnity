@@ -44,6 +44,14 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
+    public void PlacedOnTopOf(Unit unit)
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.PlacedOnTopOf(unit);
+        }
+    }
+
     public void RoundStart()
     {
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
