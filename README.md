@@ -67,3 +67,5 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 - [ ] Deck Builder
 - [ ] Networking over the internet
 - [x] Cards linger after played / discarded
+---
+- [ ] Make Game Look Good
