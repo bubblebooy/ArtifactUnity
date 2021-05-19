@@ -48,7 +48,8 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 - [ ] OnCardPlayed trigger (ex. Zues's Static Field)
 - [ ] OnUnitKillled tigger (ex. Kanna's Prey On The Weak)
 - [ ] BeforeYourTurn tigger (ex. Kanna's Prey On The Weak)
-- [ ] Make global auras linger during combat ( Drow's PRECISION AURA)
+- [ ] Make global auras linger during combat ( Drow's PRECISION AURA) 
+- [ ] Casting rules, require a caster of the correct color
 ---
 - [x] Devour
 - [ ] Scheme (ex. Oglodi Catapult)
