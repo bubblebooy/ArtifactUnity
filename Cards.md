@@ -16,6 +16,7 @@
 |✔️| Bronze Legionnaire| Done | Max Garber |
 |✔️| Hound of War| Done | Max Garber |
 |✔️| Naked Greevil| Done | Max Garber |
+|✔️| Oglodi Catapult| Done | Max Garber |
 |✔️| Ogre Conscript| Done | Max Garber |
 |✔️| Untested Grunt| Done | Max Garber |
 

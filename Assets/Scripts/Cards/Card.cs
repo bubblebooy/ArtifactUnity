@@ -116,6 +116,7 @@ public abstract class Card : NetworkBehaviour
     }
 
     public virtual void RoundStart(){}
+    public virtual void Scheme(){}
 
     public virtual bool IsVaildPlay(GameObject target)
     {

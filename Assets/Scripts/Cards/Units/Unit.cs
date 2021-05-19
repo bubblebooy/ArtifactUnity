@@ -31,6 +31,8 @@ public class Unit : Card
     public bool trample = false;
     [HideInInspector]
     public bool feeble = false;
+    [HideInInspector]
+    public int siege = 0;
 
 
     protected string targetTag = "Card Slot";
@@ -87,6 +89,7 @@ public class Unit : Card
         maxHealth = baseMaxHealth;
 
         cleave = 0;
+        siege = 0;
 
         quickstrike = false;
         disarmed = false;
@@ -146,6 +149,12 @@ public class Unit : Card
         GetComponent<AbilitiesManager>().OnPlay();
     }
 
+    public override void Scheme()
+    {
+        base.Scheme();
+        GetComponent<AbilitiesManager>().Scheme();
+    }
+
     public void PlacedOnTopOf(Unit unit)
     {
         GetComponent<AbilitiesManager>().PlacedOnTopOf(unit);
@@ -163,6 +172,8 @@ public class Unit : Card
 
 
     public override void RoundStart() {
+        base.RoundStart();
+        GetComponent<AbilitiesManager>().RoundStart();
         armor = maxArmor;
     }
 
@@ -201,6 +212,7 @@ public class Unit : Card
 
     public virtual void Combat( bool quick = false)
     {
+        int attackTower = siege;
         if (quick == quickstrike && !disarmed)
         {
             Unit target = GetCombatTarget();
@@ -209,16 +221,21 @@ public class Unit : Card
                 int targetHealth = Strike(target, attack + cleave, piercing);
                 if ((trample || target.feeble) && targetHealth < 0)
                 {
-                    bool player = GetSide() == "PlayerSide";
-                    TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                    Strike(tower, -1 * targetHealth, piercing);
+                    attackTower += -1 * targetHealth;
+                    //bool player = GetSide() == "PlayerSide";
+                    //TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
+                    //Strike(tower, -1 * targetHealth, piercing);
                 }
             }
             else
             {
+                attackTower += attack;
+            }
+            if(attackTower > 0)
+            {
                 bool player = GetSide() == "PlayerSide";
                 TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                Strike(tower, attack, piercing);
+                Strike(tower, attackTower, piercing);
             }
 
             if (cleave != 0)

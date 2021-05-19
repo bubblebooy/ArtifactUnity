@@ -9,6 +9,7 @@ public class ModifierAbility : Ability, IModifier
     public int maxArmor, maxHealth;
 
     public int cleave = 0;
+    public int siege = 0;
 
     public bool quickstrike = false;
     public bool disarmed = false;
@@ -25,6 +26,7 @@ public class ModifierAbility : Ability, IModifier
         card.maxHealth += maxHealth;
 
         card.cleave += cleave;
+        card.siege += siege;
 
         card.quickstrike |= quickstrike; // ? true : card.quickstrike;
         card.disarmed |= disarmed; // ? true : card.disarmed; 

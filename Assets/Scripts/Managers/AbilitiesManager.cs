@@ -52,6 +52,14 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
+    public void Scheme()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.Scheme();
+        }
+    }
+
     public void RoundStart()
     {
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
