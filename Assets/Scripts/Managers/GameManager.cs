@@ -175,10 +175,10 @@ public class GameManager : NetworkBehaviour
         Hero[] heroes = Board.GetComponentsInChildren<Hero>();
         foreach (Hero hero in heroes)
         {
+            // should I check hero.hasAuthority instead? of side?
             if (hero.staged && hero.transform.parent.parent.name == "PlayerSide")
             {
                 PlayerManager.CmdDeployHero(hero.gameObject, hero.GetLineage());
-                //Do I bounce here?
             }
         }
         GameUpdate(); // have this do the bouncing
@@ -193,6 +193,8 @@ public class GameManager : NetworkBehaviour
             if (hero.staged)
             {
                 //Do I bounce here?
+                print(hero.cardName);
+                GameHistory.HeroDeployed(hero.gameObject);
                 hero.OnPlay();
             }
             

@@ -43,7 +43,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 ### TaskList
 - [x] Discard pile instead of destroying card
 - [X] Play History (a history is required to handle cards such as Spell Steal)
-- [ ] Add hero deployments to history
+- [x] Add hero deployments to history
 - [ ] Draw from deck instead of spawning cards as needed (required to handle eclipse)
 - [ ] OnCardPlayed trigger (ex. Zues's Static Field)
 - [ ] OnUnitKillled tigger (ex. Kanna's Prey On The Weak)

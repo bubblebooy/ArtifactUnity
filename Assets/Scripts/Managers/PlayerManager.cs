@@ -155,7 +155,7 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     public void CmdDeployHero(GameObject card, List<string> targetLineage)
     {
-        RpcMoveCard(card, targetLineage);
+        RpcPlaceCard(card, targetLineage);
     }
 
     [Command]
@@ -205,7 +205,8 @@ public class PlayerManager : NetworkBehaviour
         GameObject card = Instantiate(cardDict[unit], new Vector2(0, 0), Quaternion.identity); 
         NetworkServer.Spawn(card, connectionToClient);
         RpcOnSpawn(card);
-        RpcMoveCard(card, targetLineage);
+        RpcPlaceCard(card, targetLineage);
+        RpcPlayCard(card);
     }
 
 
@@ -222,7 +223,8 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     void CmdPlayCard(GameObject card, List<string> targetLineage)
     {
-        RpcMoveCard(card, targetLineage);
+        RpcPlaceCard(card, targetLineage);
+        RpcPayForCard(card);
         RpcPlayCard(card); 
         RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
     }
@@ -230,7 +232,8 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     void CmdPlayTargetedCard(GameObject card, List<string> targetLineage, List<string> secondaryTargetLineage)
     {
-        RpcMoveCard(card, targetLineage);
+        RpcPlaceCard(card, targetLineage);
+        RpcPayForCard(card);
         RpcPlayTargetedCard(card, secondaryTargetLineage); 
         RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
     }
@@ -239,6 +242,12 @@ public class PlayerManager : NetworkBehaviour
     void RpcGameChangeState(string stateRequest)
     {
         GameManager.ChangeGameState(stateRequest);
+    }
+
+    [ClientRpc]
+    void RpcPayForCard(GameObject card)
+    {
+        card.GetComponent<Card>().PayMana();
     }
 
     [ClientRpc]
@@ -329,7 +338,7 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcMoveCard(GameObject card, List<string> targetLineage)
+    void RpcPlaceCard(GameObject card, List<string> targetLineage)
     {
         Transform target = LineageToTransform(targetLineage);
         card.transform.SetParent(target, false);
@@ -344,6 +353,7 @@ public class PlayerManager : NetworkBehaviour
         Debug.Log(lineage);
         //////// CHECK TO SEE IF THIS WORKS IN THE PLAYER?
         card.transform.position = target.position;
+        card.GetComponent<Card>().staged = true;
     }
 
     [Command]

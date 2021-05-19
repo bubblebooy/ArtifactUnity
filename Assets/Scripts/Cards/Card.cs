@@ -15,7 +15,7 @@ public abstract class Card : NetworkBehaviour
     [HideInInspector]
     public ManaManager ManaManager;
 
-    public bool staged { get; protected set; } = false;
+    public bool staged = false;
     [HideInInspector]
     public bool isDraggable = true;
 
@@ -108,11 +108,15 @@ public abstract class Card : NetworkBehaviour
         gameObject.transform.SetParent(discard);
     }
 
+    public void PayMana()
+    {
+        ManaManager.mana -= mana;
+    }
+
     public virtual void OnPlay()
     {
         staged = false;
         isDraggable = false;
-        ManaManager.mana -= mana;
     }
 
     public virtual void RoundStart(){}

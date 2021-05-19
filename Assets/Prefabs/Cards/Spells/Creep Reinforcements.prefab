@@ -17,6 +17,7 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: abbe7de7a4a02f0409a5d6a4668ce083, type: 3}
   color: blue

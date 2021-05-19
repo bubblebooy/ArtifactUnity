@@ -77,4 +77,17 @@ public class GameHistory : MonoBehaviour
         }
 
     }
+
+    public void HeroDeployed(GameObject obj)
+    {
+        Record record = new Record("Hero Deployed", obj);
+        if (obj.GetComponent<Card>().hasAuthority)
+        {
+            PlayerHistory.Add(record);
+        }
+        else
+        {
+            EnemyHistory.Add(record);
+        }
+    }
 }
