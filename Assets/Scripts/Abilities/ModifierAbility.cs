@@ -17,6 +17,7 @@ public class ModifierAbility : Ability, IModifier
     public bool piercing = false;
     public bool trample = false;
     public bool feeble = false;
+    public bool damageImmunity = false;
 
     public void ModifyCard()
     {
@@ -34,6 +35,7 @@ public class ModifierAbility : Ability, IModifier
         card.piercing |= piercing; // ? true : card.piercing; 
         card.trample |= trample; // ? true : card.trample; 
         card.feeble |= feeble; // ? true : card.feeble; 
+        card.damageImmunity |= damageImmunity;
     }
 
 }

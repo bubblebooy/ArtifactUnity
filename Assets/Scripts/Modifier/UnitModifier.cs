@@ -17,6 +17,7 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool piercing = false;
     public bool trample = false;
     public bool feeble = false;
+    public bool damageImmunity = false;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.piercing |= piercing;
         unit.trample |= trample;
         unit.feeble |= feeble;
+        unit.damageImmunity |= damageImmunity;
     }
 
     public virtual void RoundStart()

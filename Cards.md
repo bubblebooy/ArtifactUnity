@@ -46,6 +46,7 @@
 |✔️| Creep Reinforcements | Done | Max Garber |
 |✔️| Cunning Plan | Done | Max Garber |
 |✔️| Diabolic Conclusion | Done | Max Garber |
+|✔️| Divine Intervention | Done | Max Garber |
 |✔️| Lightning Strike | Done | Max Garber |
 |✔️| Poised to Strike | Done | Max Garber |
 |✔️| Ventriloquy | Done | Max Garber |

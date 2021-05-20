@@ -31,8 +31,10 @@ public class Unit : Card
     public bool trample = false;
     [HideInInspector]
     public bool feeble = false;
-
+    [HideInInspector]
     public bool deathShield = false;
+    [HideInInspector]
+    public bool damageImmunity = false;
     [HideInInspector]
     public int siege = 0;
 
@@ -99,6 +101,7 @@ public class Unit : Card
         piercing = false;
         trample = false;
         feeble = false;
+        damageImmunity = false;
 
         foreach (IModifier mod in gameObject.GetComponentsInChildren<IModifier>())
         {
@@ -202,6 +205,7 @@ public class Unit : Card
 
     public virtual int Damage(int damage, bool piercing = false)
     {
+        if (damageImmunity) { return health; }
         if (!piercing)
         {
             armor -= damage;
