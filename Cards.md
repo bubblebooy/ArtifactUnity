@@ -18,6 +18,7 @@
 |✔️| Naked Greevil| Done | Max Garber |
 |✔️| Oglodi Catapult| Done | Max Garber |
 |✔️| Ogre Conscript| Done | Max Garber |
+|✔️| Rumusque Redeemer| Done | Max Garber |
 |✔️| Untested Grunt| Done | Max Garber |
 
 </details>

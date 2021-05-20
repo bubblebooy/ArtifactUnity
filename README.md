@@ -53,7 +53,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 ---
 - [x] Devour
 - [x] Scheme (ex. Oglodi Catapult)
-- [ ] Death Shield (ex. Rumusque Redeemer)
+- [x] Death Shield (ex. Rumusque Redeemer)
 - [ ] Damage Immunity (ex. Divine Purpose)
 - [ ] Purge
 - [ ] Untargetable

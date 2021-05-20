@@ -31,6 +31,8 @@ public class Unit : Card
     public bool trample = false;
     [HideInInspector]
     public bool feeble = false;
+
+    public bool deathShield = false;
     [HideInInspector]
     public int siege = 0;
 
@@ -111,7 +113,16 @@ public class Unit : Card
 
         if (health <= 0)
         {
-            DestroyCard();
+            if (deathShield)
+            {
+                deathShield = false;
+                health = 1;
+            }
+            else
+            {
+                DestroyCard();
+            }
+            
         }
 
         base.CardUpdate();
@@ -307,6 +318,24 @@ public class Unit : Card
             AdjEnemies[i + 1] = target;
         }
         return AdjEnemies;
+    }
+
+    public Unit[] GetNeighbors()
+    {
+        int numberOfSlots = transform.parent.parent.GetComponentsInChildren<CardSlot>().Length;
+        int slotNumber = transform.parent.GetSiblingIndex();
+        bool player = GetSide() == "PlayerSide";
+        Transform targetSlot;
+        Unit target;
+        Unit[] Neighbors = new Unit[2];
+        for ((int i,int j) = (-1,0); i <= 1; i+=2,j++)
+        {
+            if (slotNumber + i < 0 || slotNumber + i >= numberOfSlots) { continue; }
+            targetSlot = transform.parent.parent.GetChild(slotNumber + i);
+            target = targetSlot.GetComponentInChildren<Unit>();
+            Neighbors[j] = target;
+        }
+        return Neighbors;
     }
 
 }

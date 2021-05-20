@@ -1,46 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4039430474937124652
+--- !u!114 &9010327712657909126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8906237502846719715}
+  m_GameObject: {fileID: 3996086173576103697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b9ad2b0b705e134ba150b598db365ee, type: 3}
+  m_Script: {fileID: 11500000, guid: e532b75a03a6fd34a911191148c48167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 21300000, guid: 8249b5b7fef22794ab47dc2ee6792c72, type: 3}
-  abilityName: Oglodi Catapult
-  abilityText: '+1 Siege.
-
-    Scheme: +1 Siege.'
+  abilityIcon: {fileID: 21300000, guid: 22facea6dc2a6f642b8d6f2ccc4ddc3d, type: 3}
+  abilityName: Rumusque Redeemer
+  abilityText: 'Play Effect: Give neighbors a Death Shield until death.'
   broken: 0
-  attack: 0
-  maxArmor: 0
-  maxHealth: 0
-  cleave: 0
-  siege: 1
-  quickstrike: 0
-  disarmed: 0
-  caster: 0
-  piercing: 0
-  trample: 0
-  feeble: 0
---- !u!1001 &1990200122552431291
+--- !u!1001 &6301416133195424585
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: abilityIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 88a0307fb16944c4cbfcb3aa6e7094c2, type: 3}
+    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: abilityText
+      value: 'Play Effect: Give neighbors a Death Shield until death.'
+      objectReference: {fileID: 0}
     - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_text
-      value: '+1 Siege.
-
-        Scheme: +1 Siege.'
+      value: 'Play Effect: Give neighbors a Death Shield until death.'
       objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x
@@ -129,16 +122,16 @@ PrefabInstance:
     - target: {fileID: 6312887639793151181, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8249b5b7fef22794ab47dc2ee6792c72, type: 3}
+      objectReference: {fileID: 21300000, guid: 22facea6dc2a6f642b8d6f2ccc4ddc3d, type: 3}
     - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Name
-      value: Oglodi Catapult
+      value: Rumusque Redeemer
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
---- !u!1 &8906237502846719715 stripped
+--- !u!1 &3996086173576103697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-  m_PrefabInstance: {fileID: 1990200122552431291}
+  m_PrefabInstance: {fileID: 6301416133195424585}
   m_PrefabAsset: {fileID: 0}
