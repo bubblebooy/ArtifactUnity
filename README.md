@@ -59,6 +59,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 - [ ] Untargetable
 - [ ] Retaliate
 - [ ] Card Back / unrevealed cards
+- [ ] Status effect visual indicators
 ---
 - [ ] Items
 - [ ] Shop
@@ -66,7 +67,7 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
 - [ ] Start Screen
 - [ ] Set Deck via deck code
 - [ ] Deck Builder
-- [ ] Networking over the internet
+- [x] Networking over the internet. Steamworks!!
 - [x] Cards linger after played / discarded
 ---
 - [ ] Make Game Look Good

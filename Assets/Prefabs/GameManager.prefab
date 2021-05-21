@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6827621820086285925}
   - component: {fileID: 6715872023426510735}
   - component: {fileID: 3703710548233203913}
+  - component: {fileID: 7624942775171142424}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,10 +50,15 @@ MonoBehaviour:
   syncInterval: 0.1
   UIManager: {fileID: 0}
   PlayerManager: {fileID: 0}
+  GameHistory: {fileID: 0}
   Board: {fileID: 0}
-  laneCreep: {fileID: 5606982541690348536, guid: 8410494326a63544b86794e3ce2a13d4, type: 3}
+  PlayerFountain: {fileID: 0}
+  EnemyFountain: {fileID: 0}
+  PlayerMana: {fileID: 0}
+  EnemyMana: {fileID: 0}
   GameState: Setup
   CombatDirection: 1
+  flop: 0
 --- !u!114 &6715872023426510735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,3 +94,21 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  syncScale: 1
+--- !u!114 &7624942775171142424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840871428599722649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5621c4a423b7be646acb4d9ceb4fc6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHistory: []
+  EnemyHistory: []
+  randomSeed: 0
