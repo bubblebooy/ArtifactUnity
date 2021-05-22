@@ -9,7 +9,7 @@ public class LaneManager : NetworkBehaviour
     public bool combated = false;
     public GameManager GameManager;
 
-    private void Start()
+    public override void OnStartClient()
     {
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }

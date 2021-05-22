@@ -15,12 +15,17 @@ public class UIManager : NetworkBehaviour
     public GameObject PlayerFountain;
 
     // Start is called before the first frame update
-    void Start()
+    public override void OnStartClient()
     {
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Board = GameObject.Find("Board");
         //Button = GameObject.Find("DrawCards");
+    }
 
+    private void Start()
+    {
+        print("NetworkClient.isConnected: " + NetworkClient.isConnected);
+        print("NetworkClient.localPlayer == null: " + NetworkClient.localPlayer == null);
     }
 
     public void UpdatePhaseText()

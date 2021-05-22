@@ -24,10 +24,10 @@ public class GameManager : NetworkBehaviour
 
     private int ReadyClicks = 0; // should I make this a bool?
     public int flop = 0;
-    
+
 
     // Start is called before the first frame update
-    void Start()
+    public override void OnStartClient()
     {
         UIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         UIManager.UpdatePhaseText();

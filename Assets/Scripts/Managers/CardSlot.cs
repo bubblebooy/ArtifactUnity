@@ -9,10 +9,16 @@ public class CardSlot : NetworkBehaviour
 
     public GameManager GameManager;
 
-    private void Start()
+    public override void OnStartClient()
     {
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+
+    // MIGHT NEED THIS IF ADD CARDS THEN ADD NEWS CARD SLOTS
+    //public void Start()
+    //{
+    //    GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    //}
 
     public void SlotUpdate()
     {
