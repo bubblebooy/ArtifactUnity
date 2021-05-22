@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &620601754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
@@ -903,7 +903,7 @@ MonoBehaviour:
   serverBatchInterval: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 1102289582}
+  transport: {fileID: 1102289579}
   networkAddress: localhost
   maxConnections: 2
   disconnectInactiveConnections: 0
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea368fb6f27ec2f40a40e20977992b9c, type: 3}
   m_Name: 
@@ -1008,12 +1008,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56bf8907566ac5143853a5161d389d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useFizzySteamworks: 0
   buttonCanvas: {fileID: 620601753}
+  fizzySteamworks: {fileID: 1102289582}
+  defaultTransport: {fileID: 1102289579}
 --- !u!224 &1323241911 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3929842620127332857, guid: cc0fa1c4fdf63c64c990a55d85931d90, type: 3}

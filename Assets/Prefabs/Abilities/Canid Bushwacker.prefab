@@ -16,6 +16,9 @@ MonoBehaviour:
   abilityName: Canid Bushwacker
   abilityText: 'Play Effect: Canid Bushwacker strikes the unit blocking it.'
   broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
 --- !u!1001 &3134351152093784952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,6 +29,10 @@ PrefabInstance:
     - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_text
       value: 'Play Effect: Canid Bushwacker strikes the unit blocking it.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_fontSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x

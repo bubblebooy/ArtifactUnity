@@ -18,6 +18,9 @@ MonoBehaviour:
 
     Scheme: +1 Siege.'
   broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
   attack: 0
   maxArmor: 0
   maxHealth: 0
@@ -29,6 +32,7 @@ MonoBehaviour:
   piercing: 0
   trample: 0
   feeble: 0
+  damageImmunity: 0
 --- !u!1001 &1990200122552431291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +45,10 @@ PrefabInstance:
       value: '+1 Siege.
 
         Scheme: +1 Siege.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_fontSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x

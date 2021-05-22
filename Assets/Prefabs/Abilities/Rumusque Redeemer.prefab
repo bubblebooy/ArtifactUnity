@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e532b75a03a6fd34a911191148c48167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 21300000, guid: 22facea6dc2a6f642b8d6f2ccc4ddc3d, type: 3}
+  abilityIcon: {fileID: 21300000, guid: 88a0307fb16944c4cbfcb3aa6e7094c2, type: 3}
   abilityName: Rumusque Redeemer
   abilityText: 'Play Effect: Give neighbors a Death Shield until death.'
   broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
 --- !u!1001 &6301416133195424585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34,6 +37,10 @@ PrefabInstance:
     - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_text
       value: 'Play Effect: Give neighbors a Death Shield until death.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_fontSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x
@@ -122,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 6312887639793151181, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 22facea6dc2a6f642b8d6f2ccc4ddc3d, type: 3}
+      objectReference: {fileID: 21300000, guid: 88a0307fb16944c4cbfcb3aa6e7094c2, type: 3}
     - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Name
       value: Rumusque Redeemer

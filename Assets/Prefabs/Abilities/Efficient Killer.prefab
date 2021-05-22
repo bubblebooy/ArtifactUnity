@@ -15,6 +15,10 @@ MonoBehaviour:
   abilityIcon: {fileID: 21300000, guid: 80f49c4e0ae7d004796525cd89617665, type: 3}
   abilityName: Efficient Killer
   abilityText: Double Phantom Assassin's damage when striking a hero.
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
 --- !u!1001 &1533705127249536913
 PrefabInstance:
   m_ObjectHideFlags: 0

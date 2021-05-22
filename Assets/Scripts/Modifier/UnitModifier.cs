@@ -19,6 +19,10 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool feeble = false;
     public bool damageImmunity = false;
 
+    public bool opponentEffect = false;
+    public bool temporary = true;
+    public int duration = 0;
+
     private void Awake()
     {
         unit = GetComponentInParent<Unit>();
@@ -46,6 +50,10 @@ public class UnitModifier : MonoBehaviour, IModifier
 
     public virtual void RoundStart()
     {
-        Destroy(this);
+        duration--;
+        if (temporary && duration <= 0)
+        {
+            Destroy(this);
+        }
     }
 }

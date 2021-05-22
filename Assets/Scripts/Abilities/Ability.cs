@@ -14,6 +14,11 @@ public class Ability : MonoBehaviour
 
     protected Unit card;
     public bool broken = false;
+
+    public bool opponentEffect = false;
+    public bool temporary = false;
+    public bool baseAbility = true;
+
     private bool expanded = false;
 
     public virtual void OnValidate()

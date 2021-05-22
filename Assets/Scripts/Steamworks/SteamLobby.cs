@@ -6,8 +6,17 @@ using Mirror;
 
 public class SteamLobby : MonoBehaviour
 {
+    [Header("MUST Manually change the transport in the NetworkManager")]
+    [SerializeField]
+    private bool useFizzySteamworks = false;
     [SerializeField]
     private GameObject buttonCanvas = null;
+    [SerializeField]
+    private Transport fizzySteamworks;
+    [SerializeField]
+    private Transport defaultTransport;
+
+
 
     protected Callback<LobbyCreated_t> lobbyCreated;
     protected Callback<GameLobbyJoinRequested_t> gameLobbyJoinRequested;
@@ -17,7 +26,27 @@ public class SteamLobby : MonoBehaviour
 
     private NetworkManager networkManager;
 
-   
+    private void OnValidate()
+    {
+        if (useFizzySteamworks)
+        {
+            buttonCanvas.SetActive(true);
+            fizzySteamworks.enabled = true;
+            defaultTransport.enabled = false;
+            enabled = true;
+        }
+        else
+        {
+            buttonCanvas.SetActive(false);
+            fizzySteamworks.enabled = false;
+            defaultTransport.enabled = true;
+            enabled = false;
+        }
+        //if (Transport.activeTransport != useFizzySteamworks ? fizzySteamworks : defaultTransport)
+        //{
+        //    Debug.Log("Please set the Transport to " + (useFizzySteamworks ? fizzySteamworks : defaultTransport));
+        //}
+    }
 
 
     private void Start()

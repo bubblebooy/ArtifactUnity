@@ -15,6 +15,10 @@ MonoBehaviour:
   abilityIcon: {fileID: 21300000, guid: f1bdfad6325ae4840bec781bbc3a001d, type: 3}
   abilityName: Berserker's Call
   abilityText: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
   mana: 1
   baseCooldown: 2
   cooldown: 0
@@ -54,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 3764859104290567765, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_text
       value: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764859104290567765, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_fontSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5137725598981403445, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: abilityIcon

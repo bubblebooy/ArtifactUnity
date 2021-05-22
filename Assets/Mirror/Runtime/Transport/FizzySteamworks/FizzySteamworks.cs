@@ -284,5 +284,7 @@ namespace Mirror.FizzySteam
     {
       Shutdown();
     }
+
+    public override string ToString() => "Fizzy Steamworks";
   }
 }
