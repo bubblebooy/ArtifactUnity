@@ -50,6 +50,7 @@
 |✔️| Divine Intervention | Done | Max Garber |
 |✔️| Lightning Strike | Done | Max Garber |
 |✔️| Poised to Strike | Done | Max Garber |
+|✔️| Repel | In Progress | Max Garber |
 |✔️| Ventriloquy | Done | Max Garber |
 </details>
 
