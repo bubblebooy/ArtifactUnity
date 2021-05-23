@@ -1,6 +1,7 @@
 # Cards
 ---
 - [ ] add the entire card list to this file
+- [ ] implement this as a GitHub Project
 
 ---
 ## Creeps
