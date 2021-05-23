@@ -6,7 +6,7 @@ Used [How to Build a Multiplayer Card Game with Unity 2D and Mirror by M. S. Far
 
 ## Running the Game
 
-The game is currently Multiplayer only so you need 2 instances running to test most things. Build and Run the game (Ctrl-B) as one instance and run the game in Unity as the other instance. Running 1 instances of the game as host can sometime be helpfull just to make sure not everything crashes.
+The game is currently Multiplayer only so you need 2 instances running to test most things. Build and Run the game (Ctrl-B) as one instance and run the game in Unity as the other instance. Running 1 instances of the game as host can sometime be helpful just to make sure not everything crashes.
 
 ## How To Add Cards
 Check [Cards.md](Cards.md) to see what cards have been implemented.
@@ -40,34 +40,4 @@ Check [Cards.md](Cards.md) to see what cards have been implemented.
    While testing you can add tower enchantments directly to *Board/XXXXLane/XXXXSide/Enchantments* or Enchantments/abilities to an existing creep or hero (step 5 of adding a card). Just rember to remove them when you are done.
    </details>
 
-### TaskList
-- [x] Discard pile instead of destroying card
-- [X] Play History (a history is required to handle cards such as Spell Steal)
-- [x] Add hero deployments to history
-- [ ] Draw from deck instead of spawning cards as needed (required to handle eclipse)
-- [ ] OnCardPlayed trigger (ex. Zues's Static Field)
-- [ ] OnUnitKillled tigger (ex. Kanna's Prey On The Weak)
-- [ ] BeforeYourTurn tigger (ex. Kanna's Prey On The Weak)
-- [ ] Make global auras linger during combat ( Drow's PRECISION AURA)
-- [ ] Casting rules, require a caster of the correct color
----
-- [x] Devour
-- [x] Scheme (ex. Oglodi Catapult)
-- [x] Death Shield (ex. Rumusque Redeemer)
-- [x] Damage Immunity (ex. Divine Purpose)
-- [ ] Purge
-- [ ] Untargetable
-- [ ] Retaliate
-- [ ] Card Back / unrevealed cards
-- [ ] Status effect visual indicators
----
-- [ ] Items
-- [ ] Shop
----
-- [ ] Start Screen
-- [ ] Set Deck via deck code
-- [ ] Deck Builder
-- [x] Networking over the internet. Steamworks!!
-- [x] Cards linger after played / discarded
----
-- [ ] Make Game Look Good
+### [TaskList](https://github.com/bubblebooy/ArtifactUnity/projects/1)

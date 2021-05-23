@@ -194,6 +194,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &255776029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3994477813304725089, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+  m_PrefabInstance: {fileID: 5948252690416158634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &280627018
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &620601754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -867,7 +872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
@@ -903,7 +908,7 @@ MonoBehaviour:
   serverBatchInterval: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 1102289579}
+  transport: {fileID: 1102289582}
   networkAddress: localhost
   maxConnections: 2
   disconnectInactiveConnections: 0
@@ -978,7 +983,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea368fb6f27ec2f40a40e20977992b9c, type: 3}
   m_Name: 
@@ -1008,12 +1013,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56bf8907566ac5143853a5161d389d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useFizzySteamworks: 0
+  useFizzySteamworks: 1
   buttonCanvas: {fileID: 620601753}
   fizzySteamworks: {fileID: 1102289582}
   defaultTransport: {fileID: 1102289579}
@@ -2132,6 +2137,10 @@ PrefabInstance:
       propertyPath: sceneId
       value: 2299224206
       objectReference: {fileID: 0}
+    - target: {fileID: 4661830558136085837, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 323754788}
     - target: {fileID: 4958051053332487321, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_Offset.x
       value: 250
@@ -2282,6 +2291,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4731188872989115813, guid: faa80248b013cd44e9e24f0ce9d3c5d9, type: 3}
+      propertyPath: Board
+      value: 
+      objectReference: {fileID: 255776029}
     - target: {fileID: 4731188872989115813, guid: faa80248b013cd44e9e24f0ce9d3c5d9, type: 3}
       propertyPath: Button
       value: 
