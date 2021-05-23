@@ -7,13 +7,14 @@
 /[Bb]uilds/
 /[Ll]ibrary/
 /[Ll]ogs/
+UserSettings/
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*
 /Assets/AssetSelectionHistory*
 *.apk
 *.unitypackage
- 
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -31,7 +32,7 @@ sysinfo.txt
 .consulo/
 /*.tmp
 /*.svd
- 
+
 # ============ #
 # OS generated #
 # ============ #
