@@ -184,7 +184,6 @@ public class Unit : Card
         displayCardText.transform.parent.gameObject.SetActive(true);
     }
 
-
     public override void RoundStart() {
         base.RoundStart();
         GetComponent<AbilitiesManager>().RoundStart();
@@ -267,6 +266,21 @@ public class Unit : Card
                 }
             }
 
+        }
+    }
+
+    public void Purge(bool oppenentEffectsOnly = false, bool triggerAuthority = true, bool temporyEffectsOnly = false)
+    {
+        GetComponent<AbilitiesManager>().Purge(oppenentEffectsOnly, triggerAuthority, temporyEffectsOnly);
+        foreach (UnitModifier mod in gameObject.GetComponents<UnitModifier>())
+        {
+            //is an oppenentEffect if it is listed as such XOR on a card owned by the oppenent 
+            bool opponentEffect = mod.opponentEffect ^ !hasAuthority;  
+            if ((!oppenentEffectsOnly || (!triggerAuthority ^ opponentEffect)) &&
+                (!temporyEffectsOnly ||  mod.temporary))
+            {
+                Destroy(mod);
+            }
         }
     }
 

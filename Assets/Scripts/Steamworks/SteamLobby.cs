@@ -26,6 +26,8 @@ public class SteamLobby : MonoBehaviour
 
     private NetworkManager networkManager;
 
+    [ExecuteInEditMode]
+    #if UNITY_EDITOR
     private void OnValidate()
     {
         networkManager = GetComponent<NetworkManager>();
@@ -58,6 +60,7 @@ public class SteamLobby : MonoBehaviour
         //    Debug.Log("Please set the Transport to " + (useFizzySteamworks ? fizzySteamworks : defaultTransport));
         //}
     }
+    #endif
 
 
     private void Start()

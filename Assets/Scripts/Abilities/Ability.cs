@@ -53,5 +53,6 @@ public class Ability : MonoBehaviour
         transform.Find("background").GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }
+
 #pragma warning restore 0414
 }

@@ -42,6 +42,7 @@ public class GameManager : NetworkBehaviour
 
     public void ChangeGameState(string stateRequest)
     {
+        GameUpdate(); // just in case
         if (ReadyClicks == 1)
         {
             switch (stateRequest)
@@ -114,6 +115,7 @@ public class GameManager : NetworkBehaviour
         }
 
         UIManager.UpdatePhaseText();
+        
         //Debug.Log("ReadyClicks: " + ReadyClicks);
         //Debug.Log($"State: {GameState}, Request: {stateRequest}");
     }
@@ -123,7 +125,7 @@ public class GameManager : NetworkBehaviour
         GameHistory.CardPlayed(card, index, side);
         ReadyClicks = 0;
         //push cardplayed event
-        GameUpdate();
+        StartCoroutine(DelayedGameUpdate()); // was causing problems with purge
     }
 
     public void Passed()
@@ -238,6 +240,12 @@ public class GameManager : NetworkBehaviour
         foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }
         PlayerMana.GetComponent<ManaManager>().ManaUpdate();
         EnemyMana.GetComponent<ManaManager>().ManaUpdate();
+    }
+
+    private IEnumerator DelayedGameUpdate()
+    {
+        yield return null;//new WaitForSeconds(0.1f);
+        GameUpdate();
     }
 
     void RoundStart()

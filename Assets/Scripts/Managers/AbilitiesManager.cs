@@ -73,6 +73,22 @@ public class AbilitiesManager : MonoBehaviour
         abilities.transform.GetChild(abilityIndex).GetComponent<ActiveAbility>().OnActivate();
     }
 
+    public void Purge(bool oppenentEffectsOnly, bool triggerAuthority, bool temporyEffectsOnly)
+    {
+        Unit card = gameObject.GetComponent<Unit>();
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            //is an oppenentEffect if it is listed as such XOR on a card owned by the oppenent 
+            bool opponentEffect = ability.opponentEffect ^ !card.hasAuthority;
+            if (!ability.baseAbility &&
+                (!oppenentEffectsOnly || (!triggerAuthority ^ opponentEffect)) &&
+                (!temporyEffectsOnly  || ability.temporary))
+            {
+                Destroy(ability.gameObject);
+            }
+        }
+    }
+
     public void OnClick()
     {
         

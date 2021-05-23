@@ -8,6 +8,10 @@ public class CanidBushwacker : Ability
     {
         base.OnPlay();
         card.GameManager.GameUpdate();
-        card.Strike(card.GetCombatTarget(), card.attack, card.piercing);
+        Unit combatTarget = card.GetCombatTarget();
+        if (combatTarget != null)
+        {
+            card.Strike(card.GetCombatTarget(), card.attack, card.piercing);
+        }
     }
 }

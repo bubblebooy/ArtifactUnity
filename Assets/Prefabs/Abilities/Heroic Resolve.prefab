@@ -20,7 +20,7 @@ MonoBehaviour:
   broken: 0
   opponentEffect: 0
   temporary: 0
-  baseAbility: 1
+  baseAbility: 0
 --- !u!1001 &5244300121751846819
 PrefabInstance:
   m_ObjectHideFlags: 0
