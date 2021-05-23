@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using Steamworks;
 using Mirror;
 
 public class SteamLobby : MonoBehaviour
 {
-    [Header("MUST Manually change the transport in the NetworkManager")]
     [SerializeField]
     private bool useFizzySteamworks = false;
     [SerializeField]
@@ -28,20 +28,31 @@ public class SteamLobby : MonoBehaviour
 
     private void OnValidate()
     {
+        networkManager = GetComponent<NetworkManager>();
+        SerializedObject serializedNetworkManager = new SerializedObject(networkManager);
+        print(serializedNetworkManager.FindProperty("transport").objectReferenceValue);
+
         if (useFizzySteamworks)
         {
             buttonCanvas.SetActive(true);
+
             fizzySteamworks.enabled = true;
             defaultTransport.enabled = false;
+            serializedNetworkManager.FindProperty("transport").objectReferenceValue = fizzySteamworks;
+
             enabled = true;
         }
         else
         {
             buttonCanvas.SetActive(false);
+
             fizzySteamworks.enabled = false;
             defaultTransport.enabled = true;
+            serializedNetworkManager.FindProperty("transport").objectReferenceValue = defaultTransport;
+
             enabled = false;
         }
+        serializedNetworkManager.ApplyModifiedProperties();
         //if (Transport.activeTransport != useFizzySteamworks ? fizzySteamworks : defaultTransport)
         //{
         //    Debug.Log("Please set the Transport to " + (useFizzySteamworks ? fizzySteamworks : defaultTransport));
