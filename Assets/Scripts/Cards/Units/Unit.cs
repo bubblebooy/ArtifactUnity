@@ -36,6 +36,8 @@ public class Unit : Card
     [HideInInspector]
     public bool damageImmunity = false;
     [HideInInspector]
+    public bool untargetable = false;
+    [HideInInspector]
     public int siege = 0;
 
 

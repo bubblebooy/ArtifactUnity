@@ -18,6 +18,7 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool trample = false;
     public bool feeble = false;
     public bool damageImmunity = false;
+    public bool untargetable = false;
 
     public bool opponentEffect = false;
     public bool temporary = true;
@@ -46,6 +47,7 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.trample |= trample;
         unit.feeble |= feeble;
         unit.damageImmunity |= damageImmunity;
+        unit.untargetable |= untargetable;
     }
 
     public virtual void RoundStart()

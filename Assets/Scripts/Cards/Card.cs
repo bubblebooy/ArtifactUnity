@@ -126,7 +126,8 @@ public abstract class Card : NetworkBehaviour
     {
         if (PlayerManager.IsMyTurn &&
             GameManager.GameState == "Play" &&
-            ManaManager.mana >= mana)
+            ManaManager.mana >= mana &&
+            target.GetComponent<Unit>()?.untargetable != true)
         {
             return true;
         }
