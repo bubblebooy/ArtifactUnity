@@ -10,13 +10,13 @@ public class Repel : Spell
         Unit target = transform.parent.GetComponent<Unit>();
         //quckcast
 
+        //Purge oppents effects
+        target.Purge(oppenentEffectsOnly: true, triggerAuthority: hasAuthority);
+
         //Untargetable
         UnitModifier untargetable = target.gameObject.AddComponent<UnitModifier>() as UnitModifier;
         untargetable.untargetable = true;
         untargetable.opponentEffect = hasAuthority != target.hasAuthority;
-
-        //Purge oppents effects
-        target.Purge(oppenentEffectsOnly:true, triggerAuthority: hasAuthority);
 
         DestroyCard();
     }

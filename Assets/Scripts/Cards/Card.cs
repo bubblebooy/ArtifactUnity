@@ -23,6 +23,7 @@ public abstract class Card : NetworkBehaviour
     public string color;
     public string cardName;
     public int mana = 0;
+    public bool quickcast = false;
     protected int baseMana;
     [TextArea]
     public string cardText;
@@ -124,10 +125,11 @@ public abstract class Card : NetworkBehaviour
 
     public virtual bool IsVaildPlay(GameObject target)
     {
+        Unit targetUnit = target.GetComponent<Unit>();
         if (PlayerManager.IsMyTurn &&
             GameManager.GameState == "Play" &&
             ManaManager.mana >= mana &&
-            target.GetComponent<Unit>()?.untargetable != true)
+            (targetUnit?.hasAuthority != !hasAuthority || targetUnit?.untargetable != true))
         {
             return true;
         }

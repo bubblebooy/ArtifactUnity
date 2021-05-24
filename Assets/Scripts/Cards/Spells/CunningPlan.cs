@@ -13,6 +13,7 @@ public class CunningPlan : Spell, ITargets
 
     public bool IsVaildTarget(GameObject target)
     {
+        Unit targetUnit = target.GetComponentInChildren<Unit>();
         if (transform.parent.gameObject == target) { return false; }
         // not sure if I should use isVaildPlay here. but in this case I think it should work
         return PlayerManager.IsMyTurn &&
@@ -21,7 +22,8 @@ public class CunningPlan : Spell, ITargets
                target.tag == "Card Slot" &&
                transform.parent.parent.gameObject != target &&
                target.GetComponent<CardSlot>().GetLane() == transform.parent.gameObject.GetComponent<Unit>().GetLane() &&
-               target.GetComponent<CardSlot>().GetSide() == transform.parent.gameObject.GetComponent<Unit>().GetSide();
+               target.GetComponent<CardSlot>().GetSide() == transform.parent.gameObject.GetComponent<Unit>().GetSide() &&
+               (targetUnit?.hasAuthority != false || targetUnit?.untargetable != true);
     }
 
     public void TargetSelected(GameObject target)

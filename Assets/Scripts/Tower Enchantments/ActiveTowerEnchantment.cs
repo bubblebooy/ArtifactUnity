@@ -67,11 +67,8 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
 
     public virtual bool IsVaildTarget(GameObject target)
     {
-        return true;
-        //if(primaryTarget != null)
-        //{
-        //    return true;
-        //}
+        Unit targetUnit = target.GetComponent<Unit>();
+        return (targetUnit?.hasAuthority != false || targetUnit?.untargetable != true);
     }
 
     public void TargetSelected(GameObject target)
