@@ -34,6 +34,7 @@
 |✔️| Heroic Resolve | Done | Max Garber |
 |✔️| Keenfolk Turret | Done | Max Garber |
 |✔️| Trebuchets | Done | Max Garber |
+
 </details>
 
 ## Spells
