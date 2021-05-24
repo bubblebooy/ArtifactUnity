@@ -23,6 +23,7 @@ MonoBehaviour:
   color: blue
   cardName: Arc Bolt
   mana: 1
+  quickcast: 0
   cardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
     1 piercing damage."
   targetTag: Unit

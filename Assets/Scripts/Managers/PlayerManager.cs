@@ -114,7 +114,7 @@ public class PlayerManager : NetworkBehaviour
     public void CmdPass()
     {
         RpcPass();
-        RpcNextTurn();
+        RpcNextTurn(quickcast:false);
         
     }
 
@@ -125,10 +125,13 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcNextTurn()
+    void RpcNextTurn(bool quickcast)
     {
-        PlayerManager pm = NetworkClient.connection.identity.GetComponent<PlayerManager>();
-        pm.IsMyTurn = !pm.IsMyTurn;
+        if (!quickcast)
+        {
+            PlayerManager pm = NetworkClient.connection.identity.GetComponent<PlayerManager>();
+            pm.IsMyTurn = !pm.IsMyTurn;
+        }
         GameManager.NextTurn();
         //Debug.Log(pm.IsMyTurn);
     }
@@ -226,7 +229,7 @@ public class PlayerManager : NetworkBehaviour
         RpcPlaceCard(card, targetLineage);
         RpcPayForCard(card);
         RpcPlayCard(card); 
-        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+        RpcNextTurn(card.GetComponent<Card>().quickcast); // This should be moved to so that the card call it (or not if quick)
     }
 
     [Command]
@@ -235,7 +238,7 @@ public class PlayerManager : NetworkBehaviour
         RpcPlaceCard(card, targetLineage);
         RpcPayForCard(card);
         RpcPlayTargetedCard(card, secondaryTargetLineage); 
-        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+        RpcNextTurn(card.GetComponent<Card>().quickcast); // This should be moved to so that the card call it (or not if quick)
     }
 
     [ClientRpc]
@@ -265,16 +268,16 @@ public class PlayerManager : NetworkBehaviour
         GameManager.CardPlayed(card);
     }
 
-    public void ActivateAbility(GameObject card, int abilityIndex)
+    public void ActivateAbility(GameObject card, int abilityIndex, bool quickcast = false)
     {
-        CmdActivateAbility(card, abilityIndex);
+        CmdActivateAbility(card, abilityIndex, quickcast);
     }
 
     [Command]
-    void CmdActivateAbility(GameObject card, int abilityIndex)
+    void CmdActivateAbility(GameObject card, int abilityIndex, bool quickcast)
     {
         RpcActivateAbility(card, abilityIndex);  // this prob needs to pass the card so on play effects can happen
-        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+        RpcNextTurn(quickcast); // This should be moved to so that the card call it (or not if quick)
     }
     [ClientRpc]
     void RpcActivateAbility(GameObject card, int abilityIndex)
@@ -283,16 +286,16 @@ public class PlayerManager : NetworkBehaviour
         GameManager.CardPlayed(card, abilityIndex); // should prob rename to action taken
     }
 
-    public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null)
+    public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null, bool quickcast = false)
     {
-        CmdActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage);
+        CmdActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage, quickcast);
     }
 
     [Command]
-    void CmdActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage)
+    void CmdActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage, bool quickcast)
     {
         RpcActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage);  // this prob needs to pass the card so on play effects can happen
-        RpcNextTurn(); // This should be moved to so that the card call it (or not if quick)
+        RpcNextTurn(quickcast); // This should be moved to so that the card call it (or not if quick)
     }
 
     [ClientRpc]

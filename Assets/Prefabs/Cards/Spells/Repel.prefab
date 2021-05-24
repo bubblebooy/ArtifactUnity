@@ -23,6 +23,7 @@ MonoBehaviour:
   color: green
   cardName: Repel
   mana: 1
+  quickcast: 1
   cardText: "Purge opponent's effects from a unit. Give it Untargetable.\r\n\u25A2Quickcast"
   targetTag: Unit
   targetOnlyEnemySide: 0

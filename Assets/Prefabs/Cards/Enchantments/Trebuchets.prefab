@@ -23,6 +23,7 @@ MonoBehaviour:
   color: black
   cardName: Trebuchets
   mana: 1
+  quickcast: 0
   cardText: 'Enchant Tower
 
     Combat: Deal 2 piercing damage to the enemy tower.'

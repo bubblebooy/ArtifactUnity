@@ -23,6 +23,7 @@ MonoBehaviour:
   color: blue
   cardName: Cunning Plan
   mana: 1
+  quickcast: 0
   cardText: Swap a unit to another slot.
   targetTag: Unit
   targetOnlyEnemySide: 0

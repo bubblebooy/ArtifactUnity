@@ -23,6 +23,7 @@ MonoBehaviour:
   color: green
   cardName: Divine Intervention
   mana: 4
+  quickcast: 0
   cardText: Give allies Damage Immunity.
   targetTag: Lane
   targetOnlyEnemySide: 0

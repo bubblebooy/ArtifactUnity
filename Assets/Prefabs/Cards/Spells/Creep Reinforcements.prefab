@@ -23,6 +23,7 @@ MonoBehaviour:
   color: blue
   cardName: Creep Reinforcements
   mana: 2
+  quickcast: 0
   cardText: Push caster and Summon a Melee Creep in its place.
   targetTag: Unit
   targetOnlyEnemySide: 0

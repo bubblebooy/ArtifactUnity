@@ -23,6 +23,7 @@ MonoBehaviour:
   color: black
   cardName: Keenfolk Turret
   mana: 2
+  quickcast: 0
   cardText: "Enchant Tower\r\nActive 1\u25A0, 1 Mana: Deal 2 piercing damage to a
     unit."
   Ability: {fileID: 7686190729390017691, guid: 8827af3bc16dbc54a8767a0044c1562b, type: 3}

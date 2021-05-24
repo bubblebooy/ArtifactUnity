@@ -8,7 +8,7 @@ public class Repel : Spell
     {
         base.OnPlay();
         Unit target = transform.parent.GetComponent<Unit>();
-        //quckcast
+        //quickcast set on prefab
 
         //Purge oppents effects
         target.Purge(oppenentEffectsOnly: true, triggerAuthority: hasAuthority);

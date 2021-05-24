@@ -23,6 +23,7 @@ MonoBehaviour:
   color: blue
   cardName: Ventriloquy
   mana: 1
+  quickcast: 0
   cardText: Choose unit. It taunts, then each unit pointing at it strikes it for
     1 <sprite=0>.
   targetTag: Unit

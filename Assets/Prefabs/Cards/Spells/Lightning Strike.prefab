@@ -23,6 +23,7 @@ MonoBehaviour:
   color: blue
   cardName: Lightning Strike
   mana: 1
+  quickcast: 0
   cardText: 'Deal 4 piercing damage to caster''s combat target.
 
     (Can hit towers).'

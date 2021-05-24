@@ -23,6 +23,7 @@ MonoBehaviour:
   color: black
   cardName: Escape Route
   mana: 1
+  quickcast: 0
   cardText: "Enchant Tower\r\n\r\nActive 1\u25A0, 1 Mana: Move one of your heroes
     to an adjacent lane."
   Ability: {fileID: 7122411515405318769, guid: 00f86fe83358cd147adffd8716bd11fa, type: 3}

@@ -23,6 +23,7 @@ MonoBehaviour:
   color: red
   cardName: Heroic Resolve
   mana: 2
+  quickcast: 0
   cardText: 'Enchant Caster
 
     Caster has +1<sprite=0> per missing <sprite=2>.'
