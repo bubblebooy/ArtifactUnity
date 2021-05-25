@@ -8,6 +8,7 @@ using TMPro;
 public class TowerManager : NetworkBehaviour
 {
     public int health = 40, armor = 0;
+    public int retaliate = 0;
     private int maxHealth, maxArmor;
     public bool ancient = false;
     private TextMeshProUGUI  displayHealth; //displayArmor,

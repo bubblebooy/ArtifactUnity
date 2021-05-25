@@ -6,10 +6,12 @@ public class UnitModifier : MonoBehaviour, IModifier
 {
     private Unit unit;
 
-    public int attack;//, armor, health;
+    public int attack;
     public int maxArmor, maxHealth;
 
     public int cleave = 0;
+    public int siege = 0;
+    public int retaliate = 0;
 
     public bool quickstrike = false;
     public bool disarmed = false;
@@ -39,6 +41,8 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.maxHealth += maxHealth;
 
         unit.cleave += cleave;
+        unit.siege += siege;
+        unit.retaliate += retaliate;
 
         unit.quickstrike |= quickstrike;
         unit.disarmed |= disarmed;

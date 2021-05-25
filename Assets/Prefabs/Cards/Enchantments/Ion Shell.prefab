@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8610954100708798445
+--- !u!114 &2668741029794855310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635553572286077581}
+  m_GameObject: {fileID: 4464708748315217065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558cbad22137f274fa6c9d13ea2bef76, type: 3}
+  m_Script: {fileID: 11500000, guid: a500fe5aaa11e1e45b6f42256013f84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
@@ -19,20 +19,18 @@ MonoBehaviour:
   ManaManager: {fileID: 0}
   staged: 0
   isDraggable: 1
-  cardArt: {fileID: 21300000, guid: 65c24858a9de50944b4e1d45d485296b, type: 3}
+  cardArt: {fileID: 21300000, guid: 0a51eea4c52db78418a54cd271789463, type: 3}
   color: red
-  cardName: Heroic Resolve
-  mana: 2
+  cardName: Ion Shell
+  mana: 3
   quickcast: 0
-  cardText: 'Enchant Caster
-
-    Caster has +1<sprite=0> per missing <sprite=2>.'
-  Ability: {fileID: 2936536661562203131, guid: 19038ad811fd4084996f88a956c3ae64, type: 3}
-  enchantCaster: 1
+  cardText: Give an ally +3 Retaliate permanently. It taunts.
+  Ability: {fileID: 5955683767331550054, guid: 6f8fa5f9d08aa034cbdd143ceb1b2541, type: 3}
+  enchantCaster: 0
   enchantHero: 0
   targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 0
---- !u!1001 &4194256796868366835
+  targetOnlyPlayerSide: 1
+--- !u!1001 &1257504751856682967
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -53,18 +51,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Name
-      value: Heroic Resolve
+      value: Ion Shell
       objectReference: {fileID: 0}
     - target: {fileID: 3988664816421315036, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_text
-      value: 'Enchant Caster
-
-        Caster has +1<sprite=0> per missing <sprite=2>.'
+      value: Give an ally +3 Retaliate permanently. It taunts.
       objectReference: {fileID: 0}
     - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 65c24858a9de50944b4e1d45d485296b, type: 3}
+      objectReference: {fileID: 21300000, guid: 0a51eea4c52db78418a54cd271789463, type: 3}
     - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -83,15 +79,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_text
-      value: Heroic Resolve
-      objectReference: {fileID: 0}
-    - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-      propertyPath: m_fontSize
-      value: 10
+      value: Ion Shell
       objectReference: {fileID: 0}
     - target: {fileID: 5911249495024554266, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_text
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Pivot.x
@@ -184,8 +176,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1070878725135988414, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
---- !u!1 &1635553572286077581 stripped
+--- !u!1 &4464708748315217065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
-  m_PrefabInstance: {fileID: 4194256796868366835}
+  m_PrefabInstance: {fileID: 1257504751856682967}
   m_PrefabAsset: {fileID: 0}

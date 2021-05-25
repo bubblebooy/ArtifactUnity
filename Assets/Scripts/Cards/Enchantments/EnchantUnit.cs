@@ -7,6 +7,8 @@ public class EnchantUnit : Enchantment
     [Header("Vaild Targets")]
     public bool enchantCaster = false;
     public bool enchantHero = false;
+    public bool targetOnlyEnemySide = false;
+    public bool targetOnlyPlayerSide = false;
 
     public override bool IsVaildPlay(GameObject target)
     {
@@ -15,7 +17,9 @@ public class EnchantUnit : Enchantment
             unit != null &&
             (!enchantCaster || unit.caster) &&
             (!enchantCaster || unit.GetSide() == "PlayerSide") &&
-            (!enchantHero || unit is Hero))
+            (!enchantHero || unit is Hero) &&
+            (!targetOnlyPlayerSide || unit.GetSide() == "PlayerSide") &&
+            (!targetOnlyEnemySide  || unit.GetSide() == "EnemySide"))
         {
             return true;
         }
@@ -25,8 +29,9 @@ public class EnchantUnit : Enchantment
     public override void OnPlay()
     {
         base.OnPlay();
-        Unit unit = gameObject.transform.parent.GetComponentInChildren<Unit>();
-        Instantiate(Ability, unit.GetComponent<AbilitiesManager>().abilities.transform);
+        Unit unit = transform.parent.GetComponentInChildren<Unit>();
+        GameObject ability = Instantiate(Ability, unit.GetComponent<AbilitiesManager>().abilities.transform);
+        ability.GetComponent<Ability>().opponentEffect = hasAuthority != unit.hasAuthority;
         DestroyCard();
     }
 }

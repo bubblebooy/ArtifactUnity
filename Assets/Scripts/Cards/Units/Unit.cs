@@ -39,6 +39,8 @@ public class Unit : Card
     public bool untargetable = false;
     [HideInInspector]
     public int siege = 0;
+    [HideInInspector]
+    public int retaliate = 0;
 
 
     protected string targetTag = "Card Slot";
@@ -96,6 +98,7 @@ public class Unit : Card
 
         cleave = 0;
         siege = 0;
+        retaliate = 0;
 
         quickstrike = false;
         disarmed = false;
@@ -104,13 +107,16 @@ public class Unit : Card
         trample = false;
         feeble = false;
         damageImmunity = false;
+        untargetable = false;
 
         foreach (IModifier mod in gameObject.GetComponentsInChildren<IModifier>())
         {
             mod.ModifyCard();
         }
         
-        if (arrow != 0 && GetCombatTarget() == null)
+        if (arrow != 0 && (
+            transform.parent.GetComponent<CardSlot>() == null ||
+            GetCombatTarget() == null ))
         {
             arrow = 0;
         }
@@ -129,8 +135,11 @@ public class Unit : Card
             }
             
         }
-
-        base.CardUpdate();
+        else
+        {
+            base.CardUpdate();
+        }
+        
     }
 
     public override void CardUIUpdate()
@@ -194,13 +203,13 @@ public class Unit : Card
 
     public virtual int Strike(Unit target, int damage, bool piercing = false)
     {
-        //retaliate
+        Damage(target.retaliate);
         return target.Damage(damage, piercing);
     }
 
     public virtual void Strike(TowerManager target, int damage, bool piercing = false)
     {
-        //retaliate
+        Damage(target.retaliate);
         target.Damage(damage, piercing);
     }
 
