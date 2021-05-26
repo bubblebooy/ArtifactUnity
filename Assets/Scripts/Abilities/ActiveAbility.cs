@@ -31,8 +31,10 @@ public class ActiveAbility : Ability
         entry.callback.AddListener((eventData) => { OnClick(); });
         m_EventTrigger.triggers.Add(entry);
 
+        events.Add(GameEventSystem.Register<RoundStart_e>(IncrementCooldown));
         displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);
     }
+
 
     public override void CardUpdate()
     {
@@ -72,9 +74,8 @@ public class ActiveAbility : Ability
         // use mana and stuff
     }
 
-    public override void RoundStart()
+    public void IncrementCooldown(RoundStart_e e)
     {
-        base.RoundStart();
         if(cooldown > 0)
         {
             cooldown -= 1;

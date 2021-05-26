@@ -186,6 +186,7 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         RpcOnSpawn(card);
         RpcSpawnLaneCreeps(lane, card);
+        RpcPlayCard(card,false);
     }
 
     [ClientRpc]
@@ -209,7 +210,7 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         RpcOnSpawn(card);
         RpcPlaceCard(card, targetLineage);
-        RpcPlayCard(card);
+        RpcPlayCard(card,false);
     }
 
 
@@ -228,7 +229,7 @@ public class PlayerManager : NetworkBehaviour
     {
         RpcPlaceCard(card, targetLineage);
         RpcPayForCard(card);
-        RpcPlayCard(card); 
+        RpcPlayCard(card, true); 
         RpcNextTurn(card.GetComponent<Card>().quickcast); // This should be moved to so that the card call it (or not if quick)
     }
 
@@ -254,10 +255,13 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcPlayCard(GameObject card)
+    void RpcPlayCard(GameObject card, bool gameManagerCardPlayed)
     {
         card.GetComponent<Card>().OnPlay();
-        GameManager.CardPlayed(card);
+        if (gameManagerCardPlayed)
+        {
+            GameManager.CardPlayed(card);
+        }
     }
 
     [ClientRpc]

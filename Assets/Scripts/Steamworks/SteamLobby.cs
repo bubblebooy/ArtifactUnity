@@ -32,7 +32,7 @@ public class SteamLobby : MonoBehaviour
     {
         networkManager = GetComponent<NetworkManager>();
         SerializedObject serializedNetworkManager = new SerializedObject(networkManager);
-        print(serializedNetworkManager.FindProperty("transport").objectReferenceValue);
+        //print(serializedNetworkManager.FindProperty("transport").objectReferenceValue);
 
         if (useFizzySteamworks)
         {

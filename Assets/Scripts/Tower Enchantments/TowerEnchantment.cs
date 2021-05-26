@@ -19,7 +19,8 @@ public class TowerEnchantment : MonoBehaviour
 
     public bool broken = false;
     private bool expanded = false;
-    
+
+    public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
 
     public virtual void OnValidate()
     {
@@ -45,7 +46,6 @@ public class TowerEnchantment : MonoBehaviour
     }
 
     public virtual void EnchantmentUpdate() { } // for dealing with retaliate and armor
-    public virtual void RoundStart() { }
     public virtual void Combat() { }
 
     public void Expand()
@@ -70,6 +70,11 @@ public class TowerEnchantment : MonoBehaviour
     public LaneManager GetLane()
     {
         return transform.parent.parent.parent.GetComponent<LaneManager>();
+    }
+
+    private void OnDestroy()
+    {
+        GameEventSystem.Unregister(inPlayEvents);
     }
 
 #pragma warning restore 0414

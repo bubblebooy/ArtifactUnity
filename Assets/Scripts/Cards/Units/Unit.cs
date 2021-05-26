@@ -45,6 +45,9 @@ public class Unit : Card
 
     protected string targetTag = "Card Slot";
 
+    public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
+    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
 
     public override void OnValidate()
     {
@@ -170,13 +173,13 @@ public class Unit : Card
     public override void OnPlay()
     {
         base.OnPlay();
+        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
         displayCardText.transform.parent.gameObject.SetActive(false);
         GetComponent<AbilitiesManager>().OnPlay();
     }
 
-    public override void Scheme()
+    public void Scheme()
     {
-        base.Scheme();
         GetComponent<AbilitiesManager>().Scheme();
     }
 
@@ -193,11 +196,27 @@ public class Unit : Card
             false);
         isDraggable = true;
         displayCardText.transform.parent.gameObject.SetActive(true);
+
+        GameEventSystem.Unregister(inPlayEvents);
+        GetComponent<AbilitiesManager>().Bounce();
+
+        //foreach( (System.Type t, GameEventSystem.EventListener listener) in inPlayEvents)
+        //{
+        //    GameEventSystem.Unregister(t, listener);
+        //}
+        //inPlayEvents.Clear();
     }
 
-    public override void RoundStart() {
-        base.RoundStart();
-        GetComponent<AbilitiesManager>().RoundStart();
+    public override void DestroyCard()
+    {
+        base.DestroyCard();
+        GameEventSystem.Unregister(inPlayEvents);
+        GameEventSystem.Unregister(events);
+        GetComponent<AbilitiesManager>().DestroyCard();
+    }
+
+    public void RoundStart(RoundStart_e e) {
+        //GetComponent<AbilitiesManager>().RoundStart();
         armor = maxArmor;
     }
 

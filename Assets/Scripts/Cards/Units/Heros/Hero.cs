@@ -23,6 +23,15 @@ public class Hero : Unit
         displayRespawn = gameObject.transform.Find("Respawn").GetComponent<TextMeshProUGUI>();
         displayRespawn.text = respawn.ToString();
         displayRespawn.enabled = respawn != 0;
+        events.Add(GameEventSystem.Register<RoundStart_e>(IncrementRespawn));
+    }
+
+    private void IncrementRespawn(RoundStart_e e)
+    {
+        if(respawn > 0)
+        {
+            respawn -= 1;
+        }
     }
 
     public override void CardUIUpdate()
@@ -55,6 +64,9 @@ public class Hero : Unit
         gameObject.transform.SetParent(
             GameObject.Find(gameObject.GetComponent<NetworkIdentity>().hasAuthority ? "PlayerFountain" : "EnemyFountain").transform,
             false);
+
+        GameEventSystem.Unregister(inPlayEvents);
+        GetComponent<AbilitiesManager>().Bounce();
     }
 
     public override bool IsVaildPlay(GameObject target)

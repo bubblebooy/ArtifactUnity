@@ -12,14 +12,18 @@ public class OglodiCatapult : ModifierAbility
         baseSiege = siege;
     }
 
+    public override void OnPlay()
+    {
+        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+    }
+
     public override void Scheme()
     {
         base.Scheme();
         siege += 1;
     }
-    public override void RoundStart()
+    public void RoundStart(RoundStart_e e)
     {
-        base.RoundStart();
         siege = baseSiege;
     }
 }

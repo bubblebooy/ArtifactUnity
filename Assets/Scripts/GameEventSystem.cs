@@ -1,0 +1,78 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameEventSystem : MonoBehaviour
+{
+    public delegate void EventListener(IGameEventInfo e);
+    public delegate void EventListener<T>(T e);
+
+    private static Dictionary<Type, List<EventListener>> eventListeners;
+
+    public static (Type, EventListener) Register<T>(EventListener<T> listener)
+    {
+        Type t = typeof(T);
+        if(eventListeners == null)
+        {
+            eventListeners = new Dictionary<Type, List<EventListener>>();
+        }
+
+        if(!eventListeners.ContainsKey(t) || eventListeners[t] == null)
+        {
+            eventListeners[t] = new List<EventListener>();
+        }
+
+        EventListener eventListener = (e) => { listener((T)e); };
+        eventListeners[t].Add(eventListener);
+        return (t, eventListener);
+
+    }
+
+    public static void Unregister<T>(EventListener listener)
+    {
+        Unregister(typeof(T), listener);
+    }
+    public static void Unregister(Type t, EventListener listener)
+    {
+        eventListeners[t].Remove(listener);
+    }
+
+    public static void Unregister(List<(Type, EventListener)> listeners)
+    {
+        foreach ((System.Type t, EventListener listener) in listeners)
+        {
+            Unregister(t, listener);
+        }
+        listeners.Clear();
+    }
+
+    public static void Event(IGameEventInfo eventInfo)
+    {
+        if (eventListeners?[eventInfo.GetType()] == null)
+        {
+            return;
+        }
+
+        foreach( EventListener listener in eventListeners[eventInfo.GetType()])
+        {
+            listener(eventInfo);
+        }
+        
+    }
+
+}
+
+//public abstract class EventListener
+//{
+//    internal abstract Type GetCallbackType();
+//}
+
+//public class EventListener<T> : EventListener
+//{
+
+//    internal override Type GetCallbackType()
+//    {
+//        return typeof(T);
+//    }
+//}

@@ -90,6 +90,7 @@ public abstract class Card : NetworkBehaviour
         //InitializeCard();  // should prob just do Start({base.Start()})
     }
 
+
     //public virtual void InitializeCard(){}
     public virtual void DestroyCard()
     {
@@ -119,9 +120,6 @@ public abstract class Card : NetworkBehaviour
         staged = false;
         isDraggable = false;
     }
-
-    public virtual void RoundStart(){}
-    public virtual void Scheme(){}
 
     public virtual bool IsVaildPlay(GameObject target)
     {

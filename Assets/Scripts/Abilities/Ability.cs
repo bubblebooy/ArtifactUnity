@@ -21,6 +21,10 @@ public class Ability : MonoBehaviour
 
     private bool expanded = false;
 
+    public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
+    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
+
     public virtual void OnValidate()
     {
         transform.Find("abilityIcon").GetComponent<Image>().sprite = abilityIcon;
@@ -33,7 +37,7 @@ public class Ability : MonoBehaviour
     }
 
     public virtual void CardUpdate() { }
-    public virtual void RoundStart() { }
+    //public virtual void RoundStart() { }
     public virtual void OnPlay() { }
     public virtual void PlacedOnTopOf(Unit unit) { }
     public virtual void Scheme() { }
@@ -52,6 +56,23 @@ public class Ability : MonoBehaviour
         //GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(false);
         transform.Find("background").GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameEventSystem.Unregister(inPlayEvents);
+        GameEventSystem.Unregister(events);
+    }
+
+    public virtual void Bounce()
+    {
+        GameEventSystem.Unregister(inPlayEvents);
+    }
+
+    public virtual void DestroyCard()
+    {
+        GameEventSystem.Unregister(inPlayEvents);
+        GameEventSystem.Unregister(events);
     }
 
 #pragma warning restore 0414

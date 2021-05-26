@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 245715547}
   - component: {fileID: 245715546}
   - component: {fileID: 245715545}
+  - component: {fileID: 245715548}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -194,6 +195,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245715548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245715544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802b9d08c0241054e94562e4acf472e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255776029 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3994477813304725089, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
@@ -400,7 +413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &620601754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -872,7 +885,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
@@ -908,7 +921,7 @@ MonoBehaviour:
   serverBatchInterval: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 1102289582}
+  transport: {fileID: 1102289579}
   networkAddress: localhost
   maxConnections: 2
   disconnectInactiveConnections: 0
@@ -961,6 +974,8 @@ MonoBehaviour:
   - {fileID: 4120536279109515647, guid: ec974c71ab4258a478f2a09980312740, type: 3}
   - {fileID: 6203047974921138236, guid: 923d5f86daf79f14893edd12ee39efe7, type: 3}
   - {fileID: 3268424118735721052, guid: e2f79e84df085dd43bdc797bbeb251b0, type: 3}
+  - {fileID: 3488105600781611208, guid: 2960016a51796b54c9eced3a9aa681a9, type: 3}
+  - {fileID: 4464708748315217065, guid: 807cda63884a9d746a38b70571806b88, type: 3}
 --- !u!4 &1102289581
 Transform:
   m_ObjectHideFlags: 0
@@ -983,7 +998,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea368fb6f27ec2f40a40e20977992b9c, type: 3}
   m_Name: 
@@ -1013,12 +1028,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102289577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56bf8907566ac5143853a5161d389d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useFizzySteamworks: 1
+  useFizzySteamworks: 0
   buttonCanvas: {fileID: 620601753}
   fizzySteamworks: {fileID: 1102289582}
   defaultTransport: {fileID: 1102289579}

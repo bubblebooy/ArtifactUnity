@@ -29,6 +29,8 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         entry.callback.AddListener((eventData) => { OnClick(); });
         m_EventTrigger.triggers.Add(entry);
 
+        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+
         displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);
     }
 
@@ -104,9 +106,8 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         primaryTarget = null;
     }
 
-    public override void RoundStart()
+    public void RoundStart(RoundStart_e e)
     {
-        base.RoundStart();
         if (cooldown > 0)
         {
             cooldown -= 1;

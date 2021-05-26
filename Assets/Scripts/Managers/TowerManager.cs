@@ -13,6 +13,8 @@ public class TowerManager : NetworkBehaviour
     public bool ancient = false;
     private TextMeshProUGUI  displayHealth; //displayArmor,
 
+    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
     public void OnValidate()
     {
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
@@ -28,6 +30,9 @@ public class TowerManager : NetworkBehaviour
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
         //displayArmor.text = armor.ToString();
         displayHealth.text = health.ToString();
+
+        events.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+
     }
 
     public void TowerUpdate()
@@ -36,7 +41,7 @@ public class TowerManager : NetworkBehaviour
         displayHealth.text = health.ToString();
     }
 
-    public void RoundStart()
+    public void RoundStart(RoundStart_e e)
     {
         if( !ancient && health <= 0)
         {

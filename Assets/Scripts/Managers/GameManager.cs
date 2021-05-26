@@ -142,7 +142,7 @@ public class GameManager : NetworkBehaviour
             foreach (Card card in cards) {
                 if ( card.hasAuthority == PlayerManager.IsMyTurn)
                 {
-                    card.Scheme();
+                    //card.Scheme();
                 }
             }
             ReadyClicks = 1;
@@ -248,17 +248,10 @@ public class GameManager : NetworkBehaviour
         GameUpdate();
     }
 
+    //
     void RoundStart()
     {
-        //Board.GetComponent<BoardManager>().RoundStart();
-        foreach (Card card in Board.GetComponentsInChildren<Card>()) { card.RoundStart(); }
-        foreach (TowerManager tower in Board.GetComponentsInChildren<TowerManager>()) { tower.RoundStart(); }
-        foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
-        foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()) { hero.respawn -= 1; }
-        foreach (UnitModifier mod in Board.GetComponentsInChildren<UnitModifier>()) { mod.RoundStart(); }
-        foreach (TowerEnchantment towerEnchantment in Board.GetComponentsInChildren<TowerEnchantment>()) { towerEnchantment.RoundStart(); }
-        PlayerMana.GetComponent<ManaManager>().RoundStart();
-        EnemyMana.GetComponent<ManaManager>().RoundStart();
+        GameEventSystem.Event(new RoundStart_e());
         GameUpdate();
     }
 

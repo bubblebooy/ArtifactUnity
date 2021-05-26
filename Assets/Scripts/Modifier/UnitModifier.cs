@@ -26,9 +26,16 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool temporary = true;
     public int duration = 0;
 
+    public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
+
     private void Awake()
     {
         unit = GetComponentInParent<Unit>();
+        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        //if (temporary)
+        //{
+        //    unit.inPlayEvents.Add ONDESTROY EVENT
+        //}
     }
 
     public void ModifyCard()
@@ -54,12 +61,17 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.untargetable |= untargetable;
     }
 
-    public virtual void RoundStart()
+    public virtual void RoundStart(RoundStart_e e)
     {
         duration--;
         if (temporary && duration <= 0)
         {
             Destroy(this);
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameEventSystem.Unregister(inPlayEvents);
     }
 }

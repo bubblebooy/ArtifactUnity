@@ -44,6 +44,23 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
+    public void Bounce()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.Bounce();
+        }
+    }
+
+    public void DestroyCard()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.DestroyCard();
+        }
+    }
+
+
     public void PlacedOnTopOf(Unit unit)
     {
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
@@ -60,13 +77,13 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
-    public void RoundStart()
-    {
-        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
-        {
-            ability.RoundStart();
-        }
-    }
+    //public void RoundStart()
+    //{
+    //    foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+    //    {
+    //        ability.RoundStart();
+    //    }
+    //}
 
     public void OnActivate(int abilityIndex)
     {
