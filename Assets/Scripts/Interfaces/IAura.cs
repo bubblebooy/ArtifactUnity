@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAura
 {
-    void ContinuousEffect();
+    void ContinuousEffect(Auras_e e);
 }

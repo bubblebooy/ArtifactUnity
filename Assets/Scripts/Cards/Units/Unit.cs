@@ -46,8 +46,6 @@ public class Unit : Card
     protected string targetTag = "Card Slot";
 
     public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
-    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
-
 
     public override void OnValidate()
     {
@@ -61,9 +59,9 @@ public class Unit : Card
         caster = this is Hero;
     }
 
-    public override void OnSpawn()
+    public override void OnStartClient()
     {
-        base.OnSpawn();
+        base.OnStartClient();
         maxArmor = armor;
         maxHealth = health;
         baseAttack = attack;
@@ -78,6 +76,7 @@ public class Unit : Card
         displayHealth.text = "<sprite=2>" + health.ToString();
         if (disarmed) { displayAttack.color = Color.grey; }
         displayArrow = gameObject.transform.Find("Color/Arrow");
+        events.Add(GameEventSystem.Register<GameUpdate_e>(CardUpdate));
     }
 
     public override bool IsVaildPlay(GameObject target)
@@ -91,7 +90,12 @@ public class Unit : Card
         return false;
     }
 
-    public override void CardUpdate()
+    public void CardUpdate(GameUpdate_e e)
+    {
+        CardUpdate();
+    }
+
+    public void CardUpdate()
     {
         GetComponent<AbilitiesManager>().CardUpdate();
 
@@ -116,15 +120,16 @@ public class Unit : Card
         {
             mod.ModifyCard();
         }
-        
         if (arrow != 0 && (
             transform.parent.GetComponent<CardSlot>() == null ||
-            GetCombatTarget() == null ))
+            GetCombatTarget() == null))
         {
             arrow = 0;
         }
-        //displayArrow = gameObject.transform.Find("Color/Arrow");
-
+    }
+    //displayArrow = gameObject.transform.Find("Color/Arrow");
+    public void CheckAlive(GameUpdate_e e)
+    {
         if (health <= 0)
         {
             if (deathShield)
@@ -138,16 +143,12 @@ public class Unit : Card
             }
             
         }
-        else
-        {
-            base.CardUpdate();
-        }
         
     }
 
-    public override void CardUIUpdate()
+    public override void CardUIUpdate(GameUpdateUI_e e)
     {
-        base.CardUIUpdate();
+        base.CardUIUpdate(e);
         // If this is needed I think we have bigger problems
         //displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
         //displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
@@ -174,6 +175,8 @@ public class Unit : Card
     {
         base.OnPlay();
         inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        inPlayEvents.Add(GameEventSystem.Register<GameUpdate_e>(CheckAlive));
+        
         displayCardText.transform.parent.gameObject.SetActive(false);
         GetComponent<AbilitiesManager>().OnPlay();
     }
@@ -205,10 +208,9 @@ public class Unit : Card
 
     public override void DestroyCard()
     {
-        base.DestroyCard();
         GameEventSystem.Unregister(inPlayEvents);
-        GameEventSystem.Unregister(events);
         GetComponent<AbilitiesManager>().DestroyCard();
+        base.DestroyCard();
     }
 
     public void RoundStart(RoundStart_e e) {

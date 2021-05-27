@@ -32,10 +32,11 @@ public class TowerManager : NetworkBehaviour
         displayHealth.text = health.ToString();
 
         events.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        events.Add(GameEventSystem.Register<GameUpdateUI_e>(TowerUpdate));
 
     }
 
-    public void TowerUpdate()
+    public void TowerUpdate(GameUpdateUI_e e)
     {
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
         displayHealth.text = health.ToString();

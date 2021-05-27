@@ -8,10 +8,14 @@ public class CardSlot : NetworkBehaviour
     //public PlayerManager PlayerManager;
 
     public GameManager GameManager;
+    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
 
     public override void OnStartClient()
     {
+        base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        events.Add(GameEventSystem.Register<GameUpdate_e>(SlotUpdate));
     }
 
     // MIGHT NEED THIS IF ADD CARDS THEN ADD NEWS CARD SLOTS
@@ -20,7 +24,7 @@ public class CardSlot : NetworkBehaviour
     //    GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     //}
 
-    public void SlotUpdate()
+    public void SlotUpdate(GameUpdate_e e)
     {
         //NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         //PlayerManager = networkIdentity.GetComponent<PlayerManager>();

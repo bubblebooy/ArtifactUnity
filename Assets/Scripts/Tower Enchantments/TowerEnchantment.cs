@@ -45,7 +45,6 @@ public class TowerEnchantment : MonoBehaviour
         Canvas = GameObject.Find("Main Canvas");
     }
 
-    public virtual void EnchantmentUpdate() { } // for dealing with retaliate and armor
     public virtual void Combat() { }
 
     public void Expand()

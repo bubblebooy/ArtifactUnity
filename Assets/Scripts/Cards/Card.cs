@@ -42,6 +42,8 @@ public abstract class Card : NetworkBehaviour
         { "colorless", new Color(0.4f, 0.4f, 0.4f, 1.0f)}
     };
 
+    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
     public virtual void OnValidate()
     {
         gameObject.transform.Find("Color/Card Name").GetComponent<TextMeshProUGUI>().text = cardName;
@@ -74,10 +76,15 @@ public abstract class Card : NetworkBehaviour
         if(cardArt != null) { transform.Find("Color/Image").GetComponent<Image>().color = Color.white; }
     }
 
+    //public override void OnStartClient()
+    //{
+    //    print($"{gameObject.name} : when does this run??");
+    //}
 
     // Start is called before the first frame update
-    public virtual void OnSpawn()
+    public override void OnStartClient()
     {
+        base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
@@ -86,6 +93,7 @@ public abstract class Card : NetworkBehaviour
         displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
         displayCardText.transform.parent.SetAsLastSibling();
         baseMana = mana;
+        events.Add(GameEventSystem.Register<GameUpdateUI_e>(CardUIUpdate));
 
         //InitializeCard();  // should prob just do Start({base.Start()})
     }
@@ -94,13 +102,12 @@ public abstract class Card : NetworkBehaviour
     //public virtual void InitializeCard(){}
     public virtual void DestroyCard()
     {
-        // Move to graveyard based on player ownership? does artifact have a graveyard?
+        GameEventSystem.Unregister(events);
         GetComponent<CardZoom>().OnHoverExit();
         GetComponent<EventTrigger>().enabled = false;
         gameObject.transform.SetParent(GameObject.Find("Main Canvas").transform,true);
         gameObject.transform.Translate(new Vector3(10, 10, 0));
         StartCoroutine(Discard());
-
     }
 
     protected virtual IEnumerator Discard()
@@ -145,23 +152,23 @@ public abstract class Card : NetworkBehaviour
         staged = false;
     }
 
-    public virtual void CardUpdate()
-    {
-        // would be more efficnt to remove CardUIUpdate
-        // but then would have to call it manually when updating heros in the fountain
-        // as is it is being called 2x for every card.
-        CardUIUpdate(); 
-    }
+    //public virtual void CardUpdate()
+    //{
+    //    // would be more efficnt to remove CardUIUpdate
+    //    // but then would have to call it manually when updating heros in the fountain
+    //    // as is it is being called 2x for every card.
+    //    CardUIUpdate(); 
+    //}
 
-    public virtual void CardAuras()
-    {
-        foreach (IAura aura in gameObject.GetComponentsInChildren<IAura>())
-        {
-            aura.ContinuousEffect();
-        }
-    }
+    //public virtual void CardAuras()
+    //{
+    //    foreach (IAura aura in gameObject.GetComponentsInChildren<IAura>())
+    //    {
+    //        aura.ContinuousEffect();
+    //    }
+    //}
 
-    public virtual void CardUIUpdate()
+    public virtual void CardUIUpdate(GameUpdateUI_e e)
     {
         if (displayMana != null) { displayMana.text = mana.ToString(); }
         if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }

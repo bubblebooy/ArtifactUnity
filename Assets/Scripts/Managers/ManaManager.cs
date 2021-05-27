@@ -21,10 +21,11 @@ public class ManaManager : MonoBehaviour
     private void Start()
     {
         events.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        events.Add(GameEventSystem.Register<GameUpdateUI_e>(ManaUpdate));
 
     }
 
-    public void ManaUpdate()
+    public void ManaUpdate(GameUpdateUI_e e)
     {
         displayMana = gameObject.transform.Find("Current").GetComponent<TextMeshProUGUI>();
         displayMaxMana = gameObject.transform.Find("Max").GetComponent<TextMeshProUGUI>();

@@ -11,6 +11,7 @@ public class LaneManager : NetworkBehaviour
 
     public override void OnStartClient()
     {
+        base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -39,7 +40,8 @@ public class LaneManager : NetworkBehaviour
             {
                 unit.Combat();
             }
-            foreach (TowerManager tower in towers) { tower.TowerUpdate(); } //Artifact Foundry checks for Game over here. Should it?
+            //Artifact Foundry checks for Game over here. Should it?
+            //foreach (TowerManager tower in towers) { tower.TowerUpdate(); }
             GameManager.GameUpdate();
             // Game over check
             Debug.Log(gameObject.name + $" : {units.Length}");

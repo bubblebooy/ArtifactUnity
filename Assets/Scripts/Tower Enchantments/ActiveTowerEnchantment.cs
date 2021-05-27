@@ -30,13 +30,13 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         m_EventTrigger.triggers.Add(entry);
 
         inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        inPlayEvents.Add(GameEventSystem.Register<GameUpdateUI_e>(EnchantmentUpdate));
 
         displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);
     }
 
-    public override void EnchantmentUpdate()
+    public void EnchantmentUpdate(GameUpdateUI_e e)
     {
-        base.EnchantmentUpdate();
         displayCooldown.text = cooldown > 0 ? cooldown.ToString() : "";
         // for dealing with retaliate and armor
     }

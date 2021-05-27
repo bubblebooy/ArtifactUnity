@@ -17,6 +17,7 @@ public class UIManager : NetworkBehaviour
     // Start is called before the first frame update
     public override void OnStartClient()
     {
+        base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Board = GameObject.Find("Board");
         //Button = GameObject.Find("DrawCards");

@@ -29,6 +29,7 @@ public class GameEventSystem : MonoBehaviour
 
     }
 
+
     public static void Unregister<T>(EventListener listener)
     {
         Unregister(typeof(T), listener);
@@ -49,12 +50,13 @@ public class GameEventSystem : MonoBehaviour
 
     public static void Event(IGameEventInfo eventInfo)
     {
-        if (eventListeners?[eventInfo.GetType()] == null)
+        Type t = eventInfo.GetType();
+        if (eventListeners == null || !eventListeners.ContainsKey(t) || eventListeners[t] == null)
         {
             return;
         }
 
-        foreach( EventListener listener in eventListeners[eventInfo.GetType()])
+        foreach( EventListener listener in eventListeners[eventInfo.GetType()].ToArray())
         {
             listener(eventInfo);
         }

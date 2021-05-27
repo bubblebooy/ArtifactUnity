@@ -29,6 +29,7 @@ public class GameManager : NetworkBehaviour
     // Start is called before the first frame update
     public override void OnStartClient()
     {
+        base.OnStartClient();
         UIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         UIManager.UpdatePhaseText();
         Board = GameObject.Find("Board");
@@ -215,25 +216,11 @@ public class GameManager : NetworkBehaviour
 
     public void GameUpdate()
     {
-        CardSlot[] cardSlots = Board.GetComponentsInChildren<CardSlot>();
-        TowerManager[] towers = Board.GetComponentsInChildren<TowerManager>();
-        foreach (CardSlot slot in cardSlots) { slot.SlotUpdate(); }
-        Card[] cards;
-        do
-        {
-            cards = Board.GetComponentsInChildren<Card>();
-            foreach (Card card in cards) { card.CardUpdate(); }
-            cards = Board.GetComponentsInChildren<Card>();
-            foreach (Card card in cards) { card.CardAuras(); }
-            foreach (Card card in cards) { card.CardUIUpdate(); }
-        }
-        while (false); // should loop untill it no longer does anything, incase there are chain reactions
-        foreach (TowerManager tower in towers) { tower.TowerUpdate(); }
-        foreach (TowerEnchantment towerEnchantment in Board.GetComponentsInChildren<TowerEnchantment>()) { towerEnchantment.EnchantmentUpdate(); }
-        foreach (Hero hero in PlayerFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }
-        foreach (Hero hero in EnemyFountain.GetComponentsInChildren<Hero>()){ hero.CardUpdate(); }
-        PlayerMana.GetComponent<ManaManager>().ManaUpdate();
-        EnemyMana.GetComponent<ManaManager>().ManaUpdate();
+        //Set death counter to 0
+        GameEventSystem.Event(new GameUpdate_e());
+        GameEventSystem.Event(new Auras_e());
+        GameEventSystem.Event(new GameUpdateUI_e());
+        if (false) { GameUpdate(); }
     }
 
     private IEnumerator DelayedGameUpdate()

@@ -17,9 +17,9 @@ public class Hero : Unit
         gameObject.transform.Find("Color/ManaIcon").gameObject.SetActive(false);
     }
 
-    public override void OnSpawn()
+    public override void OnStartClient()
     {
-        base.OnSpawn();
+        base.OnStartClient();
         displayRespawn = gameObject.transform.Find("Respawn").GetComponent<TextMeshProUGUI>();
         displayRespawn.text = respawn.ToString();
         displayRespawn.enabled = respawn != 0;
@@ -34,9 +34,9 @@ public class Hero : Unit
         }
     }
 
-    public override void CardUIUpdate()
+    public override void CardUIUpdate(GameUpdateUI_e e)
     {
-        base.CardUIUpdate();
+        base.CardUIUpdate(e);
         displayRespawn = gameObject.transform.Find("Respawn").GetComponent<TextMeshProUGUI>();
         displayRespawn.text = respawn.ToString();
         displayRespawn.enabled = respawn != 0;
@@ -49,13 +49,8 @@ public class Hero : Unit
 
     public override void DestroyCard()
     {
+        Bounce();
         respawn = 2;
-        gameObject.transform.SetParent(
-            GameObject.Find(gameObject.GetComponent<NetworkIdentity>().hasAuthority ? "PlayerFountain" : "EnemyFountain").transform,
-            false);
-        isDraggable = true;
-        armor = maxArmor;
-        health = maxHealth;
     }
 
     public override void Bounce()
@@ -64,7 +59,9 @@ public class Hero : Unit
         gameObject.transform.SetParent(
             GameObject.Find(gameObject.GetComponent<NetworkIdentity>().hasAuthority ? "PlayerFountain" : "EnemyFountain").transform,
             false);
-
+        isDraggable = true;
+        armor = maxArmor;
+        health = maxHealth;
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().Bounce();
     }

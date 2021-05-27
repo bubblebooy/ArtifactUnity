@@ -7,10 +7,7 @@ public interface IGameEventInfo
     
 }
 
-public struct RoundStart_e : IGameEventInfo
-{
-
-}
+public struct RoundStart_e : IGameEventInfo {}
 
 public struct Scheme_e : IGameEventInfo
 {
@@ -21,4 +18,9 @@ public struct Scheme_e : IGameEventInfo
     //    IsMyTrun = turn;
     //}
 }
+
+public struct GameUpdate_e : IGameEventInfo {}
+public struct Auras_e : IGameEventInfo { }
+public struct GameUpdateUI_e : IGameEventInfo { }
+
 
