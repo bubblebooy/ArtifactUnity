@@ -230,10 +230,10 @@ public class Unit : Card
         target.Damage(damage, piercing);
     }
 
-    public virtual int Damage(int damage, bool piercing = false)
+    public virtual int CalculateDamage(int damage, bool piercing = false)
     {
-        if (damageImmunity) { return health; }
-        if (!piercing)
+        if (damageImmunity) { return 0; }
+        if (!piercing || armor < 0)
         {
             armor -= damage;
             if (armor < 0)
@@ -246,12 +246,34 @@ public class Unit : Card
                 damage = 0;
             }
         }
-        health -= damage;
+        return damage;
+    }
+    public virtual int Damage(int damage, bool piercing = false)
+    {
+        health -= CalculateDamage(damage, piercing);
         return health;
     }
 
     //void Battle
 
+    public virtual void PreCombat(bool quick = false)
+    {
+        if (quick == quickstrike && !disarmed)
+        {
+            Unit target = GetCombatTarget();
+            if(target != null)
+            {
+                attack = target.CalculateDamage(attack + cleave, piercing);
+                if ((trample || target.feeble) && attack > target.health)
+                {
+                    //FACTOR IN DECAY AND REGEN
+                    siege += attack - target.health;
+                    attack = target.health;
+                    
+                }
+            }
+        }
+    }
     public virtual void Combat( bool quick = false)
     {
         int attackTower = siege;
@@ -260,14 +282,7 @@ public class Unit : Card
             Unit target = GetCombatTarget();
             if (target != null)
             {
-                int targetHealth = Strike(target, attack + cleave, piercing);
-                if ((trample || target.feeble) && targetHealth < 0)
-                {
-                    attackTower += -1 * targetHealth;
-                    //bool player = GetSide() == "PlayerSide";
-                    //TowerManager tower = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetComponentInChildren<TowerManager>();
-                    //Strike(tower, -1 * targetHealth, piercing);
-                }
+                int targetHealth = Strike(target, attack, piercing);
             }
             else
             {

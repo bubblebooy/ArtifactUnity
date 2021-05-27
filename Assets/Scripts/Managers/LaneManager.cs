@@ -28,18 +28,21 @@ public class LaneManager : NetworkBehaviour
             {
                 towerEnchantment.Combat();
             }
-            foreach (Unit unit in units)
-            {
-                unit.Combat(true);
-            }
-            foreach (Unit unit in units)
-            {
-                unit.quickstrikeDead();
-            }
-            foreach (Unit unit in units)
-            {
-                unit.Combat();
-            }
+            //Units with trample combat 1st
+            //System.Array.Sort(units, 
+            //    (Unit a, Unit b) => 
+            //    a.quickstrike ?
+            //        ( b.quickstrike ? 0 : -1) :
+            //        ( b.quickstrike ? 1 : 0)
+            //    );
+
+            // precombat(quick)
+            foreach (Unit unit in units) { unit.PreCombat(quick: true); }
+            foreach (Unit unit in units) { unit.Combat(quick: true); }
+            foreach (Unit unit in units) { unit.quickstrikeDead(); }
+            foreach (Unit unit in units) { unit.PreCombat(); }
+            foreach (Unit unit in units) { unit.Combat(); }
+
             //Artifact Foundry checks for Game over here. Should it?
             //foreach (TowerManager tower in towers) { tower.TowerUpdate(); }
             GameManager.GameUpdate();

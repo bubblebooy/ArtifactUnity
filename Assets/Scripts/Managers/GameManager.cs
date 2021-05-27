@@ -153,16 +153,21 @@ public class GameManager : NetworkBehaviour
     IEnumerator Combat()
     {
         Debug.Log("COMBAT START");
+        // Dont know if I need this // GameEventSystem.Event(new StartCombatPhase_e());
         LaneManager[] lanes = Board.GetComponentsInChildren<LaneManager>();
         if (!CombatDirection) { Array.Reverse(lanes); }
         foreach (LaneManager lane in lanes)
         {
+            // call in the coroutine // GameEventSystem.Event(new Combat_e());
+            // things with trample attack 1st.
             yield return StartCoroutine(lane.Combat());
+            // call in the coroutine // GameEventSystem.Event(new AfterCombat_e());
             lane.combated = false;
         }
+        
         CombatDirection = !CombatDirection;
+        // GameEventSystem.Event(new EndCombatPhase_e());
         PlayerManager.CmdEndCombat();
-        //ChangeGameState("Shop");
         UIManager.ButtonInteractable(true);
     }
 
