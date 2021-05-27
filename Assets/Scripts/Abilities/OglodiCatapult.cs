@@ -15,11 +15,12 @@ public class OglodiCatapult : ModifierAbility
     public override void OnPlay()
     {
         inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        inPlayEvents.Add(GameEventSystem.Register<Scheme_e>(Scheme));
     }
 
-    public override void Scheme()
+    public void Scheme(Scheme_e e)
     {
-        base.Scheme();
+        if(card.hasAuthority == e.IsMyTrun)
         siege += 1;
     }
     public void RoundStart(RoundStart_e e)

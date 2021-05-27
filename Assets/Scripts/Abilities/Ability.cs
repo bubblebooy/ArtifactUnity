@@ -40,7 +40,6 @@ public class Ability : MonoBehaviour
     //public virtual void RoundStart() { }
     public virtual void OnPlay() { }
     public virtual void PlacedOnTopOf(Unit unit) { }
-    public virtual void Scheme() { }
 
     public void Expand()
     {

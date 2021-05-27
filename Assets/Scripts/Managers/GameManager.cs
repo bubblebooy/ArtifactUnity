@@ -138,13 +138,7 @@ public class GameManager : NetworkBehaviour
         }
         else
         {
-            Card[] cards = Board.GetComponentsInChildren<Card>();
-            foreach (Card card in cards) {
-                if ( card.hasAuthority == PlayerManager.IsMyTurn)
-                {
-                    //card.Scheme();
-                }
-            }
+            GameEventSystem.Event(new Scheme_e(PlayerManager.IsMyTurn));
             ReadyClicks = 1;
         }
         GameUpdate();

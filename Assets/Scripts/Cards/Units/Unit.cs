@@ -178,10 +178,6 @@ public class Unit : Card
         GetComponent<AbilitiesManager>().OnPlay();
     }
 
-    public void Scheme()
-    {
-        GetComponent<AbilitiesManager>().Scheme();
-    }
 
     public void PlacedOnTopOf(Unit unit)
     {
