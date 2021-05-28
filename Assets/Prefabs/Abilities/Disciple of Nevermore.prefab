@@ -1,42 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7858492620790564139
+--- !u!114 &-3785269583397800059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721662607536256901}
+  m_GameObject: {fileID: 3394355305744656860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb0d0fb1235f2548bf11879cf9e2ab4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a31a1bf798e77e4c84b2d9eab95a97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 21300000, guid: 03e3e4a2b412a6d4fb00923328a97731, type: 3}
-  abilityName: 
-  abilityText: 'After Combat: Gain +3<sprite=0> permanently.'
+  abilityIcon: {fileID: 21300000, guid: 7843f544e86f5184486a23374ae51e0c, type: 3}
+  abilityName: Disciple of Nevermore
+  abilityText: 'Aura: Disciple of Nevermore''s allies have +1<sprite=0> and -1<sprite=1>'
   broken: 0
   opponentEffect: 0
   temporary: 0
   baseAbility: 1
-  attack: 0
-  maxArmor: 0
-  maxHealth: 0
-  cleave: 0
-  siege: 0
-  retaliate: 0
-  quickstrike: 0
-  disarmed: 0
-  caster: 0
-  piercing: 0
-  trample: 0
-  feeble: 0
-  damageImmunity: 0
-  untargetable: 0
-  gainAttack: 3
-  gainArmor: 0
-  gainHealth: 0
---- !u!1001 &8638819569581462493
+  attack: 1
+  armor: 1
+--- !u!1001 &5700712220044987780
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -45,7 +30,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_text
-      value: 'After Combat: Gain +3<sprite=0> permanently.'
+      value: 'Aura: Disciple of Nevermore''s allies have +1<sprite=0> and -1<sprite=1>'
       objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x
@@ -134,16 +119,16 @@ PrefabInstance:
     - target: {fileID: 6312887639793151181, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 03e3e4a2b412a6d4fb00923328a97731, type: 3}
+      objectReference: {fileID: 21300000, guid: 7843f544e86f5184486a23374ae51e0c, type: 3}
     - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Name
-      value: Satyr Duelist
+      value: Disciple of Nevermore
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
---- !u!1 &1721662607536256901 stripped
+--- !u!1 &3394355305744656860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-  m_PrefabInstance: {fileID: 8638819569581462493}
+  m_PrefabInstance: {fileID: 5700712220044987780}
   m_PrefabAsset: {fileID: 0}

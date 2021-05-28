@@ -57,7 +57,7 @@ public class Ability : MonoBehaviour
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         GameEventSystem.Unregister(inPlayEvents);
         GameEventSystem.Unregister(events);
@@ -70,8 +70,7 @@ public class Ability : MonoBehaviour
 
     public virtual void DestroyCard()
     {
-        GameEventSystem.Unregister(inPlayEvents);
-        GameEventSystem.Unregister(events);
+        OnDestroy();
     }
 
 #pragma warning restore 0414

@@ -14,12 +14,14 @@
 |:heavy_check_mark:| Assassin's Apprentice | Done | Max Garber
 |✔️| Assassin's Shadow| Done | Max Garber |
 |✔️| Bronze Legionnaire| Done | Max Garber |
-|✔️| Bronze Legionnaire| Done | Max Garber |
+|✔️| Canid Bushwacker| Done | Max Garber |
+|✔️| Disciple of Nevermore| Done | Max Garber |
 |✔️| Hound of War| Done | Max Garber |
 |✔️| Naked Greevil| Done | Max Garber |
 |✔️| Oglodi Catapult| Done | Max Garber |
 |✔️| Ogre Conscript| Done | Max Garber |
 |✔️| Rumusque Redeemer| Done | Max Garber |
+|✔️| Satyr Duelist| Done | Max Garber |
 |✔️| Untested Grunt| Done | Max Garber |
 
 </details>
@@ -52,7 +54,7 @@
 |✔️| Divine Intervention | Done | Max Garber |
 |✔️| Lightning Strike | Done | Max Garber |
 |✔️| Poised to Strike | Done | Max Garber |
-|| Repel | In Progress | Max Garber |
+|✔️| Repel | Done | Max Garber |
 |✔️| Ventriloquy | Done | Max Garber |
 
 </details>

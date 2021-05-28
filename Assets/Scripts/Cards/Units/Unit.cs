@@ -219,13 +219,19 @@ public class Unit : Card
 
     public virtual int Strike(Unit target, int damage, bool piercing = false)
     {
-        Damage(target.retaliate);
+        if(target.retaliate > 0)
+        {
+            Damage(target.retaliate);
+        }
         return target.Damage(damage, piercing);
     }
 
     public virtual void Strike(TowerManager target, int damage, bool piercing = false)
     {
-        Damage(target.retaliate);
+        if (target.retaliate > 0)
+        {
+            Damage(target.retaliate);
+        }
         target.Damage(damage, piercing);
     }
 
@@ -281,7 +287,7 @@ public class Unit : Card
             Unit target = GetCombatTarget();
             if (target != null)
             {
-                int targetHealth = Strike(target, attack, piercing);
+                Strike(target, attack, piercing);
             }
             else
             {
