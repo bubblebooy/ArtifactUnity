@@ -22,5 +22,17 @@ public struct Scheme_e : IGameEventInfo
 public struct GameUpdate_e : IGameEventInfo {}
 public struct Auras_e : IGameEventInfo { }
 public struct GameUpdateUI_e : IGameEventInfo { }
+public struct EndCombatPhase_e : IGameEventInfo { }
+public struct AfterCombat_e : IGameEventInfo
+{
+    public LaneManager lane;
+}
+//public struct  : IGameEventInfo { }
+//public struct  : IGameEventInfo { }
+//public struct  : IGameEventInfo { }
+//public struct  : IGameEventInfo { }
+//public struct  : IGameEventInfo { }
+//public struct  : IGameEventInfo { }
+//public struct  : IGameEventInfo { }
 
 

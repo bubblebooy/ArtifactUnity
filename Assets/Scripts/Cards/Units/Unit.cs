@@ -174,7 +174,7 @@ public class Unit : Card
     public override void OnPlay()
     {
         base.OnPlay();
-        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        inPlayEvents.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
         inPlayEvents.Add(GameEventSystem.Register<GameUpdate_e>(CheckAlive));
         
         displayCardText.transform.parent.gameObject.SetActive(false);
@@ -213,8 +213,7 @@ public class Unit : Card
         base.DestroyCard();
     }
 
-    public void RoundStart(RoundStart_e e) {
-        //GetComponent<AbilitiesManager>().RoundStart();
+    public void EndCombatPhase(EndCombatPhase_e e) {
         armor = maxArmor;
     }
 

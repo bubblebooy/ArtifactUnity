@@ -9,10 +9,14 @@ public class LaneManager : NetworkBehaviour
     public bool combated = false;
     public GameManager GameManager;
 
+    public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
     public override void OnStartClient()
     {
         base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        events.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
+
     }
 
     public IEnumerator Combat()
@@ -28,15 +32,6 @@ public class LaneManager : NetworkBehaviour
             {
                 towerEnchantment.Combat();
             }
-            //Units with trample combat 1st
-            //System.Array.Sort(units, 
-            //    (Unit a, Unit b) => 
-            //    a.quickstrike ?
-            //        ( b.quickstrike ? 0 : -1) :
-            //        ( b.quickstrike ? 1 : 0)
-            //    );
-
-            // precombat(quick)
             foreach (Unit unit in units) { unit.PreCombat(quick: true); }
             foreach (Unit unit in units) { unit.Combat(quick: true); }
             foreach (Unit unit in units) { unit.quickstrikeDead(); }
@@ -50,6 +45,11 @@ public class LaneManager : NetworkBehaviour
             Debug.Log(gameObject.name + $" : {units.Length}");
         }
         yield return new WaitForSeconds(0.5f);
+    }
+
+    private void EndCombatPhase(EndCombatPhase_e e)
+    {
+        combated = false;
     }
 
     public PlayerManager GetPlayerManager()

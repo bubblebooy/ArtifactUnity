@@ -76,7 +76,6 @@ public class GameManager : NetworkBehaviour
                     break;
                 case "Deploy":
                     RoundStart();
-                    SummonLaneCreeps();
                     UIManager.ZoomHand(false);
                     GameState = "Deploy";
                     UIManager.ButtonInteractable(true);
@@ -159,14 +158,16 @@ public class GameManager : NetworkBehaviour
         foreach (LaneManager lane in lanes)
         {
             // call in the coroutine // GameEventSystem.Event(new Combat_e());
-            // things with trample attack 1st.
             yield return StartCoroutine(lane.Combat());
             // call in the coroutine // GameEventSystem.Event(new AfterCombat_e());
-            lane.combated = false;
         }
+
+        //any reason this should be one lane at a time?
+        GameEventSystem.Event(new AfterCombat_e());
         
         CombatDirection = !CombatDirection;
-        // GameEventSystem.Event(new EndCombatPhase_e());
+        SummonLaneCreeps();
+        GameEventSystem.Event(new EndCombatPhase_e());
         PlayerManager.CmdEndCombat();
         UIManager.ButtonInteractable(true);
     }
