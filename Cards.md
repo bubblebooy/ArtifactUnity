@@ -20,6 +20,7 @@
 |✔️| Naked Greevil| Done | Max Garber |
 |✔️| Oglodi Catapult| Done | Max Garber |
 |✔️| Ogre Conscript| Done | Max Garber |
+|✔️| Prowler Vanguard| Done | Max Garber |
 |✔️| Rumusque Redeemer| Done | Max Garber |
 |✔️| Satyr Duelist| Done | Max Garber |
 |✔️| Untested Grunt| Done | Max Garber |

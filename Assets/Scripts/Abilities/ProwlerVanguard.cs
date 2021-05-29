@@ -4,10 +4,9 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class DiscipleOfNevermore : Ability, IAura
+public class ProwlerVanguard : Ability, IAura
 {
-    public int attack = 1;
-    public int armor = -1;
+    public int armor = 1;
 
     private Unit[] auraUnits = Array.Empty<Unit>();
 
@@ -18,13 +17,12 @@ public class DiscipleOfNevermore : Ability, IAura
 
     public void ContinuousEffect(Auras_e e)
     {
-        Unit[] _auraUnits = card.transform.parent.parent.gameObject.GetComponentsInChildren<Unit>();
+        Unit[] _auraUnits = card.GetNeighbors().Where(x => x != null).ToArray();
         foreach (Unit unit in _auraUnits)
         {
-            if( unit == card) { continue;  }
+            if (unit == card) { continue; }
             if (unit != card && unit.GetSide() == card.GetSide())
             {
-                unit.attack += attack;
                 unit.maxArmor += armor;
             }
         }
@@ -36,10 +34,7 @@ public class DiscipleOfNevermore : Ability, IAura
         foreach (Unit unit in auraUnits.Except(_auraUnits))
         {
             if (unit == card) { continue; }
-            if (unit.armor != 0)
-            {
-                unit.armor -= armor;
-            }
+            unit.armor = Math.Min(unit.maxArmor, unit.armor);
         }
         auraUnits = _auraUnits;
     }
