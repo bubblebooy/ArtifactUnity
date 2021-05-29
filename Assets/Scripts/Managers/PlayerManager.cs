@@ -371,7 +371,7 @@ public class PlayerManager : NetworkBehaviour
 
     Transform LineageToTransform(List<string> lineage)
     {
-        if(lineage == null) { return null; }
+        if(lineage is null) { return null; }
         Transform transform = GameObject.Find("Main Canvas").transform;
         foreach (string s in lineage)
         {

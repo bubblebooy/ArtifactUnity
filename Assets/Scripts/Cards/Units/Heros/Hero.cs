@@ -62,6 +62,7 @@ public class Hero : Unit
         isDraggable = true;
         armor = maxArmor;
         health = maxHealth;
+        arrow = 0;
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().Bounce();
     }

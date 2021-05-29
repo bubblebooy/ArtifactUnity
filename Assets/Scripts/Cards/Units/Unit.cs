@@ -121,13 +121,12 @@ public class Unit : Card
             mod.ModifyCard();
         }
         if (arrow != 0 && (
-            transform.parent.GetComponent<CardSlot>() == null ||
-            GetCombatTarget() == null))
+            transform.parent.GetComponent<CardSlot>() is null ||
+            GetCombatTarget() is null))
         {
             arrow = 0;
         }
     }
-    //displayArrow = gameObject.transform.Find("Color/Arrow");
     public void CheckAlive(GameUpdate_e e)
     {
         if (health <= 0)
@@ -149,10 +148,6 @@ public class Unit : Card
     public override void CardUIUpdate(GameUpdateUI_e e)
     {
         base.CardUIUpdate(e);
-        // If this is needed I think we have bigger problems
-        //displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
-        //displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
-        //displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
@@ -195,7 +190,7 @@ public class Unit : Card
             false);
         isDraggable = true;
         displayCardText.transform.parent.gameObject.SetActive(true);
-
+        arrow = 0;
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().Bounce();
 
@@ -208,6 +203,7 @@ public class Unit : Card
 
     public override void DestroyCard()
     {
+        arrow = 0;
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().DestroyCard();
         base.DestroyCard();
