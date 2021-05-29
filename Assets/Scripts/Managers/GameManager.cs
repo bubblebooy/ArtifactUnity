@@ -130,7 +130,7 @@ public class GameManager : NetworkBehaviour
     {
         GameHistory.CardPlayed(card);
         yield return StartCoroutine(ActionTaken());
-        GameEventSystem.Event(new CardPlayed_e());
+        GameEventSystem.Event(new CardPlayed_e( card.GetComponent<Card>() ));
     }
     public IEnumerator AbilityActivated(GameObject card, int index)
     {

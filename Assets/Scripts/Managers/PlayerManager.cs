@@ -230,7 +230,7 @@ public class PlayerManager : NetworkBehaviour
         RpcPlaceCard(card, targetLineage);
         RpcPayForCard(card);
         RpcPlayCard(card, true); 
-        RpcNextTurn(card.GetComponent<Card>().quickcast); // This should be moved to so that the card call it (or not if quick)
+        RpcNextTurn(card.GetComponent<Card>().quickcast);
     }
 
     [Command]

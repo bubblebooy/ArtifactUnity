@@ -26,6 +26,8 @@ public class Unit : Card
     public bool disarmed = false;
     public bool caster;
     [HideInInspector]
+    public bool silenced = false;
+    [HideInInspector]
     public bool piercing = false;
     [HideInInspector]
     public bool trample = false;
@@ -110,6 +112,7 @@ public class Unit : Card
         quickstrike = false;
         disarmed = false;
         caster = this is Hero;
+        silenced = false;
         piercing = false;
         trample = false;
         feeble = false;
@@ -336,22 +339,25 @@ public class Unit : Card
         }
     }
 
-
+    public CardSlot GetCardSlot()
+    {
+        return transform.parent.GetComponent<CardSlot>(); ;
+    }
     public string GetSide()
     {
-        CardSlot cardSlot = transform.parent.GetComponent<CardSlot>();
+        CardSlot cardSlot = GetCardSlot();
         return cardSlot.GetSide();
     }
 
     public TowerManager GetTower()
     {
-        CardSlot cardSlot = transform.parent.GetComponent<CardSlot>();
+        CardSlot cardSlot = GetCardSlot();
         return cardSlot.GetTower();
     }
 
     public LaneManager GetLane()
     {
-        CardSlot cardSlot = transform.parent.GetComponent<CardSlot>();
+        CardSlot cardSlot = GetCardSlot();
         return cardSlot.GetLane();
     }
 

@@ -76,12 +76,6 @@ public abstract class Card : NetworkBehaviour
         if(cardArt != null) { transform.Find("Color/Image").GetComponent<Image>().color = Color.white; }
     }
 
-    //public override void OnStartClient()
-    //{
-    //    print($"{gameObject.name} : when does this run??");
-    //}
-
-    // Start is called before the first frame update
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -152,29 +146,11 @@ public abstract class Card : NetworkBehaviour
         staged = false;
     }
 
-    //public virtual void CardUpdate()
-    //{
-    //    // would be more efficnt to remove CardUIUpdate
-    //    // but then would have to call it manually when updating heros in the fountain
-    //    // as is it is being called 2x for every card.
-    //    CardUIUpdate(); 
-    //}
-
-    //public virtual void CardAuras()
-    //{
-    //    foreach (IAura aura in gameObject.GetComponentsInChildren<IAura>())
-    //    {
-    //        aura.ContinuousEffect();
-    //    }
-    //}
-
     public virtual void CardUIUpdate(GameUpdateUI_e e)
     {
         if (displayMana != null) { displayMana.text = mana.ToString(); }
         if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
     }
-
-    //    public abstract void OnPlay();
 
     public static List<string> GetLineage(Transform t)
     {
