@@ -120,12 +120,29 @@ public class GameManager : NetworkBehaviour
         //Debug.Log($"State: {GameState}, Request: {stateRequest}");
     }
 
-    public void CardPlayed(GameObject card, int? index = null, string side = null)
+
+    public IEnumerator ActionTaken()
     {
-        GameHistory.CardPlayed(card, index, side);
         ReadyClicks = 0;
-        //push cardplayed event
-        StartCoroutine(DelayedGameUpdate()); // was causing problems with purge
+        yield return StartCoroutine(DelayedGameUpdate()); // was causing problems with purge
+    }
+    public IEnumerator CardPlayed(GameObject card)
+    {
+        GameHistory.CardPlayed(card);
+        yield return StartCoroutine(ActionTaken());
+        GameEventSystem.Event(new CardPlayed_e());
+    }
+    public IEnumerator AbilityActivated(GameObject card, int index)
+    {
+        GameHistory.AbilityActivated(card, index);
+        yield return StartCoroutine(ActionTaken());
+        //push AbilityActivated event
+    }
+    public IEnumerator TowerEnchantmentActivated(GameObject card, int index, string side)
+    {
+        GameHistory.TowerEnchantmentActivated(card, index, side);
+        yield return StartCoroutine(ActionTaken());
+        //push TowerEnchantmentActivated event
     }
 
     public void Passed()

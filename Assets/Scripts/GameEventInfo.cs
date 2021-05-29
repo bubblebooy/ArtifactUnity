@@ -27,6 +27,7 @@ public struct AfterCombat_e : IGameEventInfo
 {
     public LaneManager lane;
 }
+public struct CardPlayed_e : IGameEventInfo { }
 //public struct  : IGameEventInfo { }
 //public struct  : IGameEventInfo { }
 //public struct  : IGameEventInfo { }

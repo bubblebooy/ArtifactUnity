@@ -260,7 +260,7 @@ public class PlayerManager : NetworkBehaviour
         card.GetComponent<Card>().OnPlay();
         if (gameManagerCardPlayed)
         {
-            GameManager.CardPlayed(card);
+            StartCoroutine(GameManager.CardPlayed(card));
         }
     }
 
@@ -269,7 +269,7 @@ public class PlayerManager : NetworkBehaviour
     {
         Transform target = LineageToTransform(secondaryTargetLineage);
         card.GetComponent<ITargets>().OnPlay(target.gameObject);
-        GameManager.CardPlayed(card);
+        StartCoroutine(GameManager.CardPlayed(card));
     }
 
     public void ActivateAbility(GameObject card, int abilityIndex, bool quickcast = false)
@@ -287,7 +287,7 @@ public class PlayerManager : NetworkBehaviour
     void RpcActivateAbility(GameObject card, int abilityIndex)
     {
         card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex);
-        GameManager.CardPlayed(card, abilityIndex); // should prob rename to action taken
+        StartCoroutine(GameManager.AbilityActivated(card, abilityIndex)); 
     }
 
     public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null, bool quickcast = false)
@@ -313,7 +313,7 @@ public class PlayerManager : NetworkBehaviour
         }
         ITargets towerEnchantment = Lane.transform.Find(side + "/Enchantments").GetChild(enchantmentIndex).GetComponent<ITargets>();
         towerEnchantment.OnPlay(target.gameObject, secondaryTarget?.gameObject);
-        GameManager.CardPlayed(Lane, enchantmentIndex, side);
+        StartCoroutine(GameManager.TowerEnchantmentActivated(Lane, enchantmentIndex, side));
     }
 
 

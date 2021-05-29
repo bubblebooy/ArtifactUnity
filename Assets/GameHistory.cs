@@ -35,45 +35,45 @@ public class GameHistory : MonoBehaviour
         }
     }
 
-    public void CardPlayed(GameObject obj, int? index = null, string side = null)
+    public void ActionTaken(){ }
+    public void CardPlayed(GameObject obj)
     {
-        if(side == null && index == null)
+        Record record = new Record("Card Played", obj);
+        if (obj.GetComponent<Card>().hasAuthority)
         {
-            Record record = new Record("Card Played", obj);
-            if (obj.GetComponent<Card>().hasAuthority)
-            {
-                PlayerHistory.Add(record);
-            }
-            else
-            {
-                EnemyHistory.Add(record);
-            }
-        }
-        else if(side == null)
-        {
-            GameObject ability = obj.GetComponent<AbilitiesManager>().abilities.transform.GetChild((int)index).gameObject;
-            Record record = new Record("Ability Used", ability);
-            if (obj.GetComponent<Card>().hasAuthority)
-            {
-                PlayerHistory.Add(record);
-            }
-            else
-            {
-                EnemyHistory.Add(record);
-            }
+            PlayerHistory.Add(record);
         }
         else
         {
-            GameObject towerEnchantment = obj.transform.Find(side + "/Enchantments").GetChild((int)index).gameObject;
-            Record record = new Record("Tower Enchantment", towerEnchantment);
-            if (side == "PlayerSide")
-            {
-                PlayerHistory.Add(record);
-            }
-            else
-            {
-                EnemyHistory.Add(record);
-            }
+            EnemyHistory.Add(record);
+        }
+    }
+    public void AbilityActivated(GameObject obj, int index)
+    {
+        GameObject ability = obj.GetComponent<AbilitiesManager>().abilities.transform.GetChild(index).gameObject;
+        Record record = new Record("Ability Used", ability);
+        if (obj.GetComponent<Card>().hasAuthority)
+        {
+            PlayerHistory.Add(record);
+        }
+        else
+        {
+            EnemyHistory.Add(record);
+        }
+
+
+    }
+    public void TowerEnchantmentActivated(GameObject obj, int index, string side)
+    {
+        GameObject towerEnchantment = obj.transform.Find(side + "/Enchantments").GetChild(index).gameObject;
+        Record record = new Record("Tower Enchantment", towerEnchantment);
+        if (side == "PlayerSide")
+        {
+            PlayerHistory.Add(record);
+        }
+        else
+        {
+            EnemyHistory.Add(record);
         }
 
     }
