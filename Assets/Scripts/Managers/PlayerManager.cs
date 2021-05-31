@@ -186,7 +186,9 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         //RpcOnSpawn(card);
         RpcSpawnLaneCreeps(lane, card);
-        RpcPlayCard(card,false);
+        CardPlayed_e cardPlayed_e = new CardPlayed_e();
+        cardPlayed_e.card = card;
+        RpcPlayCard(cardPlayed_e, false);
     }
 
     [ClientRpc]
@@ -210,36 +212,38 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         //RpcOnSpawn(card);
         RpcPlaceCard(card, targetLineage);
-        RpcPlayCard(card,false);
+        CardPlayed_e cardPlayed_e = new CardPlayed_e();
+        cardPlayed_e.card = card;
+        RpcPlayCard(cardPlayed_e, false);
     }
 
 
-    public void PlayCard(GameObject card, List<string> targetLineage)
+    public void PlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage)
     {
-        CmdPlayCard(card, targetLineage);     
+        CmdPlayCard(cardPlayed_e, targetLineage);     
     }
-    public void PlayCard(GameObject card, List<string> targetLineage, List<string> secondaryTargetLineage)
+    public void PlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage, List<string> secondaryTargetLineage)
     {
-        CmdPlayTargetedCard(card, targetLineage, secondaryTargetLineage);
+        CmdPlayTargetedCard(cardPlayed_e, targetLineage, secondaryTargetLineage);
     }
 
 
     [Command]
-    void CmdPlayCard(GameObject card, List<string> targetLineage)
+    void CmdPlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage)
     {
-        RpcPlaceCard(card, targetLineage);
-        RpcPayForCard(card);
-        RpcPlayCard(card, true); 
-        RpcNextTurn(card.GetComponent<Card>().quickcast);
+        RpcPlaceCard(cardPlayed_e.card, targetLineage);
+        RpcPayForCard(cardPlayed_e.card);
+        RpcPlayCard(cardPlayed_e, true); 
+        RpcNextTurn(cardPlayed_e.card.GetComponent<Card>().quickcast);
     }
 
     [Command]
-    void CmdPlayTargetedCard(GameObject card, List<string> targetLineage, List<string> secondaryTargetLineage)
+    void CmdPlayTargetedCard(CardPlayed_e cardPlayed_e, List<string> targetLineage, List<string> secondaryTargetLineage)
     {
-        RpcPlaceCard(card, targetLineage);
-        RpcPayForCard(card);
-        RpcPlayTargetedCard(card, secondaryTargetLineage); 
-        RpcNextTurn(card.GetComponent<Card>().quickcast); // This should be moved to so that the card call it (or not if quick)
+        RpcPlaceCard(cardPlayed_e.card, targetLineage);
+        RpcPayForCard(cardPlayed_e.card);
+        RpcPlayTargetedCard(cardPlayed_e, secondaryTargetLineage);
+        RpcNextTurn(cardPlayed_e.card.GetComponent<Card>().quickcast);
     }
 
     [ClientRpc]
@@ -255,21 +259,21 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcPlayCard(GameObject card, bool gameManagerCardPlayed)
+    void RpcPlayCard(CardPlayed_e cardPlayed_e, bool gameManagerCardPlayed)
     {
-        card.GetComponent<Card>().OnPlay();
+        cardPlayed_e.card.GetComponent<Card>().OnPlay();
         if (gameManagerCardPlayed)
         {
-            StartCoroutine(GameManager.CardPlayed(card));
+            StartCoroutine(GameManager.CardPlayed(cardPlayed_e));
         }
     }
 
     [ClientRpc]
-    void RpcPlayTargetedCard(GameObject card, List<string> secondaryTargetLineage)
+    void RpcPlayTargetedCard(CardPlayed_e cardPlayed_e, List<string> secondaryTargetLineage)
     {
         Transform target = LineageToTransform(secondaryTargetLineage);
-        card.GetComponent<ITargets>().OnPlay(target.gameObject);
-        StartCoroutine(GameManager.CardPlayed(card));
+        cardPlayed_e.card.GetComponent<ITargets>().OnPlay(target.gameObject);
+        StartCoroutine(GameManager.CardPlayed(cardPlayed_e));
     }
 
     public void ActivateAbility(GameObject card, int abilityIndex, bool quickcast = false)

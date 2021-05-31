@@ -42,7 +42,7 @@ public class Hero : Unit
         displayRespawn.enabled = respawn != 0;
     }
 
-    public override void Stage()
+    public override void Stage(CardPlayed_e e)
     {
         staged = true;
     }

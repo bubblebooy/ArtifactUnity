@@ -39,4 +39,9 @@ public class ManaManager : MonoBehaviour
         maxMana += 1;
         mana = maxMana;
     }
+
+    public void Burn(int burn)
+    {
+        mana = Mathf.Max(0, mana - burn);
+    }
 }

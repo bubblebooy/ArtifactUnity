@@ -126,11 +126,12 @@ public class GameManager : NetworkBehaviour
         ReadyClicks = 0;
         yield return StartCoroutine(DelayedGameUpdate()); // was causing problems with purge
     }
-    public IEnumerator CardPlayed(GameObject card)
+    public IEnumerator CardPlayed(CardPlayed_e cardPlayed_e)
     {
-        GameHistory.CardPlayed(card);
+        GameHistory.CardPlayed(cardPlayed_e.card.gameObject);
         yield return StartCoroutine(ActionTaken());
-        GameEventSystem.Event(new CardPlayed_e( card.GetComponent<Card>() ));
+        GameEventSystem.Event(cardPlayed_e);
+        yield return StartCoroutine(DelayedGameUpdate());
     }
     public IEnumerator AbilityActivated(GameObject card, int index)
     {

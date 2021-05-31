@@ -65,7 +65,8 @@ public class DragDrop : NetworkBehaviour
         if (!card.isDraggable) return;
         isDragging = false;
 
-        Unit Caster = null;
+        Unit caster = null;
+        CardPlayed_e cardPlayed_e = new CardPlayed_e();
 
         if (dropZone.Count > 0 )
         {
@@ -73,18 +74,20 @@ public class DragDrop : NetworkBehaviour
             {
                 if ((card as Spell)?.targetCaster == true)
                 {
-                    Caster = dropZone[i].GetComponent<Unit>();
+                    caster = dropZone[i].GetComponent<Unit>();
                 }
-                if (card is Hero) { Caster = card as Unit; }
-                if (Caster is null)
+                if (card is Hero) { caster = card as Unit; }
+                if (caster is null)
                 {
                     CardSlot slot = dropZone[i].GetComponentInParent<CardSlot>();
-                    if (slot != null)
+                    if (slot == null)
                     {
                         slot = dropZone[i].GetComponentInChildren<CardSlot>();
                     }
                     Unit[] casters = slot.GetLane().transform.Find("PlayerSide").GetComponentsInChildren<Unit>();
-                    casters = casters.Where(x => x.caster && !x.silenced).ToArray();
+                    casters = casters.Where(x => x.caster).ToArray();
+                    // COLOR CHECK HERE
+                    casters = casters.Where(x => !x.silenced).ToArray();
                     System.Array.Sort(casters, delegate(Unit m, Unit n)
                     {
                         int SortValue(Unit u)
@@ -95,23 +98,26 @@ public class DragDrop : NetworkBehaviour
                         }
                         return SortValue(m) - SortValue(n);
                     });
-                    if(casters.Length != 0)
+                    if(casters.Length == 0)
                     {
-                        // If there is not caster not valid play.
+                        // If there are no casters then not valid play.
                         break;
                     }
                     else
                     {
-                        Caster = casters[0];
+                        caster = casters[0];
                     }
                 }
 
-                if(card.IsVaildPlay(dropZone[i]))
+                if (card.IsVaildPlay(dropZone[i]))
                 {
                     if (dropZone[i].GetComponent<CardSlot>() != null) { dropZone[i].GetComponent<CardSlot>().UnStage(); }
                     transform.SetParent(dropZone[i].transform, false);
                     transform.position = dropZone[i].transform.position + new Vector3(10,-10,0);
-                    card.Stage();
+                    cardPlayed_e.card = card.gameObject;
+                    cardPlayed_e.caster = caster.gameObject;
+                    cardPlayed_e.lane = caster.GetLane().gameObject;
+                    card.Stage(cardPlayed_e);
                     return;
                 }
 

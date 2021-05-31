@@ -23,8 +23,24 @@ public struct AfterCombat_e : IGameEventInfo
 }
 public struct CardPlayed_e : IGameEventInfo
 {
-    public Card card { get; }
-    public CardPlayed_e(Card playedCard) => card = playedCard;
+    public GameObject card;
+    //public Card card
+    //{
+    //    get { return _card.GetComponent<Card>(); }
+    //    set { _card = value.gameObject; }
+    //}
+    public GameObject caster;
+    //public Unit caster
+    //{
+    //    get { return _caster.GetComponent<Unit>(); }
+    //    set { _card = value.gameObject; }
+    //}
+    public GameObject lane;
+    //public LaneManager lane
+    //{
+    //    get { return _lane.GetComponent<LaneManager>(); }
+    //    set { _card = value.gameObject; }
+    //}
 }
 
 public struct GameUpdate_e : IGameEventInfo {}

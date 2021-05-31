@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CunningPlan : Spell, ITargets
 {
-    public override void Stage()
+    CardPlayed_e cardPlayed_e;
+    public override void Stage(CardPlayed_e e)
     {
+        cardPlayed_e = e;
         TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
-
-        //PlayerManager.PlayCard(gameObject, GetLineage());
     }
 
     public bool IsVaildTarget(GameObject target)
@@ -28,7 +28,7 @@ public class CunningPlan : Spell, ITargets
 
     public void TargetSelected(GameObject target)
     {
-        PlayerManager.PlayCard(gameObject, GetLineage(), GetLineage(target.transform));
+        PlayerManager.PlayCard(cardPlayed_e, GetLineage(), GetLineage(target.transform));
     }
 
     public void OnPlay(GameObject target, GameObject secondaryTarget = null)
