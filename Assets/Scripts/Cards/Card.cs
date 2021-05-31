@@ -31,8 +31,6 @@ public abstract class Card : NetworkBehaviour
     private TextMeshProUGUI displayMana;
     protected TextMeshProUGUI displayCardText;
 
-    //time card takes to be destroyed
-
     private Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
     {
         { "red", new Color(0.4f, 0.0f, 0.0f, 1.0f) },
@@ -135,10 +133,11 @@ public abstract class Card : NetworkBehaviour
         return false;
     }
 
-    public virtual void Stage()
+    public virtual void Stage(CardPlayed_e e)
     {
-        PlayerManager.PlayCard(gameObject, GetLineage());
+        PlayerManager.PlayCard(e, GetLineage());
     }
+
 
     public virtual void UnStage()
     {

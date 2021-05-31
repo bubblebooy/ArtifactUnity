@@ -15,6 +15,7 @@
 |✔️| Assassin's Shadow| Done | Max Garber |
 |✔️| Bronze Legionnaire| Done | Max Garber |
 |✔️| Canid Bushwacker| Done | Max Garber |
+|✔️| Defenestrating Kobold| Done | Max Garber |
 |✔️| Disciple of Nevermore| Done | Max Garber |
 |✔️| Hound of War| Done | Max Garber |
 |✔️| Naked Greevil| Done | Max Garber |
