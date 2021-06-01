@@ -21,6 +21,11 @@ public struct AfterCombat_e : IGameEventInfo
 {
     public LaneManager lane;
 }
+public struct GameUpdate_e : IGameEventInfo
+{
+    public bool checkAlive { get; }
+    public GameUpdate_e(bool check) => checkAlive = check;
+}
 public struct CardPlayed_e : IGameEventInfo
 {
     public GameObject card;
@@ -43,7 +48,7 @@ public struct CardPlayed_e : IGameEventInfo
     //}
 }
 
-public struct GameUpdate_e : IGameEventInfo {}
+
 public struct Auras_e : IGameEventInfo { }
 public struct GameUpdateUI_e : IGameEventInfo { }
 public struct EndCombatPhase_e : IGameEventInfo { }

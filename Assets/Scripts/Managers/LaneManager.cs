@@ -35,6 +35,7 @@ public class LaneManager : NetworkBehaviour
             foreach (Unit unit in units) { unit.PreCombat(quick: true); }
             foreach (Unit unit in units) { unit.Combat(quick: true); }
             foreach (Unit unit in units) { unit.quickstrikeDead(); }
+            //GameManager.GameUpdate(checkAlive: false);
             foreach (Unit unit in units) { unit.PreCombat(); }
             foreach (Unit unit in units) { unit.Combat(); }
 

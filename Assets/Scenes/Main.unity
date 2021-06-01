@@ -976,6 +976,11 @@ MonoBehaviour:
   - {fileID: 3268424118735721052, guid: e2f79e84df085dd43bdc797bbeb251b0, type: 3}
   - {fileID: 3488105600781611208, guid: 2960016a51796b54c9eced3a9aa681a9, type: 3}
   - {fileID: 4464708748315217065, guid: 807cda63884a9d746a38b70571806b88, type: 3}
+  - {fileID: 5548349951069882578, guid: 63c58d970e2d3484ca44a0b5178e37ea, type: 3}
+  - {fileID: 3315321575586838441, guid: ac2c1633b100f764ea84a2ab43294a11, type: 3}
+  - {fileID: 633415085355344111, guid: b66496f29d7280d4ebdb6c23612b7b7f, type: 3}
+  - {fileID: 905343876917653098, guid: 431fe0d067235844c9f23ec20cd49026, type: 3}
+  - {fileID: 973413373660759860, guid: 9bb61195ab98c8749af5e8270b63c14e, type: 3}
 --- !u!4 &1102289581
 Transform:
   m_ObjectHideFlags: 0
@@ -2292,7 +2297,8 @@ PrefabInstance:
       propertyPath: sceneId
       value: 483026250
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6337483570593186521, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
 --- !u!224 &6717567165922143288 stripped
 RectTransform:

@@ -208,7 +208,7 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     public void CmdSummon(string unit, List<string> targetLineage) 
     {
-        GameObject card = Instantiate(cardDict[unit], new Vector2(0, 0), Quaternion.identity); 
+        GameObject card = Instantiate(cardDict[unit], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
         //RpcOnSpawn(card);
         RpcPlaceCard(card, targetLineage);
@@ -217,6 +217,27 @@ public class PlayerManager : NetworkBehaviour
         RpcPlayCard(cardPlayed_e, false);
     }
 
+    [Command]
+    public void CmdClone(GameObject unit, List<string> targetLineage)
+    {
+        GameObject card;
+        NetworkClient.GetPrefab(unit.GetComponent<NetworkIdentity>().assetId, out card);
+        card = Instantiate(card, new Vector2(0, 0), Quaternion.identity);
+        NetworkServer.Spawn(card, connectionToClient);
+        RpcClone(original: unit, clone: card);
+        //RpcOnSpawn(card);
+        RpcPlaceCard(card, targetLineage);
+        CardPlayed_e cardPlayed_e = new CardPlayed_e();
+        cardPlayed_e.card = card;
+        RpcPlayCard(cardPlayed_e, false);
+    }
+
+    [ClientRpc]
+    public void RpcClone(GameObject original, GameObject clone)
+    {
+        clone.GetComponent<Card>().Clone(original);
+        GameManager.GameUpdate();
+    }
 
     public void PlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage)
     {

@@ -86,10 +86,14 @@ public abstract class Card : NetworkBehaviour
         displayCardText.transform.parent.SetAsLastSibling();
         baseMana = mana;
         events.Add(GameEventSystem.Register<GameUpdateUI_e>(CardUIUpdate));
-
-        //InitializeCard();  // should prob just do Start({base.Start()})
     }
 
+    public virtual void Clone(GameObject originalGameObject)
+    {
+        Card originalCard = originalGameObject.GetComponent<Card>();
+        mana = originalCard.mana;
+        color = originalCard.color;
+    }
 
     //public virtual void InitializeCard(){}
     public virtual void DestroyCard()

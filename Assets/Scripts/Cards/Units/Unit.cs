@@ -10,7 +10,7 @@ public class Unit : Card
     protected int baseAttack;//, baseArmor, baseHealth;
     [HideInInspector]
     public int maxArmor, maxHealth;
-    protected int baseMaxArmor, baseMaxHealth;
+    public int baseMaxArmor, baseMaxHealth;
 
     private TextMeshProUGUI displayAttack, displayArmor, displayHealth;
     private Transform displayArrow;
@@ -81,6 +81,28 @@ public class Unit : Card
         events.Add(GameEventSystem.Register<GameUpdate_e>(CardUpdate));
     }
 
+    public override void Clone(GameObject originalGameObject)
+    {
+        base.Clone(originalGameObject);
+        Unit originalUnit = originalGameObject.GetComponent<Unit>();
+        //do not need to clone properties handled in CardUpdate
+        health = originalUnit.health;
+        armor = originalUnit.armor;
+        //baseMaxHealth = originalUnit.baseMaxHealth;
+        //baseMaxArmor = originalUnit.baseMaxHealth;
+
+
+        //clone modifier scripts
+        IModifier[] modifiers = originalGameObject.GetComponents<IModifier>();
+        foreach (IModifier modifier in modifiers)
+        {
+            Component script = gameObject.AddComponent(modifier.GetType());
+            (script as IModifier).Clone(modifier);
+        }
+        //clone abilities
+        GetComponent<AbilitiesManager>().Clone(originalGameObject);
+    }
+
     public override bool IsVaildPlay(GameObject target)
     {
         if (base.IsVaildPlay(target) &&
@@ -132,7 +154,7 @@ public class Unit : Card
     }
     public void CheckAlive(GameUpdate_e e)
     {
-        if (health <= 0)
+        if (e.checkAlive && health <= 0)
         {
             if (deathShield)
             {
@@ -260,21 +282,16 @@ public class Unit : Card
 
     //void Battle
 
+    int preCombatTargetHealth;
     public virtual void PreCombat(bool quick = false)
     {
         if (quick == quickstrike && !disarmed)
         {
             Unit target = GetCombatTarget();
-            if(target != null)
+            if (target != null)
             {
-                attack = target.CalculateDamage(attack + cleave, piercing);
-                if ((trample || target.feeble) && attack > target.health)
-                {
-                    //FACTOR IN DECAY AND REGEN
-                    siege += attack - target.health;
-                    attack = target.health;
-                    
-                }
+                //factor in decay and regen
+                preCombatTargetHealth = target.health;
             }
         }
     }
@@ -286,7 +303,14 @@ public class Unit : Card
             Unit target = GetCombatTarget();
             if (target != null)
             {
-                Strike(target, attack, piercing);
+                int trampleAdj = preCombatTargetHealth - target.health;
+                int targetHealth = Strike(target, attack, piercing);
+                if (trample || target.feeble && targetHealth < 0)
+                {
+                    //preCombatTargetHealth
+                    attackTower += Mathf.Min((-1 * targetHealth) - trampleAdj);
+                }
+                
             }
             else
             {

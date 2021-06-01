@@ -38,6 +38,30 @@ public class UnitModifier : MonoBehaviour, IModifier
         //}
     }
 
+    public void Clone(IModifier originalIModifier)
+    {
+        unit = GetComponentInParent<Unit>();
+        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+
+
+        attack = (originalIModifier as UnitModifier).attack;
+        maxArmor = (originalIModifier as UnitModifier).maxArmor;
+        maxHealth = (originalIModifier as UnitModifier).maxHealth;
+
+        cleave = (originalIModifier as UnitModifier).cleave;
+        siege = (originalIModifier as UnitModifier).siege;
+        retaliate = (originalIModifier as UnitModifier).retaliate;
+
+        quickstrike = (originalIModifier as UnitModifier).quickstrike;
+        disarmed = (originalIModifier as UnitModifier).disarmed;
+        caster = (originalIModifier as UnitModifier).caster;
+        piercing = (originalIModifier as UnitModifier).piercing;
+        trample = (originalIModifier as UnitModifier).trample;
+        feeble = (originalIModifier as UnitModifier).feeble;
+        damageImmunity = (originalIModifier as UnitModifier).damageImmunity;
+        untargetable = (originalIModifier as UnitModifier).untargetable;
+    }
+
     public void ModifyCard()
     {
         unit = unit ?? GetComponentInParent<Unit>();

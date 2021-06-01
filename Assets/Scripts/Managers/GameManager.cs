@@ -238,10 +238,10 @@ public class GameManager : NetworkBehaviour
         }
     }
 
-    public void GameUpdate()
+    public void GameUpdate(bool checkAlive = true)
     {
         //Set death counter to 0
-        GameEventSystem.Event(new GameUpdate_e());
+        GameEventSystem.Event(new GameUpdate_e(checkAlive));
         GameEventSystem.Event(new Auras_e());
         GameEventSystem.Event(new GameUpdateUI_e());
         if (false) { GameUpdate(); }

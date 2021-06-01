@@ -43,18 +43,6 @@ PrefabInstance:
       propertyPath: abilityText
       value: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."
       objectReference: {fileID: 0}
-    - target: {fileID: -2387730983430884866, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
-      propertyPath: m_Delegates.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387730983430884866, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
-      propertyPath: m_Delegates.Array.data[2].eventID
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387730983430884866, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3764859104290567765, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_text
       value: "Active 2\u25A0, 1 Mana: Battle all adjacent enemies."

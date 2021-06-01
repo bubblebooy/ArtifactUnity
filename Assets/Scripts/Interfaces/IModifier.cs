@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IModifier
 {
     void ModifyCard();
+
+    void Clone(IModifier originalIModifier);
 }

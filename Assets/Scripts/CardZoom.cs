@@ -13,17 +13,6 @@ public class CardZoom : MonoBehaviour
 
     private bool hover = false;
 
-    //public void OnValidate()
-    //{
-    //    color = gameObject.transform.Find("Color").gameObject;
-    //    foreach (Image image in color.GetComponentsInChildren<Image>())
-    //    {
-    //        image.raycastTarget = false;
-    //    }
-    //    placeholder = gameObject.transform.Find("Placeholder").gameObject;
-    //    placeholder.GetComponent<Image>().raycastTarget = true;
-    //}
-
     public void Awake()
     {
         Canvas = GameObject.Find("Main Canvas");
@@ -35,19 +24,16 @@ public class CardZoom : MonoBehaviour
     {
         hover = true;
         StartCoroutine(DelayedHover(0.1f));
-
     }
 
     public IEnumerator DelayedHover(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        if (hover & !GetComponent<DragDrop>().isDragging) // && placeholder == null
+        if (hover & !GetComponent<DragDrop>().isDragging) 
         {
             color.transform.SetParent(Canvas.transform, true);
 
             color.GetComponent<RectTransform>().localScale = new Vector3(2, 2, 1);
-
-
         }
     }
 

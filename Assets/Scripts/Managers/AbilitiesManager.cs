@@ -27,6 +27,28 @@ public class AbilitiesManager : MonoBehaviour
         collapsedAnchoredPosition = abilities.GetComponent<RectTransform>().anchoredPosition;
     }
 
+    public void Clone(GameObject baseGameObject)
+    {
+        //Transform abilities = transform.Find("Color").Find("Abilities");
+        foreach ( Transform baseAbilityTransform in baseGameObject.transform.Find("Color/Abilities"))
+        {
+            GameObject baseAbilityGameObject = baseAbilityTransform.gameObject;
+            GameObject abilityGameObject;
+            Ability baseAbility = baseAbilityGameObject.GetComponent<Ability>();
+            if (baseAbility.baseAbility)
+            {
+                abilityGameObject = abilities.transform.Find(baseAbilityGameObject.name).gameObject;
+            }
+            else
+            {
+                abilityGameObject = Instantiate(baseAbilityGameObject, abilities.transform);
+            }
+            abilityGameObject.GetComponent<Ability>().Clone(baseAbility);
+
+        } 
+    }
+
+
     public void CardUpdate()
     {
         Collapse();

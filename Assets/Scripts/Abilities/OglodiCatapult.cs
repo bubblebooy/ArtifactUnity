@@ -14,6 +14,7 @@ public class OglodiCatapult : ModifierAbility
 
     public override void OnPlay()
     {
+        base.OnPlay();
         inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
         inPlayEvents.Add(GameEventSystem.Register<Scheme_e>(Scheme));
     }

@@ -36,6 +36,17 @@ public class Ability : MonoBehaviour
         card = GetComponentInParent<Unit>();
     }
 
+    public virtual void Clone(Ability originalAbility)
+    {
+        card = GetComponentInParent<Unit>();
+        inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
+        events = new List<(System.Type, GameEventSystem.EventListener)>();
+        broken = originalAbility.broken;
+        opponentEffect = originalAbility.opponentEffect;
+        temporary = originalAbility.temporary;
+        expanded = false;
+    }
+
     public virtual void CardUpdate() { }
     //public virtual void RoundStart() { }
     public virtual void OnPlay() { }
