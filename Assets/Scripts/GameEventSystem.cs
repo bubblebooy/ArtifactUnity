@@ -58,7 +58,16 @@ public class GameEventSystem : MonoBehaviour
 
         foreach( EventListener listener in eventListeners[eventInfo.GetType()].ToArray())
         {
-            listener(eventInfo);
+            if(listener != null) // This did not work. I should figure out how to do this.
+            {
+                listener(eventInfo);
+            }
+            else
+            {
+                print("listener is null, Unregistering listener");
+                eventListeners[eventInfo.GetType()].Remove(listener);
+            }
+            
         }
         
     }

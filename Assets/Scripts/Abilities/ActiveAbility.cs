@@ -85,8 +85,13 @@ public class ActiveAbility : Ability
         if (IsVaildPlay())
         {
             //move to the ability so can handle selecting targets
-            PlayerManager.ActivateAbility(card.gameObject, transform.GetSiblingIndex());
+            ActivateAbility();
         }
+    }
+
+    public virtual void ActivateAbility()
+    {
+        PlayerManager.ActivateAbility(card.gameObject, transform.GetSiblingIndex());
     }
 
     public virtual void OnActivate()

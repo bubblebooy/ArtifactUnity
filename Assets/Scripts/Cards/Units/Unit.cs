@@ -10,6 +10,7 @@ public class Unit : Card
     protected int baseAttack;//, baseArmor, baseHealth;
     [HideInInspector]
     public int maxArmor, maxHealth;
+    [HideInInspector]
     public int baseMaxArmor, baseMaxHealth;
 
     private TextMeshProUGUI displayAttack, displayArmor, displayHealth;
@@ -232,6 +233,12 @@ public class Unit : Card
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().DestroyCard();
         base.DestroyCard();
+    }
+
+    protected override void OnDestroy()
+    {
+        GameEventSystem.Unregister(inPlayEvents);
+        GetComponent<AbilitiesManager>().DestroyCard();
     }
 
     public void EndCombatPhase(EndCombatPhase_e e) {

@@ -106,6 +106,11 @@ public abstract class Card : NetworkBehaviour
         StartCoroutine(Discard());
     }
 
+    protected virtual void OnDestroy()
+    {
+        GameEventSystem.Unregister(events);
+    }
+
     protected virtual IEnumerator Discard()
     {
         yield return new WaitForSeconds(0.0f);

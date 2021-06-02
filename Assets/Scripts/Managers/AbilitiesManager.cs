@@ -27,23 +27,23 @@ public class AbilitiesManager : MonoBehaviour
         collapsedAnchoredPosition = abilities.GetComponent<RectTransform>().anchoredPosition;
     }
 
-    public void Clone(GameObject baseGameObject)
+    public void Clone(GameObject originalGameObject)
     {
         //Transform abilities = transform.Find("Color").Find("Abilities");
-        foreach ( Transform baseAbilityTransform in baseGameObject.transform.Find("Color/Abilities"))
+        foreach ( Transform originalAbilityTransform in originalGameObject.transform.Find("Color/Abilities"))
         {
-            GameObject baseAbilityGameObject = baseAbilityTransform.gameObject;
+            GameObject originalAbilityGameObject = originalAbilityTransform.gameObject;
             GameObject abilityGameObject;
-            Ability baseAbility = baseAbilityGameObject.GetComponent<Ability>();
-            if (baseAbility.baseAbility)
+            Ability originalAbility = originalAbilityGameObject.GetComponent<Ability>();
+            if (originalAbility.baseAbility)
             {
-                abilityGameObject = abilities.transform.Find(baseAbilityGameObject.name).gameObject;
+                abilityGameObject = abilities.transform.Find(originalAbilityGameObject.name).gameObject;
             }
             else
             {
-                abilityGameObject = Instantiate(baseAbilityGameObject, abilities.transform);
+                abilityGameObject = Instantiate(originalAbilityGameObject, abilities.transform);
             }
-            abilityGameObject.GetComponent<Ability>().Clone(baseAbility);
+            abilityGameObject.GetComponent<Ability>().Clone(originalAbility);
 
         } 
     }
@@ -102,6 +102,10 @@ public class AbilitiesManager : MonoBehaviour
     public void OnActivate(int abilityIndex)
     {
         abilities.transform.GetChild(abilityIndex).GetComponent<ActiveAbility>().OnActivate();
+    }
+    public void OnActivate(int abilityIndex, GameObject target)
+    {
+        abilities.transform.GetChild(abilityIndex).GetComponent<ActiveTargetAbility>().OnPlay(target.gameObject);
     }
 
     public void Purge(bool oppenentEffectsOnly, bool triggerAuthority, bool temporyEffectsOnly)

@@ -47,10 +47,17 @@ public class Hero : Unit
         staged = true;
     }
 
+
     public override void DestroyCard()
     {
         Bounce();
         respawn = 2;
+    }
+
+    public void ForceDestroyCard()
+    {
+        //for when you accually want to send a hero to the graveyard
+        base.DestroyCard();
     }
 
     public override void Bounce()

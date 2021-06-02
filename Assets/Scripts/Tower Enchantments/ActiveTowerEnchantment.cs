@@ -96,6 +96,7 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
     public virtual void OnPlay(GameObject target, GameObject secondaryTarget = null)
     {
         cooldown = baseCooldown;
+        ManaManager.mana -= mana;
         transform.Find("frame").GetComponent<Image>().color = Color.white;
         primaryTarget = null;
     }

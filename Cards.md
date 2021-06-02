@@ -68,6 +68,7 @@
 
 | | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
+|✔️| Arc Warden | Done | Max Garber |
 |✔️| Axe | Done | Max Garber |
 || Drow Ranger | Aura Linger | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |

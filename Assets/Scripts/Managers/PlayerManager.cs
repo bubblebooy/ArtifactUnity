@@ -235,6 +235,7 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     public void RpcClone(GameObject original, GameObject clone)
     {
+        original.GetComponent<Unit>()?.CardUpdate(); // this gets rid of any Aura effects
         clone.GetComponent<Card>().Clone(original);
         GameManager.GameUpdate();
     }
@@ -302,17 +303,36 @@ public class PlayerManager : NetworkBehaviour
         CmdActivateAbility(card, abilityIndex, quickcast);
     }
 
+    public void ActivateTargetAbility(GameObject card, int abilityIndex, List<string> targetLineage, bool quickcast = false)
+    {
+        CmdActivateTargetAbility(card, abilityIndex, targetLineage, quickcast);
+    }
+
     [Command]
     void CmdActivateAbility(GameObject card, int abilityIndex, bool quickcast)
     {
         RpcActivateAbility(card, abilityIndex);  // this prob needs to pass the card so on play effects can happen
         RpcNextTurn(quickcast); // This should be moved to so that the card call it (or not if quick)
     }
+    [Command]
+    void CmdActivateTargetAbility(GameObject card, int abilityIndex, List<string> targetLineage, bool quickcast)
+    {
+        RpcActivateTargetAbility(card, abilityIndex, targetLineage);  
+        RpcNextTurn(quickcast);
+    }
+
     [ClientRpc]
     void RpcActivateAbility(GameObject card, int abilityIndex)
     {
         card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex);
         StartCoroutine(GameManager.AbilityActivated(card, abilityIndex)); 
+    }
+    [ClientRpc]
+    void RpcActivateTargetAbility(GameObject card, int abilityIndex, List<string> targetLineage)
+    {
+        Transform target = LineageToTransform(targetLineage);
+        card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex, target.gameObject);
+        StartCoroutine(GameManager.AbilityActivated(card, abilityIndex));
     }
 
     public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null, bool quickcast = false)

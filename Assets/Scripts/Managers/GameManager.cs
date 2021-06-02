@@ -184,8 +184,8 @@ public class GameManager : NetworkBehaviour
         GameEventSystem.Event(new AfterCombat_e());
         
         CombatDirection = !CombatDirection;
-        SummonLaneCreeps();
         GameEventSystem.Event(new EndCombatPhase_e());
+        SummonLaneCreeps();
         PlayerManager.CmdEndCombat();
         UIManager.ButtonInteractable(true);
     }
