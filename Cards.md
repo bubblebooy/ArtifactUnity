@@ -54,6 +54,7 @@
 |✔️| Cunning Plan | Done | Max Garber |
 |✔️| Diabolic Conclusion | Done | Max Garber |
 |✔️| Divine Intervention | Done | Max Garber |
+|✔️| Gank | Done | Max Garber |
 |✔️| Lightning Strike | Done | Max Garber |
 |✔️| Poised to Strike | Done | Max Garber |
 |✔️| Repel | Done | Max Garber |
