@@ -48,7 +48,7 @@ public class GameEventSystem : MonoBehaviour
         listeners.Clear();
     }
 
-    public static void Event(IGameEventInfo eventInfo)
+    public static void Event(IGameEventInfo eventInfo, bool unregister = false)
     {
         Type t = eventInfo.GetType();
         if (eventListeners == null || !eventListeners.ContainsKey(t) || eventListeners[t] == null)
@@ -61,6 +61,10 @@ public class GameEventSystem : MonoBehaviour
             if(listener != null) // This did not work. I should figure out how to do this.
             {
                 listener(eventInfo);
+                if (unregister)
+                {
+                    eventListeners[eventInfo.GetType()].Remove(listener);
+                }
             }
             else
             {
@@ -69,9 +73,7 @@ public class GameEventSystem : MonoBehaviour
             }
             
         }
-        
     }
-
 }
 
 //public abstract class EventListener

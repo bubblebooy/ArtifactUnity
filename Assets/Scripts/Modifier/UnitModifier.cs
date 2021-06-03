@@ -32,17 +32,16 @@ public class UnitModifier : MonoBehaviour, IModifier
     {
         unit = GetComponentInParent<Unit>();
         inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
-        //if (temporary)
-        //{
-        //    unit.inPlayEvents.Add ONDESTROY EVENT
-        //}
     }
 
     public void Clone(IModifier originalIModifier)
     {
-        unit = GetComponentInParent<Unit>();
-        inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        //unit = GetComponentInParent<Unit>();
+        //inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
 
+        opponentEffect = (originalIModifier as UnitModifier).opponentEffect;
+        temporary = (originalIModifier as UnitModifier).temporary;
+        duration = (originalIModifier as UnitModifier).duration;
 
         attack = (originalIModifier as UnitModifier).attack;
         maxArmor = (originalIModifier as UnitModifier).maxArmor;

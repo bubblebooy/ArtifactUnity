@@ -25,6 +25,7 @@
 |✔️| Rumusque Redeemer| Done | Max Garber |
 |✔️| Satyr Duelist| Done | Max Garber |
 |✔️| Untested Grunt| Done | Max Garber |
+|✔️| Vhoul Martyr| Done | Max Garber |
 
 </details>
 

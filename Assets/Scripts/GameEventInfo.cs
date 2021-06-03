@@ -49,9 +49,11 @@ public struct CardPlayed_e : IGameEventInfo
 }
 
 
+
 public struct Auras_e : IGameEventInfo { }
 public struct GameUpdateUI_e : IGameEventInfo { }
 public struct EndCombatPhase_e : IGameEventInfo { }
+public struct DeathEffects_e : IGameEventInfo { }
 
 //public struct  : IGameEventInfo { }
 //public struct  : IGameEventInfo { }
