@@ -287,12 +287,42 @@ public class Unit : Card
         return health;
     }
 
-    //void Battle
+    public virtual void Battle(Unit enemy)
+    {
+        Battle(new Unit[] { enemy });
+    }
+    public virtual void Battle(Unit[] enemies)
+    {
+        bool quick = true;
+        do
+        {
+            foreach (Unit enemy in enemies)
+            {
+                if (enemy == null) { continue; }
+
+                if (quickstrike == quick && !disarmed) //Stun
+                {
+                    Strike(enemy, attack, piercing);
+                }
+                if (enemy.quickstrike == quick && !enemy.disarmed) //Stun
+                {
+                    enemy.Strike(this, enemy.attack, enemy.piercing);
+                }
+            }
+            quickstrikeDead();
+            foreach (Unit enemy in enemies)
+            {
+                enemy?.quickstrikeDead();
+            }
+            quick = !quick;
+        } while (!quick);
+
+    }
 
     int preCombatTargetHealth;
     public virtual void PreCombat(bool quick = false)
     {
-        if (quick == quickstrike && !disarmed)
+        if (quick == quickstrike && !disarmed) //Stun
         {
             Unit target = GetCombatTarget();
             if (target != null)
@@ -305,7 +335,7 @@ public class Unit : Card
     public virtual void Combat( bool quick = false)
     {
         int attackTower = siege;
-        if (quick == quickstrike && !disarmed)
+        if (quick == quickstrike && !disarmed) //Stun
         {
             Unit target = GetCombatTarget();
             if (target != null)
@@ -352,7 +382,7 @@ public class Unit : Card
         GetComponent<AbilitiesManager>().Purge(oppenentEffectsOnly, triggerAuthority, temporyEffectsOnly);
         foreach (UnitModifier mod in gameObject.GetComponents<UnitModifier>())
         {
-            //is an oppenentEffect if it is listed as such XOR on a card owned by the oppenent 
+            //is an oppenentEffect, if it is listed as such XOR on a card owned by the oppenent 
             bool opponentEffect = mod.opponentEffect ^ !hasAuthority;  
             if ((!oppenentEffectsOnly || (!triggerAuthority ^ opponentEffect)) &&
                 (!temporyEffectsOnly ||  mod.temporary))
