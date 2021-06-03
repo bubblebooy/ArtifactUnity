@@ -12,9 +12,12 @@ public class UnitModifier : MonoBehaviour, IModifier
     public int cleave = 0;
     public int siege = 0;
     public int retaliate = 0;
+    public int decay = 0;
+    public int regeneration = 0;
 
     public bool quickstrike = false;
     public bool disarmed = false;
+    public bool stun = false;
     public bool caster = false;
     public bool piercing = false;
     public bool trample = false;
@@ -50,9 +53,12 @@ public class UnitModifier : MonoBehaviour, IModifier
         cleave = (originalIModifier as UnitModifier).cleave;
         siege = (originalIModifier as UnitModifier).siege;
         retaliate = (originalIModifier as UnitModifier).retaliate;
+        decay = (originalIModifier as UnitModifier).decay;
+        regeneration = (originalIModifier as UnitModifier).regeneration;
 
         quickstrike = (originalIModifier as UnitModifier).quickstrike;
         disarmed = (originalIModifier as UnitModifier).disarmed;
+        stun = (originalIModifier as UnitModifier).stun;
         caster = (originalIModifier as UnitModifier).caster;
         piercing = (originalIModifier as UnitModifier).piercing;
         trample = (originalIModifier as UnitModifier).trample;
@@ -65,17 +71,18 @@ public class UnitModifier : MonoBehaviour, IModifier
     {
         unit = unit ?? GetComponentInParent<Unit>();
         unit.attack += attack;
-        //unit.armor += armor;
-        //unit.health += health;
         unit.maxArmor += maxArmor;
         unit.maxHealth += maxHealth;
 
         unit.cleave += cleave;
         unit.siege += siege;
         unit.retaliate += retaliate;
+        unit.decay += decay;
+        unit.regeneration += regeneration;
 
         unit.quickstrike |= quickstrike;
         unit.disarmed |= disarmed;
+        unit.stun |= stun;
         unit.caster |= caster;
         unit.piercing |= piercing;
         unit.trample |= trample;

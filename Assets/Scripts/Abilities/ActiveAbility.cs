@@ -66,6 +66,7 @@ public class ActiveAbility : Ability
     public virtual bool IsVaildPlay()
     {
         if (card.hasAuthority &&
+            !(card.stun || card.silenced) &&
             PlayerManager.IsMyTurn &&
             card.GameManager.GameState == "Play" &&
             card.ManaManager.mana >= mana && 

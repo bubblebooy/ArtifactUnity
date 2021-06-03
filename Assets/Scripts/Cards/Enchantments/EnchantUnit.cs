@@ -12,14 +12,14 @@ public class EnchantUnit : Enchantment
 
     public override bool IsVaildPlay(GameObject target)
     {
-        Unit unit = target.GetComponent<Unit>();
+        Unit targetUnit = target.GetComponent<Unit>();
         if (base.IsVaildPlay(target) &&
-            unit != null &&
-            (!enchantCaster || unit.caster) &&
-            (!enchantCaster || unit.GetSide() == "PlayerSide") &&
-            (!enchantHero || unit is Hero) &&
-            (!targetOnlyPlayerSide || unit.GetSide() == "PlayerSide") &&
-            (!targetOnlyEnemySide  || unit.GetSide() == "EnemySide"))
+            targetUnit != null &&
+            (!enchantCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
+            (!enchantCaster || targetUnit.GetSide() == "PlayerSide") &&
+            (!enchantHero || targetUnit is Hero) &&
+            (!targetOnlyPlayerSide || targetUnit.GetSide() == "PlayerSide") &&
+            (!targetOnlyEnemySide  || targetUnit.GetSide() == "EnemySide"))
         {
             return true;
         }

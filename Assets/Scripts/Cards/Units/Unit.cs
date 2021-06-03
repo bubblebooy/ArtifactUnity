@@ -25,6 +25,8 @@ public class Unit : Card
     public int cleave = 0;
     [HideInInspector]
     public bool disarmed = false;
+    [HideInInspector]
+    public bool stun = false;
     public bool caster;
     [HideInInspector]
     public bool silenced = false;
@@ -44,7 +46,10 @@ public class Unit : Card
     public int siege = 0;
     [HideInInspector]
     public int retaliate = 0;
-
+    [HideInInspector]
+    public int decay = 0;  // prob could make Decay and regen the same variable
+    [HideInInspector]
+    public int regeneration = 0;
 
     protected string targetTag = "Card Slot";
 
@@ -77,7 +82,7 @@ public class Unit : Card
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
-        if (disarmed) { displayAttack.color = Color.grey; }
+        if (disarmed || stun) { displayAttack.color = Color.grey; }
         displayArrow = gameObject.transform.Find("Color/Arrow");
         events.Add(GameEventSystem.Register<GameUpdate_e>(CardUpdate));
     }
@@ -131,9 +136,12 @@ public class Unit : Card
         cleave = 0;
         siege = 0;
         retaliate = 0;
+        decay = 0;
+        regeneration = 0;
 
         quickstrike = false;
         disarmed = false;
+        stun = false;
         caster = this is Hero;
         silenced = false;
         piercing = false;
@@ -229,16 +237,16 @@ public class Unit : Card
 
     public override void DestroyCard()
     {
+        GetComponent<AbilitiesManager>().DestroyCard();
         arrow = 0;
         GameEventSystem.Unregister(inPlayEvents);
-        GetComponent<AbilitiesManager>().DestroyCard();
         base.DestroyCard();
     }
 
     protected override void OnDestroy()
     {
         GameEventSystem.Unregister(inPlayEvents);
-        GetComponent<AbilitiesManager>().DestroyCard();
+        //GetComponent<AbilitiesManager>().DestroyCard();
     }
 
     public void EndCombatPhase(EndCombatPhase_e e) {
@@ -300,11 +308,11 @@ public class Unit : Card
             {
                 if (enemy == null) { continue; }
 
-                if (quickstrike == quick && !disarmed) //Stun
+                if (quickstrike == quick && !(disarmed || stun)) //Stun
                 {
                     Strike(enemy, attack, piercing);
                 }
-                if (enemy.quickstrike == quick && !enemy.disarmed) //Stun
+                if (enemy.quickstrike == quick && !(enemy.disarmed || enemy.stun)) //Stun
                 {
                     enemy.Strike(this, enemy.attack, enemy.piercing);
                 }
@@ -322,20 +330,20 @@ public class Unit : Card
     int preCombatTargetHealth;
     public virtual void PreCombat(bool quick = false)
     {
-        if (quick == quickstrike && !disarmed) //Stun
+        if (quick == quickstrike && !(disarmed || stun)) //Stun
         {
             Unit target = GetCombatTarget();
             if (target != null)
             {
                 //factor in decay and regen
-                preCombatTargetHealth = target.health;
+                preCombatTargetHealth = target.health - target.decay + target.regeneration;
             }
         }
     }
     public virtual void Combat( bool quick = false)
     {
         int attackTower = siege;
-        if (quick == quickstrike && !disarmed) //Stun
+        if (quick == quickstrike && !(disarmed || stun)) //Stun
         {
             Unit target = GetCombatTarget();
             if (target != null)
@@ -374,6 +382,12 @@ public class Unit : Card
                 }
             }
 
+        }
+        if (!quick)
+        {
+            health = Mathf.Min(                // dont over heal
+                health - decay + regeneration, 
+                Mathf.Max(maxHealth,health));  // if currently has temp health
         }
     }
 

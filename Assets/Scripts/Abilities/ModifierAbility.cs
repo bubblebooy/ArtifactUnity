@@ -11,9 +11,12 @@ public class ModifierAbility : Ability, IModifier
     public int cleave = 0;
     public int siege = 0;
     public int retaliate = 0;
+    public int decay = 0;
+    public int regeneration = 0;
 
     public bool quickstrike = false;
     public bool disarmed = false;
+    public bool stun = false;
     public bool caster = false;
     public bool piercing = false;
     public bool trample = false;
@@ -31,9 +34,12 @@ public class ModifierAbility : Ability, IModifier
         cleave = (originalAbilityAbility as ModifierAbility).cleave;
         siege = (originalAbilityAbility as ModifierAbility).siege;
         retaliate = (originalAbilityAbility as ModifierAbility).retaliate;
+        decay = (originalAbilityAbility as ModifierAbility).decay;
+        regeneration = (originalAbilityAbility as ModifierAbility).regeneration;
 
         quickstrike = (originalAbilityAbility as ModifierAbility).quickstrike;
         disarmed = (originalAbilityAbility as ModifierAbility).disarmed;
+        stun = (originalAbilityAbility as ModifierAbility).stun;
         caster = (originalAbilityAbility as ModifierAbility).caster;
         piercing = (originalAbilityAbility as ModifierAbility).piercing;
         trample = (originalAbilityAbility as ModifierAbility).trample;
@@ -57,13 +63,16 @@ public class ModifierAbility : Ability, IModifier
         card.cleave += cleave;
         card.siege += siege;
         card.retaliate += retaliate;
+        card.decay += decay;
+        card.regeneration += regeneration;
 
-        card.quickstrike |= quickstrike; // ? true : card.quickstrike;
-        card.disarmed |= disarmed; // ? true : card.disarmed; 
-        card.caster |= caster; // ? true : card.caster; 
-        card.piercing |= piercing; // ? true : card.piercing; 
-        card.trample |= trample; // ? true : card.trample; 
-        card.feeble |= feeble; // ? true : card.feeble; 
+        card.quickstrike |= quickstrike; 
+        card.disarmed |= disarmed; 
+        card.stun |= stun; 
+        card.caster |= caster; 
+        card.piercing |= piercing; 
+        card.trample |= trample; 
+        card.feeble |= feeble; 
         card.damageImmunity |= damageImmunity;
         card.untargetable |= untargetable;
     }

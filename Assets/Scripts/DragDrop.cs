@@ -87,7 +87,7 @@ public class DragDrop : NetworkBehaviour
                     Unit[] casters = slot.GetLane().transform.Find("PlayerSide").GetComponentsInChildren<Unit>();
                     casters = casters.Where(x => x.caster).ToArray();
                     // COLOR CHECK HERE
-                    casters = casters.Where(x => !x.silenced).ToArray();
+                    casters = casters.Where(x => !x.silenced && !x.stun).ToArray();
                     System.Array.Sort(casters, delegate(Unit m, Unit n)
                     {
                         int SortValue(Unit u)

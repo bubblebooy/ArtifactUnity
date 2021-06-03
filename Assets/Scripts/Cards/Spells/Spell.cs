@@ -20,7 +20,7 @@ public class Spell : Card
         Unit targetUnit = target.GetComponent<Unit>();
         if (base.IsVaildPlay(target) && 
             target.tag == vaildPlay.targetTag &&
-            (!vaildPlay.targetCaster || targetUnit.caster) &&
+            (!vaildPlay.targetCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
             (!vaildPlay.targetHero || targetUnit is Hero) &&
             (!vaildPlay.targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
             (!vaildPlay.targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide")
