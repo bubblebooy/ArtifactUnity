@@ -26,11 +26,13 @@ MonoBehaviour:
   quickcast: 0
   cardText: "Repeat three times: \u25A1 Deal 1 damage to a random enemy with the
     least <sprite=2>."
-  targetTag: Lane
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 0
-  targetCaster: 0
-  targetHero: 0
+  vaildPlay:
+    targetTag: Lane
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
 --- !u!1001 &1792496919527883480
 PrefabInstance:
   m_ObjectHideFlags: 0

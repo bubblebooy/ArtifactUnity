@@ -15,13 +15,14 @@ public class TempestDouble : ActiveTargetAbility
         }
     }
 
-    public override void OnPlay(GameObject target, GameObject secondaryTarget = null)
+    public override void OnActivate(List<GameObject> targets)
     {
-        base.OnPlay(target, secondaryTarget);
-        CardSlot cardSlot = target.GetComponent<CardSlot>();
+        base.OnActivate(targets);
+
+        CardSlot cardSlot = targets[0].GetComponent<CardSlot>();
         if (card.hasAuthority)
         {
-            PlayerManager.CmdClone(card.gameObject, Card.GetLineage(target.transform));
+            PlayerManager.CmdClone(card.gameObject, Card.GetLineage(targets[0].transform));
         }
     }
 

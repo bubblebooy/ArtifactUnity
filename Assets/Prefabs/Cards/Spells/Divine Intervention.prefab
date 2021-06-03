@@ -25,11 +25,13 @@ MonoBehaviour:
   mana: 4
   quickcast: 0
   cardText: Give allies Damage Immunity.
-  targetTag: Lane
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 0
-  targetCaster: 0
-  targetHero: 0
+  vaildPlay:
+    targetTag: Lane
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
 --- !u!1001 &1775139705519605727
 PrefabInstance:
   m_ObjectHideFlags: 0

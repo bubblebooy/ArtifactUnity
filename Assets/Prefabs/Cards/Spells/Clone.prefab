@@ -25,11 +25,13 @@ MonoBehaviour:
   mana: 5
   quickcast: 0
   cardText: Clone a Card. This card is used to test the cloning function
-  targetTag: Unit
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 1
-  targetCaster: 0
-  targetHero: 0
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 0
+    targetHero: 0
 --- !u!1001 &5586066168284700201
 PrefabInstance:
   m_ObjectHideFlags: 0

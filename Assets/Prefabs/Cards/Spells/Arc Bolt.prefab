@@ -26,11 +26,13 @@ MonoBehaviour:
   quickcast: 0
   cardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
     1 piercing damage."
-  targetTag: Unit
-  targetOnlyEnemySide: 1
-  targetOnlyPlayerSide: 0
-  targetCaster: 0
-  targetHero: 0
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 1
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
   damage: 1
 --- !u!1001 &9217164938166207716
 PrefabInstance:

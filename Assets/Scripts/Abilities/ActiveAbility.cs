@@ -42,17 +42,15 @@ public class ActiveAbility : Ability
         baseCooldown = (originalAbility as ActiveAbility).baseCooldown;
         cooldown = (originalAbility as ActiveAbility).cooldown;
 
-        if (baseAbility)
-        {
-            EventTrigger m_EventTrigger = GetComponent<EventTrigger>();
-            EventTrigger.Entry entry = new EventTrigger.Entry();
-            entry.eventID = EventTriggerType.PointerClick;
-            entry.callback.AddListener((eventData) => { OnClick(); });
-            m_EventTrigger.triggers.Add(entry);
-        }
-        else
+        if (!baseAbility)
         {
             print("NOT SURE IF NEEDED TESTING STILL NEEDED");
+
+            //EventTrigger m_EventTrigger = GetComponent<EventTrigger>();
+            //EventTrigger.Entry entry = new EventTrigger.Entry();
+            //entry.eventID = EventTriggerType.PointerClick;
+            //entry.callback.AddListener((eventData) => { OnClick(); });
+            //m_EventTrigger.triggers.Add(entry);
             events.Add(GameEventSystem.Register<RoundStart_e>(IncrementCooldown));
         }
         displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);

@@ -4,29 +4,21 @@ using UnityEngine;
 
 public class EscapeRoute : ActiveTowerEnchantment
 {
+
     public override bool IsVaildTarget(GameObject target)
     {
-        if (primaryTarget == null)
-        {
-            return base.IsVaildTarget(target) &&
-                   target.GetComponent<Hero>() != null &&
-                   target.GetComponent<Hero>().GetSide() == "PlayerSide" &&
-                   target.GetComponent<Hero>().GetLane() == LaneManager;
-        }
-        else
-        {
-            CardSlot targetSlot = target.GetComponent<CardSlot>();
-            return base.IsVaildTarget(target) &&
-                   targetSlot != null &&
-                   Mathf.Abs(targetSlot.GetLane().transform.GetSiblingIndex() - LaneManager.transform.GetSiblingIndex()) == 1;
-        }
-
+        int i = selectedTargets?.Count ?? 0;
+        print(i);
+        return base.IsVaildTarget(target) &&
+            (!(i == 1) || Mathf.Abs(
+                target.GetComponentInParent<CardSlot>().GetLane().transform.GetSiblingIndex() 
+                - LaneManager.transform.GetSiblingIndex()) == 1);
     }
 
-    public override void OnPlay(GameObject target, GameObject secondaryTarget = null)
+    public override void OnActivate(List<GameObject> targets)
     {
-        base.OnPlay(target, secondaryTarget);
+        base.OnActivate(targets);
 
-        target.transform.SetParent(secondaryTarget.transform, false);
+        targets[0].transform.SetParent(targets[1].transform, false);
     }
 }

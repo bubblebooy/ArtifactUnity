@@ -25,11 +25,13 @@ MonoBehaviour:
   mana: 2
   quickcast: 0
   cardText: Push caster and Summon a Melee Creep in its place.
-  targetTag: Unit
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 1
-  targetCaster: 1
-  targetHero: 0
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 1
+    targetHero: 0
 --- !u!1001 &5439970458752487203
 PrefabInstance:
   m_ObjectHideFlags: 0

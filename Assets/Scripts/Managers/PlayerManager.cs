@@ -244,11 +244,10 @@ public class PlayerManager : NetworkBehaviour
     {
         CmdPlayCard(cardPlayed_e, targetLineage);     
     }
-    public void PlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage, List<string> secondaryTargetLineage)
+    public void PlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage, List<List<string>> targetLineages)
     {
-        CmdPlayTargetedCard(cardPlayed_e, targetLineage, secondaryTargetLineage);
+        CmdPlayTargetedCard(cardPlayed_e, targetLineage, targetLineages);
     }
-
 
     [Command]
     void CmdPlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage)
@@ -258,13 +257,12 @@ public class PlayerManager : NetworkBehaviour
         RpcPlayCard(cardPlayed_e, true); 
         RpcNextTurn(cardPlayed_e.card.GetComponent<Card>().quickcast);
     }
-
     [Command]
-    void CmdPlayTargetedCard(CardPlayed_e cardPlayed_e, List<string> targetLineage, List<string> secondaryTargetLineage)
+    void CmdPlayTargetedCard(CardPlayed_e cardPlayed_e, List<string> targetLineage, List<List<string>> targetLineages)
     {
         RpcPlaceCard(cardPlayed_e.card, targetLineage);
         RpcPayForCard(cardPlayed_e.card);
-        RpcPlayTargetedCard(cardPlayed_e, secondaryTargetLineage);
+        RpcPlayTargetedCard(cardPlayed_e, targetLineages);
         RpcNextTurn(cardPlayed_e.card.GetComponent<Card>().quickcast);
     }
 
@@ -291,10 +289,10 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcPlayTargetedCard(CardPlayed_e cardPlayed_e, List<string> secondaryTargetLineage)
+    void RpcPlayTargetedCard(CardPlayed_e cardPlayed_e, List<List<string>> targetLineages)
     {
-        Transform target = LineageToTransform(secondaryTargetLineage);
-        cardPlayed_e.card.GetComponent<ITargets>().OnPlay(target.gameObject);
+        List<GameObject> targets = targetLineages.Select((lineage) => LineageToTransform(lineage).gameObject).ToList();
+        cardPlayed_e.card.GetComponent<ITargets>().OnActivate(targets);
         StartCoroutine(GameManager.CardPlayed(cardPlayed_e));
     }
 
@@ -303,9 +301,9 @@ public class PlayerManager : NetworkBehaviour
         CmdActivateAbility(card, abilityIndex, quickcast);
     }
 
-    public void ActivateTargetAbility(GameObject card, int abilityIndex, List<string> targetLineage, bool quickcast = false)
+    public void ActivateTargetAbility(GameObject card, int abilityIndex, List<List<string>> targetLineages, bool quickcast = false)
     {
-        CmdActivateTargetAbility(card, abilityIndex, targetLineage, quickcast);
+        CmdActivateTargetAbility(card, abilityIndex, targetLineages, quickcast);
     }
 
     [Command]
@@ -315,9 +313,9 @@ public class PlayerManager : NetworkBehaviour
         RpcNextTurn(quickcast); // This should be moved to so that the card call it (or not if quick)
     }
     [Command]
-    void CmdActivateTargetAbility(GameObject card, int abilityIndex, List<string> targetLineage, bool quickcast)
+    void CmdActivateTargetAbility(GameObject card, int abilityIndex, List<List<string>> targetLineages, bool quickcast)
     {
-        RpcActivateTargetAbility(card, abilityIndex, targetLineage);  
+        RpcActivateTargetAbility(card, abilityIndex, targetLineages);  
         RpcNextTurn(quickcast);
     }
 
@@ -328,36 +326,35 @@ public class PlayerManager : NetworkBehaviour
         StartCoroutine(GameManager.AbilityActivated(card, abilityIndex)); 
     }
     [ClientRpc]
-    void RpcActivateTargetAbility(GameObject card, int abilityIndex, List<string> targetLineage)
+    void RpcActivateTargetAbility(GameObject card, int abilityIndex, List<List<string>> targetLineages)
     {
-        Transform target = LineageToTransform(targetLineage);
-        card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex, target.gameObject);
+        List<GameObject> targets = targetLineages.Select((lineage) => LineageToTransform(lineage).gameObject).ToList();
+        card.GetComponent<AbilitiesManager>().OnActivate(abilityIndex, targets);
         StartCoroutine(GameManager.AbilityActivated(card, abilityIndex));
     }
 
-    public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage = null, bool quickcast = false)
+    public void ActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<List<string>> targetLineages, bool quickcast = false)
     {
-        CmdActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage, quickcast);
+        CmdActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineages, quickcast);
     }
 
     [Command]
-    void CmdActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage, bool quickcast)
+    void CmdActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<List<string>> targetLineages, bool quickcast)
     {
-        RpcActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineage, secondaryTargetLineage);  // this prob needs to pass the card so on play effects can happen
+        RpcActivateTowerEnchantment(Lane, side, enchantmentIndex, targetLineages);  // this prob needs to pass the card so on play effects can happen
         RpcNextTurn(quickcast); // This should be moved to so that the card call it (or not if quick)
     }
 
     [ClientRpc]
-    void RpcActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<string> targetLineage, List<string> secondaryTargetLineage)
+    void RpcActivateTowerEnchantment(GameObject Lane, string side, int enchantmentIndex, List<List<string>> targetLineages)
     {
-        Transform target = LineageToTransform(targetLineage);
-        Transform secondaryTarget = LineageToTransform(secondaryTargetLineage);
+        List<GameObject> targets = targetLineages.Select((lineage) => LineageToTransform(lineage).gameObject).ToList();
         if (!hasAuthority)
         {
             side = side == "PlayerSide" ? "EnemySide" : "PlayerSide";
         }
         ITargets towerEnchantment = Lane.transform.Find(side + "/Enchantments").GetChild(enchantmentIndex).GetComponent<ITargets>();
-        towerEnchantment.OnPlay(target.gameObject, secondaryTarget?.gameObject);
+        towerEnchantment.OnActivate(targets);
         StartCoroutine(GameManager.TowerEnchantmentActivated(Lane, enchantmentIndex, side));
     }
 

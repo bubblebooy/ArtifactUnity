@@ -72,7 +72,7 @@ public class DragDrop : NetworkBehaviour
         {
             for (int i = dropZone.Count - 1; i >= 0; i--)
             {
-                if ((card as Spell)?.targetCaster == true)
+                if ((card as Spell)?.vaildPlay.targetCaster == true)
                 {
                     caster = dropZone[i].GetComponent<Unit>();
                 }

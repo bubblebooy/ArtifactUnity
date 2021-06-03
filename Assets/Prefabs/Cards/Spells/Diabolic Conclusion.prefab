@@ -26,11 +26,13 @@ MonoBehaviour:
   quickcast: 0
   cardText: "Give caster Trample. Disarm your creeps and give their \u25A3 to the
     caster."
-  targetTag: Unit
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 1
-  targetCaster: 1
-  targetHero: 0
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 1
+    targetHero: 0
 --- !u!1001 &3114444507669295209
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,17 +7,10 @@ public class KeenfolkTurret : ActiveTowerEnchantment
 
     public int damage = 2;
 
-    public override bool IsVaildTarget(GameObject target)
+    public override void OnActivate(List<GameObject> targets)
     {
-        return base.IsVaildTarget(target) &&
-               target.GetComponent<Unit>() != null &&
-               target.GetComponent<Unit>().GetLane() == LaneManager;
-    }
-
-    public override void OnPlay(GameObject target, GameObject secondaryTarget = null)
-    {
-        base.OnPlay(target, secondaryTarget);
-        target.GetComponent<Unit>().Damage(damage, true);
+        base.OnActivate(targets);
+        targets[0].GetComponent<Unit>().Damage(damage, true);
     }
 
 }

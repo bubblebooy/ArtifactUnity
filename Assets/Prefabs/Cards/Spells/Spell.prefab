@@ -17,12 +17,25 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  staged: 0
   isDraggable: 1
+  cardArt: {fileID: 0}
   color: 
   cardName: 
   mana: 0
-  CardText: 
+  quickcast: 0
+  cardText: 
   targetTag: Lane
+  targetOnlyEnemySide: 0
+  targetOnlyPlayerSide: 0
+  targetCaster: 0
+  targetHero: 0
+  vailPlay:
+    targetTag: Lane
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
 --- !u!1001 &8937861359884693759
 PrefabInstance:
   m_ObjectHideFlags: 0

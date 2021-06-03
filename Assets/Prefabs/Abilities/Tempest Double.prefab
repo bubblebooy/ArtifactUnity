@@ -27,8 +27,16 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   displayCooldown: {fileID: 2601008040237746601}
   targetTag: Card Slot
+  targetCrossLane: 0
   targetOnlyEnemySide: 0
   targetOnlyPlayerSide: 1
+  vaildTargets:
+  - targetTag: Card Slot
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 0
+    targetHero: 0
+    crossLane: 0
 --- !u!1001 &9154880083806934416
 PrefabInstance:
   m_ObjectHideFlags: 0

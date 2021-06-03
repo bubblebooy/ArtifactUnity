@@ -27,11 +27,13 @@ MonoBehaviour:
   cardText: 'Deal 4 piercing damage to caster''s combat target.
 
     (Can hit towers).'
-  targetTag: Unit
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 1
-  targetCaster: 1
-  targetHero: 0
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 1
+    targetHero: 0
   damage: 4
 --- !u!1001 &5464937186407181105
 PrefabInstance:

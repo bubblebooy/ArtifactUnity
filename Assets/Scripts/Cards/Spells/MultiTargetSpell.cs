@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ActiveTargetAbility : ActiveAbility, ITargets
+public class MultiTargetSpell : Spell, ITargets
 {
-
     public TargetValidation[] vaildTargets;
+    // Might want to change selectedTargets to list of gameobjects
+    // might need to reference previous selections during validation
     protected List<List<string>> selectedTargets = new List<List<string>>();
 
-    public override void ActivateAbility()
+    CardPlayed_e cardPlayed_e;
+    public override void Stage(CardPlayed_e e)
     {
-        //base.ActivateAbility();
+        cardPlayed_e = e;
         TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
-        transform.Find("background").GetComponent<Image>().color = Color.green;
     }
 
     public virtual bool IsVaildTarget(GameObject target)
@@ -22,40 +22,37 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
         Unit targetUnit = target.GetComponent<Unit>();
         CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
         return (target.tag == vaildTargets[i].targetTag &&
-            (!vaildTargets[i].crossLane    || targetSlot.GetLane() == card.GetLane()) &&
+            (vaildTargets[i].crossLane || (targetSlot.GetLane() == transform.parent.gameObject.GetComponent<Unit>().GetLane())) &&
             (!vaildTargets[i].targetCaster || targetUnit.caster) &&
-            (!vaildTargets[i].targetHero   || targetUnit is Hero) &&
+            (!vaildTargets[i].targetHero || targetUnit is Hero) &&
             (!vaildTargets[i].targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
-            (!vaildTargets[i].targetOnlyEnemySide  || targetSlot.GetSide() == "EnemySide") &&
+            (!vaildTargets[i].targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide") &&
             (targetUnit?.hasAuthority != false || targetUnit?.untargetable != true));
     }
 
-    public void TargetSelected(GameObject target)
+    public virtual void TargetSelected(GameObject target)
     {
         selectedTargets.Add(Card.GetLineage(target.transform));
-        if(selectedTargets.Count < vaildTargets.Length)
+        if (selectedTargets.Count < vaildTargets.Length)
         {
             TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
         }
         else
         {
-            PlayerManager.ActivateTargetAbility(
-                card.gameObject,
-                transform.GetSiblingIndex(),
+            PlayerManager.PlayCard(cardPlayed_e,
+                GetLineage(),
                 selectedTargets);
         }
     }
 
     public virtual void OnActivate(List<GameObject> targets)
     {
-        OnActivate();
-        transform.Find("background").GetComponent<Image>().color = Color.black;
-        selectedTargets.Clear();
+        OnPlay();
+        DestroyCard();
     }
 
-    public void TargetCanceled()
+    public virtual void TargetCanceled()
     {
-        transform.Find("background").GetComponent<Image>().color = Color.black;
-        selectedTargets.Clear();
+        UnStage();
     }
 }

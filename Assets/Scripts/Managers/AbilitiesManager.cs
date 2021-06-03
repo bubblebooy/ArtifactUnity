@@ -103,9 +103,9 @@ public class AbilitiesManager : MonoBehaviour
     {
         abilities.transform.GetChild(abilityIndex).GetComponent<ActiveAbility>().OnActivate();
     }
-    public void OnActivate(int abilityIndex, GameObject target)
+    public void OnActivate(int abilityIndex, List<GameObject> targets)
     {
-        abilities.transform.GetChild(abilityIndex).GetComponent<ActiveTargetAbility>().OnPlay(target.gameObject);
+        abilities.transform.GetChild(abilityIndex).GetComponent<ActiveTargetAbility>().OnActivate(targets);
     }
 
     public void Purge(bool oppenentEffectsOnly, bool triggerAuthority, bool temporyEffectsOnly)

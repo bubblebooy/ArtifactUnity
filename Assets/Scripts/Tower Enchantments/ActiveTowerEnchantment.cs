@@ -14,9 +14,11 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
     public int mana = 1;
     public int baseCooldown = 1;
     public int cooldown = 0;
-    [SerializeField]
-    private bool hasSecondTarget = false;
-    protected GameObject primaryTarget;
+
+    public TargetValidation[] vaildTargets;
+    //Might want to change this to list of gameobjects
+    // might need to reference previous selections during validation
+    protected List<List<string>> selectedTargets = new List<List<string>>();
 
     private TextMeshProUGUI displayCooldown;
 
@@ -29,6 +31,9 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         entry.callback.AddListener((eventData) => { OnClick(); });
         m_EventTrigger.triggers.Add(entry);
 
+        ManaManager = GameObject.Find((GetSide() == "PlayerSide" ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
+
+
         inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
         inPlayEvents.Add(GameEventSystem.Register<GameUpdateUI_e>(EnchantmentUpdate));
 
@@ -39,19 +44,6 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
     {
         displayCooldown.text = cooldown > 0 ? cooldown.ToString() : "";
         // for dealing with retaliate and armor
-    }
-
-    public void OnClick()
-    {
-        LaneManager = LaneManager ?? GetLane();
-        PlayerManager = PlayerManager ?? GetLane().GetPlayerManager();
-        ManaManager = GameObject.Find((GetSide() == "PlayerSide" ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
-        Collapse();
-        if (IsVaildPlay())
-        {
-            TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
-            transform.Find("frame").GetComponent<Image>().color = Color.green;
-        }
     }
 
     public virtual bool IsVaildPlay()
@@ -69,42 +61,67 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
 
     public virtual bool IsVaildTarget(GameObject target)
     {
+        int i = selectedTargets?.Count ?? 0;
         Unit targetUnit = target.GetComponent<Unit>();
-        return (targetUnit?.hasAuthority != false || targetUnit?.untargetable != true);
+        CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
+        return (target.tag == vaildTargets[i].targetTag &&
+            (vaildTargets[i].crossLane || (targetSlot.GetLane() == LaneManager)) &&
+            (!vaildTargets[i].targetCaster || targetUnit.caster) &&
+            (!vaildTargets[i].targetHero || targetUnit is Hero) &&
+            (!vaildTargets[i].targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
+            (!vaildTargets[i].targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide") &&
+            (targetUnit?.hasAuthority != false || targetUnit?.untargetable != true));
     }
 
-    public void TargetSelected(GameObject target)
+    public void OnClick()
     {
-        if (hasSecondTarget && primaryTarget == null)
+        LaneManager = LaneManager ?? GetLane();
+        PlayerManager = PlayerManager ?? GetLane().GetPlayerManager();
+        ManaManager = ManaManager ?? GameObject.Find((GetSide() == "PlayerSide" ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
+        Collapse();
+        if (IsVaildPlay())
         {
-            primaryTarget = target;
+            transform.Find("frame").GetComponent<Image>().color = Color.green;
+            ActivateAbility();
+            
+        }
+    }
+
+    public virtual void ActivateAbility()
+    {
+        if (selectedTargets.Count < vaildTargets.Length)
+        {
             TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
         }
         else
         {
-            PlayerManager.ActivateTowerEnchantment
-                (
-                    GetLane().gameObject,
-                    GetSide(),
-                    transform.GetSiblingIndex(),
-                    Card.GetLineage(primaryTarget?.transform) ?? Card.GetLineage(target.transform),
-                    primaryTarget == null ? null : Card.GetLineage(target.transform)
-                );
+            PlayerManager.ActivateTowerEnchantment(
+                GetLane().gameObject,
+                GetSide(),
+                transform.GetSiblingIndex(),
+                selectedTargets);
         }
 
     }
-    public virtual void OnPlay(GameObject target, GameObject secondaryTarget = null)
+
+    public void TargetSelected(GameObject target)
+    {
+        selectedTargets.Add(Card.GetLineage(target.transform));
+        ActivateAbility();
+    }
+
+    public virtual void OnActivate(List<GameObject> targets)
     {
         cooldown = baseCooldown;
         ManaManager.mana -= mana;
         transform.Find("frame").GetComponent<Image>().color = Color.white;
-        primaryTarget = null;
+        selectedTargets.Clear();
     }
 
     public void TargetCanceled()
     {
         transform.Find("frame").GetComponent<Image>().color = Color.white;
-        primaryTarget = null;
+        selectedTargets.Clear();
     }
 
     public void RoundStart(RoundStart_e e)

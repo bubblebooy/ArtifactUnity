@@ -25,11 +25,20 @@ MonoBehaviour:
   mana: 1
   quickcast: 0
   cardText: Swap a unit to another slot.
-  targetTag: Unit
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 0
-  targetCaster: 0
-  targetHero: 0
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
+  vaildTargets:
+  - targetTag: Card Slot
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
 --- !u!1001 &4535590294665243884
 PrefabInstance:
   m_ObjectHideFlags: 0

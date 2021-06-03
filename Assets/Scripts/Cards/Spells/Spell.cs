@@ -6,17 +6,12 @@ using Mirror;
 
 public class Spell : Card
 {
-    [Header("Target information")]
-    public string targetTag = "Lane";
-    public bool targetOnlyEnemySide = false;
-    public bool targetOnlyPlayerSide = false;
-    public bool targetCaster = false;
-    public bool targetHero = false;
+    public TargetValidation vaildPlay;
 
     public override void OnValidate()
     {
         base.OnValidate();
-        if (targetCaster) { targetOnlyPlayerSide = true; }
+        if (vaildPlay.targetCaster) { vaildPlay.targetOnlyPlayerSide = true; }
     }
 
     public override bool IsVaildPlay(GameObject target)
@@ -24,11 +19,11 @@ public class Spell : Card
         CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
         Unit targetUnit = target.GetComponent<Unit>();
         if (base.IsVaildPlay(target) && 
-            target.tag == targetTag &&
-            (!targetCaster || targetUnit.caster) &&
-            (!targetHero   || targetUnit is Hero) &&
-            (!targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
-            (!targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide")
+            target.tag == vaildPlay.targetTag &&
+            (!vaildPlay.targetCaster || targetUnit.caster) &&
+            (!vaildPlay.targetHero || targetUnit is Hero) &&
+            (!vaildPlay.targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
+            (!vaildPlay.targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide")
             )
         {
             return true;

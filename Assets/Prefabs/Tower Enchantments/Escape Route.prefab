@@ -19,7 +19,19 @@ MonoBehaviour:
   mana: 1
   baseCooldown: 1
   cooldown: 0
-  hasSecondTarget: 1
+  vaildTargets:
+  - targetTag: Unit
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 0
+    targetHero: 1
+    crossLane: 0
+  - targetTag: Card Slot
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
+    crossLane: 1
 --- !u!1001 &8727566013078069041
 PrefabInstance:
   m_ObjectHideFlags: 0
