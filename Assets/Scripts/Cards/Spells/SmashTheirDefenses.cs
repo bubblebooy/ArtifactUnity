@@ -12,7 +12,7 @@ public class SmashTheirDefenses : Spell
         Destroy(transform.parent.GetComponent<TowerEnchantment>().gameObject);
 
         GameManager.GameUpdate();
-        //Draw a card.
+        if (hasAuthority) { PlayerManager.CmdDrawCards(1); }
         DestroyCard();
     }
 }

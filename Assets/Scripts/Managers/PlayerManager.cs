@@ -149,10 +149,20 @@ public class PlayerManager : NetworkBehaviour
         {
             GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
-            //RpcOnSpawn(card);
             RpcShowCard(card, "Dealt");
         }
         RpcGameChangeState("ResolveDeploy");
+    }
+
+    [Command]
+    public void CmdDrawCards(int numberOfDraws)
+    {
+        for (int i = 0; i < numberOfDraws; i++)
+        {
+            GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            NetworkServer.Spawn(card, connectionToClient);
+            RpcShowCard(card, "Dealt");
+        }
     }
 
     [Command]
