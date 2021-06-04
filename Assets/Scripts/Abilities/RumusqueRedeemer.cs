@@ -12,7 +12,9 @@ public class RumusqueRedeemer : Ability
         {
             if (unit != null)
             {
-                unit.deathShield = true;
+                UnitModifier deathShield = unit.gameObject.AddComponent<UnitModifier>() as UnitModifier;
+                deathShield.SetDeathShield();
+                deathShield.duration = 999; //best wat to set temporary and no duration?
             }
         }
 

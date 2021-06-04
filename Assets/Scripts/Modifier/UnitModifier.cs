@@ -24,6 +24,7 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool feeble = false;
     public bool damageImmunity = false;
     public bool untargetable = false;
+    public bool deathShield = false;
 
     public bool opponentEffect = false;
     public bool temporary = true;
@@ -65,6 +66,7 @@ public class UnitModifier : MonoBehaviour, IModifier
         feeble = (originalIModifier as UnitModifier).feeble;
         damageImmunity = (originalIModifier as UnitModifier).damageImmunity;
         untargetable = (originalIModifier as UnitModifier).untargetable;
+        if ((originalIModifier as UnitModifier).deathShield) { SetDeathShield(); }
     }
 
     public void ModifyCard()
@@ -89,6 +91,12 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.feeble |= feeble;
         unit.damageImmunity |= damageImmunity;
         unit.untargetable |= untargetable;
+        deathShield &= unit.deathShield;
+    }
+    public void SetDeathShield()
+    {
+        deathShield = true;
+        unit.deathShield = true;
     }
 
     public virtual void RoundStart(RoundStart_e e)
@@ -102,6 +110,7 @@ public class UnitModifier : MonoBehaviour, IModifier
 
     private void OnDestroy()
     {
+        if (deathShield) { unit.deathShield = false; }
         GameEventSystem.Unregister(inPlayEvents);
     }
 }
