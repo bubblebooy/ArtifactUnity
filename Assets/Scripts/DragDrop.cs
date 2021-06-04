@@ -79,12 +79,13 @@ public class DragDrop : NetworkBehaviour
                 if (card is Hero) { caster = card as Unit; }
                 if (caster is null)
                 {
+                    LaneManager lane = dropZone[i].GetComponentInParent<LaneManager>();
                     CardSlot slot = dropZone[i].GetComponentInParent<CardSlot>();
                     if (slot == null)
                     {
-                        slot = dropZone[i].GetComponentInChildren<CardSlot>();
+                        slot = lane.GetComponentInChildren<CardSlot>();
                     }
-                    Unit[] casters = slot.GetLane().transform.Find("PlayerSide").GetComponentsInChildren<Unit>();
+                    Unit[] casters = lane.transform.Find("PlayerSide").GetComponentsInChildren<Unit>();
                     casters = casters.Where(x => x.caster).ToArray();
                     // COLOR CHECK HERE
                     casters = casters.Where(x => !x.silenced && !x.stun).ToArray();
