@@ -12,11 +12,13 @@ public class PlayerManager : NetworkBehaviour
     public GameObject PlayerFountain;
     public GameObject EnemyFountain;
     public GameObject Board;
-    
 
-    public List<GameObject> cards = new List<GameObject>();
-    public List<GameObject> heroes = new List<GameObject>();
-    private Dictionary<string, GameObject> cardDict; // = cards.ToDictionary(x => x.name, x => x);
+
+    public List<GameObject> deck;
+    public List<GameObject> heroes;
+    //public List<GameObject> cards = new List<GameObject>();
+    //public List<GameObject> heroes = new List<GameObject>();
+    //private Dictionary<string, GameObject> cardDict; // = cards.ToDictionary(x => x.name, x => x);
     //public GameObject laneCreep; // dict of all creeps
 
     System.Random rand = new System.Random();
@@ -32,7 +34,8 @@ public class PlayerManager : NetworkBehaviour
     {
         base.OnStartClient();
         DontDestroyOnLoad(gameObject);
-        cardDict = cards.ToDictionary(x => x.name, x => x);
+        deck =  CardList.cardDict.Values.ToList();
+        heroes =  CardList.heroesDict.Values.ToList();
 
     }
 
@@ -79,13 +82,13 @@ public class PlayerManager : NetworkBehaviour
         GameObject card;
         for (int i=0; i < 5; i++)
         {
-            card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             //RpcOnSpawn(card);
             RpcShowCard(card, "Dealt");
         }
         //*******For test alway draw the last card
-        card = Instantiate(cards[cards.Count-1], new Vector2(0, 0), Quaternion.identity);
+        card = Instantiate(deck[deck.Count-1], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
         //RpcOnSpawn(card);
         RpcShowCard(card, "Dealt");
@@ -146,7 +149,7 @@ public class PlayerManager : NetworkBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            GameObject card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
         }
@@ -158,7 +161,7 @@ public class PlayerManager : NetworkBehaviour
     {
         for (int i = 0; i < numberOfDraws; i++)
         {
-            GameObject card = Instantiate(cards[rand.Next(0, cards.Count)], new Vector2(0, 0), Quaternion.identity);
+            GameObject card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
         }
@@ -191,7 +194,7 @@ public class PlayerManager : NetworkBehaviour
     void CmdSpawnLaneCreeps(GameObject lane)
     {
         //https://answers.unity.com/questions/1063917/command-cant-pass-gameobject-parameter-from-remote.html
-        GameObject card = Instantiate(cardDict["Melee Creep"], new Vector2(0, 0), Quaternion.identity);
+        GameObject card = Instantiate(CardList.cardDict["Melee Creep"], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
         //RpcOnSpawn(card);
         RpcSpawnLaneCreeps(lane, card);
@@ -217,7 +220,7 @@ public class PlayerManager : NetworkBehaviour
     [Command]
     public void CmdSummon(string unit, List<string> targetLineage) 
     {
-        GameObject card = Instantiate(cardDict[unit], new Vector2(0, 0), Quaternion.identity);
+        GameObject card = Instantiate(CardList.cardDict[unit], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
         //RpcOnSpawn(card);
         RpcPlaceCard(card, targetLineage);
