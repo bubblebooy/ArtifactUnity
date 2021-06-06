@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cardName: Repel
+  ID: 10348
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
@@ -21,7 +23,6 @@ MonoBehaviour:
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: f9e5bc0b586044542b83c822f66b1ea5, type: 3}
   color: green
-  cardName: Repel
   mana: 1
   quickcast: 1
   cardText: "Purge opponent's effects from a unit. Give it Untargetable.\r\n\u25A2Quickcast"

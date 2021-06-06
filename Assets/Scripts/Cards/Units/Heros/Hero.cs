@@ -7,6 +7,7 @@ using TMPro;
 public class Hero : Unit
 {
     public int respawn = 0;
+    public int[] signatureCards;
     private TextMeshProUGUI displayRespawn;
 
 

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cardName: Lightning Strike
+  ID: 10352
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
@@ -21,7 +23,6 @@ MonoBehaviour:
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 2fc80534e041422459016b15100a7685, type: 3}
   color: blue
-  cardName: Lightning Strike
   mana: 1
   quickcast: 0
   cardText: 'Deal 4 piercing damage to caster''s combat target.

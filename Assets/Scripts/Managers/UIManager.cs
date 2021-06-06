@@ -23,12 +23,6 @@ public class UIManager : NetworkBehaviour
         //Button = GameObject.Find("DrawCards");
     }
 
-    private void Start()
-    {
-        print("NetworkClient.isConnected: " + NetworkClient.isConnected);
-        print("NetworkClient.localPlayer == null: " + NetworkClient.localPlayer == null);
-    }
-
     public void UpdatePhaseText()
     {
         PhaseText.GetComponent<Text>().text = GameManager.GameState + " : " + UnityEngine.Random.value.ToString();

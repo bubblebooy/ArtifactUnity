@@ -95,6 +95,8 @@ public class SteamLobby : MonoBehaviour
             new CSteamID(callback.m_ulSteamIDLobby),
             HostAddressKey,
             SteamUser.GetSteamID().ToString());
+
+        SteamFriends.ActivateGameOverlayInviteDialog(new CSteamID(callback.m_ulSteamIDLobby));
     }
 
     private void OnGameLobbyJoinRequested(GameLobbyJoinRequested_t callback)

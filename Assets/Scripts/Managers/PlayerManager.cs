@@ -31,17 +31,22 @@ public class PlayerManager : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
+        DontDestroyOnLoad(gameObject);
+        cardDict = cards.ToDictionary(x => x.name, x => x);
 
-        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    [ClientRpc]
+    void RpcInitialize()
+    {
+        GameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
         PlayerArea = GameObject.Find("PlayerArea");
         EnemyArea = GameObject.Find("EnemyArea");
         PlayerFountain = GameObject.Find("PlayerFountain");
         EnemyFountain = GameObject.Find("EnemyFountain");
         Board = GameObject.Find("Board");
-
-        cardDict = cards.ToDictionary(x => x.name, x => x);
-
     }
+
 
     [ClientRpc]
     void RpcSetRandomSeed(int seed)
@@ -61,17 +66,11 @@ public class PlayerManager : NetworkBehaviour
             pm.IsMyTurn = !pm.IsMyTurn;
         }
     }
-
-    //[ClientRpc]
-    //void RpcOnSpawn(GameObject card)
-    //{
-    //    card.GetComponent<Card>().OnSpawn();
-    //}
-    
-
+   
     [Command]
     public void CmdStartGame()
     {
+        RpcInitialize();
         if (isServer && hasAuthority) {
             RpcSetRandomSeed((int)System.DateTime.Now.Ticks);
             RpcRandomSetTurn();

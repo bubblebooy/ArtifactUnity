@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cardName: Trebuchets
+  ID: 10161
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
@@ -21,7 +23,6 @@ MonoBehaviour:
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 582e9267587a91f418b6c4aaa09d45a2, type: 3}
   color: black
-  cardName: Trebuchets
   mana: 1
   quickcast: 0
   cardText: 'Enchant Tower

@@ -8,6 +8,9 @@ using TMPro;
 
 public abstract class Card : NetworkBehaviour
 {
+    public string cardName;
+    public int ID;
+
     [HideInInspector]
     public PlayerManager PlayerManager;
     [HideInInspector]
@@ -21,7 +24,7 @@ public abstract class Card : NetworkBehaviour
 
     public Sprite cardArt;
     public string color;
-    public string cardName;
+
     public int mana = 0;
     public bool quickcast = false;
     protected int baseMana;
@@ -44,6 +47,15 @@ public abstract class Card : NetworkBehaviour
 
     public virtual void OnValidate()
     {
+        //if(!string.IsNullOrEmpty(cardName) && ID == 0)
+        //{
+        //    CardIDs IDs = FindObjectOfType<CardIDs>();
+        //    if(IDs != null)
+        //    {
+        //        CardIDs.cardID cid = IDs.cardList.Find(c => c.Name == cardName);
+        //        ID = cid.ID; 
+        //    }
+        //}
         gameObject.transform.Find("Color/Card Name").GetComponent<TextMeshProUGUI>().text = cardName;
         displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
         displayMana.text = mana.ToString();

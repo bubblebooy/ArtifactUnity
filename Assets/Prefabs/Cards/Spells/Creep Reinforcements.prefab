@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cardName: Creep Reinforcements
+  ID: 11034
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
@@ -21,7 +23,6 @@ MonoBehaviour:
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: abbe7de7a4a02f0409a5d6a4668ce083, type: 3}
   color: blue
-  cardName: Creep Reinforcements
   mana: 2
   quickcast: 0
   cardText: Push caster and Summon a Melee Creep in its place.

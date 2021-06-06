@@ -132,4 +132,5 @@ MonoBehaviour:
   - {fileID: 6453111553783824542, guid: 76362f31225965b4191e7cf551f54dc7, type: 3}
   - {fileID: 5309091480148534931, guid: a726e139260b26945a76bc3bbffac1a9, type: 3}
   - {fileID: 7266079026993811455, guid: c071dd7a256b6fb418b7c05def14768b, type: 3}
+  - {fileID: 8538881162259127091, guid: 76fb0c9d7a4fcd54ebd7618687bd2489, type: 3}
   IsMyTurn: 1

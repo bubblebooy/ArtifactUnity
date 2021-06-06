@@ -213,6 +213,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: ID
+      value: 11002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: mana
       value: 3
       objectReference: {fileID: 0}

@@ -7,7 +7,6 @@ using System.Linq;
 public class DragDrop : NetworkBehaviour
 {
     public GameObject Canvas;
-    //public PlayerManager PlayerManager;
     public GameManager GameManager;
 
     public bool isDragging = false;
