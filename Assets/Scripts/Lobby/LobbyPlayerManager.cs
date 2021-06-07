@@ -9,7 +9,12 @@ public class LobbyPlayerManager : NetworkBehaviour
     public GameObject playerManagerPrefab;
     public GameObject playerManager;
     LobbyManager lobbyManager;
+    SteamLobby steamLobby;
 
+    private void Start()
+    {
+        steamLobby = FindObjectOfType<SteamLobby>();
+    }
 
     public override void OnStartClient()
     {
@@ -65,6 +70,11 @@ public class LobbyPlayerManager : NetworkBehaviour
         lobbyManager.enemyReadyToggle.Ready(false);
         lobbyManager.readyButton.interactable = false;
         lobbyManager.startButton.interactable = false;
+
+        if(steamLobby?.useFizzySteamworks == true)
+        {
+            steamLobby.OnStopClient();
+        }
     }
    
 

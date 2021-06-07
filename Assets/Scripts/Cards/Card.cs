@@ -34,7 +34,7 @@ public abstract class Card : NetworkBehaviour
     private TextMeshProUGUI displayMana;
     protected TextMeshProUGUI displayCardText;
 
-    private Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
+    public static Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
     {
         { "red", new Color(0.4f, 0.0f, 0.0f, 1.0f) },
         { "green", new Color(0.0f, 0.4f, 0.0f, 1.0f)},

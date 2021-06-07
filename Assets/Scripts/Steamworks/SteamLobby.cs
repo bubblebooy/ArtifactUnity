@@ -4,23 +4,32 @@ using UnityEngine;
 using UnityEditor;
 using Steamworks;
 using Mirror;
+using TMPro;
+using UnityEngine.UI;
 
 public class SteamLobby : MonoBehaviour
 {
-    [SerializeField]
-    private bool useFizzySteamworks = false;
+    public bool useFizzySteamworks = false;
     [SerializeField]
     private GameObject buttonCanvas = null;
+    [SerializeField]
+    private GameObject lobbyListPrefab = null;
+    private GameObject lobbyList = null;
+    [SerializeField]
+    private GameObject joinGamePrefab = null;
     [SerializeField]
     private Transport fizzySteamworks;
     [SerializeField]
     private Transport defaultTransport;
+
+    private CSteamID lobbyID;
 
 
 
     protected Callback<LobbyCreated_t> lobbyCreated;
     protected Callback<GameLobbyJoinRequested_t> gameLobbyJoinRequested;
     protected Callback<LobbyEnter_t> lobbyEnter;
+    protected Callback<LobbyMatchList_t> lobbyMatchList;
 
     private const string HostAddressKey = "HostAddress";
 
@@ -72,13 +81,46 @@ public class SteamLobby : MonoBehaviour
         lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         gameLobbyJoinRequested = Callback<GameLobbyJoinRequested_t>.Create(OnGameLobbyJoinRequested);
         lobbyEnter = Callback<LobbyEnter_t>.Create(OnLobbyEnter);
+        lobbyMatchList = Callback<LobbyMatchList_t>.Create(OnGetLobbiesList);
+    }
+
+    public void OnStopClient()
+    {
+        buttonCanvas.SetActive(true);
+        SteamMatchmaking.LeaveLobby(lobbyID);
     }
 
     public void HostLobby()
     {
         buttonCanvas.SetActive(false);
+        
+        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, networkManager.maxConnections); //k_ELobbyTypeFriendsOnly
+    }
+    public void JoinLobby(CSteamID lobbyID)
+    {
+        SteamMatchmaking.JoinLobby(lobbyID);
+        buttonCanvas.SetActive(false);
+    }
 
-        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, networkManager.maxConnections);
+    public void GetLobbiesList()
+    {
+        SteamMatchmaking.AddRequestLobbyListResultCountFilter(10);
+        SteamMatchmaking.AddRequestLobbyListStringFilter("ArtifactGameMode", "Constructed", ELobbyComparison.k_ELobbyComparisonEqual);
+        SteamMatchmaking.RequestLobbyList();
+    }
+
+    private void OnGetLobbiesList(LobbyMatchList_t callback)
+    {
+        lobbyList = Instantiate(lobbyListPrefab, buttonCanvas.transform);
+        for (int i = 0; i < callback.m_nLobbiesMatching; i++)
+        {
+            GameObject joinGame = Instantiate(joinGamePrefab, lobbyList.transform);
+            joinGame.transform.SetSiblingIndex(joinGame.transform.GetSiblingIndex()-1);
+            CSteamID lobbyID = SteamMatchmaking.GetLobbyByIndex(i);
+            joinGame.GetComponent<LobbyJoinGame>().steamLobby = this;
+            joinGame.GetComponent<LobbyJoinGame>().lobbyID = lobbyID;
+            joinGame.GetComponentInChildren<Text>().text = SteamMatchmaking.GetLobbyData(lobbyID, "HostName");
+        }  
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
@@ -90,11 +132,22 @@ public class SteamLobby : MonoBehaviour
         }
 
         networkManager.StartHost();
+        lobbyID = new CSteamID(callback.m_ulSteamIDLobby);
 
         SteamMatchmaking.SetLobbyData(
             new CSteamID(callback.m_ulSteamIDLobby),
             HostAddressKey,
             SteamUser.GetSteamID().ToString());
+
+        SteamMatchmaking.SetLobbyData(
+            new CSteamID(callback.m_ulSteamIDLobby),
+            "ArtifactGameMode",
+            "Constructed");
+
+        SteamMatchmaking.SetLobbyData(
+            new CSteamID(callback.m_ulSteamIDLobby),
+            "HostName",
+            SteamFriends.GetPersonaName());
 
         SteamFriends.ActivateGameOverlayInviteDialog(new CSteamID(callback.m_ulSteamIDLobby));
     }
@@ -116,6 +169,7 @@ public class SteamLobby : MonoBehaviour
         networkManager.StartClient();
 
         buttonCanvas.SetActive(false);
+        lobbyID = new  CSteamID(callback.m_ulSteamIDLobby);
 
     }
 

@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Mirror;
 using ArtifactDeckCodeDotNet;
+using System.Linq;
 
 public class LobbyManager : MonoBehaviour
 {
+    [Header("Ready System")]
     public Button readyButton;
     public Button startButton;
     public GameObject status;
@@ -17,8 +20,17 @@ public class LobbyManager : MonoBehaviour
     public bool playerReady = false;
     public bool enemyReady = false;
 
+    [Header("Deck")]
+    //private List<GameObject> deck;
+    //private List<GameObject> heroes;
     public InputField inputDeckCode;
-    public Text textDeck;
+    [SerializeField]
+    private GameObject deckCardPrefab;
+    [SerializeField]
+    private GameObject deckHeroPrefab;
+    [SerializeField]
+    private GameObject deckArea;
+    //public Text textDeck;
 
     public void StartGame()
     {
@@ -50,21 +62,32 @@ public class LobbyManager : MonoBehaviour
 
     public void DecodeDeck(string s)
     {
-        //RTFACTIlAPLbkCZwFUZXN0RGVjb2RlckRlY2s_
-        //deck.text = inputDeckCode.text;
-        Deck deck = ArtifactDeckDecoder.ParseDeck(inputDeckCode.text);
-        textDeck.text = deck.Name;
-        textDeck.text += "\n Heros : ";
-        textDeck.text += deck.Heroes.Count;
-        foreach(HeroRef hero in deck.Heroes)
+        //RTFACTJWES9LgCBJpoAfYSBS8Efb4CAViyAoE5AlB0BrAFagSRgwEgArkBiCNEQ0dfUGxheXRlc3REZWNrNg__
+        foreach(Transform t in deckArea.transform)
         {
-            textDeck.text += $"\n{CardIDs.cards[hero.Id]} Turn: {hero.Turn}";
+            if(t.gameObject.name != "InputDeckCode")
+            {
+                Destroy(t.gameObject);
+            }
         }
-        textDeck.text += "\n Cards : ";
-        //sig cards
-        foreach (CardRef card in deck.Cards)
+        if(inputDeckCode.text.Length < "RTFACT".Length || inputDeckCode.text.Substring(0, "RTFACT".Length) != "RTFACT")
         {
-            textDeck.text += $"\n{CardIDs.cards[card.Id]} Count: {card.Count}";
+            return;
+        }
+        Deck deck = ArtifactDeckDecoder.ParseDeck(inputDeckCode.text);
+        foreach(HeroRef deckHero in deck.Heroes.OrderBy(x => x.Turn))
+        {
+            DeckHero hero = Instantiate(deckHeroPrefab, deckArea.transform).GetComponent<DeckHero>();
+            hero.cardID = deckHero.Id;
+            hero.UpdateDeckCard();
+        }
+        //sig cards
+        foreach (CardRef deckCard in deck.Cards)
+        {
+            DeckCard card = Instantiate(deckCardPrefab, deckArea.transform).GetComponent<DeckCard>();
+            card.cardID = deckCard.Id;
+            card.count = deckCard.Count;
+            card.UpdateDeckCard();
         }
     }
 }

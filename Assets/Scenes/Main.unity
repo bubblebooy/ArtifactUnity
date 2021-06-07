@@ -1285,6 +1285,10 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: ee130c64c8c20b6429d575d11ee02708
       objectReference: {fileID: 0}
+    - target: {fileID: 8054313157629880155, guid: ee130c64c8c20b6429d575d11ee02708, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee130c64c8c20b6429d575d11ee02708, type: 3}
 --- !u!224 &3063822481336605964 stripped
@@ -1404,6 +1408,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1957744215}
     m_Modifications:
+    - target: {fileID: 960208474083941451, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 960208474083941451, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e9286ff0f1a4994ab89846625ac45a8, type: 3}
+    - target: {fileID: 960208474083941451, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960208474083941451, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960208474083941451, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960208474083941451, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3280230930235425984, guid: 1da296feedcb6844a8b0506a66588cb7, type: 3}
       propertyPath: m_Name
       value: Background
