@@ -20,6 +20,5 @@ public class CardList : MonoBehaviour
         NetworkManager networkManager = gameObject.GetComponent<NetworkManager>();
         networkManager.spawnPrefabs.AddRange(heroes);
         networkManager.spawnPrefabs.AddRange(cards);
-
     }
 }

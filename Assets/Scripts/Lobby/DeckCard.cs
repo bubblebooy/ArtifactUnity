@@ -45,4 +45,9 @@ public class DeckCard : MonoBehaviour
         UpdateDeckCard();
     }
 
+    private void OnDestroy()
+    {
+        UnityEngine.UI.LayoutRebuilder.MarkLayoutForRebuild(transform.parent.parent.GetComponent<RectTransform>());
+    }
+
 }

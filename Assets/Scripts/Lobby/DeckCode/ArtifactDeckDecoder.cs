@@ -28,6 +28,7 @@ namespace ArtifactDeckCodeDotNet
         private static byte[] DecodeDeckString(string deckCode)
         {
             //check for prefix
+            
             if (deckCode.Substring(0, EncodedPrefix.Length) != EncodedPrefix)
                 throw new Exception("Artifact Deck Code prefix missing");
 

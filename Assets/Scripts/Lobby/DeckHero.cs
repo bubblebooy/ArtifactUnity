@@ -17,13 +17,33 @@ public class DeckHero : MonoBehaviour
         transform.Find("Name").GetComponent<TextMeshProUGUI>().text = heroName;
         if (CardList.heroesDict.ContainsKey(heroName))
         {
-            hero = CardList.cardDict[heroName].GetComponent<Hero>();
+            hero = CardList.heroesDict[heroName].GetComponent<Hero>();
             gameObject.GetComponent<Image>().color = Card.colorDict[hero.color];
         }
     }
 
+    public void Up()
+    {
+        int sibIndex = transform.GetSiblingIndex();
+        if(sibIndex > 0)
+        {
+            transform.SetSiblingIndex(sibIndex - 1);
+        }
+    }
+    public void Down()
+    {
+        int sibIndex = transform.GetSiblingIndex();
+        transform.SetSiblingIndex(sibIndex + 1);
+    }
+
     public void Remove()
     {
+        //remove sig cards
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        UnityEngine.UI.LayoutRebuilder.MarkLayoutForRebuild(transform.parent.parent.GetComponent<RectTransform>());
     }
 }
