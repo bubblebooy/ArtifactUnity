@@ -237,10 +237,22 @@ public class Unit : Card
 
     public override void DestroyCard()
     {
+        DestroyCard(true);
+    }
+
+    public virtual void DestroyCard(bool killed)
+    {
+        if (killed) { OnKilled(); }
         GetComponent<AbilitiesManager>().DestroyCard();
         arrow = 0;
         GameEventSystem.Unregister(inPlayEvents);
         base.DestroyCard();
+    }
+
+    public void OnKilled()
+    {
+        //bounty here?
+        GetComponent<AbilitiesManager>().OnKilled();
     }
 
     protected override void OnDestroy()

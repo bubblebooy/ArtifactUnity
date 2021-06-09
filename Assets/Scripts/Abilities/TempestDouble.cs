@@ -7,9 +7,9 @@ public class TempestDouble : ActiveTargetAbility
     bool isTheDouble = false;
     int cloneTimer = 2;
 
-    public override void Bounce()
+    public override void OnKilled()
     {
-        if (isTheDouble && (card as Hero).respawn == 2) // respawn should be 2 if killed instead of bounced
+        if (isTheDouble) //&& (card as Hero).respawn == 2 respawn should be 2 if killed instead of bounced
         {
             (card as Hero).ForceDestroyCard();
         }

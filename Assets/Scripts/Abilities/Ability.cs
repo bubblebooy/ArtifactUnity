@@ -50,6 +50,7 @@ public class Ability : MonoBehaviour
     public virtual void CardUpdate() { }
     //public virtual void RoundStart() { }
     public virtual void OnPlay() { }
+    public virtual void OnKilled() { }
     public virtual void PlacedOnTopOf(Unit unit) { }
 
     public void Expand()

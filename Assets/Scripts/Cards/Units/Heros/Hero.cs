@@ -51,6 +51,7 @@ public class Hero : Unit
 
     public override void DestroyCard()
     {
+        OnKilled();
         Bounce();
         respawn = 2;
     }
@@ -58,7 +59,7 @@ public class Hero : Unit
     public void ForceDestroyCard()
     {
         //for when you accually want to send a hero to the graveyard
-        base.DestroyCard();
+        base.DestroyCard(killed: false);
     }
 
     public override void Bounce()

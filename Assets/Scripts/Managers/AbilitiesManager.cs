@@ -74,6 +74,14 @@ public class AbilitiesManager : MonoBehaviour
         }
     }
 
+    public void OnKilled()
+    {
+        foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
+        {
+            ability.OnKilled();
+        }
+    }
+
     public void DestroyCard()
     {
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
