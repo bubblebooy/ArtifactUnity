@@ -152,9 +152,7 @@ public class PlayerManager : NetworkBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            GameObject card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
-            NetworkServer.Spawn(card, connectionToClient);
-            RpcShowCard(card, "Dealt");
+            RpcDrawCard();
         }
         RpcGameChangeState("ResolveDeploy");
     }
@@ -164,9 +162,7 @@ public class PlayerManager : NetworkBehaviour
     {
         for (int i = 0; i < numberOfDraws; i++)
         {
-            GameObject card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
-            NetworkServer.Spawn(card, connectionToClient);
-            RpcShowCard(card, "Dealt");
+            RpcDrawCard();
         }
     }
     [ClientRpc]
@@ -177,12 +173,14 @@ public class PlayerManager : NetworkBehaviour
             if(PlayerDeck.transform.childCount == 0) { return; }
             GameObject card = PlayerDeck.transform.GetChild(PlayerDeck.transform.childCount - 1).gameObject;
             card.transform.SetParent(PlayerArea.transform, false);
+            card.transform.rotation = Quaternion.identity;
         }
         else
         {
             if (EnemyDeck.transform.childCount == 0) { return; }
             GameObject card = EnemyDeck.transform.GetChild(EnemyDeck.transform.childCount - 1).gameObject;
             card.transform.SetParent(EnemyArea.transform, false);
+            card.transform.rotation = Quaternion.identity;
         }
     }
 
