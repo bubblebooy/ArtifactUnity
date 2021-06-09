@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 public class FixedContainerLayoutGroup : LayoutGroup
 {
-    [Range(0f, 360f)]
+    [Range(-100f, 100)]
     public float spacing;
     public float randRotation;
     int randSeed = (int)System.DateTime.Now.Ticks;

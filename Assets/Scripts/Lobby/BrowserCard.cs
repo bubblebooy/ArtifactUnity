@@ -11,15 +11,11 @@ public class BrowserCard : MonoBehaviour
     public Card card;
     LobbyManager lobbyManager;
 
-    private void Start()
-    {
-        lobbyManager = FindObjectOfType<LobbyManager>();
-    }
-
     public void UpdateBrowserCard()
     {
+        lobbyManager = FindObjectOfType<LobbyManager>();
         cardID = card.ID;
-        cardName = card.name;
+        cardName = card.cardName;
         gameObject.name = cardName;
         transform.Find("Name").GetComponent<TextMeshProUGUI>().text = cardName;
         gameObject.GetComponent<Image>().color = Card.colorDict[card.color];

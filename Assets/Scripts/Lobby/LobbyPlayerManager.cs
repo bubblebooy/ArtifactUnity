@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using System.Linq;
 
 public class LobbyPlayerManager : NetworkBehaviour
 {
@@ -21,8 +22,11 @@ public class LobbyPlayerManager : NetworkBehaviour
         base.OnStartClient();
         if (hasAuthority)
         {
-            PlayerManager enemyManager = FindObjectOfType<PlayerManager>();
-            if (enemyManager != null){ enemyManager.gameObject.name = "EnemyManager"; }
+            GameObject enemyManager = FindObjectOfType<PlayerManager>()?.gameObject;
+            if (enemyManager != null)
+            {
+                enemyManager.name = "EnemyManager";
+            }
             CmdSpawnPlayerManager();
         }
         lobbyManager = GameObject.Find("LobbyManager").GetComponent<LobbyManager>();
@@ -79,17 +83,19 @@ public class LobbyPlayerManager : NetworkBehaviour
    
 
     [Command]
-    public void CmdReady()
+    public void CmdReady(List<string> heroList, List<string> cardList)
     {
-        RpcReady();
+        RpcReady(heroList, cardList);
     }
     [ClientRpc]
-    public void RpcReady()
+    public void RpcReady(List<string> heroList, List<string> cardList)
     {
         if (hasAuthority)
         {
             lobbyManager.playerReady = true;
             lobbyManager.playerReadyToggle.Ready(true);
+            playerManager.GetComponent<PlayerManager>().heroes = heroList.Select(name => CardList.heroDict[name]).ToList();
+            playerManager.GetComponent<PlayerManager>().deck = cardList.Select(name => CardList.cardDict[name]).ToList();
         }
         else
         {

@@ -1391,6 +1391,20 @@ MonoBehaviour:
     Name: Vhoul Ambush
   - ID: 11104
     Name: Vhoul Ringleader
+  - ID: 1
+    Name: Melee Creep
+  - ID: 10348
+    Name: Repel
+  - ID: 11002
+    Name: Prowler Vanguard
+  - ID: 0
+    Name: Ion Shell
+  - ID: 10909
+    Name: Hound of War
+  - ID: 10908
+    Name: Diabolic Conclusion
+  - ID: 10993
+    Name: Wraithfire Blast
 --- !u!1001 &579373565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1494,6 +1508,34 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.data[0]
+      value: 
+      objectReference: {fileID: 6453111553783824542, guid: 76362f31225965b4191e7cf551f54dc7, type: 3}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.data[1]
+      value: 
+      objectReference: {fileID: 664038641860517977, guid: 208c957414b287343aac82ffc9552172, type: 3}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.data[2]
+      value: 
+      objectReference: {fileID: 7266079026993811455, guid: c071dd7a256b6fb418b7c05def14768b, type: 3}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.data[3]
+      value: 
+      objectReference: {fileID: 8538881162259127091, guid: 76fb0c9d7a4fcd54ebd7618687bd2489, type: 3}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.data[4]
+      value: 
+      objectReference: {fileID: 973413373660759860, guid: 9bb61195ab98c8749af5e8270b63c14e, type: 3}
+    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: hero.Array.data[5]
+      value: 
+      objectReference: {fileID: 5309091480148534931, guid: a726e139260b26945a76bc3bbffac1a9, type: 3}
     - target: {fileID: 3437878410051048392, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1809,15 +1851,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46666667, g: 0.50054526, b: 0.59607846, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 4e9286ff0f1a4994ab89846625ac45a8, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2057,15 +2099,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46818262, g: 0.58005774, b: 0.5943396, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 4e9286ff0f1a4994ab89846625ac45a8, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3484,8 +3526,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e9286ff0f1a4994ab89846625ac45a8, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 18c0c5aaecacf9b48b798f84b5ceaed2, type: 3}
+  m_Type: 2
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4

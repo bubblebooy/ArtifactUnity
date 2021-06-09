@@ -15,9 +15,9 @@ public class DeckHero : MonoBehaviour
         heroName = CardIDs.cards[cardID];
         gameObject.name = heroName;
         transform.Find("Name").GetComponent<TextMeshProUGUI>().text = heroName;
-        if (CardList.heroesDict.ContainsKey(heroName))
+        if (CardList.heroDict.ContainsKey(heroName))
         {
-            hero = CardList.heroesDict[heroName].GetComponent<Hero>();
+            hero = CardList.heroDict[heroName].GetComponent<Hero>();
             gameObject.GetComponent<Image>().color = Card.colorDict[hero.color];
         }
     }

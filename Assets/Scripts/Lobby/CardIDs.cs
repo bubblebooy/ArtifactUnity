@@ -23,6 +23,7 @@ public class CardIDs : MonoBehaviour
         if(cardList.Count == 0)
         {
             GetIdsFromFile();
+            GetIdsFromCards();
         }
     }
 
@@ -44,6 +45,31 @@ public class CardIDs : MonoBehaviour
                 cardID id = new cardID();
                 id.Name = nameid.Substring(0, nameid.LastIndexOf('-'));
                 id.ID = int.Parse(nameid.Substring(nameid.LastIndexOf('-')+1));
+                cardList.Add(id);
+            }
+        }
+    }
+    void GetIdsFromCards()
+    {
+        foreach(GameObject card in FindObjectOfType<CardList>().cards)
+        {
+            Card c = card.GetComponent<Card>();
+            if(!cardList.Exists(x => x.ID == c.ID))
+            {
+                cardID id = new cardID();
+                id.Name = c.cardName;
+                id.ID = c.ID;
+                cardList.Add(id);
+            }
+        }
+        foreach (GameObject card in FindObjectOfType<CardList>().hero)
+        {
+            Card c = card.GetComponent<Card>();
+            if (!cardList.Exists(x => x.ID == c.ID))
+            {
+                cardID id = new cardID();
+                id.Name = c.cardName;
+                id.ID = c.ID;
                 cardList.Add(id);
             }
         }

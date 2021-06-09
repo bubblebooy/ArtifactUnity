@@ -9,10 +9,11 @@ public class PlayerManager : NetworkBehaviour
     public GameManager GameManager;
     public GameObject PlayerArea;
     public GameObject EnemyArea;
+    public GameObject PlayerDeck;
+    public GameObject EnemyDeck;
     public GameObject PlayerFountain;
     public GameObject EnemyFountain;
     public GameObject Board;
-
 
     public List<GameObject> deck;
     public List<GameObject> heroes;
@@ -35,7 +36,7 @@ public class PlayerManager : NetworkBehaviour
         base.OnStartClient();
         DontDestroyOnLoad(gameObject);
         deck =  CardList.cardDict.Values.ToList();
-        heroes =  CardList.heroesDict.Values.ToList();
+        heroes = CardList.heroDict.Values.ToList();
 
     }
 
@@ -45,6 +46,8 @@ public class PlayerManager : NetworkBehaviour
         GameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
         PlayerArea = GameObject.Find("PlayerArea");
         EnemyArea = GameObject.Find("EnemyArea");
+        PlayerDeck = GameObject.Find("PlayerDeck");
+        EnemyDeck = GameObject.Find("EnemyDeck");
         PlayerFountain = GameObject.Find("PlayerFountain");
         EnemyFountain = GameObject.Find("EnemyFountain");
         Board = GameObject.Find("Board");
@@ -80,29 +83,29 @@ public class PlayerManager : NetworkBehaviour
         } // works but is called 2x without the hasAuthority
 
         GameObject card;
+        List<GameObject> _deck = deck.OrderBy(a => rand.Next()).ToList();
+        foreach(GameObject _card in _deck)
+        {
+            card = Instantiate(_card, new Vector2(0, 0), Quaternion.identity);
+            NetworkServer.Spawn(card, connectionToClient);
+            RpcShowCard(card, "Deck");
+        }  
         for (int i=0; i < 5; i++)
         {
-            card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
-            NetworkServer.Spawn(card, connectionToClient);
-            //RpcOnSpawn(card);
-            RpcShowCard(card, "Dealt");
+            RpcDrawCard();
         }
         //*******For test alway draw the last card
         card = Instantiate(deck[deck.Count-1], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
-        //RpcOnSpawn(card);
         RpcShowCard(card, "Dealt");
         //*****************************************//
         for (int i= 0; i < 5; i++)
         {
             GameObject hero = Instantiate(heroes[i], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(hero, connectionToClient);
-            //RpcOnSpawn(hero);
-            //can I set deploy order here? Mathf.Max(0, i - 2);
             RpcShowCard(hero, "Hero");
             RpcSetHeroRespawn(hero, Mathf.Max(0, i - 2));
         }
-        //CmdRandomSeed();
         RpcGameChangeState("Flop");
     }
 
@@ -164,6 +167,22 @@ public class PlayerManager : NetworkBehaviour
             GameObject card = Instantiate(deck[rand.Next(0, deck.Count)], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
+        }
+    }
+    [ClientRpc]
+    public void RpcDrawCard()
+    {
+        if (hasAuthority)
+        {
+            if(PlayerDeck.transform.childCount == 0) { return; }
+            GameObject card = PlayerDeck.transform.GetChild(PlayerDeck.transform.childCount - 1).gameObject;
+            card.transform.SetParent(PlayerArea.transform, false);
+        }
+        else
+        {
+            if (EnemyDeck.transform.childCount == 0) { return; }
+            GameObject card = EnemyDeck.transform.GetChild(EnemyDeck.transform.childCount - 1).gameObject;
+            card.transform.SetParent(EnemyArea.transform, false);
         }
     }
 
@@ -374,6 +393,17 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     void RpcShowCard(GameObject card, string type)
     {
+        if (type == "Deck")
+        {
+            if (hasAuthority)
+            {
+                card.transform.SetParent(PlayerDeck.transform, false);
+            }
+            else
+            {
+                card.transform.SetParent(EnemyDeck.transform, false);
+            }
+        }
         if (type == "Dealt")
         {
             if (hasAuthority)
