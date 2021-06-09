@@ -41,6 +41,7 @@ public class LobbyManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(PopulateDeckBrowser());
+        inputDeckCode.text = PlayerPrefs.GetString("DeckCode");
     }
 
     public void StartGame()
@@ -83,6 +84,8 @@ public class LobbyManager : MonoBehaviour
         {
             return;
         }
+        PlayerPrefs.SetString("DeckCode", inputDeckCode.text);
+        PlayerPrefs.Save();
         Deck deck = ArtifactDeckDecoder.ParseDeck(inputDeckCode.text);
         foreach(HeroRef deckHero in deck.Heroes.OrderBy(x => x.Turn))
         {
@@ -154,7 +157,6 @@ public class LobbyManager : MonoBehaviour
     {
         DeckCard[] deckCards = deckAreaCards.GetComponentsInChildren<DeckCard>();
         DeckCard card = deckCards.Where(c => c.cardID == cardID).FirstOrDefault();
-        print(card);
         if(card == null)
         {
             card = Instantiate(deckCardPrefab, deckAreaCards.transform).GetComponent<DeckCard>();
@@ -179,5 +181,6 @@ public class LobbyManager : MonoBehaviour
             browserCard.UpdateBrowserCard();
             browserCard.addCard();
         }
+
     }
 }
