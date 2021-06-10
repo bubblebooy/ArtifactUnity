@@ -266,6 +266,7 @@ public class Unit : Card
 
     public virtual int Strike(Unit target, int damage, bool piercing = false)
     {
+        if (disarmed || stun) { return 0; }
         if(target.retaliate > 0)
         {
             Damage(target.retaliate);
@@ -275,6 +276,7 @@ public class Unit : Card
 
     public virtual void Strike(TowerManager target, int damage, bool piercing = false)
     {
+        if (disarmed || stun) { return; }
         if (target.retaliate > 0)
         {
             Damage(target.retaliate);
