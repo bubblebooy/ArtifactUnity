@@ -46,6 +46,7 @@ public class TowerEnchantment : MonoBehaviour
     }
 
     public virtual void Combat() { }
+    public virtual void OnPlay() { }
 
     public void Expand()
     {
@@ -68,6 +69,7 @@ public class TowerEnchantment : MonoBehaviour
 
     public LaneManager GetLane()
     {
+        //would GetComponentInParent be better here?
         return transform.parent.parent.parent.GetComponent<LaneManager>();
     }
 

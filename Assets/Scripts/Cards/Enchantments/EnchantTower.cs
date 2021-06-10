@@ -19,7 +19,9 @@ public class EnchantTower : Enchantment
     {
         base.OnPlay();
         Transform enchantments = transform.parent.Find(hasAuthority ? "PlayerSide/Enchantments" : "EnemySide/Enchantments");
-        Instantiate(Ability, enchantments);
+        GameObject towerEnchantment = Instantiate(Ability, enchantments);
+        towerEnchantment.GetComponent<TowerEnchantment>().OnPlay();
+
         DestroyCard();
     }
 }

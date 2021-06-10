@@ -247,18 +247,29 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [Command]
-    public void CmdClone(GameObject unit, List<string> targetLineage)
+    public void CmdCloneToPlay(GameObject unit, List<string> targetLineage)
     {
         GameObject card;
         NetworkClient.GetPrefab(unit.GetComponent<NetworkIdentity>().assetId, out card);
         card = Instantiate(card, new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
         RpcClone(original: unit, clone: card);
-        //RpcOnSpawn(card);
         RpcPlaceCard(card, targetLineage);
         CardPlayed_e cardPlayed_e = new CardPlayed_e();
         cardPlayed_e.card = card;
         RpcPlayCard(cardPlayed_e, false);
+    }
+
+    [Command]
+    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral)
+    {
+        GameObject card;
+        NetworkClient.GetPrefab(unit.GetComponent<NetworkIdentity>().assetId, out card);
+        card = Instantiate(card, new Vector2(0, 0), Quaternion.identity);
+        NetworkServer.Spawn(card, connectionToClient);
+        RpcClone(original: unit, clone: card);
+        RpcShowCard(card, "Dealt");
+        RpcModifyCard(card, color, ephemeral);
     }
 
     [ClientRpc]
@@ -267,6 +278,27 @@ public class PlayerManager : NetworkBehaviour
         original.GetComponent<Unit>()?.CardUpdate(); // this gets rid of any Aura effects
         clone.GetComponent<Card>().Clone(original);
         GameManager.GameUpdate();
+    }
+
+    [Command]
+    public void CmdModifyCard(GameObject card, string color, bool ephemeral)
+    {
+        RpcModifyCard(card, color, ephemeral);
+    }
+    [ClientRpc]
+    public void RpcModifyCard(GameObject card, string color, bool ephemeral)
+    {
+        Card _card = card.GetComponent<Card>();
+        if (!string.IsNullOrEmpty(color))
+        {
+            _card.color = color;
+            _card.OnValidate();
+        }
+        if (ephemeral)
+        {
+            card.gameObject.AddComponent<Ephemeral>();
+        }
+        
     }
 
     public void PlayCard(CardPlayed_e cardPlayed_e, List<string> targetLineage)

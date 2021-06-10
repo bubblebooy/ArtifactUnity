@@ -23,7 +23,7 @@ public class Clone : Spell
         else { DestroyCard(); return; }
         if (hasAuthority)
         {
-            PlayerManager.CmdClone(target.gameObject, GetLineage(side.GetChild(destination)));
+            PlayerManager.CmdCloneToPlay(target.gameObject, GetLineage(side.GetChild(destination)));
         }
 
         DestroyCard();

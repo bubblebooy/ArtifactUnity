@@ -7,7 +7,7 @@ using TMPro;
 public class Unit : Card
 {
     public int attack, armor, health;
-    protected int baseAttack;//, baseArmor, baseHealth;
+    protected int baseAttack;
     [HideInInspector]
     public int maxArmor, maxHealth;
     [HideInInspector]

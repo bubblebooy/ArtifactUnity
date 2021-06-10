@@ -1642,34 +1642,6 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.data[0]
-      value: 
-      objectReference: {fileID: 6453111553783824542, guid: 76362f31225965b4191e7cf551f54dc7, type: 3}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.data[1]
-      value: 
-      objectReference: {fileID: 664038641860517977, guid: 208c957414b287343aac82ffc9552172, type: 3}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.data[2]
-      value: 
-      objectReference: {fileID: 7266079026993811455, guid: c071dd7a256b6fb418b7c05def14768b, type: 3}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.data[3]
-      value: 
-      objectReference: {fileID: 8538881162259127091, guid: 76fb0c9d7a4fcd54ebd7618687bd2489, type: 3}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.data[4]
-      value: 
-      objectReference: {fileID: 973413373660759860, guid: 9bb61195ab98c8749af5e8270b63c14e, type: 3}
-    - target: {fileID: 2532389250483860924, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
-      propertyPath: hero.Array.data[5]
-      value: 
-      objectReference: {fileID: 5309091480148534931, guid: a726e139260b26945a76bc3bbffac1a9, type: 3}
     - target: {fileID: 3437878410051048392, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

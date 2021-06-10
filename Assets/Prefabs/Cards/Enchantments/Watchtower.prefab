@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8598811098688165572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319003952649802257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a76071d2717b334b834a618cae63819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: Watchtower
+  ID: 10194
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 21300000, guid: 5f96c77272686914888e422a1bf753db, type: 3}
+  color: blue
+  mana: 2
+  quickcast: 0
+  cardText: 'Enchant Tower
+
+
+    Play Effect: Copy a random card from your deck.
+    It is blue, ephemeral, and can only be played from this lane.
+
+
+    Whenever
+    your opponent plays a spell or enchantment in this lane, repeat this effect.'
+  Ability: {fileID: 3347889758015467513, guid: 301343bd1b86513488ffe0a721775f5d, type: 3}
+--- !u!1001 &7302231596511779183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 565276894165174540, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 565276894165174540, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 565276894165174540, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Name
+      value: Watchtower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988664816421315036, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_text
+      value: 'Enchant Tower
+
+
+        Play Effect: Copy a random card from your deck.
+        It is blue, ephemeral, and can only be played from this lane.
+
+
+        Whenever
+        your opponent plays a spell or enchantment in this lane, repeat this effect.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988664816421315036, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_fontSize
+      value: 4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f96c77272686914888e422a1bf753db, type: 3}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403118474984014884, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_text
+      value: Watchtower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911249495024554266, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296519827353632857, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1070878725135988414, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+--- !u!1 &5319003952649802257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 7302231596511779183}
+  m_PrefabAsset: {fileID: 0}
