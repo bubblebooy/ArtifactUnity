@@ -97,7 +97,6 @@ public class Unit : Card
         //baseMaxHealth = originalUnit.baseMaxHealth;
         //baseMaxArmor = originalUnit.baseMaxHealth;
 
-
         //clone modifier scripts
         IModifier[] modifiers = originalGameObject.GetComponents<IModifier>();
         foreach (IModifier modifier in modifiers)

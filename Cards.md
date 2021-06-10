@@ -40,6 +40,7 @@
 |✔️| Ion Shell | Done | Max Garber |
 |✔️| Keenfolk Turret | Done | Max Garber |
 |✔️| Trebuchets | Done | Max Garber |
+|✔️| Watchtower | Done | Max Garber |
 
 </details>
 

@@ -141,6 +141,8 @@ public abstract class Card : NetworkBehaviour
         isDraggable = false;
     }
 
+    public delegate void IsVaildDelegate(ref bool valid, GameObject card);
+    public event IsVaildDelegate IsVaildEvent;
     public virtual bool IsVaildPlay(GameObject target)
     {
         Unit targetUnit = target.GetComponent<Unit>();
@@ -149,7 +151,9 @@ public abstract class Card : NetworkBehaviour
             ManaManager.mana >= mana &&
             (targetUnit?.hasAuthority != !hasAuthority || targetUnit?.untargetable != true))
         {
-            return true;
+            bool valid = true;
+            IsVaildEvent?.Invoke(ref valid, target);
+            return valid;
         }
         return false;
     }

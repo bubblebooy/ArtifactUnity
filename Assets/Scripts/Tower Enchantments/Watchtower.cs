@@ -12,6 +12,7 @@ public class Watchtower : TowerEnchantment
     public override void OnPlay()
     {
         WatchtowerEffect();
+        inPlayEvents.Add(GameEventSystem.Register<CardPlayed_e>(CardPlayedEvent));
     }
 
     public void WatchtowerEffect()
@@ -23,7 +24,22 @@ public class Watchtower : TowerEnchantment
         if (GetSide() == "PlayerSide")
         {
             GameObject card = deck.transform.GetChild(rnd).gameObject;
-            GetLane().GetPlayerManager().CmdCloneToHand(card, color: "blue", ephemeral: true);
+            GetLane().GetPlayerManager().CloneToHand(card, color: "blue", ephemeral: true, validLane: GetLane().gameObject);
         }
+    }
+
+   void CardPlayedEvent(CardPlayed_e e)
+    {
+        
+        if (e.lane == GetLane().gameObject &&
+            e.caster.GetComponent<Unit>().GetSide() != GetSide())
+        {
+            Card c = e.card.GetComponent<Card>();
+            if (c is Spell || c is Enchantment)
+            {
+                WatchtowerEffect();
+            }
+        }
+
     }
 }

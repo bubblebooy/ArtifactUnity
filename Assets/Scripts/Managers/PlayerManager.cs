@@ -260,8 +260,13 @@ public class PlayerManager : NetworkBehaviour
         RpcPlayCard(cardPlayed_e, false);
     }
 
+    public void CloneToHand(GameObject unit, string color = null, bool ephemeral = false, GameObject validLane = null)
+    {
+        CmdCloneToHand(unit, color, ephemeral, validLane);
+    }
+
     [Command]
-    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral)
+    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral, GameObject validLane)
     {
         GameObject card;
         NetworkClient.GetPrefab(unit.GetComponent<NetworkIdentity>().assetId, out card);
@@ -269,7 +274,7 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         RpcClone(original: unit, clone: card);
         RpcShowCard(card, "Dealt");
-        RpcModifyCard(card, color, ephemeral);
+        RpcModifyCard(card, color, ephemeral, validLane);
     }
 
     [ClientRpc]
@@ -280,13 +285,8 @@ public class PlayerManager : NetworkBehaviour
         GameManager.GameUpdate();
     }
 
-    [Command]
-    public void CmdModifyCard(GameObject card, string color, bool ephemeral)
-    {
-        RpcModifyCard(card, color, ephemeral);
-    }
     [ClientRpc]
-    public void RpcModifyCard(GameObject card, string color, bool ephemeral)
+    public void RpcModifyCard(GameObject card, string color, bool ephemeral, GameObject validLane)
     {
         Card _card = card.GetComponent<Card>();
         if (!string.IsNullOrEmpty(color))
@@ -297,6 +297,11 @@ public class PlayerManager : NetworkBehaviour
         if (ephemeral)
         {
             card.gameObject.AddComponent<Ephemeral>();
+        }
+        if(validLane != null)
+        {
+            VaildLane v = card.gameObject.AddComponent<VaildLane>();
+            v.lane = validLane;
         }
         
     }
