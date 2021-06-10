@@ -22,6 +22,8 @@ public class PlayerManager : NetworkBehaviour
     //private Dictionary<string, GameObject> cardDict; // = cards.ToDictionary(x => x.name, x => x);
     //public GameObject laneCreep; // dict of all creeps
 
+    public bool debug = true;
+
     System.Random rand = new System.Random();
 
     public bool IsMyTurn = true;
@@ -95,9 +97,12 @@ public class PlayerManager : NetworkBehaviour
             RpcDrawCard();
         }
         //*******For test alway draw the last card
-        card = Instantiate(deck[deck.Count-1], new Vector2(0, 0), Quaternion.identity);
-        NetworkServer.Spawn(card, connectionToClient);
-        RpcShowCard(card, "Dealt");
+        if (debug)
+        {
+            card = Instantiate(deck[deck.Count - 1], new Vector2(0, 0), Quaternion.identity);
+            NetworkServer.Spawn(card, connectionToClient);
+            RpcShowCard(card, "Dealt");
+        }
         //*****************************************//
         for (int i= 0; i < 5; i++)
         {

@@ -8,7 +8,7 @@ namespace ArtifactDeckCodeDotNet
     public static class ArtifactDeckEncoder
     {
         public static uint CurrentVersion = 2;
-        private static string EncodedPrefix = "ADC";
+        private static string EncodedPrefix = "RTFACT";
         private static int HeaderSize = 3;
 
         //expects Deck with Heroes, Cards, and Name

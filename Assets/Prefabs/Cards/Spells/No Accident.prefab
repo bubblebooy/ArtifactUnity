@@ -1,64 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4676448267469402966
+--- !u!114 &1642563253626217110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8682069088221006762}
+  m_GameObject: {fileID: 528178763786988993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f9a8304de1fa64c91c348fcb0bd71d, type: 3}
+  m_Script: {fileID: 11500000, guid: bfb5bc89ec886e74195d666db999cd21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  cardName: Clone
-  ID: 99001
+  cardName: No Accident
+  ID: 11007
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
   staged: 0
   isDraggable: 1
-  cardArt: {fileID: 0}
-  color: blue
-  mana: 5
+  cardArt: {fileID: 21300000, guid: 091a444c2e44e3e4498dcf0a7e95a7ef, type: 3}
+  color: black
+  mana: 2
   quickcast: 0
-  cardText: Clone a Card. This card is used to test the cloning function
+  cardText: Deal 2 damage to a unit and give it Feeble permanently.
   vaildPlay:
     targetTag: Unit
     crossLane: 0
-    targetOnlyEnemySide: 0
-    targetOnlyPlayerSide: 1
+    targetOnlyEnemySide: 1
+    targetOnlyPlayerSide: 0
     targetCaster: 0
     targetHero: 0
---- !u!1001 &5586066168284700201
+  Ability: {fileID: 5615829328237365276, guid: a4da9fa2b5f7c944fba2a979ca83c55b, type: 3}
+--- !u!1001 &3651611753547200578
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 091a444c2e44e3e4498dcf0a7e95a7ef, type: 3}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.b
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3325234172275670817, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: Clone a Card. This card is used to test the cloning function
+      value: Deal 2 damage to a unit and give it Feeble permanently.
       objectReference: {fileID: 0}
     - target: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Name
-      value: Clone
+      value: No Accident
       objectReference: {fileID: 0}
     - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Pivot.x
@@ -146,7 +151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438084732954496999, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6018133980985613017, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_IsActive
@@ -154,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_text
-      value: Clone
+      value: No Accident
       objectReference: {fileID: 0}
     - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_AssetId
@@ -163,8 +168,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3611571970488368778, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
---- !u!1 &8682069088221006762 stripped
+--- !u!1 &528178763786988993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
-  m_PrefabInstance: {fileID: 5586066168284700201}
+  m_PrefabInstance: {fileID: 3651611753547200578}
   m_PrefabAsset: {fileID: 0}

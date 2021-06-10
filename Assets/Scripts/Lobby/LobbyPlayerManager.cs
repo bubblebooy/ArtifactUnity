@@ -96,11 +96,16 @@ public class LobbyPlayerManager : NetworkBehaviour
             lobbyManager.playerReadyToggle.Ready(true);
             playerManager.GetComponent<PlayerManager>().heroes = heroList.Select(name => CardList.heroDict[name]).ToList();
             playerManager.GetComponent<PlayerManager>().deck = cardList.Select(name => CardList.cardDict[name]).ToList();
+            playerManager.GetComponent<PlayerManager>().debug = lobbyManager.debug;
         }
         else
         {
             lobbyManager.enemyReady = true;
             lobbyManager.enemyReadyToggle.Ready(true);
+            if (isServer)
+            {
+                playerManager.GetComponent<PlayerManager>().debug = lobbyManager.debug;
+            }
         }
 
         lobbyManager.startButton.interactable = lobbyManager.playerReady && lobbyManager.enemyReady;

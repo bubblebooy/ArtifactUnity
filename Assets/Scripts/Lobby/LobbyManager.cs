@@ -36,12 +36,14 @@ public class LobbyManager : MonoBehaviour
     private GameObject browserCardPrefab;
     [SerializeField]
     private GameObject browserArea;
-    //public Text textDeck;
+
+    public bool debug = false;
 
     private void Start()
     {
         StartCoroutine(PopulateDeckBrowser());
         inputDeckCode.text = PlayerPrefs.GetString("DeckCode");
+        GameObject.Find("Deck").GetComponent<LayoutElement>().minHeight = (GameObject.Find("LobbyCanvas").transform as RectTransform).sizeDelta.y;
     }
 
     public void StartGame()
@@ -75,6 +77,35 @@ public class LobbyManager : MonoBehaviour
         StartCoroutine(RebuildLayout());
     }
 
+    public void EncodeDeck()
+    {
+        Deck deck = new Deck();
+        deck.Name = "Artifact Unity";
+        deck.Heroes = new List<HeroRef>();
+        deck.Cards = new List<CardRef>();
+        int turn = -1;
+        foreach (DeckHero deckHero in deckAreaHeros.GetComponentsInChildren<DeckHero>())
+        {
+            HeroRef hero = new HeroRef();
+            hero.Id = deckHero.cardID;
+            hero.Turn = Mathf.Max(1, turn);
+            deck.Heroes.Add(hero);
+            turn += 1;
+        }
+        //deal with sig cards
+        foreach (DeckCard deckCard in deckAreaCards.GetComponentsInChildren<DeckCard>())
+        {
+            CardRef card = new CardRef();
+            card.Id = deckCard.cardID;
+            card.Count = deckCard.count;
+            deck.Cards.Add(card);
+        }
+        string deckCode = ArtifactDeckEncoder.EncodeDeck(deck);
+        print(deckCode);
+        GUIUtility.systemCopyBuffer = deckCode;
+        inputDeckCode.text = deckCode;
+    }
+
     public void DecodeDeck(string s)
     {
         //RTFACTJWES9LgCBJpoAfYSBS8Efb4CAViyAoE5AlB0BrAFagSRgwEgArkBiCNEQ0dfUGxheXRlc3REZWNrNg__
@@ -82,6 +113,7 @@ public class LobbyManager : MonoBehaviour
         foreach (Transform t in deckAreaCards.transform) { Destroy(t.gameObject); }
         if (inputDeckCode.text.Length < "RTFACT".Length || inputDeckCode.text.Substring(0, "RTFACT".Length) != "RTFACT")
         {
+            StartCoroutine(RebuildLayout());
             return;
         }
         PlayerPrefs.SetString("DeckCode", inputDeckCode.text);
@@ -170,10 +202,11 @@ public class LobbyManager : MonoBehaviour
 
     IEnumerator PopulateDeckBrowser()
     {
-        while(CardList.cardDict == null)
+        do
         {
             yield return new WaitForSeconds(0.1f);
-        }
+        } while (CardList.cardDict == null);
+
         foreach (GameObject card in CardList.heroDict.Values.Concat(CardList.cardDict.Values))
         {
             BrowserCard browserCard = Instantiate(browserCardPrefab, browserArea.transform).GetComponent<BrowserCard>();
@@ -181,6 +214,5 @@ public class LobbyManager : MonoBehaviour
             browserCard.UpdateBrowserCard();
             browserCard.addCard();
         }
-
     }
 }
