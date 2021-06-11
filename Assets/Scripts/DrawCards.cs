@@ -13,7 +13,7 @@ public class DrawCards : NetworkBehaviour
     public GameObject Board;
     public Button button; 
 
-    private void Start()
+    public override void OnStartClient()
     {
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Fountain = GameObject.Find("PlayerFountain");

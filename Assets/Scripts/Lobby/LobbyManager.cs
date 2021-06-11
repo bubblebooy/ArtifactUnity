@@ -109,7 +109,8 @@ public class LobbyManager : MonoBehaviour
     public void DecodeDeck(string s)
     {
         //RTFACTJWES9LgCBJpoAfYSBS8Efb4CAViyAoE5AlB0BrAFagSRgwEgArkBiCNEQ0dfUGxheXRlc3REZWNrNg__
-        foreach(Transform t in deckAreaHeros.transform){ Destroy(t.gameObject); }
+        //RTFACTJh4OJLkCDE+BxgQgHwEkuwIBEgMEEAEBIAEPCAo3AhkEAgEOAQoKBDsBBygJJwE7BAE5ARsJBRshAj66FUFydGlmYWN0IFVuaXR5
+        foreach (Transform t in deckAreaHeros.transform){ Destroy(t.gameObject); }
         foreach (Transform t in deckAreaCards.transform) { Destroy(t.gameObject); }
         if (inputDeckCode.text.Length < "RTFACT".Length || inputDeckCode.text.Substring(0, "RTFACT".Length) != "RTFACT")
         {
