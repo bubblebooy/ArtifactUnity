@@ -86,8 +86,8 @@ public class SteamLobby : MonoBehaviour
 
     public void OnStopClient()
     {
-        buttonCanvas.SetActive(true);
-        SteamMatchmaking.LeaveLobby(lobbyID);
+        //buttonCanvas.SetActive(true);
+        //SteamMatchmaking.LeaveLobby(lobbyID);
     }
 
     public void HostLobby()
