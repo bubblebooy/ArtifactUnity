@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 6669469533102308497}
+  CardBack: {fileID: 4275190622543264743}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 65c24858a9de50944b4e1d45d485296b, type: 3}
   color: red
   mana: 2
+  revealed: 1
   quickcast: 0
   cardText: 'Enchant Caster
 
@@ -188,5 +191,15 @@ PrefabInstance:
 --- !u!1 &1635553572286077581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 4194256796868366835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6669469533102308497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402309620959620450, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 4194256796868366835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4275190622543264743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 99212704247376404, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
   m_PrefabInstance: {fileID: 4194256796868366835}
   m_PrefabAsset: {fileID: 0}

@@ -58,9 +58,9 @@ public class Unit : Card
     public override void OnValidate()
     {
         base.OnValidate();
-        displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
-        displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
-        displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
+        displayAttack = gameObject.transform.Find("CardFront/Attack").GetComponent<TextMeshProUGUI>();
+        displayArmor = gameObject.transform.Find("CardFront/Armor").GetComponent<TextMeshProUGUI>();
+        displayHealth = gameObject.transform.Find("CardFront/Health").GetComponent<TextMeshProUGUI>();
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
@@ -76,14 +76,14 @@ public class Unit : Card
         caster = this is Hero;
         baseMaxArmor = maxArmor;
         baseMaxHealth = maxHealth;
-        displayAttack = gameObject.transform.Find("Color/Attack").GetComponent<TextMeshProUGUI>();
-        displayArmor = gameObject.transform.Find("Color/Armor").GetComponent<TextMeshProUGUI>();
-        displayHealth = gameObject.transform.Find("Color/Health").GetComponent<TextMeshProUGUI>();
+        displayAttack = gameObject.transform.Find("CardFront/Attack").GetComponent<TextMeshProUGUI>();
+        displayArmor = gameObject.transform.Find("CardFront/Armor").GetComponent<TextMeshProUGUI>();
+        displayHealth = gameObject.transform.Find("CardFront/Health").GetComponent<TextMeshProUGUI>();
         displayAttack.text = "<sprite=0>" + attack.ToString();
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
         if (disarmed || stun) { displayAttack.color = Color.grey; }
-        displayArrow = gameObject.transform.Find("Color/Arrow");
+        displayArrow = gameObject.transform.Find("CardFront/Arrow");
         events.Add(GameEventSystem.Register<GameUpdate_e>(CardUpdate));
     }
 

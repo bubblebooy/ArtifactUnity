@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 4698628174310088563}
+  CardBack: {fileID: 2805409837917853701}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: ebb3de5d3e39abb47ad46c9a007c36f2, type: 3}
   color: blue
   mana: 1
+  revealed: 1
   quickcast: 0
   cardText: Swap a unit to another slot.
   vaildPlay:
@@ -201,5 +204,15 @@ PrefabInstance:
 --- !u!1 &795150405964462447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 4535590294665243884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4698628174310088563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 4535590294665243884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2805409837917853701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 4535590294665243884}
   m_PrefabAsset: {fileID: 0}

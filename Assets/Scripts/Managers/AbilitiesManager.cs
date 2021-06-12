@@ -20,7 +20,7 @@ public class AbilitiesManager : MonoBehaviour
     public void Awake()
     {
         Canvas = GameObject.Find("Main Canvas");
-        abilities = transform.Find("Color/Abilities").gameObject;
+        abilities = transform.Find("CardFront/Abilities").gameObject;
         abilitiesGridLayoutGroup = abilities.GetComponent<GridLayoutGroup>();
 
         collapsedSizeDelta = abilities.GetComponent<RectTransform>().sizeDelta;
@@ -29,8 +29,8 @@ public class AbilitiesManager : MonoBehaviour
 
     public void Clone(GameObject originalGameObject)
     {
-        //Transform abilities = transform.Find("Color").Find("Abilities");
-        foreach ( Transform originalAbilityTransform in originalGameObject.transform.Find("Color/Abilities"))
+        //Transform abilities = transform.Find("CardFront").Find("Abilities");
+        foreach ( Transform originalAbilityTransform in originalGameObject.transform.Find("CardFront/Abilities"))
         {
             GameObject originalAbilityGameObject = originalAbilityTransform.gameObject;
             GameObject abilityGameObject;
@@ -168,7 +168,7 @@ public class AbilitiesManager : MonoBehaviour
     public void Collapse()
     {
         expanded = false;
-        abilities.transform.SetParent(transform.Find("Color"),false);
+        abilities.transform.SetParent(transform.Find("CardFront"),false);
         abilities.transform.SetAsLastSibling();//.SetSiblingIndex(sibIndex);
         //abilities.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         abilities.GetComponent<RectTransform>().sizeDelta = collapsedSizeDelta;

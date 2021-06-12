@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 12583448917784443}
+  CardBack: {fileID: 7491320822201905165}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 5f8d2adbff59994478580d306ca39ef9, type: 3}
   color: blue
   mana: 1
+  revealed: 1
   quickcast: 0
   cardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
     1 piercing damage."
@@ -42,6 +45,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2208816671050471409, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Color.b
       value: 0.4
@@ -197,5 +204,15 @@ PrefabInstance:
 --- !u!1 &5336946901837861223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 9217164938166207716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &12583448917784443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 9217164938166207716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7491320822201905165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 9217164938166207716}
   m_PrefabAsset: {fileID: 0}

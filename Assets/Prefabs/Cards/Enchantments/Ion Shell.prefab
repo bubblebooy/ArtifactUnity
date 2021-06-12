@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 8631646254982081205}
+  CardBack: {fileID: 1158538381434973635}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 0a51eea4c52db78418a54cd271789463, type: 3}
   color: red
   mana: 3
+  revealed: 1
   quickcast: 0
   cardText: Give an ally +3 Retaliate permanently. It taunts.
   Ability: {fileID: 5955683767331550054, guid: 6f8fa5f9d08aa034cbdd143ceb1b2541, type: 3}
@@ -180,5 +183,15 @@ PrefabInstance:
 --- !u!1 &4464708748315217065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 1257504751856682967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8631646254982081205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402309620959620450, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 1257504751856682967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1158538381434973635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 99212704247376404, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
   m_PrefabInstance: {fileID: 1257504751856682967}
   m_PrefabAsset: {fileID: 0}

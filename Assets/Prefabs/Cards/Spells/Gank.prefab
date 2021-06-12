@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 8071820436383125266}
+  CardBack: {fileID: 1720073688159946852}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 05335cca2c30f40449b7a2c0270669d3, type: 3}
   color: black
   mana: 3
+  revealed: 1
   quickcast: 0
   cardText: 'Caster battles a unit in any lane.
 
@@ -181,5 +184,15 @@ PrefabInstance:
 --- !u!1 &4195329077273110798 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 1135359907789601933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8071820436383125266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 1135359907789601933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1720073688159946852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 1135359907789601933}
   m_PrefabAsset: {fileID: 0}

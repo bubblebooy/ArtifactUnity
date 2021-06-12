@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 7432483418122694983}
+  CardBack: {fileID: 71859984391009841}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: bc369bb62ed04cd4bac3d669d592fb95, type: 3}
   color: red
   mana: 1
+  revealed: 1
   quickcast: 0
   cardText: "Repeat three times: \u25A1 Deal 1 damage to a random enemy with the
     least <sprite=2>."
@@ -192,5 +195,15 @@ PrefabInstance:
 --- !u!1 &3249747563830499163 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 1792496919527883480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7432483418122694983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 1792496919527883480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &71859984391009841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 1792496919527883480}
   m_PrefabAsset: {fileID: 0}

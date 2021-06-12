@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1545654607554125404}
   - component: {fileID: 911713781396864709}
   - component: {fileID: 4399512321026879094}
+  - component: {fileID: 7201947452238876168}
   m_Layer: 5
   m_Name: Side
   m_TagString: Side
@@ -41,7 +42,7 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 250, y: -267.5}
   m_SizeDelta: {x: 500, y: 165}
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.47279248, g: 0.28195086, b: 0.6037736, a: 1}
+  m_Color: {r: 0.47279248, g: 0.28195086, b: 0.6037736, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 500, y: 165}
+  m_Size: {x: 575, y: 165}
   m_EdgeRadius: 0
 --- !u!114 &4399512321026879094
 MonoBehaviour:
@@ -127,6 +128,32 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &7201947452238876168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541548626884292911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &9070076162741654069
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5681662728445239065}
   - component: {fileID: 7324392654252621027}
+  - component: {fileID: 4237884577665294223}
   m_Layer: 0
   m_Name: Enchantments
   m_TagString: Untagged
@@ -187,6 +215,26 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &4237884577665294223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070076162741654069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &372106791772258390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,10 +533,6 @@ PrefabInstance:
     - target: {fileID: 9015207178289163740, guid: d39937522ccc8e243adb15e1deb10027, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9015207178289163740, guid: d39937522ccc8e243adb15e1deb10027, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 9015207178289163740, guid: d39937522ccc8e243adb15e1deb10027, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

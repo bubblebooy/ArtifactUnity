@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 8814720857579624148}
+  CardBack: {fileID: 2129672550649516450}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: f9e5bc0b586044542b83c822f66b1ea5, type: 3}
   color: green
   mana: 1
+  revealed: 1
   quickcast: 1
   cardText: "Purge opponent's effects from a unit. Give it Untargetable.\r\n\u25A2Quickcast"
   vaildPlay:
@@ -186,5 +189,15 @@ PrefabInstance:
 --- !u!1 &3488105600781611208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 401220397189342539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8814720857579624148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 401220397189342539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2129672550649516450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 401220397189342539}
   m_PrefabAsset: {fileID: 0}

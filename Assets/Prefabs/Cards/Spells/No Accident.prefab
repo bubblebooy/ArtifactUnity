@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 5577822158178765789}
+  CardBack: {fileID: 3076617973794049195}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 091a444c2e44e3e4498dcf0a7e95a7ef, type: 3}
   color: black
   mana: 2
+  revealed: 1
   quickcast: 0
   cardText: Deal 2 damage to a unit and give it Feeble permanently.
   vaildPlay:
@@ -171,5 +174,15 @@ PrefabInstance:
 --- !u!1 &528178763786988993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 3651611753547200578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5577822158178765789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 3651611753547200578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3076617973794049195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 3651611753547200578}
   m_PrefabAsset: {fileID: 0}

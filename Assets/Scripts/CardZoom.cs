@@ -9,21 +9,25 @@ public class CardZoom : MonoBehaviour
     public GameObject Canvas;
 
     private GameObject placeholder;
-    private GameObject color;
+    private GameObject cardFront;
 
     private bool hover = false;
 
     public void Awake()
     {
         Canvas = GameObject.Find("Main Canvas");
-        color = gameObject.transform.Find("Color").gameObject;
+        cardFront = gameObject.transform.Find("CardFront").gameObject;
         placeholder = gameObject.transform.Find("Placeholder").gameObject;
     }
 
     public void OnHoverEnter()
     {
-        hover = true;
-        StartCoroutine(DelayedHover(0.1f));
+        if (cardFront.activeInHierarchy)
+        {
+            hover = true;
+            StartCoroutine(DelayedHover(0.1f));
+        }
+
     }
 
     public IEnumerator DelayedHover(float delayTime)
@@ -31,9 +35,9 @@ public class CardZoom : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         if (hover & !GetComponent<DragDrop>().isDragging) 
         {
-            color.transform.SetParent(Canvas.transform, true);
+            cardFront.transform.SetParent(Canvas.transform, true);
 
-            color.GetComponent<RectTransform>().localScale = new Vector3(2, 2, 1);
+            cardFront.GetComponent<RectTransform>().localScale = new Vector3(2, 2, 1);
         }
     }
 
@@ -42,10 +46,10 @@ public class CardZoom : MonoBehaviour
         hover = false;
         if (placeholder != null)
         {
-            color.transform.SetParent(placeholder.transform.parent, true);
-            color.transform.SetSiblingIndex(1);
-            color.GetComponent<RectTransform>().localPosition = placeholder.GetComponent<RectTransform>().localPosition;
-            color.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            cardFront.transform.SetParent(placeholder.transform.parent, true);
+            cardFront.transform.SetSiblingIndex(1);
+            cardFront.GetComponent<RectTransform>().localPosition = placeholder.GetComponent<RectTransform>().localPosition;
+            cardFront.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }       
     }
 }

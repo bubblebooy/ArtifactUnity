@@ -191,6 +191,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_FillMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9186273833376439605, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_text
       value: <sprite=2>5

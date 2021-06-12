@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 6630634280831228601}
+  CardBack: {fileID: 4314042393245965775}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: d08edfd042882124f8e584f0676c3096, type: 3}
   color: red
   mana: 2
+  revealed: 1
   quickcast: 0
   cardText: "Dispel a tower enchantment.\r\n\r\n\u25A1 Draw a card."
   vaildPlay:
@@ -182,5 +185,15 @@ PrefabInstance:
 --- !u!1 &1601221831876476069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 2576613719549618470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6630634280831228601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 2576613719549618470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4314042393245965775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 2576613719549618470}
   m_PrefabAsset: {fileID: 0}

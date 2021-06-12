@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 3414985632451814225}
+  CardBack: {fileID: 5241705470397621287}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 78c0e418893ab4649a4d88d9d8962e09, type: 3}
   color: black
   mana: 2
+  revealed: 1
   quickcast: 0
   cardText: "Enchant Tower\r\nActive 1\u25A0, 1 Mana: Deal 2 piercing damage to a
     unit."
@@ -166,5 +169,15 @@ PrefabInstance:
 --- !u!1 &7302700234738206029 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 5322760216844652083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3414985632451814225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402309620959620450, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 5322760216844652083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5241705470397621287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 99212704247376404, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
   m_PrefabInstance: {fileID: 5322760216844652083}
   m_PrefabAsset: {fileID: 0}

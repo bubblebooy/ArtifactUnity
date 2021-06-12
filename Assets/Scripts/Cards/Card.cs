@@ -18,6 +18,11 @@ public abstract class Card : NetworkBehaviour
     [HideInInspector]
     public ManaManager ManaManager;
 
+    [SerializeField]
+    private GameObject CardFront;
+    [SerializeField]
+    private GameObject CardBack;
+
     public bool staged = false;
     [HideInInspector]
     public bool isDraggable = true;
@@ -26,6 +31,7 @@ public abstract class Card : NetworkBehaviour
     public string color;
 
     public int mana = 0;
+    public bool revealed = true;
     public bool quickcast = false;
     protected int baseMana;
     [TextArea]
@@ -56,19 +62,25 @@ public abstract class Card : NetworkBehaviour
         //        ID = cid.ID; 
         //    }
         //}
-        gameObject.transform.Find("Color/Card Name").GetComponent<TextMeshProUGUI>().text = cardName;
-        displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
+        if(CardFront == null)
+        {
+            CardFront = gameObject.transform.Find("CardFront").gameObject;
+            CardBack = gameObject.transform.Find("CardBack").gameObject;
+        }
+
+        gameObject.transform.Find("CardFront/Card Name").GetComponent<TextMeshProUGUI>().text = cardName;
+        displayMana = gameObject.transform.Find("CardFront/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
         displayMana.text = mana.ToString();
 
         if (!string.IsNullOrEmpty(cardText))
         {
-            gameObject.transform.Find("Color/Card Text").gameObject.SetActive(true);
-            displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
+            gameObject.transform.Find("CardFront/Card Text").gameObject.SetActive(true);
+            displayCardText = gameObject.transform.Find("CardFront/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
             displayCardText.text = cardText;
         }
         else
         {
-            gameObject.transform.Find("Color/Card Text").gameObject.SetActive(false);
+            gameObject.transform.Find("CardFront/Card Text").gameObject.SetActive(false);
         }
 
 
@@ -77,13 +89,13 @@ public abstract class Card : NetworkBehaviour
             color = color.ToLower();
             if (colorDict.ContainsKey(color))
             {
-                gameObject.transform.Find("Color").GetComponent<Image>().color = colorDict[color];
+                gameObject.transform.Find("CardFront").GetComponent<Image>().color = colorDict[color];
             }
         }
 
         //cardArt;
-        transform.Find("Color/Image").GetComponent<Image>().sprite = cardArt;
-        if(cardArt != null) { transform.Find("Color/Image").GetComponent<Image>().color = Color.white; }
+        transform.Find("CardFront/Image").GetComponent<Image>().sprite = cardArt;
+        if(cardArt != null) { transform.Find("CardFront/Image").GetComponent<Image>().color = Color.white; }
     }
 
     public override void OnStartClient()
@@ -93,8 +105,8 @@ public abstract class Card : NetworkBehaviour
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
         ManaManager = GameObject.Find(( hasAuthority ? "Player" : "Enemy") + "Mana").GetComponent<ManaManager>();
-        displayMana = gameObject.transform.Find("Color/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
-        displayCardText = gameObject.transform.Find("Color/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
+        displayMana = gameObject.transform.Find("CardFront/ManaIcon").GetComponentInChildren<TextMeshProUGUI>(true);
+        displayCardText = gameObject.transform.Find("CardFront/Card Text").GetComponentInChildren<TextMeshProUGUI>(true);
         displayCardText.transform.parent.SetAsLastSibling();
         baseMana = mana;
         events.Add(GameEventSystem.Register<GameUpdateUI_e>(CardUIUpdate));
@@ -139,6 +151,9 @@ public abstract class Card : NetworkBehaviour
     {
         staged = false;
         isDraggable = false;
+        revealed = true;
+        CardFront.SetActive(revealed);
+        CardBack.SetActive(!revealed);
     }
 
     public delegate void IsVaildDelegate(ref bool valid, GameObject card);
@@ -174,6 +189,8 @@ public abstract class Card : NetworkBehaviour
     {
         if (displayMana != null) { displayMana.text = mana.ToString(); }
         if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
+        CardFront.SetActive(revealed);
+        CardBack.SetActive(!revealed);
     }
 
     public static List<string> GetLineage(Transform t)

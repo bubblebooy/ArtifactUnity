@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 282870889055712269}
+  CardBack: {fileID: 7221176341111583611}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 5f96c77272686914888e422a1bf753db, type: 3}
   color: blue
   mana: 2
+  revealed: 1
   quickcast: 0
   cardText: 'Enchant Tower
 
@@ -200,5 +203,15 @@ PrefabInstance:
 --- !u!1 &5319003952649802257 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 7302231596511779183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &282870889055712269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402309620959620450, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 7302231596511779183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7221176341111583611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 99212704247376404, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
   m_PrefabInstance: {fileID: 7302231596511779183}
   m_PrefabAsset: {fileID: 0}

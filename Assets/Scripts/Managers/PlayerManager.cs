@@ -179,6 +179,7 @@ public class PlayerManager : NetworkBehaviour
             GameObject card = PlayerDeck.transform.GetChild(PlayerDeck.transform.childCount - 1).gameObject;
             card.transform.SetParent(PlayerArea.transform, false);
             card.transform.rotation = Quaternion.identity;
+            card.GetComponent<Card>().revealed = true;
         }
         else
         {
@@ -186,6 +187,7 @@ public class PlayerManager : NetworkBehaviour
             GameObject card = EnemyDeck.transform.GetChild(EnemyDeck.transform.childCount - 1).gameObject;
             card.transform.SetParent(EnemyArea.transform, false);
             card.transform.rotation = Quaternion.identity;
+            card.GetComponent<Card>().revealed = false;
         }
     }
 
@@ -435,6 +437,7 @@ public class PlayerManager : NetworkBehaviour
     {
         if (type == "Deck")
         {
+            card.GetComponent<Card>().revealed = false;
             if (hasAuthority)
             {
                 card.transform.SetParent(PlayerDeck.transform, false);
@@ -448,10 +451,12 @@ public class PlayerManager : NetworkBehaviour
         {
             if (hasAuthority)
             {
+                card.GetComponent<Card>().revealed = true;
                 card.transform.SetParent(PlayerArea.transform, false);
             }
             else
             {
+                card.GetComponent<Card>().revealed = false;
                 card.transform.SetParent(EnemyArea.transform, false);
             }
         }

@@ -15,7 +15,7 @@ public class Hero : Unit
     {
         base.OnValidate();
         caster = true;
-        gameObject.transform.Find("Color/ManaIcon").gameObject.SetActive(false);
+        gameObject.transform.Find("CardFront/ManaIcon").gameObject.SetActive(false);
     }
 
     public override void OnStartClient()

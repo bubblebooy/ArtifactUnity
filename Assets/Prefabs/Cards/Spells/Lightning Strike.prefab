@@ -19,11 +19,14 @@ MonoBehaviour:
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 3752093682254305454}
+  CardBack: {fileID: 6037125187841728472}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 21300000, guid: 2fc80534e041422459016b15100a7685, type: 3}
   color: blue
   mana: 1
+  revealed: 1
   quickcast: 0
   cardText: 'Deal 4 piercing damage to caster''s combat target.
 
@@ -196,5 +199,15 @@ PrefabInstance:
 --- !u!1 &9092219171095232178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 5464937186407181105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3752093682254305454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 5464937186407181105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6037125187841728472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
   m_PrefabInstance: {fileID: 5464937186407181105}
   m_PrefabAsset: {fileID: 0}
