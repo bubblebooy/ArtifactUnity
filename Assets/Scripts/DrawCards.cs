@@ -11,7 +11,8 @@ public class DrawCards : NetworkBehaviour
     public GameManager GameManager;
     public GameObject Fountain;
     public GameObject Board;
-    public Button button; 
+    public Button button;
+
 
     public override void OnStartClient()
     {
@@ -34,7 +35,6 @@ public class DrawCards : NetworkBehaviour
                 PassClick();
                 break;
             case "Shop":
-                FinnishedShopping();
                 break;
             case "Deploy":
                 Deploy();
@@ -56,11 +56,6 @@ public class DrawCards : NetworkBehaviour
     void PassClick()
     {
         PlayerManager.CmdPass();
-    }
-    void FinnishedShopping()
-    {
-        PlayerManager.CmdFinnishedShopping();
-        button.interactable = false;
     }
     void Deploy()
     {

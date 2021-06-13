@@ -149,7 +149,7 @@ public class SteamLobby : MonoBehaviour
             "HostName",
             SteamFriends.GetPersonaName());
 
-        SteamFriends.ActivateGameOverlayInviteDialog(new CSteamID(callback.m_ulSteamIDLobby));
+        //SteamFriends.ActivateGameOverlayInviteDialog(new CSteamID(callback.m_ulSteamIDLobby));
     }
 
     private void OnGameLobbyJoinRequested(GameLobbyJoinRequested_t callback)

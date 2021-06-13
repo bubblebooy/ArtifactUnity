@@ -14,6 +14,7 @@ public class GameManager : NetworkBehaviour
     public GameObject EnemyFountain;
     public GameObject PlayerMana;
     public GameObject EnemyMana;
+    public ShopManager Shop;
 
 
     public string GameState = "Setup";
@@ -38,7 +39,7 @@ public class GameManager : NetworkBehaviour
         PlayerMana = GameObject.Find("PlayerMana");
         EnemyMana = GameObject.Find("EnemyMana");
         GameHistory = GetComponent<GameHistory>();
-
+        Shop = FindObjectOfType<ShopManager>(includeInactive: true);
     }
 
     public void ChangeGameState(string stateRequest)
@@ -99,9 +100,9 @@ public class GameManager : NetworkBehaviour
                     break;
                 case "Shop":
                     GameState = "Shop";
-                    UIManager.ButtonInteractable(true);
-                    UIManager.UpdateButtonText($"Skip: +{5} Gold");
-
+                    UIManager.ButtonInteractable(false);
+                    Shop.gameObject.SetActive(true);
+                    UIManager.UpdateButtonText(""); // $"Skip: +{5} Gold"
                     break;
                 default:
                     Debug.Log( GameState + " is not a vaild state request");
