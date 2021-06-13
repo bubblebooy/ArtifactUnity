@@ -239,8 +239,19 @@ MonoBehaviour:
   revealed: 1
   quickcast: 0
   cardText: Item text here
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 0
+    targetHero: 1
   level: 0
   gold: 10
+  abilityPrefab: {fileID: 0}
+  ability: {fileID: 0}
+  hero: {fileID: 0}
+  itemType: 0
 --- !u!1001 &1270755928471196712
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,12 @@ public class ShopManager : NetworkBehaviour
     private Button buttonRandomRack;
     [SerializeField]
     private Button buttonBargainBin;
+    [SerializeField]
+    private GameObject slotTopTier;
+    [SerializeField]
+    private GameObject slotRandomRack;
+    [SerializeField]
+    private GameObject slotBargainBin;
 
     [SerializeField]
     private TextMeshProUGUI levelDisplay;
@@ -46,6 +52,17 @@ public class ShopManager : NetworkBehaviour
         //Gold Count
         levelDisplay.text = $"Level {level}";
         buttonContinue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = usedShop ? "Continue" : "+5 Skip";
+    }
+
+    public void StartShopping()
+    {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        GameObject item;
+        item = PlayerManager.items[0];
+        //Instantiate(item.transform.Find("CardFront"), slotTopTier.transform);
+        //Instantiate(item.transform.Find("CardFront"), slotRandomRack.transform);
+        //Instantiate(item.transform.Find("CardFront"), slotBargainBin.transform);
     }
 
     public void FinnishedShopping()

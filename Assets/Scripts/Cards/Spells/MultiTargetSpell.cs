@@ -54,5 +54,6 @@ public class MultiTargetSpell : Spell, ITargets
     public virtual void TargetCanceled()
     {
         UnStage();
+        selectedTargets.Clear();
     }
 }

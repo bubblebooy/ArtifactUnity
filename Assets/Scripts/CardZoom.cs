@@ -10,6 +10,7 @@ public class CardZoom : MonoBehaviour
 
     private GameObject placeholder;
     private GameObject cardFront;
+    private int siblingIndex;
 
     private bool hover = false;
 
@@ -25,6 +26,7 @@ public class CardZoom : MonoBehaviour
         if (cardFront.activeInHierarchy)
         {
             hover = true;
+            siblingIndex = cardFront.transform.GetSiblingIndex();
             StartCoroutine(DelayedHover(0.1f));
         }
 
@@ -47,7 +49,7 @@ public class CardZoom : MonoBehaviour
         if (placeholder != null)
         {
             cardFront.transform.SetParent(placeholder.transform.parent, true);
-            cardFront.transform.SetSiblingIndex(1);
+            cardFront.transform.SetSiblingIndex(siblingIndex);
             cardFront.GetComponent<RectTransform>().localPosition = placeholder.GetComponent<RectTransform>().localPosition;
             cardFront.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }       

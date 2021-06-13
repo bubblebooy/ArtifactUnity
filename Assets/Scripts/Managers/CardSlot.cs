@@ -42,7 +42,7 @@ public class CardSlot : NetworkBehaviour
                 transform.GetChild(i).gameObject.GetComponent<Hero>().Bounce();
             }
             transform.GetChild(i).gameObject.GetComponent<Unit>().DestroyCard();
-            Debug.Log(transform.childCount);
+            //Debug.Log(transform.childCount);
         }
     }
 

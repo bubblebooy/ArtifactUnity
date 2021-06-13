@@ -35,6 +35,7 @@ public class AbilitiesManager : MonoBehaviour
             GameObject originalAbilityGameObject = originalAbilityTransform.gameObject;
             GameObject abilityGameObject;
             Ability originalAbility = originalAbilityGameObject.GetComponent<Ability>();
+            if (originalAbility.itemAbility) { continue;  }
             if (originalAbility.baseAbility)
             {
                 abilityGameObject = abilities.transform.Find(originalAbilityGameObject.name).gameObject;

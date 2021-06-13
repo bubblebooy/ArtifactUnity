@@ -9,6 +9,8 @@ public class Hero : Unit
     public int respawn = 0;
     public int[] signatureCards;
     private TextMeshProUGUI displayRespawn;
+    public GameObject items;
+    public int maxItemCount = 2;
 
 
     public override void OnValidate()
@@ -16,6 +18,7 @@ public class Hero : Unit
         base.OnValidate();
         caster = true;
         gameObject.transform.Find("CardFront/ManaIcon").gameObject.SetActive(false);
+        items = gameObject.transform.Find("Items").gameObject;
     }
 
     public override void OnStartClient()
@@ -25,6 +28,9 @@ public class Hero : Unit
         displayRespawn.text = respawn.ToString();
         displayRespawn.enabled = respawn != 0;
         events.Add(GameEventSystem.Register<RoundStart_e>(IncrementRespawn));
+        items = gameObject.transform.Find("Items").gameObject;
+        items.transform.SetSiblingIndex(1);
+        items.SetActive(false);
     }
 
     private void IncrementRespawn(RoundStart_e e)

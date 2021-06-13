@@ -18,8 +18,10 @@ public class Ability : MonoBehaviour
     public bool opponentEffect = false;
     public bool temporary = false;
     public bool baseAbility = true;
+    public bool itemAbility = false;
 
     private bool expanded = false;
+    private Color backgroundColor;
 
     public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
@@ -34,6 +36,7 @@ public class Ability : MonoBehaviour
     protected virtual void Awake()
     {
         card = GetComponentInParent<Unit>();
+        backgroundColor = transform.Find("background").GetComponent<Image>().color;
     }
 
     public virtual void Clone(Ability originalAbility)
@@ -65,7 +68,7 @@ public class Ability : MonoBehaviour
     {
         expanded = false;
         //GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(false);
-        transform.Find("background").GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
+        transform.Find("background").GetComponent<Image>().color = backgroundColor;
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }
 

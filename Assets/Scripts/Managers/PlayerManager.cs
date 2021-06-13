@@ -17,6 +17,7 @@ public class PlayerManager : NetworkBehaviour
 
     public List<GameObject> deck;
     public List<GameObject> heroes;
+    public List<GameObject> items;
     //public List<GameObject> cards = new List<GameObject>();
     //public List<GameObject> heroes = new List<GameObject>();
     //private Dictionary<string, GameObject> cardDict; // = cards.ToDictionary(x => x.name, x => x);
@@ -39,6 +40,7 @@ public class PlayerManager : NetworkBehaviour
         DontDestroyOnLoad(gameObject);
         deck =  CardList.cardDict.Values.ToList();
         heroes = CardList.heroDict.Values.ToList();
+        items = CardList.itemDict.Values.ToList();
 
     }
 
@@ -100,6 +102,9 @@ public class PlayerManager : NetworkBehaviour
         if (debug)
         {
             card = Instantiate(deck[deck.Count - 1], new Vector2(0, 0), Quaternion.identity);
+            NetworkServer.Spawn(card, connectionToClient);
+            RpcShowCard(card, "Dealt");
+            card = Instantiate(items[items.Count - 1], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
         }
@@ -261,10 +266,28 @@ public class PlayerManager : NetworkBehaviour
         card = Instantiate(card, new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
         RpcClone(original: unit, clone: card);
+        Hero hero = unit.GetComponent<Hero>();
+        if(hero != null)
+        {
+            foreach (Transform itemTransform in hero.items.transform)
+            {
+                GameObject item;
+                NetworkClient.GetPrefab(itemTransform.gameObject.GetComponent<NetworkIdentity>().assetId, out item);
+                item = Instantiate(item, new Vector2(0, 0), Quaternion.identity);
+                NetworkServer.Spawn(item, connectionToClient);
+                RpcItemCloneSetParent(item, card);
+                RpcClone(original: itemTransform.gameObject, clone: item);
+            }
+        }
         RpcPlaceCard(card, targetLineage);
         CardPlayed_e cardPlayed_e = new CardPlayed_e();
         cardPlayed_e.card = card;
         RpcPlayCard(cardPlayed_e, false);
+    }
+    [ClientRpc]
+    void RpcItemCloneSetParent(GameObject item, GameObject hero)
+    {
+        item.transform.SetParent(hero.GetComponent<Hero>().items.transform, false);
     }
 
     public void CloneToHand(GameObject unit, string color = null, bool ephemeral = false, GameObject validLane = null)

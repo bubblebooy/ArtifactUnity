@@ -1732,7 +1732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &783167226
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1782,6 +1782,9 @@ MonoBehaviour:
   buttonTopTier: {fileID: 589771577}
   buttonRandomRack: {fileID: 735350739}
   buttonBargainBin: {fileID: 471947024}
+  slotTopTier: {fileID: 1571445213}
+  slotRandomRack: {fileID: 563964224}
+  slotBargainBin: {fileID: 684689877}
   levelDisplay: {fileID: 82705932}
   goldDisplay: {fileID: 786270579}
   level: 1

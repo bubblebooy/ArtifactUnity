@@ -102,6 +102,7 @@ public class GameManager : NetworkBehaviour
                     GameState = "Shop";
                     UIManager.ButtonInteractable(false);
                     Shop.gameObject.SetActive(true);
+                    Shop.StartShopping();
                     UIManager.UpdateButtonText(""); // $"Skip: +{5} Gold"
                     break;
                 default:
