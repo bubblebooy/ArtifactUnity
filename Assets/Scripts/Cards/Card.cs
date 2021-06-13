@@ -46,7 +46,8 @@ public abstract class Card : NetworkBehaviour
         { "green", new Color(0.0f, 0.4f, 0.0f, 1.0f)},
         { "blue", new Color(0.0f, 0.0f, 0.4f, 1.0f)},
         { "black", new Color(0.1f, 0.1f, 0.1f, 1.0f)},
-        { "colorless", new Color(0.4f, 0.4f, 0.4f, 1.0f)}
+        { "colorless", new Color(0.4f, 0.4f, 0.4f, 1.0f)},
+        { "item", new Color(0.7176471f, 0.4784314f, 0.1333333f, 1.0f)}
     };
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
