@@ -197,6 +197,14 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [Command]
+    public void CmdBuyItem(string itemString)
+    {
+        GameObject item = Instantiate(CardList.itemDict[itemString], new Vector2(0, 0), Quaternion.identity);
+        NetworkServer.Spawn(item, connectionToClient);
+        RpcShowCard(item, "Dealt");
+    }
+
+    [Command]
     public void CmdDeployHero(GameObject card, List<string> targetLineage)
     {
         RpcPlaceCard(card, targetLineage);
@@ -481,6 +489,7 @@ public class PlayerManager : NetworkBehaviour
             {
                 card.GetComponent<Card>().revealed = false;
                 card.transform.SetParent(EnemyArea.transform, false);
+                card.GetComponent<Card>().CardUIUpdate(new GameUpdateUI_e());
             }
         }
         else if (type == "Hero")

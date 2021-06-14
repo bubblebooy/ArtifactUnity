@@ -1097,7 +1097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 471947025}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 783167227}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Bargain Bin
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &471947025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,7 +1352,7 @@ RectTransform:
   m_GameObject: {fileID: 563964224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30281, y: 0.30281, z: 0.30281}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 531526038}
   m_RootOrder: 5
@@ -1348,7 +1360,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 980}
+  m_SizeDelta: {x: 75, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563964226
 MonoBehaviour:
@@ -1470,7 +1482,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 589771578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 783167227}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Top Tier
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &589771578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,7 +1560,7 @@ RectTransform:
   m_GameObject: {fileID: 684689877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30281, y: 0.30281, z: 0.30281}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 531526038}
   m_RootOrder: 8
@@ -1544,7 +1568,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 233.3333, y: 0}
-  m_SizeDelta: {x: 600, y: 980}
+  m_SizeDelta: {x: 75, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684689879
 MonoBehaviour:
@@ -1671,7 +1695,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 735350740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 783167227}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Random Rack
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &735350740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3276,7 +3312,7 @@ RectTransform:
   m_GameObject: {fileID: 1571445213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30281, y: 0.30281, z: 0.30281}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 531526038}
   m_RootOrder: 2
@@ -3284,7 +3320,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -233.3333, y: 0}
-  m_SizeDelta: {x: 600, y: 980}
+  m_SizeDelta: {x: 75, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571445215
 MonoBehaviour:
@@ -4351,7 +4387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461969, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461973, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_RootOrder

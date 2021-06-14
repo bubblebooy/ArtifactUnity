@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 using TMPro;
+using System.Linq;
 
 public class ShopManager : NetworkBehaviour
 {
@@ -24,12 +25,17 @@ public class ShopManager : NetworkBehaviour
     private Button buttonRandomRack;
     [SerializeField]
     private Button buttonBargainBin;
+
     [SerializeField]
     private GameObject slotTopTier;
     [SerializeField]
     private GameObject slotRandomRack;
     [SerializeField]
     private GameObject slotBargainBin;
+
+    private string itemTopTier;
+    private string itemRandomRack;
+    private string itemBargainBin;
 
     [SerializeField]
     private TextMeshProUGUI levelDisplay;
@@ -58,11 +64,36 @@ public class ShopManager : NetworkBehaviour
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        GameObject item;
-        item = PlayerManager.items[0];
-        //Instantiate(item.transform.Find("CardFront"), slotTopTier.transform);
-        //Instantiate(item.transform.Find("CardFront"), slotRandomRack.transform);
-        //Instantiate(item.transform.Find("CardFront"), slotBargainBin.transform);
+
+        GameObject _item;
+        GameObject cardFront;
+        itemTopTier = PlayerManager.items[0].name;
+        _item = Instantiate(CardList.itemDict[itemTopTier]);
+        cardFront = _item.transform.Find("CardFront").gameObject;
+        cardFront.transform.SetParent(slotTopTier.transform);
+        (cardFront.transform as RectTransform).localScale = Vector3.one;
+        (cardFront.transform as RectTransform).localPosition = Vector3.zero;
+        (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
+        Destroy(_item);
+
+        itemRandomRack = PlayerManager.items[0].name;
+        _item = Instantiate(CardList.itemDict[itemRandomRack]);
+        cardFront = _item.transform.Find("CardFront").gameObject;
+        cardFront.transform.SetParent(slotRandomRack.transform);
+        (cardFront.transform as RectTransform).localScale = Vector3.one;
+        (cardFront.transform as RectTransform).localPosition = Vector3.zero;
+        (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
+        Destroy(_item);
+
+        itemBargainBin = PlayerManager.items[0].name;
+        _item = Instantiate(CardList.itemDict[itemBargainBin]);
+        cardFront = _item.transform.Find("CardFront").gameObject;
+        cardFront.transform.SetParent(slotBargainBin.transform);
+        (cardFront.transform as RectTransform).localScale = Vector3.one;
+        (cardFront.transform as RectTransform).localPosition = Vector3.zero;
+        (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
+        Destroy(_item);
+
     }
 
     public void FinnishedShopping()
@@ -80,6 +111,9 @@ public class ShopManager : NetworkBehaviour
         {
             buttonUpgrade.interactable = true;
         }
+        foreach (Transform transform in slotTopTier.transform)    { Destroy(transform.gameObject); }
+        foreach (Transform transform in slotRandomRack.transform) { Destroy(transform.gameObject); }
+        foreach (Transform transform in slotBargainBin.transform) { Destroy(transform.gameObject); }
     }
 
     public void ShowBoard()
@@ -101,8 +135,32 @@ public class ShopManager : NetworkBehaviour
         UpdateShop();
     }
 
-    public void Buy()
+    public void Buy(string shop)
     {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        string item;
+        Transform slot = null;
+        switch (shop)
+        {
+            case "Top Tier":
+                item = itemTopTier;
+                slot = slotTopTier.transform;
+                break;
+            case "Random Rack":
+                item = itemRandomRack;
+                slot = slotRandomRack.transform;
+                break;
+            case "Bargain Bin":
+                item = itemBargainBin;
+                slot = slotBargainBin.transform;
+                break;
+            default:
+                return;
+        }
+        foreach (Transform transform in slot) { Destroy(transform.gameObject); }
+        PlayerManager.CmdBuyItem(item);
+
         usedShop = true;
         UpdateShop();
     }
