@@ -14,6 +14,7 @@ public class UnitModifier : MonoBehaviour, IModifier
     public int retaliate = 0;
     public int decay = 0;
     public int regeneration = 0;
+    public int bounty = 0;
 
     public bool quickstrike = false;
     public bool disarmed = false;
@@ -30,6 +31,8 @@ public class UnitModifier : MonoBehaviour, IModifier
     public bool temporary = true;
     public int duration = 0;
 
+    private bool firstMod = true;
+
     public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
 
     private void Awake()
@@ -42,6 +45,7 @@ public class UnitModifier : MonoBehaviour, IModifier
     {
         //unit = GetComponentInParent<Unit>();
         //inPlayEvents.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
+        firstMod = false;
 
         opponentEffect = (originalIModifier as UnitModifier).opponentEffect;
         temporary = (originalIModifier as UnitModifier).temporary;
@@ -56,6 +60,7 @@ public class UnitModifier : MonoBehaviour, IModifier
         retaliate = (originalIModifier as UnitModifier).retaliate;
         decay = (originalIModifier as UnitModifier).decay;
         regeneration = (originalIModifier as UnitModifier).regeneration;
+        bounty = (originalIModifier as UnitModifier).bounty;
 
         quickstrike = (originalIModifier as UnitModifier).quickstrike;
         disarmed = (originalIModifier as UnitModifier).disarmed;
@@ -81,6 +86,7 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.retaliate += retaliate;
         unit.decay += decay;
         unit.regeneration += regeneration;
+        unit.bounty += bounty;
 
         unit.quickstrike |= quickstrike;
         unit.disarmed |= disarmed;
@@ -92,6 +98,13 @@ public class UnitModifier : MonoBehaviour, IModifier
         unit.damageImmunity |= damageImmunity;
         unit.untargetable |= untargetable;
         deathShield &= unit.deathShield;
+
+        if (firstMod)
+        {
+            unit.armor += maxArmor;
+            unit.health += maxHealth;
+            firstMod = false;
+        }
     }
     public void SetDeathShield()
     {
@@ -112,5 +125,16 @@ public class UnitModifier : MonoBehaviour, IModifier
     {
         if (deathShield) { unit.deathShield = false; }
         GameEventSystem.Unregister(inPlayEvents);
+        unit.maxArmor -= maxArmor;
+        unit.maxHealth -= maxHealth;
+        if (unit.armor > unit.maxArmor)
+        {
+            unit.armor = Mathf.Max(unit.maxArmor, unit.armor - maxArmor);
+        }
+        if (unit.health > unit.maxHealth)
+        {
+            unit.health = Mathf.Max(unit.maxHealth, unit.health - maxHealth);
+        }
     }
+
 }

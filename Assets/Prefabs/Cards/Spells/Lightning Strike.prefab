@@ -27,6 +27,7 @@ MonoBehaviour:
   color: blue
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: 'Deal 4 piercing damage to caster''s combat target.
 

@@ -27,6 +27,7 @@ MonoBehaviour:
   color: green
   mana: 4
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: Stun a unit. Give it +2 Decay for two rounds.
   vaildPlay:

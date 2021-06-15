@@ -27,6 +27,7 @@ MonoBehaviour:
   color: black
   mana: 2
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: "Enchant Tower\r\nActive 1\u25A0, 1 Mana: Deal 2 piercing damage to a
     unit."

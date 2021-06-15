@@ -27,6 +27,7 @@ MonoBehaviour:
   color: red
   mana: 3
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: Give an ally +3 Retaliate permanently. It taunts.
   Ability: {fileID: 5955683767331550054, guid: 6f8fa5f9d08aa034cbdd143ceb1b2541, type: 3}

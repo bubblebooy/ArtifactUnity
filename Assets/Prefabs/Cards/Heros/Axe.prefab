@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5630824832916956026, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6571123010326046410, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_text
       value: <sprite=1>2

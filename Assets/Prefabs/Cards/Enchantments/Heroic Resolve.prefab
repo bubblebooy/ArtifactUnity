@@ -27,6 +27,7 @@ MonoBehaviour:
   color: red
   mana: 2
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: 'Enchant Caster
 

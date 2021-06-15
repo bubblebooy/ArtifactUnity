@@ -27,6 +27,7 @@ MonoBehaviour:
   color: blue
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
     1 piercing damage."

@@ -1,60 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8105710548197126746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7656949213937005757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a60bad23233b3344973ca3060bc1094, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  cardName: 
-  ID: 0
-  PlayerManager: {fileID: 0}
-  GameManager: {fileID: 0}
-  ManaManager: {fileID: 0}
-  CardFront: {fileID: 2341558201277354657}
-  CardBack: {fileID: 5162482844124435927}
-  staged: 0
-  isDraggable: 1
-  cardArt: {fileID: 0}
-  color: 
-  mana: 0
-  revealed: 1
-  quickcast: 0
-  cardText: 
-  attack: 5
-  armor: 1
-  health: 7
-  maxArmor: 0
-  maxHealth: 0
-  baseMaxArmor: 0
-  baseMaxHealth: 0
-  arrow: 0
-  quickstrike: 0
-  cleave: 0
-  disarmed: 0
-  stun: 0
-  caster: 1
-  silenced: 0
-  piercing: 0
-  trample: 0
-  feeble: 0
-  deathShield: 0
-  damageImmunity: 0
-  untargetable: 0
-  siege: 0
-  retaliate: 0
-  decay: 0
-  regeneration: 0
-  respawn: 0
-  signatureCards: 
 --- !u!1 &1398267296674709258
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 58037233852441002}
+  - component: {fileID: 53610159859439997}
   m_Layer: 5
   m_Name: Items
   m_TagString: Untagged
@@ -219,11 +165,88 @@ RectTransform:
   m_Father: {fileID: 2263740562113845185}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &53610159859439997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583074446659957662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d31a9242086624ea3f450cdebd5e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  spacing: 2
+  randRotation: 0
+--- !u!114 &-8105710548197126746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656949213937005757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a60bad23233b3344973ca3060bc1094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: 
+  ID: 0
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 2341558201277354657}
+  CardBack: {fileID: 5162482844124435927}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 0}
+  color: 
+  mana: 0
+  revealed: 1
+  quickcast: 0
+  cardText: 
+  attack: 5
+  armor: 1
+  health: 7
+  maxArmor: 0
+  maxHealth: 0
+  baseMaxArmor: 0
+  baseMaxHealth: 0
+  arrow: 0
+  quickstrike: 0
+  cleave: 0
+  disarmed: 0
+  stun: 0
+  caster: 1
+  silenced: 0
+  piercing: 0
+  trample: 0
+  feeble: 0
+  deathShield: 0
+  damageImmunity: 0
+  untargetable: 0
+  siege: 0
+  retaliate: 0
+  decay: 0
+  regeneration: 0
+  respawn: 0
+  signatureCards: 
+  items: {fileID: 1583074446659957662}
+  maxItemCount: 2
 --- !u!1001 &1252269227828782466
 PrefabInstance:
   m_ObjectHideFlags: 0

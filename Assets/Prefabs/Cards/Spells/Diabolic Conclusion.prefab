@@ -27,6 +27,7 @@ MonoBehaviour:
   color: blue
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: "Give caster Trample. Disarm your creeps and give their \u25A3 to the
     caster."

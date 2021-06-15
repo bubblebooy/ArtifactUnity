@@ -32,6 +32,7 @@ public abstract class Card : NetworkBehaviour
 
     public int mana = 0;
     public bool revealed = true;
+    public int locked = 0;
     public bool quickcast = false;
     protected int baseMana;
     [TextArea]
@@ -111,6 +112,7 @@ public abstract class Card : NetworkBehaviour
         displayCardText.transform.parent.SetAsLastSibling();
         baseMana = mana;
         events.Add(GameEventSystem.Register<GameUpdateUI_e>(CardUIUpdate));
+        events.Add(GameEventSystem.Register<RoundStart_e>(DecrementLock));
     }
 
     public virtual void Clone(GameObject originalGameObject)
@@ -164,6 +166,7 @@ public abstract class Card : NetworkBehaviour
         Unit targetUnit = target.GetComponent<Unit>();
         if (PlayerManager.IsMyTurn &&
             GameManager.GameState == "Play" &&
+            locked <= 0 &&
             ManaManager.mana >= mana &&
             (targetUnit?.hasAuthority != !hasAuthority || targetUnit?.untargetable != true))
         {
@@ -192,6 +195,14 @@ public abstract class Card : NetworkBehaviour
         if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
         CardFront.SetActive(revealed);
         CardBack.SetActive(!revealed);
+    }
+
+    public void DecrementLock(RoundStart_e e)
+    {
+        if(locked > 0)
+        {
+            locked -= 1;
+        }
     }
 
     public static List<string> GetLineage(Transform t)

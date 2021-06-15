@@ -11,9 +11,12 @@ public class Item : Card, ITargets
     public int gold;
     [SerializeField]
     private GameObject abilityPrefab;
+    [HideInInspector]
     public GameObject ability;
 
     public Hero hero;
+
+    private int sibIndex;
 
     public enum ItemType
     {
@@ -68,9 +71,9 @@ public class Item : Card, ITargets
                 targetUnit is Hero &&
                 targetSlot.GetSide() == "PlayerSide")
             {
-                foreach(Item item in (targetUnit as Hero).items.GetComponentsInChildren<Item>())
+                foreach (Item item in (targetUnit as Hero).items.GetComponentsInChildren<Item>())
                 {
-                    if(item.name == name)
+                    if (item.name == name)
                     {
                         return false;
                     }
@@ -85,7 +88,7 @@ public class Item : Card, ITargets
     public virtual bool IsVaildTarget(GameObject target)
     {
         Item item = target.GetComponent<Item>();
-        return item != null && 
+        return item != null &&
             item.hero == gameObject.GetComponentInParent<Hero>();
     }
 
@@ -100,11 +103,12 @@ public class Item : Card, ITargets
     public override void Stage(CardPlayed_e e)
     {
         Hero hero = gameObject.transform.parent.GetComponentInChildren<Hero>();
-        if (itemType != ItemType.Consumables && hero.items.transform.childCount > hero.maxItemCount)
+        gameObject.GetComponent<CardZoom>().enabled = false;
+        if (itemType != ItemType.Consumables && hero.items.transform.childCount >= hero.maxItemCount)
         {
             cardPlayed_e = e;
             TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
-            //Expand items
+            Expand();
         }
         else
         {
@@ -115,7 +119,7 @@ public class Item : Card, ITargets
     public override void OnPlay()
     {
         base.OnPlay();
-        if(itemType != ItemType.Consumables)
+        if (itemType != ItemType.Consumables)
         {
             hero = gameObject.GetComponentInParent<Hero>();
             gameObject.transform.SetParent(hero.items.transform);
@@ -125,6 +129,7 @@ public class Item : Card, ITargets
 
     public virtual void TargetSelected(GameObject target)
     {
+        Collapse();
         selectedTargets.Add(GetLineage(target.transform));
         PlayerManager.PlayCard(cardPlayed_e,
             GetLineage(),
@@ -133,15 +138,52 @@ public class Item : Card, ITargets
 
     public virtual void OnActivate(List<GameObject> targets)
     {
-        //Bounce
+        targets[0].GetComponent<Item>().locked = 1;
+        targets[0].GetComponent<Item>().Bounce();
         OnPlay();
     }
 
     public virtual void TargetCanceled()
     {
-        //colapse items
+        Collapse();
         UnStage();
         selectedTargets.Clear();
-        
+
+    }
+
+    public void Bounce()
+    {
+        gameObject.transform.SetParent(
+            GameObject.Find(hasAuthority ? "PlayerArea" : "EnemyArea").transform,
+            false);
+        isDraggable = true;
+        displayCardText.transform.parent.gameObject.SetActive(true);
+        gameObject.GetComponent<CardZoom>().enabled = true;
+        Destroy(ability);
+    }
+
+    public override void DestroyCard()
+    {
+        Destroy(ability);
+        base.DestroyCard();
+    }
+
+
+    private void Expand()
+    {
+        Transform items = gameObject.GetComponentInParent<Hero>().items.transform;
+        sibIndex = items.GetSiblingIndex();
+        items.gameObject.SetActive(true);
+        (items as RectTransform).sizeDelta = Vector2.right * items.childCount * (transform as RectTransform).sizeDelta;
+
+        items.SetParent(GameObject.Find("Main Canvas").transform, true);
+    }
+    private void Collapse()
+    {
+        Transform items = gameObject.GetComponentInParent<Hero>().items.transform;
+        items.SetParent(gameObject.GetComponentInParent<Hero>().transform, true);
+        items.SetSiblingIndex(sibIndex);
+        (items as RectTransform).sizeDelta = Vector2.zero;
+        items.gameObject.SetActive(false);
     }
 }

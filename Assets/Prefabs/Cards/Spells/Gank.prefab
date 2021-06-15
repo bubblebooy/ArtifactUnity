@@ -27,6 +27,7 @@ MonoBehaviour:
   color: black
   mana: 3
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: 'Caster battles a unit in any lane.
 

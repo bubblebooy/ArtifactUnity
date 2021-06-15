@@ -27,6 +27,7 @@ MonoBehaviour:
   color: black
   mana: 2
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: Deal 2 damage to a unit and give it Feeble permanently.
   vaildPlay:

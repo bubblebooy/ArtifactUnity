@@ -50,6 +50,8 @@ public class Unit : Card
     public int decay = 0;  // prob could make Decay and regen the same variable
     [HideInInspector]
     public int regeneration = 0;
+    [HideInInspector]
+    public int bounty = 1;
 
     protected string targetTag = "Card Slot";
 
@@ -65,6 +67,7 @@ public class Unit : Card
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
         caster = this is Hero;
+        bounty = this is Hero ? 5 : 1;
     }
 
     public override void OnStartClient()
@@ -137,6 +140,7 @@ public class Unit : Card
         retaliate = 0;
         decay = 0;
         regeneration = 0;
+        bounty = this is Hero ? 5 : 1;
 
         quickstrike = false;
         disarmed = false;

@@ -23,7 +23,8 @@ public class CardZoom : MonoBehaviour
 
     public void OnHoverEnter()
     {
-        if (cardFront.activeInHierarchy)
+        if (!isActiveAndEnabled) { return; }
+        if (cardFront.activeInHierarchy) 
         {
             hover = true;
             siblingIndex = cardFront.transform.GetSiblingIndex();
@@ -35,7 +36,8 @@ public class CardZoom : MonoBehaviour
     public IEnumerator DelayedHover(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        if (hover & !GetComponent<DragDrop>().isDragging) 
+
+        if (isActiveAndEnabled && hover && !GetComponent<DragDrop>().isDragging) 
         {
             cardFront.transform.SetParent(Canvas.transform, true);
 
@@ -45,6 +47,7 @@ public class CardZoom : MonoBehaviour
 
     public void OnHoverExit()
     {
+        if (!isActiveAndEnabled) { return; }
         hover = false;
         if (placeholder != null)
         {

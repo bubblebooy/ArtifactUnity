@@ -27,6 +27,7 @@ MonoBehaviour:
   color: blue
   mana: 5
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: Clone a Card. This card is used to test the cloning function
   vaildPlay:

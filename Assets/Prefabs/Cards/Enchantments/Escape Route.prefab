@@ -27,6 +27,7 @@ MonoBehaviour:
   color: black
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: "Enchant Tower\r\n\r\nActive 1\u25A0, 1 Mana: Move one of your heroes
     to an adjacent lane."

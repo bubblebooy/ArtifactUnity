@@ -237,6 +237,7 @@ MonoBehaviour:
   color: item
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: Item text here
   vaildPlay:
@@ -262,6 +263,22 @@ PrefabInstance:
     - target: {fileID: -7614023438220071333, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_AssetId
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2951581096987451892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_text

@@ -27,6 +27,7 @@ MonoBehaviour:
   color: red
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: "Repeat three times: \u25A1 Deal 1 damage to a random enemy with the
     least <sprite=2>."

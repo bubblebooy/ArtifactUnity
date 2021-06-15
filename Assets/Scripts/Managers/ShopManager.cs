@@ -76,7 +76,7 @@ public class ShopManager : NetworkBehaviour
         (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
         Destroy(_item);
 
-        itemRandomRack = PlayerManager.items[0].name;
+        itemRandomRack = PlayerManager.items[1].name;
         _item = Instantiate(CardList.itemDict[itemRandomRack]);
         cardFront = _item.transform.Find("CardFront").gameObject;
         cardFront.transform.SetParent(slotRandomRack.transform);
@@ -85,7 +85,7 @@ public class ShopManager : NetworkBehaviour
         (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
         Destroy(_item);
 
-        itemBargainBin = PlayerManager.items[0].name;
+        itemBargainBin = PlayerManager.items[2].name;
         _item = Instantiate(CardList.itemDict[itemBargainBin]);
         cardFront = _item.transform.Find("CardFront").gameObject;
         cardFront.transform.SetParent(slotBargainBin.transform);
@@ -93,7 +93,6 @@ public class ShopManager : NetworkBehaviour
         (cardFront.transform as RectTransform).localPosition = Vector3.zero;
         (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
         Destroy(_item);
-
     }
 
     public void FinnishedShopping()

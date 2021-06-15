@@ -27,6 +27,7 @@ MonoBehaviour:
   color: blue
   mana: 1
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: Swap a unit to another slot.
   vaildPlay:

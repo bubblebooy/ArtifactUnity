@@ -27,6 +27,7 @@ MonoBehaviour:
   color: red
   mana: 2
   revealed: 1
+  locked: 0
   quickcast: 0
   cardText: "Dispel a tower enchantment.\r\n\r\n\u25A1 Draw a card."
   vaildPlay:

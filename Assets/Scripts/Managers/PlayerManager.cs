@@ -107,6 +107,12 @@ public class PlayerManager : NetworkBehaviour
             card = Instantiate(items[items.Count - 1], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Dealt");
+            for(int i = 0; i < 3; i++)
+            {
+                card = Instantiate(items[i], new Vector2(0, 0), Quaternion.identity);
+                NetworkServer.Spawn(card, connectionToClient);
+                RpcShowCard(card, "Dealt");
+            }
         }
         //*****************************************//
         for (int i= 0; i < 5; i++)
