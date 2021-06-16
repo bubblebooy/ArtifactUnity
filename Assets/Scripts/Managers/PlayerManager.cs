@@ -13,6 +13,8 @@ public class PlayerManager : NetworkBehaviour
     public GameObject EnemyDeck;
     public GameObject PlayerFountain;
     public GameObject EnemyFountain;
+    public GameObject PlayerGold;
+    public GameObject EnemyGold;
     public GameObject Board;
 
     public List<GameObject> deck;
@@ -54,6 +56,8 @@ public class PlayerManager : NetworkBehaviour
         EnemyDeck = GameObject.Find("EnemyDeck");
         PlayerFountain = GameObject.Find("PlayerFountain");
         EnemyFountain = GameObject.Find("EnemyFountain");
+        PlayerGold = GameObject.Find("PlayerGold");
+        EnemyGold = GameObject.Find("EnemyGold");
         Board = GameObject.Find("Board");
     }
 
@@ -154,13 +158,30 @@ public class PlayerManager : NetworkBehaviour
             pm.IsMyTurn = !pm.IsMyTurn;
         }
         GameManager.NextTurn();
-        //Debug.Log(pm.IsMyTurn);
     }
 
     [Command]
-    public void CmdFinnishedShopping()
+    public void CmdFinnishedShopping(int skipGold)
     {
+        RpcGainGold(skipGold);
         RpcGameChangeState("Deploy");
+    }
+
+    [ClientRpc]
+    void RpcGainGold(int gold)
+    {
+        GoldManager goldManager = (hasAuthority ? PlayerGold : EnemyGold).GetComponent<GoldManager>();
+        goldManager.gold += gold;
+    }
+    [ClientRpc]
+    void RpcSpendGold(int gold)
+    {
+        GoldManager goldManager = (hasAuthority ? PlayerGold : EnemyGold).GetComponent<GoldManager>();
+        goldManager.gold -= gold;
+        if(hasAuthority && GameManager.GameState == "Shop")
+        {
+            GameObject.Find("Shop").GetComponent<ShopManager>().UpdateShop();
+        }
     }
 
     [Command]
@@ -208,6 +229,7 @@ public class PlayerManager : NetworkBehaviour
         GameObject item = Instantiate(CardList.itemDict[itemString], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(item, connectionToClient);
         RpcShowCard(item, "Dealt");
+        RpcSpendGold(item.GetComponent<Item>().gold);
     }
 
     [Command]

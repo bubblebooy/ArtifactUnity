@@ -44,9 +44,10 @@ public class GameManager : NetworkBehaviour
 
     public void ChangeGameState(string stateRequest)
     {
-        GameUpdate(); // just in case
+         // just in case
         if (ReadyClicks == 1)
         {
+            GameUpdate();
             switch (stateRequest)
             {
                 case "Flop":

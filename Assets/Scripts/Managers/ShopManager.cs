@@ -12,6 +12,8 @@ public class ShopManager : NetworkBehaviour
     public PlayerManager PlayerManager;
     [HideInInspector]
     public GameManager GameManager;
+    [HideInInspector]
+    public GoldManager GoldManager;
 
     [SerializeField]
     private Button buttonViewBoard;
@@ -42,6 +44,8 @@ public class ShopManager : NetworkBehaviour
     [SerializeField]
     private TextMeshProUGUI goldDisplay;
 
+
+    public int skipGold = 5;
     public int level = 1;
     private int maxLevel = 5;
     private bool usedShop = false;
@@ -53,17 +57,20 @@ public class ShopManager : NetworkBehaviour
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    private void UpdateShop()
+    public void UpdateShop()
     {
         //Gold Count
         levelDisplay.text = $"Level {level}";
         buttonContinue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = usedShop ? "Continue" : "+5 Skip";
+        goldDisplay.text = GoldManager.gold.ToString();
     }
 
     public void StartShopping()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        GoldManager = GameObject.Find("PlayerGold").GetComponent<GoldManager>();
+        UpdateShop();
 
         GameObject _item;
         GameObject cardFront;
@@ -97,13 +104,14 @@ public class ShopManager : NetworkBehaviour
 
     public void FinnishedShopping()
     {
-        if (usedShop)
-        {
-            //Get Money Get Paid
-        }
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        PlayerManager.CmdFinnishedShopping();
+        //if (!usedShop)
+        //{
+        //    //Get Money Get Paid
+        //    GoldManager.gold += skipGold;
+        //}
+        PlayerManager.CmdFinnishedShopping(usedShop ? 0 : skipGold);
         gameObject.SetActive(false);
         usedShop = false;
         if(level < maxLevel)
@@ -159,9 +167,7 @@ public class ShopManager : NetworkBehaviour
         }
         foreach (Transform transform in slot) { Destroy(transform.gameObject); }
         PlayerManager.CmdBuyItem(item);
-
         usedShop = true;
-        UpdateShop();
     }
 
 }

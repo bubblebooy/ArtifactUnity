@@ -256,6 +256,9 @@ public class Unit : Card
     {
         //bounty here?
         GetComponent<AbilitiesManager>().OnKilled();
+        GameObject.Find(hasAuthority ? "EnemyGold" : "PlayerGold")
+            .GetComponent<GoldManager>()
+            .gold += bounty;
     }
 
     protected override void OnDestroy()
