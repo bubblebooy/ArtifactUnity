@@ -328,6 +328,76 @@ MonoBehaviour:
   m_Spacing: {x: 3, y: 3}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &3353429938877262281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872661395717017919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d74fdb7a9f528b478dabf3f7f33796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: {fileID: 0}
+  expandedWidth: 75
+  expanded: 0
+--- !u!114 &4340405895978770757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872661395717017919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0496d7d5b72b42c4ba03f55519f85afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: 
+  ID: 0
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 3539291635188315939}
+  CardBack: {fileID: 6252164999846228053}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 0}
+  color: 
+  mana: 1
+  revealed: 1
+  locked: 0
+  quickcast: 0
+  cardText: 
+  attack: 1
+  armor: 0
+  health: 1
+  maxArmor: 0
+  maxHealth: 0
+  baseMaxArmor: 0
+  baseMaxHealth: 0
+  arrow: 0
+  quickstrike: 0
+  cleave: 0
+  disarmed: 0
+  stun: 0
+  caster: 0
+  silenced: 0
+  piercing: 0
+  trample: 0
+  feeble: 0
+  deathShield: 0
+  damageImmunity: 0
+  untargetable: 0
+  siege: 0
+  retaliate: 0
+  decay: 0
+  regeneration: 0
+  bounty: 1
 --- !u!1 &6864683614497769208
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -537,74 +607,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3353429938877262281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8872661395717017919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d74fdb7a9f528b478dabf3f7f33796d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilities: {fileID: 0}
-  expandedWidth: 75
-  expanded: 0
---- !u!114 &4340405895978770757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8872661395717017919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0496d7d5b72b42c4ba03f55519f85afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  cardName: 
-  ID: 0
-  PlayerManager: {fileID: 0}
-  GameManager: {fileID: 0}
-  ManaManager: {fileID: 0}
-  CardFront: {fileID: 3539291635188315939}
-  CardBack: {fileID: 6252164999846228053}
-  staged: 0
-  isDraggable: 1
-  cardArt: {fileID: 0}
-  color: 
-  mana: 1
-  revealed: 1
-  quickcast: 0
-  cardText: 
-  attack: 1
-  armor: 0
-  health: 1
-  maxArmor: 0
-  maxHealth: 0
-  baseMaxArmor: 0
-  baseMaxHealth: 0
-  arrow: 0
-  quickstrike: 0
-  cleave: 0
-  disarmed: 0
-  stun: 0
-  caster: 0
-  silenced: 0
-  piercing: 0
-  trample: 0
-  feeble: 0
-  deathShield: 0
-  damageImmunity: 0
-  untargetable: 0
-  siege: 0
-  retaliate: 0
-  decay: 0
-  regeneration: 0
 --- !u!1001 &3662263541167748163
 PrefabInstance:
   m_ObjectHideFlags: 0

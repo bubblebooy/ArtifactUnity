@@ -163,6 +163,7 @@ public abstract class Card : NetworkBehaviour
     public event IsVaildDelegate IsVaildEvent;
     public virtual bool IsVaildPlay(GameObject target)
     {
+        //DragDrop.EndDrag also does some validation when determining caster
         Unit targetUnit = target.GetComponent<Unit>();
         if (PlayerManager.IsMyTurn &&
             GameManager.GameState == "Play" &&
