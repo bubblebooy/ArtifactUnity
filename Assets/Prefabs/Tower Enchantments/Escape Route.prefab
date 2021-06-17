@@ -21,17 +21,17 @@ MonoBehaviour:
   cooldown: 0
   vaildTargets:
   - targetTag: Unit
+    crossLane: 0
     targetOnlyEnemySide: 0
     targetOnlyPlayerSide: 1
     targetCaster: 0
     targetHero: 1
-    crossLane: 0
   - targetTag: Card Slot
+    crossLane: 1
     targetOnlyEnemySide: 0
-    targetOnlyPlayerSide: 0
+    targetOnlyPlayerSide: 1
     targetCaster: 0
     targetHero: 0
-    crossLane: 1
 --- !u!1001 &8727566013078069041
 PrefabInstance:
   m_ObjectHideFlags: 0

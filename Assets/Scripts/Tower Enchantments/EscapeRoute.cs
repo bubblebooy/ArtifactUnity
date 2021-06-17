@@ -9,10 +9,12 @@ public class EscapeRoute : ActiveTowerEnchantment
     {
         int i = selectedTargets?.Count ?? 0;
         print(i);
+        print("target Lane : " + target.GetComponentInParent<CardSlot>()?.GetLane().transform.GetSiblingIndex());
+        print("LaneManager.transform.GetSiblingIndex() : " + LaneManager.transform.GetSiblingIndex());
         return base.IsVaildTarget(target) &&
             (!(i == 1) || Mathf.Abs(
                 target.GetComponentInParent<CardSlot>().GetLane().transform.GetSiblingIndex() 
-                - LaneManager.transform.GetSiblingIndex()) == 1);
+                - LaneManager.transform.GetSiblingIndex()) == 2);
     }
 
     public override void OnActivate(List<GameObject> targets)
