@@ -559,6 +559,11 @@ public class PlayerManager : NetworkBehaviour
     {
         RpcGameChangeState("Shop");
     }
+    [Command]
+    public void CmdGameOver()
+    {
+        RpcGameChangeState("GameOver");
+    }
 
     Transform LineageToTransform(List<string> lineage)
     {

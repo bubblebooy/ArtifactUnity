@@ -11,6 +11,7 @@ public class TowerManager : NetworkBehaviour
     public int retaliate = 0;
     private int maxHealth, maxArmor;
     public bool ancient = false;
+    public bool playerTower = false;
     private TextMeshProUGUI  displayHealth; //displayArmor,
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
@@ -22,7 +23,7 @@ public class TowerManager : NetworkBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public override void OnStartClient()
     {
         maxArmor = armor;
         maxHealth = health;
@@ -34,6 +35,7 @@ public class TowerManager : NetworkBehaviour
         events.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
         events.Add(GameEventSystem.Register<GameUpdateUI_e>(TowerUpdate));
 
+        playerTower = transform.parent.name == "PlayerSide";
     }
 
     public void TowerUpdate(GameUpdateUI_e e)
@@ -47,13 +49,15 @@ public class TowerManager : NetworkBehaviour
         if( !ancient && health <= 0)
         {
             ancient = true;
-            gameObject.GetComponent<Image>().color = new Color(0.5f, 0.0f, 0.1f, 1.0f);
+            gameObject.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 1.0f);
+            gameObject.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1f, 0.1f, 0.0f, 1.0f);
             health = 40;
         }
     }
 
     public void Damage(int damage, bool piercing = false)
     {
+        bool destoyed = health <= 0;
         if (!piercing)
         {
             armor -= damage;
@@ -68,6 +72,10 @@ public class TowerManager : NetworkBehaviour
             }
         }
         health -= damage;
+        if(!destoyed && health <= 0)
+        {
+            GameEventSystem.Event(new TowerDestroyed_e(this));
+        }
         //return health;
     }
 }

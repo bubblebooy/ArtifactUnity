@@ -34,23 +34,13 @@ public struct GameUpdate_e : IGameEventInfo
 public struct CardPlayed_e : IGameEventInfo
 {
     public GameObject card;
-    //public Card card
-    //{
-    //    get { return _card.GetComponent<Card>(); }
-    //    set { _card = value.gameObject; }
-    //}
     public GameObject caster;
-    //public Unit caster
-    //{
-    //    get { return _caster.GetComponent<Unit>(); }
-    //    set { _card = value.gameObject; }
-    //}
     public GameObject lane;
-    //public LaneManager lane
-    //{
-    //    get { return _lane.GetComponent<LaneManager>(); }
-    //    set { _card = value.gameObject; }
-    //}
+}
+public struct TowerDestroyed_e : IGameEventInfo
+{
+    public TowerManager tower;
+    public TowerDestroyed_e(TowerManager tower) => this.tower = tower;
 }
 
 

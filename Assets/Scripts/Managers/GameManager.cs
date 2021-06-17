@@ -20,6 +20,8 @@ public class GameManager : NetworkBehaviour
     public string GameState = "Setup";
     //public int[] PlayerTowerHealth = new int[] { 40, 40, 40, 80};
     //public int[] EnemyTowerHealth = new int[] { 40, 40, 40, 80 };
+    private int playerTowersDestroyed = 0;
+    private int enemyTowersDestroyed = 0;
 
     public bool CombatDirection = true;
 
@@ -40,6 +42,7 @@ public class GameManager : NetworkBehaviour
         EnemyMana = GameObject.Find("EnemyMana");
         GameHistory = GetComponent<GameHistory>();
         Shop = FindObjectOfType<ShopManager>(includeInactive: true);
+        GameEventSystem.Register<TowerDestroyed_e>(TowerDestroyed);
     }
 
     public void ChangeGameState(string stateRequest)
@@ -109,6 +112,8 @@ public class GameManager : NetworkBehaviour
                     Shop.gameObject.SetActive(true);
                     Shop.StartShopping();
                     UIManager.UpdateButtonText(""); // $"Skip: +{5} Gold"
+                    break;
+                case "GameOver":
                     break;
                 default:
                     Debug.Log( GameState + " is not a vaild state request");
@@ -193,6 +198,7 @@ public class GameManager : NetworkBehaviour
         CombatDirection = !CombatDirection;
         GameEventSystem.Event(new EndCombatPhase_e());
         SummonLaneCreeps();
+        if(GameState == "GameOver") { yield break;  }
         PlayerManager.CmdEndCombat();
         UIManager.ButtonInteractable(true);
     }
@@ -257,6 +263,7 @@ public class GameManager : NetworkBehaviour
         GameEventSystem.Event(new GameUpdateUI_e());
         GameEventSystem.Event(new DeathEffects_e(), unregister: true);
         if (updateloop) { GameUpdate(state, checkAlive); }
+        IsGameOver();
     }
 
     private IEnumerator DelayedGameUpdate()
@@ -270,6 +277,44 @@ public class GameManager : NetworkBehaviour
     {
         GameEventSystem.Event(new RoundStart_e());
         GameUpdate();
+    }
+
+    void TowerDestroyed(TowerDestroyed_e e)
+    {
+        if (e.tower.playerTower)
+        {
+            playerTowersDestroyed += 1;
+        }
+        else
+        {
+            enemyTowersDestroyed += 1;
+        }  
+}
+
+    void IsGameOver()
+    { 
+        if ( playerTowersDestroyed < 2 && enemyTowersDestroyed < 2 ) { return; }
+        else if(playerTowersDestroyed >= 2 & enemyTowersDestroyed >= 2)
+        {
+            playerTowersDestroyed += 100;
+            enemyTowersDestroyed += 100;
+            print("GAME OVER: Tie game");
+        }
+        else if (playerTowersDestroyed >= 2)
+        {
+            playerTowersDestroyed += 100;
+            enemyTowersDestroyed -= 100;
+            print("GAME OVER: You Lost  :-(");
+        }
+        else if (enemyTowersDestroyed >= 2)
+        {
+            playerTowersDestroyed -= 100;
+            enemyTowersDestroyed += 100;
+            print("GAME OVER: You Won !!!");
+        }
+        GameState = "GameOver";
+        UIManager.ButtonInteractable(false);
+        //PlayerManager.CmdGameOver();
     }
 
     // Is there anypoint of having both a round end and a round start. yes round start after deploy and round end is before deploy

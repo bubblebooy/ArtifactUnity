@@ -25,7 +25,11 @@ public class UIManager : NetworkBehaviour
 
     public void UpdatePhaseText()
     {
-        PhaseText.GetComponent<Text>().text = GameManager.GameState + " : " + UnityEngine.Random.value.ToString();
+        UpdatePhaseText(GameManager.GameState + " : " + UnityEngine.Random.value.ToString());
+    }
+    public void UpdatePhaseText(string text)
+    {
+        PhaseText.GetComponent<Text>().text = text;
     }
 
     public void UpdateButtonText(string str)
