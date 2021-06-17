@@ -37,11 +37,14 @@ public class CardSlot : NetworkBehaviour
         for (int i = transform.childCount - 2; i >= 0 ; i--)
         {
             transform.GetChild(transform.childCount - 1).gameObject.GetComponent<Unit>().PlacedOnTopOf(transform.GetChild(i).gameObject.GetComponent<Unit>());
-            if (GameManager.GameState == "ResolveDeploy" && transform.GetChild(i).gameObject.GetComponent<Hero>() != null)
+            if (e.gameState == "ResolveDeploy" && transform.GetChild(i).gameObject.GetComponent<Hero>() != null)
             {
                 transform.GetChild(i).gameObject.GetComponent<Hero>().Bounce();
             }
-            transform.GetChild(i).gameObject.GetComponent<Unit>().DestroyCard();
+            else
+            {
+                transform.GetChild(i).gameObject.GetComponent<Unit>().DestroyCard();
+            }
             //Debug.Log(transform.childCount);
         }
     }

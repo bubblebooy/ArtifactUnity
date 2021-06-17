@@ -39,6 +39,10 @@ public class ShopManager : NetworkBehaviour
     private string itemRandomRack;
     private string itemBargainBin;
 
+    private int costTopTier;
+    private int costRandomRack;
+    private int costBargainBin;
+
     [SerializeField]
     private TextMeshProUGUI levelDisplay;
     [SerializeField]
@@ -63,42 +67,59 @@ public class ShopManager : NetworkBehaviour
         levelDisplay.text = $"Level {level}";
         buttonContinue.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = usedShop ? "Continue" : "+5 Skip";
         goldDisplay.text = GoldManager.gold.ToString();
+
+        buttonTopTier.interactable = GoldManager.gold > costTopTier;
+        buttonRandomRack.interactable = GoldManager.gold > costRandomRack;
+        buttonBargainBin.interactable = GoldManager.gold > costBargainBin;
     }
 
     public void StartShopping()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        GoldManager = GameObject.Find("PlayerGold").GetComponent<GoldManager>();
-        UpdateShop();
 
+        GoldManager = GameObject.Find("PlayerGold").GetComponent<GoldManager>();
+
+        RestockShop("Top Tier");
+        RestockShop("Random Rack");
+        RestockShop("Bargain Bin");
+
+        UpdateShop();
+    }
+
+    public void RestockShop(string shop)
+    {
+        switch (shop)
+        {
+            case "Top Tier":
+                itemTopTier = PlayerManager.items[0].name;
+                RestockShop(itemTopTier, slotTopTier, out costTopTier);
+                break;
+            case "Random Rack":
+                itemRandomRack = PlayerManager.items[1].name;
+                RestockShop(itemRandomRack, slotRandomRack, out costRandomRack);
+                break;
+            case "Bargain Bin":
+                itemBargainBin = PlayerManager.items[2].name;
+                RestockShop(itemBargainBin, slotBargainBin, out costBargainBin);
+                break;
+            default:
+                return;
+        }
+    }
+
+    public void RestockShop(string item, GameObject slot, out int cost)
+    {
         GameObject _item;
         GameObject cardFront;
-        itemTopTier = PlayerManager.items[0].name;
-        _item = Instantiate(CardList.itemDict[itemTopTier]);
-        cardFront = _item.transform.Find("CardFront").gameObject;
-        cardFront.transform.SetParent(slotTopTier.transform);
-        (cardFront.transform as RectTransform).localScale = Vector3.one;
-        (cardFront.transform as RectTransform).localPosition = Vector3.zero;
-        (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
-        Destroy(_item);
 
-        itemRandomRack = PlayerManager.items[1].name;
-        _item = Instantiate(CardList.itemDict[itemRandomRack]);
+        _item = Instantiate(CardList.itemDict[item]);
         cardFront = _item.transform.Find("CardFront").gameObject;
-        cardFront.transform.SetParent(slotRandomRack.transform);
+        cardFront.transform.SetParent(slot.transform);
         (cardFront.transform as RectTransform).localScale = Vector3.one;
         (cardFront.transform as RectTransform).localPosition = Vector3.zero;
         (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
-        Destroy(_item);
-
-        itemBargainBin = PlayerManager.items[2].name;
-        _item = Instantiate(CardList.itemDict[itemBargainBin]);
-        cardFront = _item.transform.Find("CardFront").gameObject;
-        cardFront.transform.SetParent(slotBargainBin.transform);
-        (cardFront.transform as RectTransform).localScale = Vector3.one;
-        (cardFront.transform as RectTransform).localPosition = Vector3.zero;
-        (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
+        cost = _item.GetComponent<Item>().gold;
         Destroy(_item);
     }
 
@@ -153,14 +174,17 @@ public class ShopManager : NetworkBehaviour
             case "Top Tier":
                 item = itemTopTier;
                 slot = slotTopTier.transform;
+                buttonTopTier.interactable = false;
                 break;
             case "Random Rack":
                 item = itemRandomRack;
                 slot = slotRandomRack.transform;
+                buttonRandomRack.interactable = false;
                 break;
             case "Bargain Bin":
                 item = itemBargainBin;
                 slot = slotBargainBin.transform;
+                buttonBargainBin.interactable = false;
                 break;
             default:
                 return;

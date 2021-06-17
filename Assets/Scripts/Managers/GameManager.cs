@@ -47,11 +47,11 @@ public class GameManager : NetworkBehaviour
          // just in case
         if (ReadyClicks == 1)
         {
-            GameUpdate();
             switch (stateRequest)
             {
                 case "Flop":
-                    if(flop == 0)
+                    GameUpdate(stateRequest);
+                    if (flop == 0)
                     {
                         SummonLaneCreeps();
                         UIManager.ZoomHand(false);
@@ -77,6 +77,7 @@ public class GameManager : NetworkBehaviour
                     }
                     break;
                 case "Deploy":
+                    GameUpdate(stateRequest);
                     RoundStart();
                     UIManager.ZoomHand(false);
                     GameState = "Deploy";
@@ -88,6 +89,7 @@ public class GameManager : NetworkBehaviour
                     PlayerManager.CmdPlay();
                     break;
                 case "Play":
+                    GameUpdate("ResolveDeploy");
                     PlayHeros();
                     UIManager.ZoomHand(true);
                     GameState = "Play";
@@ -95,11 +97,13 @@ public class GameManager : NetworkBehaviour
                     UIManager.ButtonInteractable();
                     break;
                 case "Combat":
+                    GameUpdate(stateRequest);
                     GameState = "Combat";
                     UIManager.ButtonInteractable(false);
                     StartCoroutine(Combat());
                     break;
                 case "Shop":
+                    GameUpdate(stateRequest);
                     GameState = "Shop";
                     UIManager.ButtonInteractable(false);
                     Shop.gameObject.SetActive(true);
@@ -205,7 +209,6 @@ public class GameManager : NetworkBehaviour
                 PlayerManager.CmdDeployHero(hero.gameObject, hero.GetLineage());
             }
         }
-        GameUpdate(); // have this do the bouncing
     }
 
     void PlayHeros()
@@ -244,12 +247,16 @@ public class GameManager : NetworkBehaviour
     public static bool updateloop;
     public void GameUpdate(bool checkAlive = true)
     {
+        GameUpdate(GameState, checkAlive);
+    }
+    public void GameUpdate(string state, bool checkAlive = true)
+    {
         updateloop = false;
-        GameEventSystem.Event(new GameUpdate_e(checkAlive));
+        GameEventSystem.Event(new GameUpdate_e(state, checkAlive));
         GameEventSystem.Event(new Auras_e());
         GameEventSystem.Event(new GameUpdateUI_e());
         GameEventSystem.Event(new DeathEffects_e(), unregister: true);
-        if (updateloop) { GameUpdate(); }
+        if (updateloop) { GameUpdate(state, checkAlive); }
     }
 
     private IEnumerator DelayedGameUpdate()

@@ -23,8 +23,13 @@ public struct AfterCombat_e : IGameEventInfo
 }
 public struct GameUpdate_e : IGameEventInfo
 {
+    public string gameState { get; }
     public bool checkAlive { get; }
-    public GameUpdate_e(bool check) => checkAlive = check;
+    public GameUpdate_e(string state, bool check)
+    {
+        gameState = state;
+        checkAlive = check;
+    }
 }
 public struct CardPlayed_e : IGameEventInfo
 {

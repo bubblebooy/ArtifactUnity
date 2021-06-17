@@ -497,6 +497,7 @@ public class PlayerManager : NetworkBehaviour
         if (type == "Deck")
         {
             card.GetComponent<Card>().revealed = false;
+            card.GetComponent<Card>().CardUIUpdate(new GameUpdateUI_e());
             if (hasAuthority)
             {
                 card.transform.SetParent(PlayerDeck.transform, false);
@@ -505,6 +506,7 @@ public class PlayerManager : NetworkBehaviour
             {
                 card.transform.SetParent(EnemyDeck.transform, false);
             }
+            
         }
         if (type == "Dealt")
         {
