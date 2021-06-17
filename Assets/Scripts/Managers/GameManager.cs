@@ -292,27 +292,30 @@ public class GameManager : NetworkBehaviour
 }
 
     void IsGameOver()
-    { 
+    {
+        string gameOverString = "";
         if ( playerTowersDestroyed < 2 && enemyTowersDestroyed < 2 ) { return; }
         else if(playerTowersDestroyed >= 2 & enemyTowersDestroyed >= 2)
         {
             playerTowersDestroyed += 100;
             enemyTowersDestroyed += 100;
-            print("GAME OVER: Tie game");
+            gameOverString = "GAME OVER: Tie game";
         }
         else if (playerTowersDestroyed >= 2)
         {
             playerTowersDestroyed += 100;
             enemyTowersDestroyed -= 100;
-            print("GAME OVER: You Lost  :-(");
+            gameOverString = "GAME OVER: You Lost  :-(";
         }
         else if (enemyTowersDestroyed >= 2)
         {
             playerTowersDestroyed -= 100;
             enemyTowersDestroyed += 100;
-            print("GAME OVER: You Won !!!");
+            gameOverString = "GAME OVER: You Won !!!";
         }
         GameState = "GameOver";
+        UIManager.UpdatePhaseText(gameOverString);
+        print("gameOverString");
         UIManager.ButtonInteractable(false);
         //PlayerManager.CmdGameOver();
     }
