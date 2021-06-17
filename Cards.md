@@ -73,7 +73,7 @@
 |---|------|----------------|-------------|
 |✔️| Arc Warden | Done | Max Garber |
 |✔️| Axe | Done | Max Garber |
-|| Drow Ranger | Aura Linger | Max Garber |
+|✔️| Drow Ranger | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
