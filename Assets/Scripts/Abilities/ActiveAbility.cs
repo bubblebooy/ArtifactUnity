@@ -4,22 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class ActiveAbility : Ability
+public class ActiveAbility : CooldownAbility
 {
     public int mana = 1;
-    public int baseCooldown = 2;
-    public int cooldown = 0;
 
     public PlayerManager PlayerManager;
-    public TextMeshProUGUI displayCooldown;
-
-    public override void OnValidate()
-    {
-        base.OnValidate();
-        displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);
-        displayCooldown.text = cooldown.ToString();
-    }
-
 
     protected override void Awake()
     {
@@ -30,37 +19,12 @@ public class ActiveAbility : Ability
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener((eventData) => { OnClick(); });
         m_EventTrigger.triggers.Add(entry);
-
-        events.Add(GameEventSystem.Register<RoundStart_e>(IncrementCooldown));
-        displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);
     }
 
     public override void Clone(Ability originalAbility)
     {
         base.Clone(originalAbility);
         mana = (originalAbility as ActiveAbility).mana;
-        baseCooldown = (originalAbility as ActiveAbility).baseCooldown;
-        cooldown = (originalAbility as ActiveAbility).cooldown;
-
-        if (!baseAbility)
-        {
-            print("NOT SURE IF NEEDED TESTING STILL NEEDED");
-
-            //EventTrigger m_EventTrigger = GetComponent<EventTrigger>();
-            //EventTrigger.Entry entry = new EventTrigger.Entry();
-            //entry.eventID = EventTriggerType.PointerClick;
-            //entry.callback.AddListener((eventData) => { OnClick(); });
-            //m_EventTrigger.triggers.Add(entry);
-            events.Add(GameEventSystem.Register<RoundStart_e>(IncrementCooldown));
-        }
-        displayCooldown = transform.Find("abilityIcon").GetComponentInChildren<TextMeshProUGUI>(true);
-    }
-
-    public override void CardUpdate()
-    {
-        base.CardUpdate();
-        displayCooldown.text = cooldown.ToString();
-        displayCooldown.enabled = cooldown > 0;
     }
 
     public virtual bool IsVaildPlay()
@@ -99,12 +63,5 @@ public class ActiveAbility : Ability
         cooldown = baseCooldown;
     }
 
-    public void IncrementCooldown(RoundStart_e e)
-    {
-        if(cooldown > 0)
-        {
-            cooldown -= 1;
-        }
-    }
 }
 

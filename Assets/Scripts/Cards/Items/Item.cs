@@ -37,8 +37,12 @@ public class Item : Card, ITargets, IItem
         base.Clone(originalGameObject);
         hero = gameObject.GetComponentInParent<Hero>();
         ability = Instantiate(abilityPrefab, hero.GetComponent<AbilitiesManager>().abilities.transform);
-        Ability originalAbility = originalGameObject.GetComponent<Item>().ability.GetComponent<Ability>();
-        ability.GetComponent<Ability>().Clone(originalAbility);
+        foreach(Ability originalAbility in originalGameObject.GetComponent<Item>().ability.GetComponents<Ability>())
+        {
+            (ability.GetComponent(originalAbility.GetType()) as Ability).Clone(originalAbility);
+        }
+        //Ability originalAbility = originalGameObject.GetComponent<Item>().ability.GetComponent<Ability>();
+        //ability.GetComponent<Ability>().Clone(originalAbility);
     }
 
     public override bool IsVaildPlay(GameObject target)

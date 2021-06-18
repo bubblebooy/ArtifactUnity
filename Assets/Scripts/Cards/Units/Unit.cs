@@ -441,6 +441,11 @@ public class Unit : Card
     public string GetSide()
     {
         CardSlot cardSlot = GetCardSlot();
+        if(cardSlot == null)
+        {
+            Debug.LogWarning("GetSide() on Unit not in a cardSlot", gameObject);
+            return null;
+        }
         return cardSlot.GetSide();
     }
 
