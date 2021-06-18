@@ -97,7 +97,6 @@ public class ActiveAbility : Ability
     {
         card.ManaManager.mana -= mana;
         cooldown = baseCooldown;
-        // use mana and stuff
     }
 
     public void IncrementCooldown(RoundStart_e e)

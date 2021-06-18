@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6992759838463633657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: ID
+      value: 10928
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b49c0dd8e32d9d4abc9771ad70fbaef, type: 3}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardName
+      value: Force Staff
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardText
+      value: "+2<sprite=0>\n\r\nActive 2\u25A0, 1 Mana:\r\nPush a unit."
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: abilityPrefab
+      value: 
+      objectReference: {fileID: 3039279408263987248, guid: 29ca337533b1c7d46ba1b24d63cf5df7, type: 3}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <gold>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <level>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 573980042910743155, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: Force Staff
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867989433839361014, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: "+2<sprite=0>\n\r\nActive 2\u25A0, 1 Mana:\r\nPush a unit."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b49c0dd8e32d9d4abc9771ad70fbaef, type: 3}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Name
+      value: Force Staff
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c034eab713194154f97e2c26019c5d0a, type: 3}

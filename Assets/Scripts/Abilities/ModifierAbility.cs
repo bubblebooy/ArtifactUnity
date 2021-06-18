@@ -58,11 +58,6 @@ public class ModifierAbility : Ability, IModifier
         // dont think I need this on  Ability, IModifier. Ability should have its own clone
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     public void ModifyCard()
     {
         card = GetComponentInParent<Unit>();

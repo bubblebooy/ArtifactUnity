@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2711566274898242595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996413529400484814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dfe2e18ddcc7149a6a4d91a5264664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: Barbed Mail
+  ID: 10208
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 5183617511537427922}
+  CardBack: {fileID: 2320999390215471780}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 21300000, guid: ab56d07d8db5fd14aad03f28189b7f9e, type: 3}
+  color: item
+  mana: 1
+  revealed: 1
+  locked: 0
+  quickcast: 0
+  cardText: '+1<sprite=1>, +2 Retaliate
+
+    Play Effect: Taunt'
+  <level>k__BackingField: 1
+  <gold>k__BackingField: 10
+  abilityPrefab: {fileID: 9086143654356249123, guid: 8557ff3e500b1164699b70560a39cf26, type: 3}
+  ability: {fileID: 0}
+  hero: {fileID: 0}
+  <itemType>k__BackingField: 1
+--- !u!1001 &6161389201407496858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: ID
+      value: 10208
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: ab56d07d8db5fd14aad03f28189b7f9e, type: 3}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardName
+      value: Barbed Mail
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardText
+      value: '+1<sprite=1>, +2 Retaliate
+
+        Play Effect: Taunt'
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <gold>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <level>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <itemType>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 573980042910743155, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: Barbed Mail
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481007678159093262, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867989433839361014, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: '+1<sprite=1>, +2 Retaliate
+
+        Play Effect: Taunt'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab56d07d8db5fd14aad03f28189b7f9e, type: 3}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Name
+      value: Barbed Mail
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+--- !u!1 &996413529400484814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 6161389201407496858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5183617511537427922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328085235585029960, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 6161389201407496858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2320999390215471780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8481543019380822078, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 6161389201407496858}
+  m_PrefabAsset: {fileID: 0}

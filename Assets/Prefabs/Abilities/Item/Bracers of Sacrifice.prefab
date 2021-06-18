@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &524978449472628467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088589823356969721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3339878ae59c9143a6129612d5aaf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: 3a55f49642d341849b478c15fa69b321, type: 3}
+  abilityName: Bracers of Sacrifice
+  abilityText: "+1 <sprite=1>\nActive 2\u25A4, 1 Mana: Slay this hero and deal 4
+    damage to adjacent enemies."
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 0
+  itemAbility: 1
+  mana: 1
+  baseCooldown: 2
+  cooldown: 0
+  PlayerManager: {fileID: 0}
+  displayCooldown: {fileID: 492626205650550059}
+--- !u!114 &7538972766699635393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088589823356969721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71b8f8bf2e997c459cea9dc33d9e667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 0}
+  abilityName: Bracers of Sacrifice
+  abilityText: 
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 0
+  itemAbility: 1
+  attack: 0
+  maxArmor: 1
+  maxHealth: 0
+  cleave: 0
+  siege: 0
+  retaliate: 0
+  decay: 0
+  regeneration: 0
+  bounty: 0
+  quickstrike: 0
+  disarmed: 0
+  stun: 0
+  caster: 0
+  piercing: 0
+  trample: 0
+  feeble: 0
+  damageImmunity: 0
+  untargetable: 0
+--- !u!1001 &8055692142237774121
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2218566322968468293, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a55f49642d341849b478c15fa69b321, type: 3}
+    - target: {fileID: 2978528798588326864, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_Name
+      value: Bracers of Sacrifice
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656756796861370049, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_text
+      value: "+1 <sprite=1>\nActive 2\u25A4, 1 Mana: Slay this hero and deal 4 damage
+        to adjacent enemies."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656756796861370049, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657261018630166370, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3769473036643403711, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+--- !u!1 &5088589823356969721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2978528798588326864, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+  m_PrefabInstance: {fileID: 8055692142237774121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &492626205650550059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7574414374121868290, guid: 1273ddf09d65d1947a5b889ff4bd689c, type: 3}
+  m_PrefabInstance: {fileID: 8055692142237774121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -58,9 +58,12 @@
 |✔️| Divine Intervention | Done | Max Garber |
 |✔️| Gank | Done | Max Garber |
 |✔️| Lightning Strike | Done | Max Garber |
+|✔️| No Accident | Done | Max Garber |
 |✔️| Poised to Strike | Done | Max Garber |
 |✔️| Repel | Done | Max Garber |
+|✔️| Smash Their Defenses! | Done | Max Garber |
 |✔️| Ventriloquy | Done | Max Garber |
+|✔️| Wraithfire Blast | Done | Max Garber |
 
 </details>
 
@@ -77,4 +80,19 @@
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
+</details>
+
+## Items
+<details>
+  <summary> (Click to expand)  </summary>
+
+| | Card | Current Status | Assigned to |
+|---|------|----------------|-------------|
+|✔️| Barbed Mail | Done | Max Garber |
+|✔️| Blink Scroll | Done | Max Garber |
+|✔️| Bracers of Sacrifice | Done | Max Garber |
+|✔️| Leather Armor | Done | Max Garber |
+|✔️| Short Sword | Done | Max Garber |
+|✔️| Traveler's Cloak | Done | Max Garber |
+
 </details>

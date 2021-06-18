@@ -22,7 +22,7 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
         Unit targetUnit = target.GetComponent<Unit>();
         CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
         return (target.tag == vaildTargets[i].targetTag &&
-            (!vaildTargets[i].crossLane    || targetSlot.GetLane() == card.GetLane()) &&
+            (vaildTargets[i].crossLane    || targetSlot.GetLane() == card.GetLane()) &&
             (!vaildTargets[i].targetCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
             (!vaildTargets[i].targetHero   || targetUnit is Hero) &&
             (!vaildTargets[i].targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
@@ -49,13 +49,13 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
     public virtual void OnActivate(List<GameObject> targets)
     {
         OnActivate();
-        transform.Find("background").GetComponent<Image>().color = Color.black;
+        transform.Find("background").GetComponent<Image>().color = backgroundColor;
         selectedTargets.Clear();
     }
 
     public void TargetCanceled()
     {
-        transform.Find("background").GetComponent<Image>().color = Color.black;
+        transform.Find("background").GetComponent<Image>().color = backgroundColor;
         selectedTargets.Clear();
     }
 }

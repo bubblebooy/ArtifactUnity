@@ -239,7 +239,7 @@ MonoBehaviour:
   revealed: 1
   locked: 0
   quickcast: 0
-  cardText: Item text here
+  cardText: Item text here <sprite=0> <sprite=1> <sprite=2>
   <level>k__BackingField: 0
   <gold>k__BackingField: 0
   abilityPrefab: {fileID: 0}
@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5921164037078831070, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_text
-      value: Item text here
+      value: Item text here <sprite=0> <sprite=1> <sprite=2>
       objectReference: {fileID: 0}
     - target: {fileID: 7110869911591806734, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_Color.b

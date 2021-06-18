@@ -21,7 +21,7 @@ public class Ability : MonoBehaviour
     public bool itemAbility = false;
 
     private bool expanded = false;
-    private Color backgroundColor;
+    protected Color backgroundColor;
 
     public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
@@ -56,7 +56,7 @@ public class Ability : MonoBehaviour
     public virtual void OnKilled() { }
     public virtual void PlacedOnTopOf(Unit unit) { }
 
-    public void Expand()
+    public virtual void Expand()
     {
         expanded = true;
         //GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(true);
@@ -64,7 +64,7 @@ public class Ability : MonoBehaviour
         transform.Find("background").GetComponent<Image>().raycastTarget = true;
     }
 
-    public void Collapse()
+    public virtual void Collapse()
     {
         expanded = false;
         //GetComponentInChildren<TextMeshProUGUI>(true).gameObject.SetActive(false);
