@@ -91,6 +91,7 @@
 |✔️| Barbed Mail | Done | Max Garber |
 |✔️| Blink Scroll | Done | Max Garber |
 |✔️| Bracers of Sacrifice | Done | Max Garber |
+|✔️| Claszureme Hourglass | Done | Max Garber |
 |✔️| Leather Armor | Done | Max Garber |
 |✔️| Short Sword | Done | Max Garber |
 |✔️| Traveler's Cloak | Done | Max Garber |
