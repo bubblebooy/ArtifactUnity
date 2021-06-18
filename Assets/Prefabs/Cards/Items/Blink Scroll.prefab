@@ -1,59 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5178333107694259811
+--- !u!114 &9209249302314511953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725305009814890835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d01bb0401d4a3b4288b799be415add0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: Blink Scroll
+  ID: 3007
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 4624314367023910735}
+  CardBack: {fileID: 2879750037635450937}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 21300000, guid: 58618134568910a4e8f39d5db1bfab1d, type: 3}
+  color: item
+  mana: 1
+  revealed: 1
+  locked: 0
+  quickcast: 0
+  cardText: 'Move caster to an adjacent lane.
+
+    This is a reward for destroying
+    the enemy tower.
+
+    Cross Lane'
+  vaildPlay:
+    targetTag: Unit
+    crossLane: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 1
+    targetHero: 1
+  vaildTargets:
+  - targetTag: Card Slot
+    crossLane: 1
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 1
+    targetCaster: 0
+    targetHero: 0
+  <level>k__BackingField: 0
+  <gold>k__BackingField: 0
+  <itemType>k__BackingField: 3
+--- !u!1001 &5927461785263052807
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: ID
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: gold
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: cardArt
-      value: 
-      objectReference: {fileID: 21300000, guid: e9321786056e7ec41af6daad1d839902, type: 3}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: cardName
-      value: Traveler's Cloak
-      objectReference: {fileID: 0}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: cardText
-      value: +3 <sprite=2>
-      objectReference: {fileID: 0}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: itemType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: abilityPrefab
-      value: 
-      objectReference: {fileID: 7932955088194081089, guid: 7c06b04a4e1291147b8895ff7e20dfa2, type: 3}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: <gold>k__BackingField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: <itemType>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 573980042910743155, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_AssetId
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+    - target: {fileID: 2800391266521115440, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_text
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: m_fontSize
-      value: 8.95
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_Pivot.x
@@ -141,24 +153,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_text
-      value: Traveler's Cloak
+      value: Blink Scroll
       objectReference: {fileID: 0}
     - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_fontSize
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4481007678159093262, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4867989433839361014, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_text
-      value: +3 <sprite=2>
+      value: 'Move caster to an adjacent lane.
+
+        This is a reward for destroying
+        the enemy tower.
+
+        Cross Lane'
       objectReference: {fileID: 0}
-    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: m_Type
-      value: 0
+    - target: {fileID: 4867989433839361014, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e9321786056e7ec41af6daad1d839902, type: 3}
+      objectReference: {fileID: 21300000, guid: 58618134568910a4e8f39d5db1bfab1d, type: 3}
     - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -171,13 +192,25 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_Name
-      value: Traveler's Cloak
+      value: Blink Scroll
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+--- !u!1 &725305009814890835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 5927461785263052807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4624314367023910735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328085235585029960, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 5927461785263052807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2879750037635450937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8481543019380822078, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 5927461785263052807}
+  m_PrefabAsset: {fileID: 0}

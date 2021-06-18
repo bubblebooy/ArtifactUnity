@@ -229,7 +229,7 @@ public class PlayerManager : NetworkBehaviour
         GameObject item = Instantiate(CardList.itemDict[itemString], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(item, connectionToClient);
         RpcShowCard(item, "Dealt");
-        RpcSpendGold(item.GetComponent<Item>().gold);
+        RpcSpendGold(item.GetComponent<IItem>().gold);
     }
 
     [Command]

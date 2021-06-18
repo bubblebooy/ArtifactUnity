@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Item : Card, ITargets
+public class Item : Card, ITargets, IItem
 {
-    public TargetValidation vaildPlay;
-
-    public int level;
-    public int gold;
+    [field: SerializeField]
+    public int level { get; set; }
+    [field: SerializeField]
+    public int gold { get; set; }
     [SerializeField]
     private GameObject abilityPrefab;
     [HideInInspector]
@@ -18,14 +18,8 @@ public class Item : Card, ITargets
 
     private int sibIndex;
 
-    public enum ItemType
-    {
-        Weapon,
-        Armor,
-        Accessories,
-        Consumables,
-    };
-    public ItemType itemType;
+    [field: SerializeField]
+    public ItemType itemType { get; set; }
 
     private TextMeshProUGUI displayGold;
 
@@ -53,16 +47,8 @@ public class Item : Card, ITargets
         Unit targetUnit = target.GetComponent<Unit>();
         if (itemType == ItemType.Consumables)
         {
-
-            if (base.IsVaildPlay(target) &&
-                target.tag == vaildPlay.targetTag &&
-                (!vaildPlay.targetCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
-                (!vaildPlay.targetHero || targetUnit is Hero) &&
-                (!vaildPlay.targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
-                (!vaildPlay.targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide"))
-            {
-                return true;
-            }
+            print("Consumables should be a spell or unit with the IItems interface");
+            return false;
         }
         else
         {

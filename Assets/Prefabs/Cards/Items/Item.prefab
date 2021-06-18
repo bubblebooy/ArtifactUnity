@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -240,19 +240,12 @@ MonoBehaviour:
   locked: 0
   quickcast: 0
   cardText: Item text here
-  vaildPlay:
-    targetTag: Unit
-    crossLane: 0
-    targetOnlyEnemySide: 0
-    targetOnlyPlayerSide: 1
-    targetCaster: 0
-    targetHero: 1
-  level: 0
-  gold: 10
+  <level>k__BackingField: 0
+  <gold>k__BackingField: 0
   abilityPrefab: {fileID: 0}
   ability: {fileID: 0}
   hero: {fileID: 0}
-  itemType: 0
+  <itemType>k__BackingField: 0
 --- !u!1001 &1270755928471196712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,6 +256,14 @@ PrefabInstance:
     - target: {fileID: -7614023438220071333, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_AssetId
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 58005606643056858, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 58005606643056858, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2914425686466279534, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_Pivot.y

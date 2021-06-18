@@ -35,6 +35,14 @@ PrefabInstance:
       propertyPath: abilityPrefab
       value: 
       objectReference: {fileID: 3538519041180404501, guid: b7439390ae0e5de4fa54b4a27db85a88, type: 3}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <gold>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <itemType>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 573980042910743155, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
       propertyPath: m_AssetId
       value: 

@@ -119,7 +119,7 @@ public class ShopManager : NetworkBehaviour
         (cardFront.transform as RectTransform).localScale = Vector3.one;
         (cardFront.transform as RectTransform).localPosition = Vector3.zero;
         (cardFront.transform as RectTransform).sizeDelta = Vector2.zero;
-        cost = _item.GetComponent<Item>().gold;
+        cost = _item.GetComponent<IItem>().gold;
         Destroy(_item);
     }
 
