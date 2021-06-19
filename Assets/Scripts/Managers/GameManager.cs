@@ -197,6 +197,7 @@ public class GameManager : NetworkBehaviour
         
         CombatDirection = !CombatDirection;
         GameEventSystem.Event(new EndCombatPhase_e());
+        yield return new WaitForSeconds(0.1f);
         SummonLaneCreeps();
         if(GameState == "GameOver") { yield break;  }
         PlayerManager.CmdEndCombat();
