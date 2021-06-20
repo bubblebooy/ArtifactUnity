@@ -14,6 +14,8 @@ public class Settings : MonoBehaviour
     [SerializeField]
     private TMP_InputField inputStartingMana;
     [SerializeField]
+    private TMP_InputField inputStartingGold;
+    [SerializeField]
     private TMP_InputField inputStartingHand;
     [SerializeField]
     private TMP_InputField inputCardDraw;
@@ -27,6 +29,7 @@ public class Settings : MonoBehaviour
     public struct Values
     {
         public int startingMana;
+        public int startingGold;
         public int startingHand;
         public float cardDraw;
     }
@@ -46,6 +49,7 @@ public class Settings : MonoBehaviour
     public void LoadPlayerPrefs()
     {
         values.startingMana = PlayerPrefs.GetInt("StartingMana", values.startingMana);
+        values.startingGold = PlayerPrefs.GetInt("StartingGold", values.startingGold);
         values.startingHand = PlayerPrefs.GetInt("StartingHand", values.startingHand);
         values.cardDraw = PlayerPrefs.GetFloat("CardDraw", values.cardDraw);
         UpdateUI();
@@ -59,12 +63,14 @@ public class Settings : MonoBehaviour
     public void UpdateUI()
     {
         inputStartingMana.text = values.startingMana.ToString();
+        inputStartingGold.text = values.startingGold.ToString();
         inputStartingHand.text = values.startingHand.ToString();
         inputCardDraw.text = values.cardDraw.ToString();
     }
     public void UIInteractable(bool interactable = true)
     {
         inputStartingMana.interactable = interactable;
+        inputStartingGold.interactable = interactable;
         inputStartingHand.interactable = interactable;
         inputCardDraw.interactable = interactable;
     }
@@ -73,6 +79,13 @@ public class Settings : MonoBehaviour
     {
         values.startingMana = int.Parse(inputStartingMana.text);
         PlayerPrefs.SetInt("StartingMana", values.startingMana);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeStartingGold()
+    {
+        values.startingGold = int.Parse(inputStartingGold.text);
+        PlayerPrefs.SetInt("StartingGold", values.startingGold);
         PlayerPrefs.Save();
         SettingsChanged();
     }
@@ -96,6 +109,10 @@ public class Settings : MonoBehaviour
         foreach( ManaManager manaManager in FindObjectsOfType<ManaManager>())
         {
             manaManager.SetMana(values.startingMana);
+        }
+        foreach (GoldManager goldManager in FindObjectsOfType<GoldManager>())
+        {
+            goldManager.SetGold(values.startingGold);
         }
     }
 

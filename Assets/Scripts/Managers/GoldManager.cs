@@ -5,7 +5,7 @@ using TMPro;
 
 public class GoldManager : MonoBehaviour
 {
-    public int gold = 15;
+    public int gold = 45;
     private TextMeshProUGUI displayGold;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
@@ -13,16 +13,22 @@ public class GoldManager : MonoBehaviour
     public void OnValidate()
     {
         displayGold = gameObject.transform.Find("Gold").GetComponent<TextMeshProUGUI>();
-        displayGold.text = gold.ToString();
+        displayGold.text = "";//gold.ToString();
     }
 
     private void Start()
     {
-        events.Add(GameEventSystem.Register<GameUpdateUI_e>(ManaUpdate));
+        events.Add(GameEventSystem.Register<GameUpdateUI_e>(GoldUpdate));
 
     }
 
-    public void ManaUpdate(GameUpdateUI_e e)
+    public void SetGold(int _gold)
+    {
+        gold = _gold;
+        GoldUpdate(new GameUpdateUI_e());
+    }
+
+    public void GoldUpdate(GameUpdateUI_e e)
     {
         displayGold = gameObject.transform.Find("Gold").GetComponent<TextMeshProUGUI>();
         displayGold.text = gold.ToString();

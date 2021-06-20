@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Mirror;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : NetworkBehaviour
 {
@@ -34,7 +35,15 @@ public class PlayerManager : NetworkBehaviour
 
     //[SyncVar]
     //int expamle = 0;
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     public override void OnStartClient()
     {
@@ -43,7 +52,11 @@ public class PlayerManager : NetworkBehaviour
         deck =  CardList.cardDict.Values.ToList();
         heroes = CardList.heroDict.Values.ToList();
         items = CardList.itemDict.Values.ToList();
+    }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Settings = FindObjectOfType<Settings>();
     }
 
     [ClientRpc]
@@ -59,7 +72,6 @@ public class PlayerManager : NetworkBehaviour
         PlayerGold = GameObject.Find("PlayerGold");
         EnemyGold = GameObject.Find("EnemyGold");
         Board = GameObject.Find("Board");
-        Settings = FindObjectOfType<Settings>();
         Settings?.Initialize();
     }
 
@@ -100,7 +112,7 @@ public class PlayerManager : NetworkBehaviour
             NetworkServer.Spawn(card, connectionToClient);
             RpcShowCard(card, "Deck");
         }  
-        for (int i=0; i < 5; i++)
+        for (int i=0; i < Settings.values.startingHand; i++)
         {
             RpcDrawCard();
         }
@@ -186,10 +198,14 @@ public class PlayerManager : NetworkBehaviour
         }
     }
 
+    float drawRemainder = 0;
     [Command]
     public void CmdDeploy()
     {
-        for (int i = 0; i < 2; i++)
+        drawRemainder = Settings.values.cardDraw + drawRemainder;
+        int draw = (int)drawRemainder;
+        drawRemainder -= draw;
+        for (int i = 0; i < draw; i++)
         {
             RpcDrawCard();
         }
