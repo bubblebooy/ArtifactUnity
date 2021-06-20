@@ -55,6 +55,10 @@ public class ShopManager : NetworkBehaviour
     private bool usedShop = false;
     private bool hideShop = false;
 
+    private List<GameObject> items;
+
+    private System.Random rand;
+
     public override void OnStartClient()
     {
         gameObject.SetActive(false);
@@ -75,10 +79,14 @@ public class ShopManager : NetworkBehaviour
 
     public void StartShopping()
     {
+        rand = new System.Random(); // Random.Range(0, System.Int32.MaxValue) I dont want the seed syncd :-(
+
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
 
         GoldManager = GameObject.Find("PlayerGold").GetComponent<GoldManager>();
+
+        items = PlayerManager.items.Where(item => item.GetComponent<IItem>().level <= level).ToList();
 
         RestockShop("Top Tier");
         RestockShop("Random Rack");
@@ -87,20 +95,49 @@ public class ShopManager : NetworkBehaviour
         UpdateShop();
     }
 
+    
     public void RestockShop(string shop)
     {
+        //In constructed, no random items are added to your deck.It's just your item deck, 
+        //You will get random tier 1 items offered if you run out of items from your item deck.
+
+        //The rules for the shop slots have been simplified slightly as well.
+        //The left slot is an item from the highest tier available
+        //The right slot is an item from the lowest tier available (previously it was any item you can afford)
+        // --ignoring-- item costs can no longer increase as you scan from the left to the right slot.
+        // --funtionaly it will be the same since you would roll the items then sort by cost--
+        // --what if I want to add high tier low cost items?--
+        List<GameObject> _items = items.ToList();
+        GameObject item;
+
+        if (items.Count == 0)
+        {
+            ItemListEmpty(shop);
+            return;
+        }
+
         switch (shop)
         {
             case "Top Tier":
-                itemTopTier = PlayerManager.items[PlayerManager.items.Count-1].name;
+                int maxLevel = items.Max(itm => itm.GetComponent<IItem>().level);
+                _items = items.Where(itm => itm.GetComponent<IItem>().level == maxLevel).ToList();
+                item = _items[rand.Next(_items.Count)];
+                itemTopTier = item.name;
+                items.Remove(item);
                 RestockShop(itemTopTier, slotTopTier, out costTopTier);
                 break;
             case "Random Rack":
-                itemRandomRack = PlayerManager.items[PlayerManager.items.Count - 2].name;
+                item = items[rand.Next(items.Count)];
+                itemRandomRack = item.name;
+                items.Remove(item);
                 RestockShop(itemRandomRack, slotRandomRack, out costRandomRack);
                 break;
             case "Bargain Bin":
-                itemBargainBin = PlayerManager.items[PlayerManager.items.Count - 3].name;
+                int minLevel = items.Min(itm => itm.GetComponent<IItem>().level);
+                _items = items.Where(itm => itm.GetComponent<IItem>().level == minLevel).ToList();
+                item = _items[rand.Next(_items.Count)];
+                itemBargainBin = item.name;
+                items.Remove(item);
                 RestockShop(itemBargainBin, slotBargainBin, out costBargainBin);
                 break;
             default:
@@ -113,6 +150,8 @@ public class ShopManager : NetworkBehaviour
         GameObject _item;
         GameObject cardFront;
 
+        foreach (Transform transform in slot.transform) { Destroy(transform.gameObject); }
+
         _item = Instantiate(CardList.itemDict[item]);
         cardFront = _item.transform.Find("CardFront").gameObject;
         cardFront.transform.SetParent(slot.transform);
@@ -123,15 +162,33 @@ public class ShopManager : NetworkBehaviour
         Destroy(_item);
     }
 
+    public void ItemListEmpty(string shop)
+    {
+        // Add rnd T1 here?
+        switch (shop)
+        {
+            case "Top Tier":
+                costTopTier = System.Int32.MaxValue;
+                foreach (Transform transform in slotTopTier.transform) { Destroy(transform.gameObject); }
+                break;
+            case "Random Rack":
+                costRandomRack = System.Int32.MaxValue;
+                foreach (Transform transform in slotRandomRack.transform) { Destroy(transform.gameObject); }
+                break;
+            case "Bargain Bin":
+                costBargainBin = System.Int32.MaxValue;
+                foreach (Transform transform in slotBargainBin.transform) { Destroy(transform.gameObject); }
+                break;
+            default:
+                break;
+        }
+        return;
+    }
+
     public void FinnishedShopping()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        //if (!usedShop)
-        //{
-        //    //Get Money Get Paid
-        //    GoldManager.gold += skipGold;
-        //}
         PlayerManager.CmdFinnishedShopping(usedShop ? 0 : skipGold);
         gameObject.SetActive(false);
         usedShop = false;
@@ -160,6 +217,13 @@ public class ShopManager : NetworkBehaviour
         level += 1;
         buttonUpgrade.interactable = false;
         usedShop = true;
+
+        items = PlayerManager.items.Where(item => item.GetComponent<IItem>().level <= level).ToList();
+
+        RestockShop("Top Tier");
+        RestockShop("Random Rack");
+        RestockShop("Bargain Bin");
+
         UpdateShop();
     }
 
@@ -175,21 +239,26 @@ public class ShopManager : NetworkBehaviour
                 item = itemTopTier;
                 slot = slotTopTier.transform;
                 buttonTopTier.interactable = false;
+                PlayerManager.items.Remove(CardList.itemDict[item]);
+                RestockShop("Top Tier");
                 break;
             case "Random Rack":
                 item = itemRandomRack;
                 slot = slotRandomRack.transform;
                 buttonRandomRack.interactable = false;
+                PlayerManager.items.Remove(CardList.itemDict[item]);
+                RestockShop("Random Rack");
                 break;
             case "Bargain Bin":
                 item = itemBargainBin;
                 slot = slotBargainBin.transform;
                 buttonBargainBin.interactable = false;
+                PlayerManager.items.Remove(CardList.itemDict[item]);
+                RestockShop("Bargain Bin");
                 break;
             default:
                 return;
         }
-        foreach (Transform transform in slot) { Destroy(transform.gameObject); }
         PlayerManager.CmdBuyItem(item);
         usedShop = true;
     }
