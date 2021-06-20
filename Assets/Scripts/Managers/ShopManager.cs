@@ -79,10 +79,10 @@ public class ShopManager : NetworkBehaviour
 
     public void StartShopping()
     {
-        rand = new System.Random(); // Random.Range(0, System.Int32.MaxValue) I dont want the seed syncd :-(
-
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+
+        rand = new System.Random(Random.Range(0, System.Int32.MaxValue / 2) + (PlayerManager.isClientOnly ? 0 : System.Int32.MaxValue / 2)); // Random.Range(0, System.Int32.MaxValue) I dont want the seed syncd :-(
 
         GoldManager = GameObject.Find("PlayerGold").GetComponent<GoldManager>();
 
