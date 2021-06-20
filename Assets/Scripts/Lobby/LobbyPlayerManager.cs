@@ -11,6 +11,7 @@ public class LobbyPlayerManager : NetworkBehaviour
     public GameObject playerManager;
     LobbyManager lobbyManager;
     SteamLobby steamLobby;
+    Settings settings;
 
     private void Start()
     {
@@ -49,6 +50,20 @@ public class LobbyPlayerManager : NetworkBehaviour
             lobbyManager.enemyReadyToggle.Connected(true);
             lobbyManager.readyButton.interactable = true;
         }
+        settings = FindObjectOfType<Settings>();
+        if (hasAuthority)
+        {
+            settings.lobbyPlayerManager = this;
+        }
+        if (isServer)
+        {
+            settings.SettingsChanged();
+        }
+        if (isClientOnly)
+        {
+            settings.UIInteractable(interactable: false);
+        }
+
 
     }
 
@@ -78,6 +93,15 @@ public class LobbyPlayerManager : NetworkBehaviour
         if(steamLobby?.useFizzySteamworks == true)
         {
             steamLobby.OnStopClient();
+        }
+        if (isClientOnly)
+        {
+            settings.UIInteractable(interactable: true);
+            settings.LoadPlayerPrefs();
+        }
+        if (hasAuthority)
+        {
+            settings.lobbyPlayerManager = null;
         }
     }
    
@@ -157,7 +181,9 @@ public class LobbyPlayerManager : NetworkBehaviour
     [Command]
     public void CmdChangePlayerManager()
     {
-        //RpcChangePlayerManager();
+        RpcCloseSettings();
+        settings.UIInteractable(interactable: false);
+        settings.Collapse();
         foreach ( NetworkConnection connection in NetworkServer.connections.Values)
         {
             NetworkServer.Destroy(connection.identity.gameObject);
@@ -168,5 +194,27 @@ public class LobbyPlayerManager : NetworkBehaviour
         NetworkManager networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
         networkManager.autoCreatePlayer = false;
         networkManager.ServerChangeScene("Main");
+    }
+
+    [Command]
+    public void CmdSettingsChanged(Settings.Values v)
+    {
+        RpcSettingsChanged(v);
+    }
+
+    [ClientRpc]
+    public void RpcSettingsChanged(Settings.Values v)
+    {
+        settings.values = v;
+        settings.UpdateUI();
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        networkIdentity.GetComponent<LobbyPlayerManager>().CmdUnReady();
+    }
+
+    [ClientRpc]
+    public void RpcCloseSettings()
+    {
+        settings.UIInteractable(interactable: false);
+        settings.Collapse();
     }
 }

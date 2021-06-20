@@ -16,6 +16,7 @@ public class PlayerManager : NetworkBehaviour
     public GameObject PlayerGold;
     public GameObject EnemyGold;
     public GameObject Board;
+    public Settings Settings;
 
     public List<GameObject> deck;
     public List<GameObject> heroes;
@@ -35,7 +36,6 @@ public class PlayerManager : NetworkBehaviour
     //int expamle = 0;
 
 
-    // Start is called before the first frame update
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -59,6 +59,8 @@ public class PlayerManager : NetworkBehaviour
         PlayerGold = GameObject.Find("PlayerGold");
         EnemyGold = GameObject.Find("EnemyGold");
         Board = GameObject.Find("Board");
+        Settings = FindObjectOfType<Settings>();
+        Settings?.Initialize();
     }
 
 
