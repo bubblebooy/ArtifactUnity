@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2047190161640592923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557415797836575854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f66c7413cffe6499ed0c98aabe8419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: Hero's Cape
+  ID: 10781
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 8431620307880284786}
+  CardBack: {fileID: 1358136498258662660}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 21300000, guid: b1ceb0ff262c03041b1fae3e44b01660, type: 3}
+  color: item
+  mana: 1
+  revealed: 1
+  locked: 0
+  quickcast: 0
+  cardText: '+12 <sprite=2>
+
+
+    Play Effect: Fully heal equipped hero.'
+  <level>k__BackingField: 3
+  <gold>k__BackingField: 30
+  abilityPrefab: {fileID: 8533747160457822551, guid: a088e997197d3d24b95e1a37ec374f14, type: 3}
+  ability: {fileID: 0}
+  hero: {fileID: 0}
+  <itemType>k__BackingField: 2
+--- !u!1001 &7452735568650175802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: ID
+      value: 10781
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardArt
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ceb0ff262c03041b1fae3e44b01660, type: 3}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardName
+      value: Hero's Cape
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: cardText
+      value: '+12 <sprite=2>
+
+
+        Play Effect: Fully heal equipped hero.'
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <gold>k__BackingField
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <level>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: <itemType>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 573980042910743155, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547827667163243126, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800391266521115440, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277143571983421992, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: Hero's Cape
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131136311187650012, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481007678159093262, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867989433839361014, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_text
+      value: '+12 <sprite=2>
+
+
+        Play Effect: Fully heal equipped hero.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ceb0ff262c03041b1fae3e44b01660, type: 3}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189280531139914324, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+      propertyPath: m_Name
+      value: Hero's Cape
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -5038917069029974424, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+--- !u!1 &4557415797836575854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6364252607411482964, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 7452735568650175802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8431620307880284786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328085235585029960, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 7452735568650175802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1358136498258662660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8481543019380822078, guid: c034eab713194154f97e2c26019c5d0a, type: 3}
+  m_PrefabInstance: {fileID: 7452735568650175802}
+  m_PrefabAsset: {fileID: 0}

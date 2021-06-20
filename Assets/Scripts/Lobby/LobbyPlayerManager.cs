@@ -69,6 +69,7 @@ public class LobbyPlayerManager : NetworkBehaviour
 
     public override void OnStopClient()
     {
+        //This is also called when scene is changed.
         base.OnStopClient();
         if (hasAuthority)
         {
@@ -94,11 +95,11 @@ public class LobbyPlayerManager : NetworkBehaviour
         {
             steamLobby.OnStopClient();
         }
-        if (isClientOnly)
-        {
-            settings.UIInteractable(interactable: true);
-            settings.LoadPlayerPrefs();
-        }
+        //if (isClientOnly)
+        //{
+        //    settings.UIInteractable(interactable: true);
+        //    settings.LoadPlayerPrefs();
+        //}
         if (hasAuthority)
         {
             settings.lobbyPlayerManager = null;
@@ -186,10 +187,12 @@ public class LobbyPlayerManager : NetworkBehaviour
         settings.Collapse();
         foreach ( NetworkConnection connection in NetworkServer.connections.Values)
         {
+            print("connection : " + connection.identity.gameObject.GetComponent<LobbyPlayerManager>());
             NetworkServer.Destroy(connection.identity.gameObject);
             NetworkServer.ReplacePlayerForConnection(connection,
                 connection.identity.GetComponent<LobbyPlayerManager>().playerManager,
                 true);
+            
         }
         NetworkManager networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
         networkManager.autoCreatePlayer = false;

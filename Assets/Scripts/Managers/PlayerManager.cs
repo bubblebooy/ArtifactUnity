@@ -35,15 +35,21 @@ public class PlayerManager : NetworkBehaviour
 
     //[SyncVar]
     //int expamle = 0;
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    //private void OnEnable()
+    //{
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    SceneManager.sceneLoaded -= OnSceneLoaded;
+    //}
+
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    Settings = FindObjectOfType<Settings>();
+    //}
 
     public override void OnStartClient()
     {
@@ -54,10 +60,12 @@ public class PlayerManager : NetworkBehaviour
         items = CardList.itemDict.Values.ToList();
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
         Settings = FindObjectOfType<Settings>();
     }
+
+
 
     [ClientRpc]
     void RpcInitialize()

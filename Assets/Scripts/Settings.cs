@@ -34,20 +34,34 @@ public class Settings : MonoBehaviour
         public float cardDraw;
     }
     public Values values;
+    public bool debug = false;
 
+    private static Settings settingsInstance;
     private void OnValidate()
     {
         UpdateUI();
     }
 
-    private void Start()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (settingsInstance is null)
+        {
+            settingsInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
+    {
         LoadPlayerPrefs();
     }
 
     public void LoadPlayerPrefs()
     {
+        if (debug){return;}
         values.startingMana = PlayerPrefs.GetInt("StartingMana", values.startingMana);
         values.startingGold = PlayerPrefs.GetInt("StartingGold", values.startingGold);
         values.startingHand = PlayerPrefs.GetInt("StartingHand", values.startingHand);

@@ -92,15 +92,15 @@ public class ShopManager : NetworkBehaviour
         switch (shop)
         {
             case "Top Tier":
-                itemTopTier = PlayerManager.items[0].name;
+                itemTopTier = PlayerManager.items[PlayerManager.items.Count-1].name;
                 RestockShop(itemTopTier, slotTopTier, out costTopTier);
                 break;
             case "Random Rack":
-                itemRandomRack = PlayerManager.items[1].name;
+                itemRandomRack = PlayerManager.items[PlayerManager.items.Count - 2].name;
                 RestockShop(itemRandomRack, slotRandomRack, out costRandomRack);
                 break;
             case "Bargain Bin":
-                itemBargainBin = PlayerManager.items[2].name;
+                itemBargainBin = PlayerManager.items[PlayerManager.items.Count - 3].name;
                 RestockShop(itemBargainBin, slotBargainBin, out costBargainBin);
                 break;
             default:

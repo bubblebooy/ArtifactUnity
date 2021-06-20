@@ -91,8 +91,12 @@
 |✔️| Barbed Mail | Done | Max Garber |
 |✔️| Blink Scroll | Done | Max Garber |
 |✔️| Bracers of Sacrifice | Done | Max Garber |
+|✔️| Broadsword | Done | Max Garber |
 |✔️| Claszureme Hourglass | Done | Max Garber |
+|✔️| Claymore | Done | Max Garber |
 |✔️| Crown of the Undying | Done | Max Garber |
+|✔️| Force Staff | Done | Max Garber |
+|✔️| Hero's Cape | Done | Max Garber |
 |✔️| Leather Armor | Done | Max Garber |
 |✔️| Short Sword | Done | Max Garber |
 |✔️| Traveler's Cloak | Done | Max Garber |

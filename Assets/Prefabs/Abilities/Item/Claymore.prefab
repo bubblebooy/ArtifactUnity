@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &742186660251891356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897370130662159513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99771f380cbd7c745a342249a8a3c28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: 09968f22fcc060b4c96c94e3f68a3f93, type: 3}
+  abilityName: Claymore
+  abilityText: +10 <sprite=0>
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 0
+  itemAbility: 1
+  attack: 10
+  maxArmor: 0
+  maxHealth: 0
+  cleave: 0
+  siege: 0
+  retaliate: 0
+  decay: 0
+  regeneration: 0
+  bounty: 0
+  quickstrike: 0
+  disarmed: 0
+  stun: 0
+  caster: 0
+  piercing: 0
+  trample: 0
+  feeble: 0
+  damageImmunity: 0
+  untargetable: 0
+--- !u!1001 &8292992812233675231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743726162950676980, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663366332680878167, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_text
+      value: +10 <sprite=0>
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730271764289191223, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: abilityText
+      value: +10 <sprite=0>
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567136448007349574, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_Name
+      value: Claymore
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836005754534456787, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 09968f22fcc060b4c96c94e3f68a3f93, type: 3}
+    m_RemovedComponents:
+    - {fileID: 4730271764289191223, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+--- !u!1 &2897370130662159513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6567136448007349574, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+  m_PrefabInstance: {fileID: 8292992812233675231}
+  m_PrefabAsset: {fileID: 0}
