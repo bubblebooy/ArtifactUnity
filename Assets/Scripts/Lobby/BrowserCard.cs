@@ -27,6 +27,10 @@ public class BrowserCard : MonoBehaviour
         {
             lobbyManager.AddHerotoDeck(cardID);
         }
+        else if (card is IItem)
+        {
+            lobbyManager.AddItemtoDeck(cardID);
+        }
         else
         {
             lobbyManager.AddCardtoDeck(cardID);

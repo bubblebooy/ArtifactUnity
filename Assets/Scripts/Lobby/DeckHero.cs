@@ -10,8 +10,15 @@ public class DeckHero : MonoBehaviour
     public string heroName;
     public Hero hero;
 
+    private LobbyManager lobbyManager;
+    private void Start()
+    {
+        lobbyManager = FindObjectOfType<LobbyManager>();
+    }
+
     public void UpdateDeckCard()
     {
+        lobbyManager?.UnReady();
         heroName = CardIDs.cards[cardID];
         gameObject.name = heroName;
         transform.Find("Name").GetComponent<TextMeshProUGUI>().text = heroName;

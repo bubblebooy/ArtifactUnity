@@ -108,12 +108,12 @@ public class LobbyPlayerManager : NetworkBehaviour
    
 
     [Command]
-    public void CmdReady(List<string> heroList, List<string> cardList)
+    public void CmdReady(List<string> heroList, List<string> cardList, List<string> itemList)
     {
-        RpcReady(heroList, cardList);
+        RpcReady(heroList, cardList, itemList);
     }
     [ClientRpc]
-    public void RpcReady(List<string> heroList, List<string> cardList)
+    public void RpcReady(List<string> heroList, List<string> cardList, List<string> itemList)
     {
         if (hasAuthority)
         {
@@ -121,6 +121,7 @@ public class LobbyPlayerManager : NetworkBehaviour
             lobbyManager.playerReadyToggle.Ready(true);
             playerManager.GetComponent<PlayerManager>().heroes = heroList.Select(name => CardList.heroDict[name]).ToList();
             playerManager.GetComponent<PlayerManager>().deck = cardList.Select(name => CardList.cardDict[name]).ToList();
+            playerManager.GetComponent<PlayerManager>().items = itemList.Select(name => CardList.itemDict[name]).ToList();
             playerManager.GetComponent<PlayerManager>().debug = lobbyManager.debug;
         }
         else

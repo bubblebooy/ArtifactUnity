@@ -98,6 +98,7 @@ public class ShopManager : NetworkBehaviour
     
     public void RestockShop(string shop)
     {
+        //https://steamcommunity.com/games/1269260/announcements/detail/2969520947916198805
         //In constructed, no random items are added to your deck.It's just your item deck, 
         //You will get random tier 1 items offered if you run out of items from your item deck.
 

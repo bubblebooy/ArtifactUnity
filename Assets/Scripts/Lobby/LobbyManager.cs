@@ -29,9 +29,13 @@ public class LobbyManager : MonoBehaviour
     [SerializeField]
     private GameObject deckHeroPrefab;
     [SerializeField]
+    private GameObject deckItemPrefab;
+    [SerializeField]
     private GameObject deckAreaHeros;
     [SerializeField]
     private GameObject deckAreaCards;
+    [SerializeField]
+    private GameObject deckAreaItems;
     [SerializeField]
     private GameObject browserCardPrefab;
     [SerializeField]
@@ -65,16 +69,25 @@ public class LobbyManager : MonoBehaviour
     {
         List<string> heroList = HeroList();
         List<string> deckList = DeckList();
+        List<string> itemList = ItemList();
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         if (!playerReady)
         {
-            networkIdentity.GetComponent<LobbyPlayerManager>().CmdReady(heroList, deckList);
+            networkIdentity.GetComponent<LobbyPlayerManager>().CmdReady(heroList, deckList, itemList);
         }
         else
         {
             networkIdentity.GetComponent<LobbyPlayerManager>().CmdUnReady();
         }
         StartCoroutine(RebuildLayout());
+    }
+    public void UnReady()
+    {
+        if (playerReady)
+        {
+            NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+            networkIdentity.GetComponent<LobbyPlayerManager>().CmdUnReady();
+        }
     }
 
     public void EncodeDeck()
@@ -100,6 +113,13 @@ public class LobbyManager : MonoBehaviour
             card.Count = deckCard.count;
             deck.Cards.Add(card);
         }
+        foreach (DeckItem deckItem in deckAreaItems.GetComponentsInChildren<DeckItem>())
+        {
+            CardRef card = new CardRef();
+            card.Id = deckItem.itemID;
+            card.Count = deckItem.count;
+            deck.Cards.Add(card);
+        }
         string deckCode = ArtifactDeckEncoder.EncodeDeck(deck);
         print(deckCode);
         GUIUtility.systemCopyBuffer = deckCode;
@@ -112,6 +132,7 @@ public class LobbyManager : MonoBehaviour
         //RTFACTJh4OJLkCDE+BxgQgHwEkuwIBEgMEEAEBIAEPCAo3AhkEAgEOAQoKBDsBBygJJwE7BAE5ARsJBRshAj66FUFydGlmYWN0IFVuaXR5
         foreach (Transform t in deckAreaHeros.transform){ Destroy(t.gameObject); }
         foreach (Transform t in deckAreaCards.transform) { Destroy(t.gameObject); }
+        foreach (Transform t in deckAreaItems.transform) { Destroy(t.gameObject); }
         if (inputDeckCode.text.Length < "RTFACT".Length || inputDeckCode.text.Substring(0, "RTFACT".Length) != "RTFACT")
         {
             StartCoroutine(RebuildLayout());
@@ -129,10 +150,22 @@ public class LobbyManager : MonoBehaviour
         //sig cards
         foreach (CardRef deckCard in deck.Cards)
         {
-            DeckCard card = Instantiate(deckCardPrefab, deckAreaCards.transform).GetComponent<DeckCard>();
-            card.cardID = deckCard.Id;
-            card.count = deckCard.Count;
-            card.UpdateDeckCard();
+            string name = CardIDs.cards[deckCard.Id];
+            if (CardList.itemDict.ContainsKey(name))
+            {
+                DeckItem item = Instantiate(deckItemPrefab, deckAreaItems.transform).GetComponent<DeckItem>();
+                item.itemID = deckCard.Id;
+                item.count = deckCard.Count;
+                item.UpdateDeckItem();
+            }
+            else
+            {
+                DeckCard card = Instantiate(deckCardPrefab, deckAreaCards.transform).GetComponent<DeckCard>();
+                card.cardID = deckCard.Id;
+                card.count = deckCard.Count;
+                card.UpdateDeckCard();
+            }
+
         }
         StartCoroutine(RebuildLayout());
     }
@@ -168,6 +201,23 @@ public class LobbyManager : MonoBehaviour
         }
         return heroList;
     }
+    public List<string> ItemList()
+    {
+        List<string> itemList = new List<string>();
+        foreach (DeckItem deckItem in deckAreaItems.GetComponentsInChildren<DeckItem>())
+        {
+            if (!CardList.itemDict.ContainsKey(deckItem.itemName))
+            {
+                Destroy(deckItem.gameObject);
+                continue;
+            }
+            for (int i = 0; i < deckItem.count; i++)
+            {
+                itemList.Add(deckItem.itemName);
+            }
+        }
+        return itemList;
+    }
 
     IEnumerator RebuildLayout()
     {
@@ -199,6 +249,19 @@ public class LobbyManager : MonoBehaviour
         card.UpdateDeckCard();
         StartCoroutine(RebuildLayout());
     }
+    public void AddItemtoDeck(int itemID)
+    {
+        DeckItem[] deckItems = deckAreaCards.GetComponentsInChildren<DeckItem>();
+        DeckItem item = deckItems.Where(c => c.itemID == itemID).FirstOrDefault();
+        if (item == null)
+        {
+            item = Instantiate(deckItemPrefab, deckAreaItems.transform).GetComponent<DeckItem>();
+            item.itemID = itemID;
+        }
+        item.IncreaseCount();
+        item.UpdateDeckItem();
+        StartCoroutine(RebuildLayout());
+    }
 
 
     IEnumerator PopulateDeckBrowser()
@@ -208,7 +271,9 @@ public class LobbyManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         } while (CardList.cardDict == null);
 
-        foreach (GameObject card in CardList.heroDict.Values.Concat(CardList.cardDict.Values))
+        foreach (GameObject card in CardList.heroDict.Values.Concat(
+                                    CardList.cardDict.Values).Concat(
+                                    CardList.itemDict.Values))
         {
             BrowserCard browserCard = Instantiate(browserCardPrefab, browserArea.transform).GetComponent<BrowserCard>();
             browserCard.card = card.GetComponent<Card>();

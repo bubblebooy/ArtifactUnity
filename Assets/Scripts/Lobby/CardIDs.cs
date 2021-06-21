@@ -73,5 +73,16 @@ public class CardIDs : MonoBehaviour
                 cardList.Add(id);
             }
         }
+        foreach (GameObject card in FindObjectOfType<CardList>().items)
+        {
+            Card c = card.GetComponent<Card>();
+            if (!cardList.Exists(x => x.ID == c.ID))
+            {
+                cardID id = new cardID();
+                id.Name = c.cardName;
+                id.ID = c.ID;
+                cardList.Add(id);
+            }
+        }
     }
 }

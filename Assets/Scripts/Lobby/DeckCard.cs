@@ -12,9 +12,16 @@ public class DeckCard : MonoBehaviour
     public int count;
     public Card card;
 
+    private LobbyManager lobbyManager;
+    private void Start()
+    {
+        lobbyManager  = FindObjectOfType<LobbyManager>();
+    }
+
     public void UpdateDeckCard()
     {
-        if(count <= 0)
+        lobbyManager?.UnReady();
+        if (count <= 0)
         {
             Destroy(gameObject);
             return;
@@ -26,6 +33,11 @@ public class DeckCard : MonoBehaviour
         if (CardList.cardDict.ContainsKey(cardName))
         {
             card = CardList.cardDict[cardName].GetComponent<Card>();
+            gameObject.GetComponent<Image>().color = Card.colorDict[card.color];
+        }
+        else if (CardList.itemDict.ContainsKey(cardName))
+        {
+            card = CardList.itemDict[cardName].GetComponent<Card>();
             gameObject.GetComponent<Image>().color = Card.colorDict[card.color];
         }
     }
