@@ -78,6 +78,7 @@ public class Hero : Unit
         armor = maxArmor;
         health = maxHealth;
         arrow = 0;
+        inPlay = false;
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().Bounce();
     }

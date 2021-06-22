@@ -269,7 +269,7 @@ public class GameManager : NetworkBehaviour
 
     private IEnumerator DelayedGameUpdate()
     {
-        yield return null;//new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f);//new WaitForSeconds(0.1f);
         GameUpdate();
     }
 

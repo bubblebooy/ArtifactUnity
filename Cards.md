@@ -18,6 +18,7 @@
 |✔️| Defenestrating Kobold| Done | Max Garber |
 |✔️| Disciple of Nevermore| Done | Max Garber |
 |✔️| Hound of War| Done | Max Garber |
+|✔️| Loyal Beast| Done | Max Garber |
 |✔️| Naked Greevil| Done | Max Garber |
 |✔️| Oglodi Catapult| Done | Max Garber |
 |✔️| Ogre Conscript| Done | Max Garber |
@@ -76,6 +77,7 @@
 |---|------|----------------|-------------|
 |✔️| Arc Warden | Done | Max Garber |
 |✔️| Axe | Done | Max Garber |
+|✔️| Beast Master | Done | Max Garber |
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |

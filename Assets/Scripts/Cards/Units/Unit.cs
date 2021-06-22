@@ -55,6 +55,9 @@ public class Unit : Card
 
     protected string targetTag = "Card Slot";
 
+    [HideInInspector]
+    public bool inPlay = false;
+
     public List<(System.Type, GameEventSystem.EventListener)> inPlayEvents = new List<(System.Type, GameEventSystem.EventListener)>();
 
     public override void OnValidate()
@@ -99,6 +102,7 @@ public class Unit : Card
         armor = originalUnit.armor;
         //baseMaxHealth = originalUnit.baseMaxHealth;
         //baseMaxArmor = originalUnit.baseMaxHealth;
+        inPlay = originalUnit.inPlay;
 
         //clone modifier scripts
         IModifier[] modifiers = originalGameObject.GetComponents<IModifier>();
@@ -206,6 +210,7 @@ public class Unit : Card
     public override void OnPlay()
     {
         base.OnPlay();
+        inPlay = true;
         inPlayEvents.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
         inPlayEvents.Add(GameEventSystem.Register<GameUpdate_e>(CheckAlive));
         
@@ -228,6 +233,7 @@ public class Unit : Card
         isDraggable = true;
         displayCardText.transform.parent.gameObject.SetActive(true);
         arrow = 0;
+        inPlay = false;
         GameEventSystem.Unregister(inPlayEvents);
         GetComponent<AbilitiesManager>().Bounce();
 
@@ -248,6 +254,7 @@ public class Unit : Card
         if (killed) { OnKilled(); }
         GetComponent<AbilitiesManager>().DestroyCard();
         arrow = 0;
+        inPlay = false;
         GameEventSystem.Unregister(inPlayEvents);
         base.DestroyCard();
     }

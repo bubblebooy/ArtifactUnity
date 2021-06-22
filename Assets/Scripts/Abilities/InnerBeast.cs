@@ -9,12 +9,15 @@ public class InnerBeast : ModifierAbility
     public override void CardUpdate()
     {
         base.CardUpdate();
-        attack = 0;
-        foreach(Unit unit in card.GetNeighbors())
+        if (card.inPlay)
         {
-            if(unit?.cardName == "Loyal Beast")
+            attack = 0;
+            foreach (Unit unit in card.GetNeighbors())
             {
-                attack += 2;
+                if (unit?.cardName == "Loyal Beast")
+                {
+                    attack += 2;
+                }
             }
         }
     }

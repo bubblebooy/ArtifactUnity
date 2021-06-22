@@ -9,21 +9,23 @@ public class LoyalBeast : ModifierAbility
     public override void CardUpdate()
     {
         base.CardUpdate();
-        firstMod = maxHealth != 2;
-        if (maxHealth != 2)
+        if (card.inPlay)
         {
-            OnStatRemoved();
-        }
-        attack = 0;
-        maxHealth = 0;
-        foreach (Unit unit in card.GetNeighbors())
-        {
-            if (unit?.cardName == "Beatmaster")
+            firstMod = maxHealth != 2;
+            if (maxHealth != 2)
             {
-                attack = 2;
-                maxHealth = 2;
+                OnStatRemoved();
+            }
+            attack = 0;
+            maxHealth = 0;
+            foreach (Unit unit in card.GetNeighbors())
+            {
+                if (unit?.cardName == "Beatmaster")
+                {
+                    attack = 2;
+                    maxHealth = 2;
+                }
             }
         }
     }
-
 }

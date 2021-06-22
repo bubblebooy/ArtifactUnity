@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : NetworkBehaviour
 {
+    [SerializeField]
+    private GameObject CardSlotPrefab;
+
     public GameManager GameManager;
     public GameObject PlayerArea;
     public GameObject EnemyArea;
@@ -24,16 +27,14 @@ public class PlayerManager : NetworkBehaviour
     public List<GameObject> deck;
     public List<GameObject> heroes;
     public List<GameObject> items;
-    //public List<GameObject> cards = new List<GameObject>();
-    //public List<GameObject> heroes = new List<GameObject>();
-    //private Dictionary<string, GameObject> cardDict; // = cards.ToDictionary(x => x.name, x => x);
-    //public GameObject laneCreep; // dict of all creeps
 
     public bool debug = true;
 
     System.Random rand = new System.Random();
 
     public bool IsMyTurn = true;
+
+    private int cardSlotID = 0;
 
     //[SyncVar]
     //int expamle = 0;
@@ -147,15 +148,36 @@ public class PlayerManager : NetworkBehaviour
             }
         }
         //*****************************************//
+        GameObject cardSlot;
+        foreach(LaneManager lane in GameObject.Find("Board").GetComponentsInChildren<LaneManager>())
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                cardSlot = Instantiate(CardSlotPrefab, new Vector2(0, 0), Quaternion.identity);
+                NetworkServer.Spawn(cardSlot, connectionToClient);
+                RpcNewCardSlot(lane.gameObject, cardSlot, i);
+            }
+        }
+        GameObject hero;
         for (int i= 0; i < 5; i++)
         {
-            GameObject hero = Instantiate(heroes[i], new Vector2(0, 0), Quaternion.identity);
+            hero = Instantiate(heroes[i], new Vector2(0, 0), Quaternion.identity);
             NetworkServer.Spawn(hero, connectionToClient);
             RpcShowCard(hero, "Hero");
             RpcSetHeroRespawn(hero, Mathf.Max(0, i - 2));
         }
         RpcGameChangeState("Flop");
     }
+
+    [ClientRpc]
+    void RpcNewCardSlot(GameObject lane, GameObject cardSlot, int siblingIndex)
+    {
+        cardSlot.transform.SetParent(lane.transform.Find(hasAuthority ? "PlayerSide" : "EnemySide"), false);
+        cardSlot.transform.SetSiblingIndex(siblingIndex);
+        cardSlot.name = $"CardSlot ({cardSlotID})";
+        cardSlotID += 1;
+    }
+
 
     [ClientRpc]
     void RpcSetHeroRespawn(GameObject hero, int respawn)

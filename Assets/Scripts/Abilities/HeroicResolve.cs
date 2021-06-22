@@ -9,7 +9,10 @@ public class HeroicResolve : Ability, IModifier
     public override void CardUpdate()
     {
         base.CardUpdate();
-        missingHealth = card.maxHealth - card.health;
+        if (card.inPlay)
+        {
+            missingHealth = card.maxHealth - card.health;
+        }
     }
     public override void Clone(Ability originalAbility)
     {
