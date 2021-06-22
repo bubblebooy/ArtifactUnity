@@ -223,7 +223,7 @@ public class Unit : Card
     {
         // Move to hand based on player ownership? or just player side?
         gameObject.transform.SetParent(
-            GameObject.Find(hasAuthority ? "PlayerArea" : "EnemyArea").transform,
+            GameObject.Find(hasAuthority ? "PlayerOverDraw" : "EnemyOverDraw").transform,
             false);
         isDraggable = true;
         displayCardText.transform.parent.gameObject.SetActive(true);

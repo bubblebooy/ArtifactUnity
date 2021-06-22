@@ -12,6 +12,8 @@ public class PlayerManager : NetworkBehaviour
     public GameObject EnemyArea;
     public GameObject PlayerDeck;
     public GameObject EnemyDeck;
+    public GameObject PlayerOverDraw;
+    public GameObject EnemyOverDraw;
     public GameObject PlayerFountain;
     public GameObject EnemyFountain;
     public GameObject PlayerGold;
@@ -75,6 +77,10 @@ public class PlayerManager : NetworkBehaviour
         EnemyArea = GameObject.Find("EnemyArea");
         PlayerDeck = GameObject.Find("PlayerDeck");
         EnemyDeck = GameObject.Find("EnemyDeck");
+        PlayerOverDraw = GameObject.Find("PlayerOverDraw");
+        EnemyOverDraw = GameObject.Find("EnemyOverDraw");
+        PlayerOverDraw.GetComponent<OverDrawManager>().handArea = PlayerArea;
+        EnemyOverDraw.GetComponent<OverDrawManager>().handArea = EnemyArea;
         PlayerFountain = GameObject.Find("PlayerFountain");
         EnemyFountain = GameObject.Find("EnemyFountain");
         PlayerGold = GameObject.Find("PlayerGold");
@@ -235,17 +241,15 @@ public class PlayerManager : NetworkBehaviour
         {
             if(PlayerDeck.transform.childCount == 0) { return; }
             GameObject card = PlayerDeck.transform.GetChild(PlayerDeck.transform.childCount - 1).gameObject;
-            card.transform.SetParent(PlayerArea.transform, false);
+            card.transform.SetParent(PlayerOverDraw.transform, false);
             card.transform.rotation = Quaternion.identity;
-            card.GetComponent<Card>().revealed = true;
         }
         else
         {
             if (EnemyDeck.transform.childCount == 0) { return; }
             GameObject card = EnemyDeck.transform.GetChild(EnemyDeck.transform.childCount - 1).gameObject;
-            card.transform.SetParent(EnemyArea.transform, false);
+            card.transform.SetParent(EnemyOverDraw.transform, false);
             card.transform.rotation = Quaternion.identity;
-            card.GetComponent<Card>().revealed = false;
         }
     }
 
@@ -538,13 +542,11 @@ public class PlayerManager : NetworkBehaviour
         {
             if (hasAuthority)
             {
-                card.GetComponent<Card>().revealed = true;
-                card.transform.SetParent(PlayerArea.transform, false);
+                card.transform.SetParent(PlayerOverDraw.transform, false);
             }
             else
             {
-                card.GetComponent<Card>().revealed = false;
-                card.transform.SetParent(EnemyArea.transform, false);
+                card.transform.SetParent(EnemyOverDraw.transform, false);
                 card.GetComponent<Card>().CardUIUpdate(new GameUpdateUI_e());
             }
         }

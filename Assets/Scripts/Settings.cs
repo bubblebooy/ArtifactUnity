@@ -20,6 +20,8 @@ public class Settings : MonoBehaviour
     [SerializeField]
     private TMP_InputField inputCardDraw;
     [SerializeField]
+    private TMP_InputField inputMaxHandSize;
+    [SerializeField]
     private Button OpenSettings;
     [SerializeField]
     private Button CloseSettings;
@@ -32,6 +34,7 @@ public class Settings : MonoBehaviour
         public int startingGold;
         public int startingHand;
         public float cardDraw;
+        public int maxHandSize;
     }
     public Values values;
     public bool debug = false;
@@ -66,6 +69,8 @@ public class Settings : MonoBehaviour
         values.startingGold = PlayerPrefs.GetInt("StartingGold", values.startingGold);
         values.startingHand = PlayerPrefs.GetInt("StartingHand", values.startingHand);
         values.cardDraw = PlayerPrefs.GetFloat("CardDraw", values.cardDraw);
+        values.maxHandSize = PlayerPrefs.GetInt("MaxHandSize", values.maxHandSize);
+        
         UpdateUI();
     }
 
@@ -80,6 +85,7 @@ public class Settings : MonoBehaviour
         inputStartingGold.text = values.startingGold.ToString();
         inputStartingHand.text = values.startingHand.ToString();
         inputCardDraw.text = values.cardDraw.ToString();
+        inputMaxHandSize.text = values.maxHandSize.ToString();
     }
     public void UIInteractable(bool interactable = true)
     {
@@ -87,6 +93,7 @@ public class Settings : MonoBehaviour
         inputStartingGold.interactable = interactable;
         inputStartingHand.interactable = interactable;
         inputCardDraw.interactable = interactable;
+        inputMaxHandSize.interactable = interactable;
     }
 
     public void ChangeStartingMana()
@@ -117,6 +124,13 @@ public class Settings : MonoBehaviour
         PlayerPrefs.Save();
         SettingsChanged();
     }
+    public void ChangeMaxHandSize()
+    {
+        values.maxHandSize = int.Parse(inputMaxHandSize.text);
+        PlayerPrefs.SetInt("MaxHandSize", values.maxHandSize);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
 
     public void Initialize()
     {
@@ -127,6 +141,10 @@ public class Settings : MonoBehaviour
         foreach (GoldManager goldManager in FindObjectsOfType<GoldManager>())
         {
             goldManager.SetGold(values.startingGold);
+        }
+        foreach (OverDrawManager overDrawManager in FindObjectsOfType<OverDrawManager>())
+        {
+            overDrawManager.maxHandSize = values.maxHandSize;
         }
     }
 

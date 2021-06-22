@@ -144,7 +144,7 @@ public class Item : Card, ITargets, IItem
     public void Bounce()
     {
         gameObject.transform.SetParent(
-            GameObject.Find(hasAuthority ? "PlayerArea" : "EnemyArea").transform,
+            GameObject.Find(hasAuthority ? "PlayerOverDraw" : "EnemyOverDraw").transform,
             false);
         isDraggable = true;
         displayCardText.transform.parent.gameObject.SetActive(true);

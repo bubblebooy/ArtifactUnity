@@ -52,7 +52,7 @@ public class DragDrop : NetworkBehaviour
 
     public void StartDrag()
     {
-        if (!card.isDraggable) return;
+        if (!card.isDraggable && !card.revealed) return;
         startPosition = transform.position;
         startParent = transform.parent.gameObject;
         transform.SetParent(Canvas.transform, false);
