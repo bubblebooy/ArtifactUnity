@@ -25,7 +25,7 @@ public class ModifierAbility : Ability, IModifier
     public bool damageImmunity = false;
     public bool untargetable = false;
 
-    private bool firstMod = true;
+    protected bool firstMod = true;
 
     public override void Clone(Ability originalAbilityAbility)
     {
@@ -90,7 +90,7 @@ public class ModifierAbility : Ability, IModifier
         }
     }
 
-    protected override void OnDestroy()
+    protected void OnStatRemoved()
     {
         card.maxArmor -= maxArmor;
         card.maxHealth -= maxHealth;
@@ -102,6 +102,11 @@ public class ModifierAbility : Ability, IModifier
         {
             card.health = Mathf.Max(card.maxHealth, card.health - maxHealth);
         }
+    }
+
+    protected override void OnDestroy()
+    {
+        OnStatRemoved();
         base.OnDestroy();
     }
 
