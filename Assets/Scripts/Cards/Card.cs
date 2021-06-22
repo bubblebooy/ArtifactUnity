@@ -38,7 +38,7 @@ public abstract class Card : NetworkBehaviour
     [TextArea]
     public string cardText;
 
-    private TextMeshProUGUI displayMana;
+    protected TextMeshProUGUI displayMana;
     protected TextMeshProUGUI displayCardText;
 
     public static Dictionary<string, Color> colorDict = new Dictionary<string, Color>()
@@ -91,7 +91,7 @@ public abstract class Card : NetworkBehaviour
             color = color.ToLower();
             if (colorDict.ContainsKey(color))
             {
-                gameObject.transform.Find("CardFront").GetComponent<Image>().color = colorDict[color];
+                gameObject.transform.Find("CardFront/Color").GetComponent<Image>().color = colorDict[color];
             }
         }
 
@@ -192,8 +192,11 @@ public abstract class Card : NetworkBehaviour
 
     public virtual void CardUIUpdate(GameUpdateUI_e e)
     {
-        if (displayMana != null) { displayMana.text = mana.ToString(); }
-        if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
+        if (revealed)
+        {
+            if (displayMana != null) { displayMana.text = mana.ToString(); }
+            if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
+        }
         CardFront.SetActive(revealed);
         CardBack.SetActive(!revealed);
     }

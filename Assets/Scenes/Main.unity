@@ -2414,6 +2414,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.67500305
       objectReference: {fileID: 0}
+    - target: {fileID: 1448245143753627505, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448245143753627505, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448245143753627505, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448245143753627505, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1500807774400179325, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: sceneId
       value: 1898307689

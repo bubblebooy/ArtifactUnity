@@ -89,7 +89,7 @@ public class Unit : Card
         displayArmor.text = "<sprite=1>" + armor.ToString();
         displayHealth.text = "<sprite=2>" + health.ToString();
         if (disarmed || stun) { displayAttack.color = Color.grey; }
-        displayArrow = gameObject.transform.Find("CardFront/Arrow");
+        displayArrow = gameObject.transform.Find("Arrow");
         events.Add(GameEventSystem.Register<GameUpdate_e>(CardUpdate));
     }
 
@@ -189,21 +189,26 @@ public class Unit : Card
     public override void CardUIUpdate(GameUpdateUI_e e)
     {
         base.CardUIUpdate(e);
-        displayAttack.text = "<sprite=0>" + attack.ToString();
-        displayArmor.text = "<sprite=1>" + armor.ToString();
-        displayHealth.text = "<sprite=2>" + health.ToString();
-
-        if (arrow != 0)
+        if (revealed)
         {
-            displayArrow.gameObject.SetActive(true);
-            int side = GetSide() == "PlayerSide" ? 1 : -1;
-            displayArrow.localPosition = new Vector3(20 * arrow, 70 * side, 0);
-            displayArrow.localEulerAngles = new Vector3(0, 0, arrow * (-90 + 60 * side));
-        }
-        else { displayArrow.gameObject.SetActive(false); }
+            displayAttack.text = "<sprite=0>" + attack.ToString();
+            displayArmor.text = "<sprite=1>" + armor.ToString();
+            displayHealth.text = "<sprite=2>" + health.ToString();
 
-        if (disarmed) { displayAttack.color = Color.grey; }
-        else { displayAttack.color = Color.white; }
+            displayMana.transform.parent.gameObject.SetActive(!(inPlay || this is Hero));
+
+            if (arrow != 0)
+            {
+                displayArrow.gameObject.SetActive(true);
+                int side = GetSide() == "PlayerSide" ? 1 : -1;
+                displayArrow.localPosition = new Vector3(20 * arrow, 70 * side, 0);
+                displayArrow.localEulerAngles = new Vector3(0, 0, arrow * (-90 + 60 * side));
+            }
+            else { displayArrow.gameObject.SetActive(false); }
+
+            if (disarmed) { displayAttack.color = Color.grey; }
+            else { displayAttack.color = Color.white; }
+        }
     }
 
 

@@ -151,7 +151,7 @@ public class PlayerManager : NetworkBehaviour
         GameObject cardSlot;
         foreach(LaneManager lane in GameObject.Find("Board").GetComponentsInChildren<LaneManager>())
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < Settings.values.numberOfSlots; i++)
             {
                 cardSlot = Instantiate(CardSlotPrefab, new Vector2(0, 0), Quaternion.identity);
                 NetworkServer.Spawn(cardSlot, connectionToClient);

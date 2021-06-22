@@ -175,6 +175,18 @@ PrefabInstance:
       propertyPath: m_text
       value: <sprite=2>4
       objectReference: {fileID: 0}
+    - target: {fileID: 8133886668873735030, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133886668873735030, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133886668873735030, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8872661395717017919, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Name
       value: Oglodi Catapult

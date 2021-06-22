@@ -64,6 +64,18 @@ PrefabInstance:
       value: "Enchant Tower\r\n\r\nActive 1\u25A0, 1 Mana: Move one of your heroes
         to an adjacent lane."
       objectReference: {fileID: 0}
+    - target: {fileID: 2829669351377404215, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829669351377404215, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829669351377404215, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
       propertyPath: m_Name
       value: Escape Route

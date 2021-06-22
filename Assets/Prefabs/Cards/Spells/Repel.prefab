@@ -80,6 +80,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Repel
       objectReference: {fileID: 0}
+    - target: {fileID: 4483911842211962826, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483911842211962826, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483911842211962826, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

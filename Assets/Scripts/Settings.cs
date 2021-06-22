@@ -22,6 +22,8 @@ public class Settings : MonoBehaviour
     [SerializeField]
     private TMP_InputField inputMaxHandSize;
     [SerializeField]
+    private TMP_InputField inputNumberOfSlots;
+    [SerializeField]
     private Button OpenSettings;
     [SerializeField]
     private Button CloseSettings;
@@ -35,6 +37,7 @@ public class Settings : MonoBehaviour
         public int startingHand;
         public float cardDraw;
         public int maxHandSize;
+        public int numberOfSlots;
     }
     public Values values;
     public bool debug = false;
@@ -65,12 +68,14 @@ public class Settings : MonoBehaviour
     public void LoadPlayerPrefs()
     {
         if (debug){return;}
+        //                                          Key             Default Value
         values.startingMana = PlayerPrefs.GetInt("StartingMana", values.startingMana);
         values.startingGold = PlayerPrefs.GetInt("StartingGold", values.startingGold);
         values.startingHand = PlayerPrefs.GetInt("StartingHand", values.startingHand);
         values.cardDraw = PlayerPrefs.GetFloat("CardDraw", values.cardDraw);
         values.maxHandSize = PlayerPrefs.GetInt("MaxHandSize", values.maxHandSize);
-        
+        values.numberOfSlots = PlayerPrefs.GetInt("NumberOfSlots", values.numberOfSlots);
+
         UpdateUI();
     }
 
@@ -86,6 +91,7 @@ public class Settings : MonoBehaviour
         inputStartingHand.text = values.startingHand.ToString();
         inputCardDraw.text = values.cardDraw.ToString();
         inputMaxHandSize.text = values.maxHandSize.ToString();
+        inputNumberOfSlots.text = values.numberOfSlots.ToString();
     }
     public void UIInteractable(bool interactable = true)
     {
@@ -94,6 +100,7 @@ public class Settings : MonoBehaviour
         inputStartingHand.interactable = interactable;
         inputCardDraw.interactable = interactable;
         inputMaxHandSize.interactable = interactable;
+        inputNumberOfSlots.interactable = interactable;
     }
 
     public void ChangeStartingMana()
@@ -128,6 +135,13 @@ public class Settings : MonoBehaviour
     {
         values.maxHandSize = int.Parse(inputMaxHandSize.text);
         PlayerPrefs.SetInt("MaxHandSize", values.maxHandSize);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeNumberOfSlots()
+    {
+        values.numberOfSlots = int.Parse(inputNumberOfSlots.text);
+        PlayerPrefs.SetInt("NumberOfSlots", values.numberOfSlots);
         PlayerPrefs.Save();
         SettingsChanged();
     }

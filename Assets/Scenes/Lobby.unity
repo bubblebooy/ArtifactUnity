@@ -1674,6 +1674,8 @@ MonoBehaviour:
     Name: No Accident
   - ID: 1009
     Name: Zombie
+  - ID: 10136
+    Name: Loyal Beast
   - ID: 3002
     Name: Short Sword
   - ID: 3001
@@ -5017,6 +5019,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2456255084362780757, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848063050011670007, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848063050011670007, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848063050011670007, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848063050011670007, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848063050011670007, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
