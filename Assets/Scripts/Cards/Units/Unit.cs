@@ -288,9 +288,9 @@ public class Unit : Card
         if (disarmed || stun) { return 0; }
         if(target.retaliate > 0)
         {
-            Damage(target.retaliate);
+            Damage(target.retaliate,physical: true);
         }
-        return target.Damage(damage, piercing);
+        return target.Damage(damage, piercing, physical: true);
     }
 
     public virtual void Strike(TowerManager target, int damage, bool piercing = false)
@@ -298,9 +298,9 @@ public class Unit : Card
         if (disarmed || stun) { return; }
         if (target.retaliate > 0)
         {
-            Damage(target.retaliate);
+            Damage(target.retaliate, physical: true);
         }
-        target.Damage(damage, piercing);
+        target.Damage(damage, piercing, physical: true);
     }
 
     public virtual int CalculateDamage(int damage, bool piercing = false)
@@ -321,8 +321,12 @@ public class Unit : Card
         }
         return damage;
     }
-    public virtual int Damage(int damage, bool piercing = false)
+
+    public delegate void DamageDelegate(ref int damage, bool piercing, bool physical);
+    public event DamageDelegate DamageEvent;
+    public virtual int Damage(int damage, bool piercing = false, bool physical = false)
     {
+        DamageEvent?.Invoke(ref damage, piercing, physical);
         health -= CalculateDamage(damage, piercing);
         return health;
     }

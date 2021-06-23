@@ -55,7 +55,7 @@ public class TowerManager : NetworkBehaviour
         }
     }
 
-    public void Damage(int damage, bool piercing = false)
+    public void Damage(int damage, bool piercing = false, bool physical = false)
     {
         bool destoyed = health <= 0;
         if (!piercing)
