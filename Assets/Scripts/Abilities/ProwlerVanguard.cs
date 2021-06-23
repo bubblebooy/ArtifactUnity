@@ -8,7 +8,8 @@ public class ProwlerVanguard : Ability, IAura
 {
     public int armor = 1;
 
-    private Unit[] auraUnits = Array.Empty<Unit>();
+    //private Unit[] auraUnits = Array.Empty<Unit>();
+    private List<AuraModifier> auraMods = new List<AuraModifier>();
 
     public override void OnPlay()
     {
@@ -17,26 +18,41 @@ public class ProwlerVanguard : Ability, IAura
 
     public void ContinuousEffect(Auras_e e)
     {
-        Unit[] _auraUnits = card.GetNeighbors().Where(x => x != null).ToArray();
-        foreach (Unit unit in _auraUnits)
+        ComponentGameObjectComparer comparer = new ComponentGameObjectComparer();
+        Unit[] auraUnits = card.GetNeighbors().Where(x => x != null).ToArray();
+        foreach (Unit unit in auraUnits.Except(auraMods , comparer))
         {
-            if (unit == card) { continue; }
-            if (unit != card && unit.GetSide() == card.GetSide())
-            {
-                unit.maxArmor += armor;
-            }
+            AuraModifier modifier = unit.gameObject.AddComponent<AuraModifier>() as AuraModifier;
+            modifier.maxArmor += armor;
+            auraMods.Add(modifier);
+            GameManager.updateloop = true;
         }
-        foreach (Unit unit in _auraUnits.Except(auraUnits))
+        foreach (AuraModifier modifier in auraMods.ToArray().Except(auraUnits, comparer))
         {
-            if (unit == card) { continue; }
-            unit.armor += armor;
+            Destroy(modifier);
+            auraMods.Remove(modifier);
+            GameManager.updateloop = true;
         }
-        foreach (Unit unit in auraUnits.Except(_auraUnits))
-        {
-            if (unit == card) { continue; }
-            unit.armor = Math.Min(unit.maxArmor, unit.armor);
-        }
-        auraUnits = _auraUnits;
+        //Unit[] _auraUnits = card.GetNeighbors().Where(x => x != null).ToArray();
+        //foreach (Unit unit in _auraUnits)
+        //{
+        //    if (unit == card) { continue; }
+        //    if (unit != card && unit.GetSide() == card.GetSide())
+        //    {
+        //        unit.maxArmor += armor;
+        //    }
+        //}
+        //foreach (Unit unit in _auraUnits.Except(auraUnits))
+        //{
+        //    if (unit == card) { continue; }
+        //    unit.armor += armor;
+        //}
+        //foreach (Unit unit in auraUnits.Except(_auraUnits))
+        //{
+        //    if (unit == card) { continue; }
+        //    unit.armor = Math.Min(unit.maxArmor, unit.armor);
+        //}
+        //auraUnits = _auraUnits;
     }
 
     protected override void OnDestroy()
@@ -53,14 +69,20 @@ public class ProwlerVanguard : Ability, IAura
 
     private void LeavePlay()
     {
-        foreach (Unit unit in auraUnits)
+        foreach (AuraModifier modifier in auraMods.ToList())
         {
-            if (unit == card) { continue; }
-            if (unit.armor != 0)
-            {
-                unit.armor += armor;
-            }
+            Destroy(modifier);
+            auraMods.Remove(modifier);
+            GameManager.updateloop = true;
         }
+        //foreach (Unit unit in auraUnits)
+        //{
+        //    if (unit == card) { continue; }
+        //    if (unit.armor != 0)
+        //    {
+        //        unit.armor += armor;
+        //    }
+        //}
     }
 
 }

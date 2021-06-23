@@ -12,7 +12,10 @@ public class Bristleback : Ability
 
     protected override void OnDestroy()
     {
-        card.GetComponentInParent<Unit>().DamageEvent -= Damage;
+        if(card.GetComponentInParent<Unit>() != null)
+        {
+            card.GetComponentInParent<Unit>().DamageEvent -= Damage;
+        }
         base.OnDestroy();
     }
 

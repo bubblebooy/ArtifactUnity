@@ -46,6 +46,7 @@ public struct TowerDestroyed_e : IGameEventInfo
 
 
 public struct Auras_e : IGameEventInfo { }
+public struct AuraModifiers_e : IGameEventInfo { }
 public struct GameUpdateUI_e : IGameEventInfo { }
 public struct EndCombatPhase_e : IGameEventInfo { }
 public struct DeathEffects_e : IGameEventInfo { }

@@ -261,6 +261,7 @@ public class GameManager : NetworkBehaviour
         updateloop = false;
         GameEventSystem.Event(new GameUpdate_e(state, checkAlive));
         GameEventSystem.Event(new Auras_e());
+        GameEventSystem.Event(new AuraModifiers_e());
         GameEventSystem.Event(new GameUpdateUI_e());
         GameEventSystem.Event(new DeathEffects_e(), unregister: true);
         if (updateloop) { GameUpdate(state, checkAlive); }
