@@ -15,12 +15,15 @@ public class DragDrop : NetworkBehaviour
     private Vector2 startPosition;
     private GameObject startParent;
 
+    private GameObject targetingLine;
+
 
     private void Start()
     {
         Canvas = GameObject.Find("Main Canvas");
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         card = gameObject.GetComponent<Card>();
+        targetingLine = GameObject.Find("TargetingArrow");
         //NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         //PlayerManager = networkIdentity.GetComponent<PlayerManager>();
 
@@ -35,7 +38,16 @@ public class DragDrop : NetworkBehaviour
     {
         if (isDragging)
         {
-            transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);  
+            //transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            Vector3 start = transform.position;
+            Vector3 end = Input.mousePosition;
+            (targetingLine.transform as RectTransform).position = start;
+
+            float length = Vector2.Distance(start, Input.mousePosition);
+            float angle = Vector2.SignedAngle(Vector2.up, end - start);
+            (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10, length);
+            (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0, 0, angle);
         }
         
     }
@@ -52,42 +64,67 @@ public class DragDrop : NetworkBehaviour
 
     public void StartDrag()
     {
-        if (!card.isDraggable && !card.revealed) return;
+        if (!card.isDraggable || !card.revealed) return;
         startPosition = transform.position;
         startParent = transform.parent.gameObject;
         transform.SetParent(Canvas.transform, false);
+        transform.position = startPosition + 100f * Vector2.up;
         isDragging = true;
     }
 
     public void EndDrag()
     {
-        if (!card.isDraggable) return;
+        if (!card.isDraggable || !card.revealed) return;
         isDragging = false;
+
+        (targetingLine.transform as RectTransform).position = new Vector2(-10, 0);
+        (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10, 100);
+        (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0, 0, 0);
 
         Unit caster = null;
         CardPlayed_e cardPlayed_e = new CardPlayed_e();
 
-        if (dropZone.Count > 0 )
+        RaycastHit2D[] hits = Physics2D.RaycastAll(Input.mousePosition, Vector2.zero, 0f);
+        foreach (RaycastHit2D hit in hits)
         {
-            for (int i = dropZone.Count - 1; i >= 0; i--)
+            GameObject target = hit.collider.gameObject;
+            if (card.IsVaildPlay(target))
             {
-                if (card.IsVaildPlay(dropZone[i]))
-                {
-                    //Color check
-                    caster = GetCaster(dropZone[i]);
-                    if (caster is null) { break;  }
-                    if (dropZone[i].GetComponent<CardSlot>() != null) { dropZone[i].GetComponent<CardSlot>().UnStage(); }
-                    transform.SetParent(dropZone[i].transform, false);
-                    transform.position = dropZone[i].transform.position + new Vector3(10,-10,0);
-                    cardPlayed_e.card = card.gameObject;
-                    cardPlayed_e.caster = caster.gameObject;
-                    cardPlayed_e.lane = caster.GetLane().gameObject;
-                    card.Stage(cardPlayed_e);
-                    return;
-                }
+                //Color check
+                caster = GetCaster(target);
+                if (caster is null) { break; }
+                if (target.GetComponent<CardSlot>() != null) { target.GetComponent<CardSlot>().UnStage(); }
+                transform.SetParent(target.transform, false);
+                transform.position = target.transform.position + new Vector3(10, -10, 0);
+                cardPlayed_e.card = card.gameObject;
+                cardPlayed_e.caster = caster.gameObject;
+                cardPlayed_e.lane = caster.GetLane().gameObject;
+                card.Stage(cardPlayed_e);
+                return;
             }
-
         }
+
+        //if (dropZone.Count > 0 )
+        //{
+        //    for (int i = dropZone.Count - 1; i >= 0; i--)
+        //    {
+        //        if (card.IsVaildPlay(dropZone[i]))
+        //        {
+        //            //Color check
+        //            caster = GetCaster(dropZone[i]);
+        //            if (caster is null) { break;  }
+        //            if (dropZone[i].GetComponent<CardSlot>() != null) { dropZone[i].GetComponent<CardSlot>().UnStage(); }
+        //            transform.SetParent(dropZone[i].transform, false);
+        //            transform.position = dropZone[i].transform.position + new Vector3(10,-10,0);
+        //            cardPlayed_e.card = card.gameObject;
+        //            cardPlayed_e.caster = caster.gameObject;
+        //            cardPlayed_e.lane = caster.GetLane().gameObject;
+        //            card.Stage(cardPlayed_e);
+        //            return;
+        //        }
+        //    }
+
+        //}
         gameObject.GetComponent<Card>().UnStage();
     }
 

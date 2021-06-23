@@ -5,9 +5,25 @@ using UnityEngine.EventSystems;
 
 public class TargetSelector : MonoBehaviour
 {
+    private GameObject targetingLine;
+    
     //// Update is called once per frame
+
+    private void Start()
+    {
+        targetingLine = GameObject.Find("TargetingArrow");
+    }
     void Update()
     {
+        Vector3 start = transform.position;
+        Vector3 end = Input.mousePosition;
+        (targetingLine.transform as RectTransform).position = start;
+        
+        float length = Vector2.Distance(start, Input.mousePosition);
+        float angle = Vector2.SignedAngle(Vector2.up,end - start);
+        (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10,length);
+        (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0,0, angle);
+
         //hits graphics instead of colliders
         //https://docs.unity3d.com/2017.3/Documentation/ScriptReference/UI.GraphicRaycaster.Raycast.html
         if (Input.GetMouseButtonDown(0))
@@ -32,5 +48,11 @@ public class TargetSelector : MonoBehaviour
             gameObject.GetComponent<ITargets>().TargetCanceled();
             Destroy(this);
         }
+    }
+    private void OnDestroy()
+    {
+        (targetingLine.transform as RectTransform).position = new Vector2(-10,0);
+        (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10, 100);
+        (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0, 0, 0);
     }
 }
