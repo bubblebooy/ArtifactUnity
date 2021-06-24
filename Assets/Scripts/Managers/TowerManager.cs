@@ -7,12 +7,16 @@ using TMPro;
 
 public class TowerManager : NetworkBehaviour
 {
-    public int health = 40, armor = 0;
+    public int health = 40, armor = 0, ancientHealth = 40;
+    public int mana = 3, maxMana = 3;
+    public float manaGrowth = 1, growthRemainder;
     public int retaliate = 0;
     private int maxHealth, maxArmor;
     public bool ancient = false;
     public bool playerTower = false;
     private TextMeshProUGUI  displayHealth; //displayArmor,
+    [SerializeField]
+    private TextMeshProUGUI displayMana, displayMaxMana;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
 
@@ -38,10 +42,26 @@ public class TowerManager : NetworkBehaviour
         playerTower = transform.parent.name == "PlayerSide";
     }
 
+    public void Initialize(Settings settings)
+    {
+        mana = (int)settings.values.towerMana;
+        growthRemainder = settings.values.towerMana % 1;
+        manaGrowth = settings.values.towerManaGrowth;
+        maxMana = (int)settings.values.towerMana;
+        TowerUpdate(new GameUpdateUI_e());
+        health = settings.values.towerHealth;
+        ancientHealth = settings.values.ancientHealth;
+    }
+
     public void TowerUpdate(GameUpdateUI_e e)
     {
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
         displayHealth.text = health.ToString();
+
+        displayMana.text = mana.ToString();
+        displayMaxMana.text = maxMana.ToString();
+        displayMaxMana.enabled = mana != maxMana && maxMana > 0;
+        displayMana.enabled = mana != 0 || maxMana > 0;
     }
 
     public void RoundStart(RoundStart_e e)
@@ -51,8 +71,14 @@ public class TowerManager : NetworkBehaviour
             ancient = true;
             gameObject.GetComponent<Image>().color = new Color(1f, 0.0f, 0.0f, 1.0f);
             gameObject.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1f, 0.1f, 0.0f, 1.0f);
-            health = 40;
+            health = ancientHealth;
         }
+
+        growthRemainder += manaGrowth;
+        int _manaGrowth = (int)growthRemainder;
+        growthRemainder -= _manaGrowth;
+        maxMana += _manaGrowth;
+        mana = maxMana;
     }
 
     public void Damage(int damage, bool piercing = false, bool physical = false)
@@ -77,5 +103,25 @@ public class TowerManager : NetworkBehaviour
             GameEventSystem.Event(new TowerDestroyed_e(this));
         }
         //return health;
+    }
+
+    public int PayMana(int cost)
+    {
+        mana -= cost;
+        if (mana >= 0)
+        {
+            return 0;
+        }
+        else
+        {
+            cost = -mana;
+            mana = 0;
+            return cost;
+        }
+    }
+
+    public int CurrentMana()
+    {
+        return mana;
     }
 }

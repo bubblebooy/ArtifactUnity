@@ -51,7 +51,7 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         if (GetSide() == "PlayerSide" &&
             PlayerManager.IsMyTurn &&
             LaneManager.GameManager.GameState == "Play" &&
-            ManaManager.mana >= mana &&
+            ManaManager.CurrentMana(gameObject.GetComponentInParent<LaneManager>()) >= mana &&
             cooldown <= 0)
         {
             return true;
@@ -113,7 +113,7 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
     public virtual void OnActivate(List<GameObject> targets)
     {
         cooldown = baseCooldown;
-        ManaManager.mana -= mana;
+        ManaManager.PayMana(mana, gameObject.GetComponentInParent<LaneManager>());
         transform.Find("frame").GetComponent<Image>().color = Color.white;
         selectedTargets.Clear();
     }

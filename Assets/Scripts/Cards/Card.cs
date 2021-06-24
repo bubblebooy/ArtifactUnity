@@ -147,7 +147,9 @@ public abstract class Card : NetworkBehaviour
 
     public void PayMana()
     {
-        ManaManager.mana -= mana;
+        // gameObject.GetComponentInParent<LaneManager>();
+        ManaManager.PayMana(mana, gameObject.GetComponentInParent<LaneManager>());
+            //mana -= mana;
     }
 
     public virtual void OnPlay()
@@ -168,7 +170,7 @@ public abstract class Card : NetworkBehaviour
         if (PlayerManager.IsMyTurn &&
             GameManager.GameState == "Play" &&
             locked <= 0 &&
-            ManaManager.mana >= mana &&
+            ManaManager.CurrentMana(target.GetComponentInParent<LaneManager>()) >= mana &&
             (targetUnit?.hasAuthority != !hasAuthority || targetUnit?.untargetable != true))
         {
             bool valid = true;

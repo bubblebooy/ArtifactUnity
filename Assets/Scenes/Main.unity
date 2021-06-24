@@ -872,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: values.numberOfSlots
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118041, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_Name
@@ -1288,7 +1288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6472240201746925875, guid: cc0fa1c4fdf63c64c990a55d85931d90, type: 3}
       propertyPath: m_text
-      value: 30
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6472240201746925875, guid: cc0fa1c4fdf63c64c990a55d85931d90, type: 3}
       propertyPath: m_fontSize
@@ -1298,6 +1298,10 @@ PrefabInstance:
       propertyPath: m_spriteAsset
       value: 
       objectReference: {fileID: 11400000, guid: 61ae7f9e164b0d7409181c06b4c940e8, type: 2}
+    - target: {fileID: 9087077828135863906, guid: cc0fa1c4fdf63c64c990a55d85931d90, type: 3}
+      propertyPath: playerMana
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc0fa1c4fdf63c64c990a55d85931d90, type: 3}
 --- !u!1 &1957744211
@@ -2330,6 +2334,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 310803853958756004, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 311341891675450323, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: sceneId
       value: 728125909
@@ -2689,6 +2697,10 @@ PrefabInstance:
     - target: {fileID: 3736404733227506347, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: sceneId
       value: 3911166432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795230749212883356, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3905622005172355873, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_Name
@@ -3165,6 +3177,14 @@ PrefabInstance:
     - target: {fileID: 8903303534875904521, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999012115647222613, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: scrollSensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999012115647222613, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}
+      propertyPath: content.Array.size
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4861fd756fdc58f499b9c288414afda0, type: 3}

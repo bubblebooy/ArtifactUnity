@@ -87,7 +87,10 @@ public class PlayerManager : NetworkBehaviour
         PlayerGold = GameObject.Find("PlayerGold");
         EnemyGold = GameObject.Find("EnemyGold");
         Board = GameObject.Find("Board");
-        Settings?.Initialize();
+        if (hasAuthority)
+        {
+            Settings?.Initialize();
+        }
     }
     [ClientRpc]
     void RpcInitializeLate()

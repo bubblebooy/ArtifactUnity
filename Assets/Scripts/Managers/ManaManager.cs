@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class ManaManager : MonoBehaviour
 {
-    public int mana = 30, maxMana = 30;
-    public int manaIncrease = 1;
+    public bool playerMana;
+    private int mana = 30, maxMana = 30;
+    public float manaGrowth = 1, growthRemainder;
     private TextMeshProUGUI displayMana, displayMaxMana;
+
+    private Dictionary<LaneManager, TowerManager> laneTowerDict;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
 
@@ -25,11 +29,17 @@ public class ManaManager : MonoBehaviour
         events.Add(GameEventSystem.Register<GameUpdateUI_e>(ManaUpdate));
     }
 
-    public void SetMana(int _mana)
+    public void Initialize(Settings settings)
     {
-        mana = _mana;
-        maxMana = _mana;
+        mana = (int) settings.values.startingMana;
+        growthRemainder = settings.values.startingMana % 1;
+        manaGrowth = settings.values.manaGrowth;
+        maxMana = (int) settings.values.startingMana;
         ManaUpdate(new GameUpdateUI_e());
+
+        laneTowerDict = FindObjectsOfType<TowerManager>()
+            .Where(tower => tower.playerTower == playerMana)
+            .ToDictionary(tower => tower.GetComponentInParent<LaneManager>(), tower => tower);
     }
 
     public void ManaUpdate(GameUpdateUI_e e)
@@ -43,12 +53,33 @@ public class ManaManager : MonoBehaviour
 
     public void RoundStart(RoundStart_e e)
     {
-        maxMana += manaIncrease;
+        growthRemainder += manaGrowth;
+        int _manaGrowth = (int)growthRemainder;
+        growthRemainder -= _manaGrowth;
+        maxMana += _manaGrowth;
         mana = maxMana;
     }
 
     public void Burn(int burn)
     {
         mana = Mathf.Max(0, mana - burn);
+    }
+
+    public int CurrentMana()
+    {
+        return mana;
+    }
+    public int CurrentMana(LaneManager lane)
+    {
+        return CurrentMana() + laneTowerDict[lane].CurrentMana();
+    }
+
+    public void PayMana(int cost)
+    {
+        mana -= cost;
+    }
+    public void PayMana(int cost, LaneManager lane)
+    {
+        PayMana(laneTowerDict[lane].PayMana(cost));
     }
 }

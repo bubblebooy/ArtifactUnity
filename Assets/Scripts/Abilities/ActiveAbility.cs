@@ -35,7 +35,7 @@ public class ActiveAbility : CooldownAbility
             !(card.stun || card.silenced) &&
             PlayerManager.IsMyTurn &&
             card.GameManager.GameState == "Play" &&
-            card.ManaManager.mana >= mana && 
+            card.ManaManager.CurrentMana(gameObject.GetComponentInParent<LaneManager>()) >= mana && 
             cooldown <= 0)
         {
             return true;
@@ -61,7 +61,8 @@ public class ActiveAbility : CooldownAbility
 
     public virtual void OnActivate()
     {
-        card.ManaManager.mana -= mana;
+        //card.ManaManager.mana -= mana;
+        card.ManaManager.PayMana(mana, gameObject.GetComponentInParent<LaneManager>());
         cooldown = baseCooldown;
     }
 

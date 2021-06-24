@@ -11,8 +11,19 @@ public class Settings : MonoBehaviour
 
     [SerializeField]
     private GameObject SettingsDisplay;
+
+    [SerializeField]
+    private TMP_InputField inputTowerHealth;
+    [SerializeField]
+    private TMP_InputField inputAncientHealth;
     [SerializeField]
     private TMP_InputField inputStartingMana;
+    [SerializeField]
+    private TMP_InputField inputManaGrowth;
+    [SerializeField]
+    private TMP_InputField inputTowerMana;
+    [SerializeField]
+    private TMP_InputField inputTowerManaGrowth;
     [SerializeField]
     private TMP_InputField inputStartingGold;
     [SerializeField]
@@ -32,7 +43,14 @@ public class Settings : MonoBehaviour
     [System.Serializable]
     public struct Values
     {
-        public int startingMana;
+        public int towerHealth;
+        public int ancientHealth;
+
+        public float startingMana;
+        public float manaGrowth;
+        public float towerMana;
+        public float towerManaGrowth;
+
         public int startingGold;
         public int startingHand;
         public float cardDraw;
@@ -69,7 +87,14 @@ public class Settings : MonoBehaviour
     {
         if (debug){return;}
         //                                          Key             Default Value
-        values.startingMana = PlayerPrefs.GetInt("StartingMana", values.startingMana);
+        values.towerHealth = PlayerPrefs.GetInt("TowerHealth", values.towerHealth);
+        values.ancientHealth = PlayerPrefs.GetInt("AncientHealth", values.ancientHealth);
+
+        values.startingMana = PlayerPrefs.GetFloat("StartingMana", values.startingMana);
+        values.manaGrowth = PlayerPrefs.GetFloat("ManaGrowth", values.manaGrowth);
+        values.towerMana = PlayerPrefs.GetFloat("TowerMana", values.towerMana);
+        values.towerManaGrowth = PlayerPrefs.GetFloat("TowerManaGrowth", values.towerManaGrowth);
+
         values.startingGold = PlayerPrefs.GetInt("StartingGold", values.startingGold);
         values.startingHand = PlayerPrefs.GetInt("StartingHand", values.startingHand);
         values.cardDraw = PlayerPrefs.GetFloat("CardDraw", values.cardDraw);
@@ -86,7 +111,14 @@ public class Settings : MonoBehaviour
 
     public void UpdateUI()
     {
+        inputTowerHealth.text = values.towerHealth.ToString();
+        inputAncientHealth.text = values.ancientHealth.ToString();
+
         inputStartingMana.text = values.startingMana.ToString();
+        inputManaGrowth.text = values.manaGrowth.ToString();
+        inputTowerMana.text = values.towerMana.ToString();
+        inputTowerManaGrowth.text = values.towerManaGrowth.ToString();
+
         inputStartingGold.text = values.startingGold.ToString();
         inputStartingHand.text = values.startingHand.ToString();
         inputCardDraw.text = values.cardDraw.ToString();
@@ -95,7 +127,14 @@ public class Settings : MonoBehaviour
     }
     public void UIInteractable(bool interactable = true)
     {
+        inputTowerHealth.interactable = interactable;
+        inputAncientHealth.interactable = interactable;
+
         inputStartingMana.interactable = interactable;
+        inputManaGrowth.interactable = interactable;
+        inputTowerMana.interactable = interactable;
+        inputTowerManaGrowth.interactable = interactable;
+
         inputStartingGold.interactable = interactable;
         inputStartingHand.interactable = interactable;
         inputCardDraw.interactable = interactable;
@@ -103,13 +142,49 @@ public class Settings : MonoBehaviour
         inputNumberOfSlots.interactable = interactable;
     }
 
-    public void ChangeStartingMana()
+    public void ChangeTowerHealth()
     {
-        values.startingMana = int.Parse(inputStartingMana.text);
-        PlayerPrefs.SetInt("StartingMana", values.startingMana);
+        values.towerHealth = int.Parse(inputTowerHealth.text);
+        PlayerPrefs.SetInt("TowerHealth", values.towerHealth);
         PlayerPrefs.Save();
         SettingsChanged();
     }
+    public void ChangeAncientHealth()
+    {
+        values.ancientHealth = int.Parse(inputAncientHealth.text);
+        PlayerPrefs.SetInt("AncientHealth", values.ancientHealth);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeStartingMana()
+    {
+        values.startingMana = float.Parse(inputStartingMana.text);
+        PlayerPrefs.SetFloat("StartingMana", values.startingMana);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeManaGrowth()
+    {
+        values.manaGrowth = float.Parse(inputManaGrowth.text);
+        PlayerPrefs.SetFloat("ManaGrowth", values.manaGrowth);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeTowerMana()
+    {
+        values.towerMana = float.Parse(inputTowerMana.text);
+        PlayerPrefs.SetFloat("TowerMana", values.towerMana);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeTowerManaGrowth()
+    {
+        values.towerManaGrowth = float.Parse(inputTowerManaGrowth.text);
+        PlayerPrefs.SetFloat("TowerManaGrowth", values.towerManaGrowth);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+
     public void ChangeStartingGold()
     {
         values.startingGold = int.Parse(inputStartingGold.text);
@@ -150,7 +225,11 @@ public class Settings : MonoBehaviour
     {
         foreach( ManaManager manaManager in FindObjectsOfType<ManaManager>())
         {
-            manaManager.SetMana(values.startingMana);
+            manaManager.Initialize(this);
+        }
+        foreach (TowerManager towerManager in FindObjectsOfType<TowerManager>())
+        {
+            towerManager.Initialize(this);
         }
         foreach (GoldManager goldManager in FindObjectsOfType<GoldManager>())
         {

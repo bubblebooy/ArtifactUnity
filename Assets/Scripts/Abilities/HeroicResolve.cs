@@ -9,7 +9,8 @@ public class HeroicResolve : ModifierAbility
     public override void CardUpdate()
     {
         base.CardUpdate();
-        if (card.inPlay)
+        card = card ?? GetComponentInParent<Unit>();
+        if (card?.inPlay == true)
         {
             attack = card.maxHealth - card.health;
         }
