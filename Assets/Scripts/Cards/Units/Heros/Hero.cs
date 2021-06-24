@@ -70,7 +70,9 @@ public class Hero : Unit
 
     public override void Bounce()
     {
+        //When heroes enter the Fountain they are fully healed and temporary effects on them are purged.
         respawn = 1;
+        Purge(temporyEffectsOnly: true);
         gameObject.transform.SetParent(
             GameObject.Find(gameObject.GetComponent<NetworkIdentity>().hasAuthority ? "PlayerFountain" : "EnemyFountain").transform,
             false);
