@@ -870,6 +870,10 @@ PrefabInstance:
       propertyPath: values.startingMana
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: values.numberOfSlots
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118041, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_Name
       value: SettingsCanvas
@@ -1162,7 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32132697, g: 1, b: 0, a: 0.8}
+  m_Color: {r: 0.49803925, g: 0.83921576, b: 0.9921569, a: 0.5019608}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

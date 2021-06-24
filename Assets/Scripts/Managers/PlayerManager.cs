@@ -89,6 +89,14 @@ public class PlayerManager : NetworkBehaviour
         Board = GameObject.Find("Board");
         Settings?.Initialize();
     }
+    [ClientRpc]
+    void RpcInitializeLate()
+    {
+        foreach (LaneManager lane in Board.GetComponentsInChildren<LaneManager>())
+        {
+            lane.gameObject.GetComponent<LaneScroll>().Initialize();
+        }
+    }
 
 
     [ClientRpc]
@@ -167,6 +175,7 @@ public class PlayerManager : NetworkBehaviour
             RpcSetHeroRespawn(hero, Mathf.Max(0, i - 2));
         }
         RpcGameChangeState("Flop");
+        RpcInitializeLate();
     }
 
     [ClientRpc]
@@ -176,6 +185,7 @@ public class PlayerManager : NetworkBehaviour
         cardSlot.transform.SetSiblingIndex(siblingIndex);
         cardSlot.name = $"CardSlot ({cardSlotID})";
         cardSlotID += 1;
+        //lane.GetComponent<LaneScroll>().SlotAddedRemoved();
     }
 
 

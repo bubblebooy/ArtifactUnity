@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7757110095401016933}
   - component: {fileID: -1802778388743701020}
   - component: {fileID: 5208306890550340862}
+  - component: {fileID: 5887914915133740121}
+  - component: {fileID: 9133304652653044849}
   m_Layer: 5
   m_Name: Lane
   m_TagString: Lane
@@ -153,8 +155,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: -12, y: -150, z: -12, w: -150}
-  m_Softness: {x: 12, y: 0}
+  m_Padding: {x: -5, y: -150, z: -5, w: -150}
+  m_Softness: {x: 20, y: 0}
+--- !u!114 &5887914915133740121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800186398508679651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797f1568b3d49b7488c4e0aba13058ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content:
+  - {fileID: 6516213436295143829}
+  - {fileID: 3185474827141086868}
+  scrollSensitivity: 25
+--- !u!114 &9133304652653044849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800186398508679651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &3351513223124737445
 GameObject:
   m_ObjectHideFlags: 0
