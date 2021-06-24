@@ -8,6 +8,8 @@ public class ActiveAbility : CooldownAbility
 {
     public int mana = 1;
 
+    public bool quickcast = false;
+
     public PlayerManager PlayerManager;
 
     protected override void Awake()
@@ -54,7 +56,7 @@ public class ActiveAbility : CooldownAbility
 
     public virtual void ActivateAbility()
     {
-        PlayerManager.ActivateAbility(card.gameObject, transform.GetSiblingIndex());
+        PlayerManager.ActivateAbility(card.gameObject, transform.GetSiblingIndex(),quickcast: quickcast);
     }
 
     public virtual void OnActivate()

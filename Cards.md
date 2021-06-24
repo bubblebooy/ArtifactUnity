@@ -78,6 +78,9 @@
 |✔️| Arc Warden | Done | Max Garber |
 |✔️| Axe | Done | Max Garber |
 |✔️| Beast Master | Done | Max Garber |
+|✔️| Bristleback | Done | Max Garber |
+|✔️| Centaur Warrunner | Done | Max Garber |
+|✔️| Dark Seer | Done | Max Garber |
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |

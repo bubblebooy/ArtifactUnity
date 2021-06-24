@@ -24,7 +24,7 @@ public class VhoulMartyr : Ability
             vhoulMartyr.attack = 1;
             vhoulMartyr.maxHealth = 1;
             vhoulMartyr.temporary = false;
-            ally.health += 1;
+            //ally.health += 1;
             GameManager.updateloop = true;
         }
     }

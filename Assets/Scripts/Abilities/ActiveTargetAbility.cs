@@ -42,7 +42,8 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
             PlayerManager.ActivateTargetAbility(
                 card.gameObject,
                 transform.GetSiblingIndex(),
-                selectedTargets);
+                selectedTargets,
+                quickcast: quickcast);
         }
     }
 
