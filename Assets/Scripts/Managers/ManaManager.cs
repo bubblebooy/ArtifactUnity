@@ -82,4 +82,24 @@ public class ManaManager : MonoBehaviour
     {
         PayMana(laneTowerDict[lane].PayMana(cost));
     }
+
+    public int RestoreMana(int restore)
+    {
+        mana = mana + restore;
+        if(mana <= maxMana)
+        {
+            return 0;
+        }
+        else
+        {
+            restore = mana - maxMana;
+            mana = maxMana;
+            return restore;
+        }
+    }
+    public void RestoreMana(int restore, LaneManager lane)
+    {
+
+        laneTowerDict[lane].RestoreMana(RestoreMana(restore));
+    }
 }

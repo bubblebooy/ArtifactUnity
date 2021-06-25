@@ -80,6 +80,7 @@
 |✔️| Beast Master | Done | Max Garber |
 |✔️| Bristleback | Done | Max Garber |
 |✔️| Centaur Warrunner | Done | Max Garber |
+|✔️| Crystal Maiden | Done | Max Garber |
 |✔️| Dark Seer | Done | Max Garber |
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Keefe the Bold | Done | Max Garber |

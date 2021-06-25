@@ -120,6 +120,11 @@ public class TowerManager : NetworkBehaviour
         }
     }
 
+    public void RestoreMana(int restore)
+    {
+        mana = Mathf.Min(mana + restore, maxMana);
+    }
+
     public int CurrentMana()
     {
         return mana;
