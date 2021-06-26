@@ -35,6 +35,8 @@ public class Settings : MonoBehaviour
     [SerializeField]
     private TMP_InputField inputNumberOfSlots;
     [SerializeField]
+    private Toggle inputVariableSlots;
+    [SerializeField]
     private Button OpenSettings;
     [SerializeField]
     private Button CloseSettings;
@@ -100,7 +102,9 @@ public class Settings : MonoBehaviour
         values.startingHand = PlayerPrefs.GetInt("StartingHand", values.startingHand);
         values.cardDraw = PlayerPrefs.GetFloat("CardDraw", values.cardDraw);
         values.maxHandSize = PlayerPrefs.GetInt("MaxHandSize", values.maxHandSize);
+
         values.numberOfSlots = PlayerPrefs.GetInt("NumberOfSlots", values.numberOfSlots);
+        values.variableSlots = PlayerPrefs.GetInt("VariableSlots", values.variableSlots ? 1 : 0) == 1;
 
         UpdateUI();
     }
@@ -125,6 +129,8 @@ public class Settings : MonoBehaviour
         inputCardDraw.text = values.cardDraw.ToString();
         inputMaxHandSize.text = values.maxHandSize.ToString();
         inputNumberOfSlots.text = values.numberOfSlots.ToString();
+        inputVariableSlots.isOn = values.variableSlots;
+
     }
     public void UIInteractable(bool interactable = true)
     {
@@ -141,6 +147,7 @@ public class Settings : MonoBehaviour
         inputCardDraw.interactable = interactable;
         inputMaxHandSize.interactable = interactable;
         inputNumberOfSlots.interactable = interactable;
+        inputVariableSlots.interactable = interactable;
     }
 
     public void ChangeTowerHealth()
@@ -218,6 +225,13 @@ public class Settings : MonoBehaviour
     {
         values.numberOfSlots = int.Parse(inputNumberOfSlots.text);
         PlayerPrefs.SetInt("NumberOfSlots", values.numberOfSlots);
+        PlayerPrefs.Save();
+        SettingsChanged();
+    }
+    public void ChangeVariableSlots()
+    {
+        values.variableSlots = inputVariableSlots.isOn;
+        PlayerPrefs.SetInt("VariableSlots", values.variableSlots ? 1 : 0);
         PlayerPrefs.Save();
         SettingsChanged();
     }

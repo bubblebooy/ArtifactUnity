@@ -712,6 +712,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5260264810653308743, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_text
+      value: "3\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963155678820353602, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_Text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485619439137055230, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_text
+      value: "30.67\u200B"
+      objectReference: {fileID: 0}
     - target: {fileID: 6485619439150613783, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -752,6 +764,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -125
       objectReference: {fileID: 0}
+    - target: {fileID: 6485619439226559646, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_Text
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6485619439427436335, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -771,6 +787,10 @@ PrefabInstance:
     - target: {fileID: 6485619439427436335, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485619440033861320, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_text
+      value: "25\u200B"
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440334344068, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -934,11 +954,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: values.numberOfSlots
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: values.variableSlots
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118041, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_Name
       value: SettingsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485619441048059927, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_Text
+      value: 30.67
       objectReference: {fileID: 0}
     - target: {fileID: 6485619441142832049, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_SizeDelta.y
