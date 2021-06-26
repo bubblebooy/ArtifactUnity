@@ -16,7 +16,6 @@ public class LaneManager : NetworkBehaviour
         base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         events.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
-
     }
 
     public IEnumerator Combat()

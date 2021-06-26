@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class LaneScroll : MonoBehaviour
 {
-    public RectTransform[] content;
+    public BunchedEndLayoutGroup[] content;
     public int scrollSensitivity = 10;
 
-    float viewportWidth;
-    float contentWidth;
 
     void Start()
     {
@@ -18,29 +17,22 @@ public class LaneScroll : MonoBehaviour
         entry.eventID = EventTriggerType.Scroll;
         entry.callback.AddListener((data) => { OnScroll((PointerEventData)data); });
         trigger.triggers.Add(entry);
-        viewportWidth = (transform as RectTransform).sizeDelta.x;
     }
 
     public void Initialize()
     {
-        contentWidth = content[0].sizeDelta.x;
-        if (viewportWidth < contentWidth)
-        {
-            Destroy(GetComponent<EventTrigger>());
-        }
+        //if (false)
+        //{
+        //    Destroy(GetComponent<EventTrigger>());
+        //}
     }
 
     public void OnScroll(PointerEventData eventData)
     {
-        //print(content[0].anchoredPosition.x * eventData.scrollDelta.y );
-        if ((content[0].anchoredPosition.x * eventData.scrollDelta.y) < content[0].sizeDelta.x / 2)
-        {
-            foreach (RectTransform rectTransform in content)
-            {
-                rectTransform.anchoredPosition += new Vector2(scrollSensitivity * eventData.scrollDelta.y, 0);
-            }
-        }
-
+        content[0].scrollOffest += scrollSensitivity * eventData.scrollDelta.y;
+        content[1].scrollOffest = content[0].scrollOffest;
+        LayoutRebuilder.MarkLayoutForRebuild(content[0].transform as RectTransform);
+        LayoutRebuilder.MarkLayoutForRebuild(content[1].transform as RectTransform);
     }
 
 }

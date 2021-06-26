@@ -56,6 +56,7 @@ public class Settings : MonoBehaviour
         public float cardDraw;
         public int maxHandSize;
         public int numberOfSlots;
+        public bool variableSlots;
     }
     public Values values;
     public bool debug = false;
@@ -238,6 +239,14 @@ public class Settings : MonoBehaviour
         foreach (OverDrawManager overDrawManager in FindObjectsOfType<OverDrawManager>())
         {
             overDrawManager.maxHandSize = values.maxHandSize;
+        }
+        foreach (LaneManager laneManager in FindObjectsOfType<LaneManager>())
+        {
+            if (values.variableSlots)
+            {
+                (laneManager.gameObject.AddComponent<LaneVariableSlots>() as LaneVariableSlots).Initialize(this);
+            }
+            
         }
     }
 

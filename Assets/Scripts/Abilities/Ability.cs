@@ -85,7 +85,8 @@ public class Ability : MonoBehaviour
 
     public virtual void DestroyCard()
     {
-        OnDestroy();
+        GameEventSystem.Unregister(inPlayEvents);
+        GameEventSystem.Unregister(events);
     }
 
 #pragma warning restore 0414

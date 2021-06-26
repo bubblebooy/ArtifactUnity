@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 1545654607554125404}
   - component: {fileID: 911713781396864709}
   - component: {fileID: 4399512321026879094}
-  - component: {fileID: 7201947452238876168}
-  - component: {fileID: 4674307153160525383}
-  - component: {fileID: 6445713049199598878}
+  - component: {fileID: 610665798982740836}
   m_Layer: 5
   m_Name: Side
   m_TagString: Side
@@ -125,7 +123,7 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &7201947452238876168
+--- !u!114 &610665798982740836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8541548626884292911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 523020032da0d7c40ad3176cd26522ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -143,48 +141,12 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 3
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &4674307153160525383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8541548626884292911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
---- !u!114 &6445713049199598878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8541548626884292911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 575
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  minSpacing: 3
+  maxSpacing: 20
+  scrunch: 0.05
+  verticalFan: 0.1
+  randRotation: 5
+  scrollOffest: 0
 --- !u!1 &9070076162741654069
 GameObject:
   m_ObjectHideFlags: 0

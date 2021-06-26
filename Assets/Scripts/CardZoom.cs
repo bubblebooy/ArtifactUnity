@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CardZoom : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class CardZoom : MonoBehaviour
         Canvas = GameObject.Find("Main Canvas");
         cardFront = gameObject.transform.Find("CardFront").gameObject;
         placeholder = gameObject.transform.Find("Placeholder").gameObject;
+    }
+
+    void Start()
+    {
+        EventTrigger trigger = GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.Scroll;
+        entry.callback.AddListener((data) => { OnScroll((PointerEventData)data); });
+        trigger.triggers.Add(entry);
     }
 
     public void OnHoverEnter()
@@ -56,5 +66,10 @@ public class CardZoom : MonoBehaviour
             cardFront.GetComponent<RectTransform>().localPosition = placeholder.GetComponent<RectTransform>().localPosition;
             cardFront.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }       
+    }
+
+    public void OnScroll(PointerEventData eventData)
+    {
+        GetComponentInParent<LaneScroll>()?.OnScroll(eventData);
     }
 }

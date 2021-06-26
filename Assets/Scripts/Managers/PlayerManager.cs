@@ -95,10 +95,10 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     void RpcInitializeLate()
     {
-        foreach (LaneManager lane in Board.GetComponentsInChildren<LaneManager>())
-        {
-            lane.gameObject.GetComponent<LaneScroll>().Initialize();
-        }
+        //foreach (LaneManager lane in Board.GetComponentsInChildren<LaneManager>())
+        //{
+        //    lane.gameObject.GetComponent<LaneScroll>().Initialize();
+        //}
     }
 
 
@@ -166,8 +166,16 @@ public class PlayerManager : NetworkBehaviour
             {
                 cardSlot = Instantiate(CardSlotPrefab, new Vector2(0, 0), Quaternion.identity);
                 NetworkServer.Spawn(cardSlot, connectionToClient);
-                RpcNewCardSlot(lane.gameObject, cardSlot, i);
+                RpcNewCardSlot(lane.gameObject, cardSlot, i, cardSlotID);
+                cardSlotID += 1;
             }
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            cardSlot = Instantiate(CardSlotPrefab, new Vector2(0, 0), Quaternion.identity);
+            NetworkServer.Spawn(cardSlot, connectionToClient);
+            RpcNewPoolCardSlot(cardSlot, $"CardSlot ({cardSlotID})");
+            cardSlotID += 1;
         }
         GameObject hero;
         for (int i= 0; i < 5; i++)
@@ -182,15 +190,44 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    void RpcNewCardSlot(GameObject lane, GameObject cardSlot, int siblingIndex)
+    void RpcNewCardSlot(GameObject lane, GameObject cardSlot, int siblingIndex, int id)
     {
         cardSlot.transform.SetParent(lane.transform.Find(hasAuthority ? "PlayerSide" : "EnemySide"), false);
         cardSlot.transform.SetSiblingIndex(siblingIndex);
-        cardSlot.name = $"CardSlot ({cardSlotID})";
-        cardSlotID += 1;
-        //lane.GetComponent<LaneScroll>().SlotAddedRemoved();
+        cardSlot.name = $"CardSlot ({id})";
     }
 
+    [Command]
+    public void CmdNewPoolCardSlot()
+    {
+        GameObject cardSlot = Instantiate(CardSlotPrefab, new Vector2(0, 0), Quaternion.identity);
+        NetworkServer.Spawn(cardSlot, connectionToClient);
+        RpcNewPoolCardSlot(cardSlot, $"CardSlot ({cardSlotID})");
+        cardSlotID += 1;
+    }
+    [ClientRpc]
+    void RpcNewPoolCardSlot(GameObject cardSlot, string name)
+    {
+        Transform pool = GameObject.Find("Main Canvas/Pool").transform;
+        cardSlot.name = name;
+        GameObject poolSlot = pool.Find(cardSlot.name)?.gameObject;
+        cardSlot.transform.SetParent(pool, false);
+        if(poolSlot != null)
+        {
+            GameObject[] cardSlotPool = new GameObject[] 
+            {
+                hasAuthority ? cardSlot : poolSlot,
+                hasAuthority ? poolSlot : cardSlot
+            };
+            LaneVariableSlots.cardSlotPool.Enqueue(cardSlotPool);
+        }
+    }
+
+    [Command]
+    public void CmdEnqueueCardSlot(GameObject playerSlot)
+    {
+        RpcNewPoolCardSlot(playerSlot,playerSlot.name);
+    }
 
     [ClientRpc]
     void RpcSetHeroRespawn(GameObject hero, int respawn)
@@ -336,13 +373,21 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     void RpcSpawnLaneCreeps(GameObject lane, GameObject creep)
     {
-        foreach (Transform slot in lane.transform.Find(hasAuthority ? "PlayerSide" : "EnemySide"))
+        IEnumerable<Transform> slots = lane.transform.Find(hasAuthority ? "PlayerSide" : "EnemySide")
+            .Cast<Transform>()
+            .Where(slot => slot.GetComponent<CardSlot>() != null);
+        if (Settings.values.variableSlots)
+        {
+            int middleSlot = (slots.Count() - 1)/2;
+            slots = slots.OrderBy(slot => Mathf.Abs(slot.transform.GetSiblingIndex() - middleSlot + .1f));
+        }
+        foreach (Transform slot in slots)
         {
             if (slot.childCount == 0)
             {
                 creep.transform.SetParent(slot, false);
                 creep.GetComponent<Card>().isDraggable = false;
-                break;
+                return;
             }
         }
     }

@@ -10,7 +10,7 @@ public class DragDrop : NetworkBehaviour
     public GameManager GameManager;
 
     public bool isDragging = false;
-    private List<GameObject> dropZone = new List<GameObject>();
+    //private List<GameObject> dropZone = new List<GameObject>();
     private Card card;
     private Vector2 startPosition;
     private GameObject startParent;
@@ -52,15 +52,15 @@ public class DragDrop : NetworkBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        dropZone.Add(collision.gameObject);
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    dropZone.Add(collision.gameObject);
+    //}
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        dropZone.Remove(collision.gameObject);
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    dropZone.Remove(collision.gameObject);
+    //}
 
     public void StartDrag()
     {
@@ -103,28 +103,6 @@ public class DragDrop : NetworkBehaviour
                 return;
             }
         }
-
-        //if (dropZone.Count > 0 )
-        //{
-        //    for (int i = dropZone.Count - 1; i >= 0; i--)
-        //    {
-        //        if (card.IsVaildPlay(dropZone[i]))
-        //        {
-        //            //Color check
-        //            caster = GetCaster(dropZone[i]);
-        //            if (caster is null) { break;  }
-        //            if (dropZone[i].GetComponent<CardSlot>() != null) { dropZone[i].GetComponent<CardSlot>().UnStage(); }
-        //            transform.SetParent(dropZone[i].transform, false);
-        //            transform.position = dropZone[i].transform.position + new Vector3(10,-10,0);
-        //            cardPlayed_e.card = card.gameObject;
-        //            cardPlayed_e.caster = caster.gameObject;
-        //            cardPlayed_e.lane = caster.GetLane().gameObject;
-        //            card.Stage(cardPlayed_e);
-        //            return;
-        //        }
-        //    }
-
-        //}
         gameObject.GetComponent<Card>().UnStage();
     }
 
