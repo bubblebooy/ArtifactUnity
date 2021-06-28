@@ -61,13 +61,14 @@ public class PlayerManager : NetworkBehaviour
         deck =  CardList.cardDict.Values.ToList();
         heroes = CardList.heroDict.Values.ToList();
         items = CardList.itemDict.Values.ToList();
-    }
 
-    private void Start()
-    {
         Settings = FindObjectOfType<Settings>();
     }
 
+    //private void Start()
+    //{
+    //    Settings = FindObjectOfType<Settings>();
+    //}
 
 
     [ClientRpc]

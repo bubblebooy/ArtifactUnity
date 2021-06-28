@@ -1772,14 +1772,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1965950100092461960, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965950100092461960, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: useFizzySteamworks
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461969, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461969, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1965950100092461971, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965950100092461972, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: transport
+      value: 
+      objectReference: {fileID: 1965950101190097209}
     - target: {fileID: 1965950100092461973, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1824,8 +1840,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1965950100092461974, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965950100717541537, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+--- !u!114 &1965950101190097209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1965950100092461974, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+  m_PrefabInstance: {fileID: 1965950101190097208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea368fb6f27ec2f40a40e20977992b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2325369590435771655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1736936227017567731, guid: b9544c2a97aaaaa46a77b22b99000bd7, type: 3}

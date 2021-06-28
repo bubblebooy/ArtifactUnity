@@ -6,6 +6,7 @@ using Steamworks;
 using Mirror;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SteamLobby : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class SteamLobby : MonoBehaviour
             serializedNetworkManager.FindProperty("transport").objectReferenceValue = fizzySteamworks;
 
             enabled = true;
+
+
         }
         else
         {
@@ -68,12 +71,20 @@ public class SteamLobby : MonoBehaviour
         //{
         //    Debug.Log("Please set the Transport to " + (useFizzySteamworks ? fizzySteamworks : defaultTransport));
         //}
+        if (SceneManager.GetActiveScene().name != "Lobby")
+        {
+            networkManager.gameObject.SetActive(!useFizzySteamworks);
+        }
     }
     #endif
 
 
     private void Start()
     {
+        if (useFizzySteamworks)
+        {
+            print("Network Manager Must only be Active in Lobby Scene");
+        }
         networkManager = GetComponent < NetworkManager>();
 
         if (!SteamManager.Initialized) { return; }
