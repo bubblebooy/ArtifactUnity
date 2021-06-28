@@ -1727,11 +1727,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461970, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461971, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965950100092461972, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1965950100092461972, guid: dbe82511acb6e704d8323ba0f0e83d25, type: 3}
       propertyPath: transport
