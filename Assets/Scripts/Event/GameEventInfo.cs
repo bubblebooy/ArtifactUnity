@@ -51,6 +51,7 @@ public struct GameUpdateUI_e : IGameEventInfo { }
 public struct EndCombatPhase_e : IGameEventInfo { }
 public struct DeathEffects_e : IGameEventInfo { }
 public struct VariableSlotsUpdate_e : IGameEventInfo { }
+public struct NextTurn_e : IGameEventInfo { }
 
 //public struct  : IGameEventInfo { }
 //public struct  : IGameEventInfo { }

@@ -43,7 +43,7 @@ public class LaneVariableSlots : MonoBehaviour
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
         if (cardSlotPool.Count < 10)
         {
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 5; i++)
             {
                 PlayerManager.CmdNewPoolCardSlot();
             }
@@ -69,6 +69,10 @@ public class LaneVariableSlots : MonoBehaviour
             enemySlots[i].gameObject.SetActive(true);
             playerSlots[i].slotEnabled = true;
             enemySlots[i].slotEnabled = true;
+
+            playerSlots[i].gameObject.name = $"CardSlot ({i})";
+            enemySlots[i].gameObject.name = $"CardSlot ({i})";
+
             if (slotCount > minSlots)
             {
                 if (playerUnits[i] is null && enemyUnit[i] is null)

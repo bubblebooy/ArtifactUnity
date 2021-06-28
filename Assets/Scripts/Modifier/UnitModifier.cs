@@ -32,4 +32,15 @@ public class UnitModifier : StatModifier, IModifier
             Destroy(this);
         }
     }
+
+    public void SetDestoryOnNextTurn()
+    {
+        events.Add(GameEventSystem.Register<NextTurn_e>(DestoryOnNextTurn));
+    }
+    public virtual void DestoryOnNextTurn(NextTurn_e e)
+    {
+            Destroy(this);
+    }
+
+    //NextTurn_e
 }

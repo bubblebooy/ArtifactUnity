@@ -96,6 +96,7 @@ public class GameManager : NetworkBehaviour
                     PlayHeros();
                     UIManager.ZoomHand(true);
                     GameState = "Play";
+                    //GameEventSystem.Event(new TurnStart_e());
                     UIManager.UpdateButtonText("Pass");
                     UIManager.ButtonInteractable();
                     break;
@@ -176,7 +177,13 @@ public class GameManager : NetworkBehaviour
 
     public void NextTurn()
     {
+        GameEventSystem.Event(new NextTurn_e());
         UIManager.ButtonInteractable();
+        if(GameState != "Combat")
+        {
+            //GameEventSystem.Event(new TurnStart_e());
+        }
+
     }
 
     IEnumerator Combat()

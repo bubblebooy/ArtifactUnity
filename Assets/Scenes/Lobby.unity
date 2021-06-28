@@ -331,8 +331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 0}
+  m_SizeDelta: {x: 280, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &153355727
 GameObject:
@@ -1658,8 +1658,6 @@ MonoBehaviour:
     Name: Melee Creep
   - ID: 10348
     Name: Repel
-  - ID: 11002
-    Name: Prowler Vanguard
   - ID: 10281
     Name: Ion Shell
   - ID: 10909
@@ -1670,12 +1668,16 @@ MonoBehaviour:
     Name: Clone
   - ID: 10993
     Name: Wraithfire Blast
-  - ID: 11007
-    Name: No Accident
   - ID: 1009
     Name: Zombie
   - ID: 10136
     Name: Loyal Beast
+  - ID: 11002
+    Name: Prowler Vanguard
+  - ID: 11007
+    Name: No Accident
+  - ID: 10980
+    Name: Rock
   - ID: 3002
     Name: Short Sword
   - ID: 3001
@@ -2509,8 +2511,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 0}
+  m_SizeDelta: {x: 280, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008268035
 MonoBehaviour:
@@ -2991,8 +2993,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 150, y: 0}
+  m_SizeDelta: {x: 280, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099460007
 MonoBehaviour:
@@ -4414,6 +4416,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1895788656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+  m_PrefabInstance: {fileID: 6485619439956332911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0a5eec629c56846a6f39610ed40cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1895796698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5002,6 +5015,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 137240416277277432, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137240416277277432, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137240416277277432, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137240416277277432, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137240416277277432, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 159870085065534870, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5101,6 +5134,34 @@ PrefabInstance:
     - target: {fileID: 4540716104481413349, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1895788656}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeVariableSlots
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Settings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738927569693403160, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4786140666917256840, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5324,6 +5385,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118036, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
+      propertyPath: values.variableSlots
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118041, guid: fde3a57e859c74543b00b448714f39d1, type: 3}

@@ -19,7 +19,7 @@ public class TempestDouble : ActiveTargetAbility
     {
         base.OnActivate(targets);
 
-        CardSlot cardSlot = targets[0].GetComponent<CardSlot>();
+        //CardSlot cardSlot = targets[0].GetComponent<CardSlot>();
         if (card.hasAuthority)
         {
             PlayerManager.CmdCloneToPlay(card.gameObject, Card.GetLineage(targets[0].transform));
