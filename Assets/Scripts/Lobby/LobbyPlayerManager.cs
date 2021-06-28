@@ -130,6 +130,9 @@ public class LobbyPlayerManager : NetworkBehaviour
             lobbyManager.enemyReadyToggle.Ready(true);
             if (isServer)
             {
+                playerManager.GetComponent<PlayerManager>().heroes = heroList.Select(name => CardList.heroDict[name]).ToList();
+                playerManager.GetComponent<PlayerManager>().deck = cardList.Select(name => CardList.cardDict[name]).ToList();
+                playerManager.GetComponent<PlayerManager>().items = itemList.Select(name => CardList.itemDict[name]).ToList();
                 playerManager.GetComponent<PlayerManager>().debug = lobbyManager.debug;
             }
         }
