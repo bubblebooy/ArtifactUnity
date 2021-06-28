@@ -649,7 +649,11 @@ public class PlayerManager : NetworkBehaviour
     {
         Transform target = LineageToTransform(targetLineage);
         card.transform.SetParent(target, false);
-        target.GetComponent<CardSlot>().dontCollapse = false;
+        CardSlot cardSlot = target.GetComponent<CardSlot>();
+        if (cardSlot != null)
+        {
+            cardSlot.dontCollapse = false;
+        }
         ////////  CHECK TO SEE IF THIS WORKS IN THE PLAYER?
         Transform t = card.transform;
         string lineage = "";
