@@ -20,11 +20,12 @@ MonoBehaviour:
   temporary: 0
   baseAbility: 0
   itemAbility: 1
-  mana: 1
   baseCooldown: 2
   cooldown: 0
-  PlayerManager: {fileID: 0}
   displayCooldown: {fileID: 7666768220543082466}
+  mana: 1
+  quickcast: 0
+  PlayerManager: {fileID: 0}
   vaildTargets:
   - targetTag: Unit
     crossLane: 0
@@ -32,6 +33,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 0
     targetCaster: 0
     targetHero: 0
+    cantTargetRooted: 1
 --- !u!114 &-844453681542050914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +71,7 @@ MonoBehaviour:
   trample: 0
   feeble: 0
   damageImmunity: 0
+  rooted: 0
   untargetable: 0
 --- !u!1001 &250069272013624288
 PrefabInstance:

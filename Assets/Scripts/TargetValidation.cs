@@ -13,4 +13,5 @@ public struct TargetValidation
     public bool targetOnlyPlayerSide;
     public bool targetCaster;
     public bool targetHero;
+    public bool cantTargetRooted;
 }

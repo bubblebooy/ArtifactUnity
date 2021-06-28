@@ -23,6 +23,7 @@ public class CreepReinforcements : Spell
         else { DestroyCard(); return; }
         target.transform.SetParent(side.GetChild(destination), false);
         target.transform.position = side.GetChild(destination).position;
+        cardSlot.dontCollapse = true;
         if (hasAuthority)
         {
             PlayerManager.CmdSummon("Melee Creep",GetLineage(cardSlot.transform)); // not sure best way to generize this Cmd

@@ -26,6 +26,7 @@ public class Vacuum : ActiveTargetAbility
         units = units.OrderBy(x => Mathf.Abs(x.transform.parent.GetSiblingIndex() - (slotNumber - 0.1f))).ToArray();
         foreach (Unit unit in units)
         {
+            if (unit.rooted) { continue;  }
             int slot = unit.transform.parent.GetSiblingIndex();
             slot += slot > slotNumber ? -1 : 1;
             while(side.GetChild(slot).GetComponentInChildren<Unit>() == null)

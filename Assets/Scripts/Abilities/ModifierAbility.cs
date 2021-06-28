@@ -23,6 +23,7 @@ public class ModifierAbility : Ability, IModifier
     public bool trample = false;
     public bool feeble = false;
     public bool damageImmunity = false;
+    public bool rooted = false;
     public bool untargetable = false;
 
     protected bool firstMod = true;
@@ -50,6 +51,7 @@ public class ModifierAbility : Ability, IModifier
         trample = (originalAbilityAbility as ModifierAbility).trample;
         feeble = (originalAbilityAbility as ModifierAbility).feeble;
         damageImmunity = (originalAbilityAbility as ModifierAbility).damageImmunity;
+        rooted = (originalAbilityAbility as ModifierAbility).rooted;
         untargetable = (originalAbilityAbility as ModifierAbility).untargetable;
     }
     public void Clone(IModifier originalIModifier)
@@ -80,6 +82,7 @@ public class ModifierAbility : Ability, IModifier
         card.trample |= trample; 
         card.feeble |= feeble; 
         card.damageImmunity |= damageImmunity;
+        card.rooted |= rooted;
         card.untargetable |= untargetable;
 
         if (firstMod)

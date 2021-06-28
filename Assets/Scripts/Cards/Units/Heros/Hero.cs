@@ -58,7 +58,7 @@ public class Hero : Unit
     public override void DestroyCard()
     {
         OnKilled();
-        Bounce();
+        Bounce(ignoreRoot: true);
         respawn = 2;
     }
 
@@ -68,9 +68,10 @@ public class Hero : Unit
         base.DestroyCard(killed: false);
     }
 
-    public override void Bounce()
+    public override void Bounce(bool ignoreRoot = false)
     {
         //When heroes enter the Fountain they are fully healed and temporary effects on them are purged.
+        if (!ignoreRoot && rooted) { return; }
         respawn = 1;
         Purge(temporyEffectsOnly: true);
         gameObject.transform.SetParent(

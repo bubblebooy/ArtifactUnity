@@ -11,6 +11,7 @@ public class CardSlot : NetworkBehaviour
     public GameManager GameManager;
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
     public bool slotEnabled = true;
+    public bool dontCollapse = false;
 
     Image image;
     new BoxCollider2D collider2D;
@@ -50,7 +51,7 @@ public class CardSlot : NetworkBehaviour
             transform.GetChild(transform.childCount - 1).gameObject.GetComponent<Unit>().PlacedOnTopOf(transform.GetChild(i).gameObject.GetComponent<Unit>());
             if (e.gameState == "ResolveDeploy" && transform.GetChild(i).gameObject.GetComponent<Hero>() != null)
             {
-                transform.GetChild(i).gameObject.GetComponent<Hero>().Bounce();
+                transform.GetChild(i).gameObject.GetComponent<Hero>().Bounce(ignoreRoot: true);
             }
             else
             {

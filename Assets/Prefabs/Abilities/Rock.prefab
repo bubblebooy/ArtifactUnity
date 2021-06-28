@@ -39,6 +39,7 @@ MonoBehaviour:
   trample: 0
   feeble: 0
   damageImmunity: 1
+  rooted: 1
   untargetable: 1
 --- !u!1001 &2863393932984104300
 PrefabInstance:

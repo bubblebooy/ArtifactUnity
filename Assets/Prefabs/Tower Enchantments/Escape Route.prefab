@@ -26,12 +26,14 @@ MonoBehaviour:
     targetOnlyPlayerSide: 1
     targetCaster: 0
     targetHero: 1
+    cantTargetRooted: 0
   - targetTag: Card Slot
     crossLane: 1
     targetOnlyEnemySide: 0
     targetOnlyPlayerSide: 1
     targetCaster: 0
     targetHero: 0
+    cantTargetRooted: 1
 --- !u!1001 &8727566013078069041
 PrefabInstance:
   m_ObjectHideFlags: 0

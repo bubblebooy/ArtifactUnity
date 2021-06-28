@@ -23,7 +23,8 @@ public class Spell : Card
             (!vaildPlay.targetCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
             (!vaildPlay.targetHero || targetUnit is Hero) &&
             (!vaildPlay.targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
-            (!vaildPlay.targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide")
+            (!vaildPlay.targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide") &&
+            (!vaildPlay.cantTargetRooted || targetUnit?.rooted == false)
             )
         {
             return true;

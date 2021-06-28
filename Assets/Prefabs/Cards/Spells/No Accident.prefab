@@ -37,6 +37,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 0
     targetCaster: 0
     targetHero: 0
+    cantTargetRooted: 0
   Ability: {fileID: 5615829328237365276, guid: a4da9fa2b5f7c944fba2a979ca83c55b, type: 3}
 --- !u!1001 &3651611753547200578
 PrefabInstance:

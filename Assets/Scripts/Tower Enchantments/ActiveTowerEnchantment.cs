@@ -70,6 +70,7 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
             (!vaildTargets[i].targetHero || targetUnit is Hero) &&
             (!vaildTargets[i].targetOnlyPlayerSide || targetSlot.GetSide() == "PlayerSide") &&
             (!vaildTargets[i].targetOnlyEnemySide || targetSlot.GetSide() == "EnemySide") &&
+            (!vaildTargets[i].cantTargetRooted || targetUnit?.rooted == false) &&
             (targetUnit?.hasAuthority != false || targetUnit?.untargetable != true));
     }
 

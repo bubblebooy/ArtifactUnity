@@ -37,6 +37,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 1
     targetCaster: 1
     targetHero: 0
+    cantTargetRooted: 1
 --- !u!1001 &5439970458752487203
 PrefabInstance:
   m_ObjectHideFlags: 0

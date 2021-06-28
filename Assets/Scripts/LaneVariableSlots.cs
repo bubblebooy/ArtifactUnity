@@ -79,7 +79,7 @@ public class LaneVariableSlots : MonoBehaviour
                 {
                     if (i == 0) { startCap = new CardSlot[] { playerSlots[i], enemySlots[i] }; }
                     else if (i == playerSlots.Length - 1) { endCap = new CardSlot[] { playerSlots[i], enemySlots[i] }; }
-                    else if (slotCount > minSlots + 2)
+                    else if (slotCount > minSlots + 2 && !playerSlots[i].dontCollapse && !enemySlots[i].dontCollapse)
                     {
                         playerSlots[i].transform.SetParent(null, false);
                         enemySlots[i].transform.SetParent(null, false);
@@ -87,7 +87,7 @@ public class LaneVariableSlots : MonoBehaviour
                         Destroy(enemySlots[i]);
                         //PlayerManager.CmdEnqueueCardSlot(playerSlots[i].gameObject);
                         slotCount--;
-                        //GameManager.updateloop = true;
+                        GameManager.updateloop = true;
                     }
                     else
                     {
@@ -116,7 +116,7 @@ public class LaneVariableSlots : MonoBehaviour
             startCap[0].transform.SetAsFirstSibling();
             startCap[1].transform.SetAsFirstSibling();
             slotCount++;
-            //GameManager.updateloop = true;
+            GameManager.updateloop = true;
         }
         if (!(endCap?.Length > 0))
         {
@@ -126,7 +126,7 @@ public class LaneVariableSlots : MonoBehaviour
             endCap[0].transform.SetSiblingIndex(slotCount);
             endCap[1].transform.SetSiblingIndex(slotCount);
             slotCount++;
-            //GameManager.updateloop = true;
+            GameManager.updateloop = true;
         }
         if(!playerFull && !enemyFull)
         {

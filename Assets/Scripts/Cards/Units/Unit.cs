@@ -41,6 +41,8 @@ public class Unit : Card
     [HideInInspector]
     public bool damageImmunity = false;
     [HideInInspector]
+    public bool rooted = false;
+    [HideInInspector]
     public bool untargetable = false;
     [HideInInspector]
     public int siege = 0;
@@ -155,6 +157,7 @@ public class Unit : Card
         trample = false;
         feeble = false;
         damageImmunity = false;
+        rooted = false;
         untargetable = false;
 
         foreach (IModifier mod in gameObject.GetComponentsInChildren<IModifier>())
@@ -229,9 +232,10 @@ public class Unit : Card
         GetComponent<AbilitiesManager>().PlacedOnTopOf(unit);
     }
 
-    public virtual void Bounce()
+    public virtual void Bounce(bool ignoreRoot = false)
     {
         // Move to hand based on player ownership? or just player side?
+        if (!ignoreRoot && rooted) { return;  }
         gameObject.transform.SetParent(
             GameObject.Find(hasAuthority ? "PlayerOverDraw" : "EnemyOverDraw").transform,
             false);

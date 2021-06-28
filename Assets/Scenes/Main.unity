@@ -954,7 +954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: values.numberOfSlots
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6485619440976118040, guid: fde3a57e859c74543b00b448714f39d1, type: 3}
       propertyPath: values.variableSlots

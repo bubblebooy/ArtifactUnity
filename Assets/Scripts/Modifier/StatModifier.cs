@@ -23,7 +23,8 @@ public class StatModifier : MonoBehaviour
     public bool piercing = false;
     public bool trample = false;
     public bool feeble = false;
-    public bool damageImmunity = false;
+    public bool damageImmunity = false; 
+    public bool rooted = false;
     public bool untargetable = false;
     public bool deathShield = false;
 
@@ -63,6 +64,7 @@ public class StatModifier : MonoBehaviour
         trample = (originalIModifier as UnitModifier).trample;
         feeble = (originalIModifier as UnitModifier).feeble;
         damageImmunity = (originalIModifier as UnitModifier).damageImmunity;
+        rooted = (originalIModifier as UnitModifier).rooted;
         untargetable = (originalIModifier as UnitModifier).untargetable;
         if ((originalIModifier as UnitModifier).deathShield) { SetDeathShield(); }
     }
@@ -89,6 +91,7 @@ public class StatModifier : MonoBehaviour
         unit.trample |= trample;
         unit.feeble |= feeble;
         unit.damageImmunity |= damageImmunity;
+        unit.rooted |= rooted;
         unit.untargetable |= untargetable;
         deathShield &= unit.deathShield;
 
