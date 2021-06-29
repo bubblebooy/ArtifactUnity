@@ -9,7 +9,7 @@ public class AbilitiesManager : MonoBehaviour
     private GameObject Canvas;
     private GridLayoutGroup abilitiesGridLayoutGroup;
 
-    public float expandedWidth = 75.0f;
+    public float expandedWidth = 200.0f;
     private Vector2 collapsedSizeDelta;
     private Vector2 collapsedAnchoredPosition;
 
@@ -149,17 +149,26 @@ public class AbilitiesManager : MonoBehaviour
 
     private void Expand()
     {
+        print(transform.position.x + " : " + Screen.width);
         expanded = true;
         sibIndex = abilities.transform.GetSiblingIndex();
         //abilities.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.8f);
-        abilities.GetComponent<RectTransform>().sizeDelta = new Vector2(expandedWidth, GetComponent<RectTransform>().sizeDelta.y);  // 75,95 -> 75,120
-        abilities.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1 * expandedWidth, 0.0f);
+        abilities.GetComponent<RectTransform>().sizeDelta = new Vector2(75, GetComponent<RectTransform>().sizeDelta.y);  // 75,95 -> 75,120
+        if(transform.position.x > Screen.width / 3)
+        {
+            abilities.GetComponent<RectTransform>().anchoredPosition = new Vector2(-1 * expandedWidth, 0.0f);
+        }
+        else
+        {
+            abilities.GetComponent<RectTransform>().anchoredPosition = new Vector2(75, 0.0f);
+        }
+        
         abilities.transform.SetParent(Canvas.transform, true);
 
         abilitiesGridLayoutGroup.startCorner = GridLayoutGroup.Corner.UpperLeft;
         abilitiesGridLayoutGroup.childAlignment = TextAnchor.UpperLeft;
         abilitiesGridLayoutGroup.startAxis = GridLayoutGroup.Axis.Vertical;
-        abilitiesGridLayoutGroup.cellSize = new Vector2(expandedWidth - 2*abilitiesGridLayoutGroup.spacing.x, 15);
+        abilitiesGridLayoutGroup.cellSize = new Vector2(expandedWidth - 2*abilitiesGridLayoutGroup.spacing.x, 30);
         foreach (Ability ability in abilities.GetComponentsInChildren<Ability>())
         {
             ability.Expand();

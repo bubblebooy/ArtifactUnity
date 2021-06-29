@@ -51,7 +51,12 @@ public class CardZoom : MonoBehaviour
         {
             cardFront.transform.SetParent(Canvas.transform, true);
 
-            cardFront.GetComponent<RectTransform>().localScale = new Vector3(2, 2, 1);
+            (cardFront.transform as RectTransform).localScale = new Vector3(2, 2, 1);
+            float y = (cardFront.transform as RectTransform).anchoredPosition.y;
+            float x = (cardFront.transform as RectTransform).anchoredPosition.x;
+            y = Mathf.Clamp(y, -240, 240);
+            x = Mathf.Clamp(x, -560, 560);
+            (cardFront.transform as RectTransform).anchoredPosition = new Vector2(x, y);
         }
     }
 

@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 public class TargetSelector : MonoBehaviour
 {
     private GameObject targetingLine;
-    
+    private Canvas Canvas;
+
     //// Update is called once per frame
 
     private void Start()
     {
         targetingLine = GameObject.Find("TargetingArrow");
+        Canvas = GameObject.Find("Main Canvas").GetComponent<Canvas>();
     }
     void Update()
     {
@@ -19,7 +21,7 @@ public class TargetSelector : MonoBehaviour
         Vector3 end = Input.mousePosition;
         (targetingLine.transform as RectTransform).position = start;
         
-        float length = Vector2.Distance(start, Input.mousePosition);
+        float length = Vector2.Distance(start, Input.mousePosition) / Canvas.scaleFactor;
         float angle = Vector2.SignedAngle(Vector2.up,end - start);
         (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10,length);
         (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0,0, angle);
