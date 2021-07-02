@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PhantomAssassin : Hero // Unit : Card
 {
-
+    // Now USES card.GetComponentInParent<Unit>().StrikeUnitEvent += StrikeUnit;
+    // This Class is unnessary
+    /**
     public override int Strike(Unit target, int damage, bool piercing = false)
     {
         EfficientKiller EfficientKiller = GetComponent<AbilitiesManager>().abilities.GetComponentInChildren<EfficientKiller>();
@@ -25,4 +27,5 @@ public class PhantomAssassin : Hero // Unit : Card
     {
         return base.Strike(target, damage, piercing);
     }
+    **/
 }

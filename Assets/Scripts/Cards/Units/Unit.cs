@@ -287,10 +287,13 @@ public class Unit : Card
         armor = maxArmor;
     }
 
+    public delegate void StrikeUnitDelegate(Unit target, ref int damage, ref bool piercing);
+    public event StrikeUnitDelegate StrikeUnitEvent;
     public virtual int Strike(Unit target, int damage, bool piercing = false)
     {
         if (disarmed || stun) { return 0; }
-        if(target.retaliate > 0)
+        StrikeUnitEvent?.Invoke(target, ref damage, ref piercing);
+        if (target.retaliate > 0)
         {
             Damage(target.retaliate,physical: true);
         }
@@ -333,6 +336,15 @@ public class Unit : Card
         DamageEvent?.Invoke(ref damage, piercing, physical);
         health -= CalculateDamage(damage, piercing);
         return health;
+    }
+
+    public void Heal(int heal)
+    {
+        if(health < maxHealth)
+        {
+            health = Mathf.Min(health + heal, maxHealth);
+        }
+        
     }
 
     public virtual void Battle(Unit enemy)

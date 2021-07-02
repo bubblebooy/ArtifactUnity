@@ -85,6 +85,7 @@
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Earthshaker | Done | Max Garber |
 |✔️| Keefe the Bold | Done | Max Garber |
+|✔️| Legion Commander | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |

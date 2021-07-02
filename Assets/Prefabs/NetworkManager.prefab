@@ -220,6 +220,7 @@ MonoBehaviour:
   - {fileID: 528178763786988993, guid: 24f7aa78e834dde49b223347ef9bad27, type: 3}
   - {fileID: 1714456494825114312, guid: 81582842c19fa494db522a582286bb92, type: 3}
   hero:
+  - {fileID: 6983326321003755393, guid: 457eeed0f4077f74a8bfab7a087d3a5f, type: 3}
   - {fileID: 214883232669749389, guid: 057801b97726e8b47addc43c9a8cb81d, type: 3}
   - {fileID: 8538881162259127091, guid: 76fb0c9d7a4fcd54ebd7618687bd2489, type: 3}
   - {fileID: 6011303155815989218, guid: 56513de18edfb3d43a1c32397bc0053e, type: 3}

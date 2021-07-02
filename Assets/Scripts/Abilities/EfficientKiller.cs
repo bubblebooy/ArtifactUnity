@@ -9,19 +9,15 @@ public class EfficientKiller : Ability
     protected override void Awake()
     {
         base.Awake();
-        PhantomAssassin = (PhantomAssassin)card;
+        //PhantomAssassin = (PhantomAssassin)card;
+        card.GetComponentInParent<Unit>().StrikeUnitEvent += StrikeUnit;
     }
 
-    public int Strike(Unit target, int damage, bool piercing = false)
+    public void StrikeUnit(Unit target, ref int damage, ref bool piercing)
     {
         if (target is Hero)
         {
-            return PhantomAssassin.baseStrike(target, 2 * damage, piercing);
-            //target.Damage(2 * damage);
-        }
-        else
-        {
-            return PhantomAssassin.baseStrike(target, damage, piercing);
+            damage = damage * 2;
         }
 
     }
