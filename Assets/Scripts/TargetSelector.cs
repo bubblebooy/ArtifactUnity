@@ -39,7 +39,7 @@ public class TargetSelector : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(Input.mousePosition, Vector2.zero, 0f);
             foreach (RaycastHit2D hit in hits)
             {
-                Debug.Log("RaycastAll Hit " + hit.collider.gameObject.name);
+                //Debug.Log("RaycastAll Hit " + hit.collider.gameObject.name);
                 if (GetComponent<ITargets>().IsVaildTarget(hit.collider.gameObject))
                 {
                     GetComponent<ITargets>().TargetSelected(hit.collider.gameObject);

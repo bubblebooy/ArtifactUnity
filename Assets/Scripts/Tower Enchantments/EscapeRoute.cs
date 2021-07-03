@@ -8,9 +8,8 @@ public class EscapeRoute : ActiveTowerEnchantment
     public override bool IsVaildTarget(GameObject target)
     {
         int i = selectedTargets?.Count ?? 0;
-        print(i);
-        print("target Lane : " + target.GetComponentInParent<CardSlot>()?.GetLane().transform.GetSiblingIndex());
-        print("LaneManager.transform.GetSiblingIndex() : " + LaneManager.transform.GetSiblingIndex());
+        //print("target Lane : " + target.GetComponentInParent<CardSlot>()?.GetLane().transform.GetSiblingIndex());
+        //print("LaneManager.transform.GetSiblingIndex() : " + LaneManager.transform.GetSiblingIndex());
         return base.IsVaildTarget(target) &&
             (!(i == 1) || Mathf.Abs(
                 target.GetComponentInParent<CardSlot>().GetLane().transform.GetSiblingIndex() 

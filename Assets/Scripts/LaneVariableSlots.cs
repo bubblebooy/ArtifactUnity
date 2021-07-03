@@ -9,6 +9,8 @@ public class LaneVariableSlots : MonoBehaviour
     int minSlots;
     int maxSlots;
 
+    public bool lanefull = false;
+
     int offset; // account for tower and enchantments
 
     Transform pool;
@@ -19,6 +21,9 @@ public class LaneVariableSlots : MonoBehaviour
 
     GameObject playerSide;
     GameObject enemySide;
+
+    public bool playerFull = true;
+    public bool enemyFull = true;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
 
@@ -47,12 +52,16 @@ public class LaneVariableSlots : MonoBehaviour
             {
                 PlayerManager.CmdNewPoolCardSlot();
             }
-            if (cardSlotPool.Count <= 2) { return; }
+            if (cardSlotPool.Count <= 2)
+            {
+                Debug.LogWarning("cardSlotPool Count <= 2");
+                return;
+            }
         }
         CardSlot[] startCap = null;
         CardSlot[] endCap = null;
-        bool playerFull = true;
-        bool enemyFull = true;
+        playerFull = true;
+        enemyFull = true;
 
         CardSlot[] playerSlots = playerSide.GetComponentsInChildren<CardSlot>(true);
         CardSlot[] enemySlots = enemySide.GetComponentsInChildren<CardSlot>(true);
@@ -61,7 +70,10 @@ public class LaneVariableSlots : MonoBehaviour
 
         int slotCount = playerSlots.Length;
         
-        if(playerSlots.Length != enemySlots.Length) { return; }
+        if(playerSlots.Length != enemySlots.Length) {
+            Debug.LogWarning("playerSlots Length does not equal enemySlots Length");
+            return;
+        }
 
         for (int i = 0; i < playerSlots.Length; i++)
         {

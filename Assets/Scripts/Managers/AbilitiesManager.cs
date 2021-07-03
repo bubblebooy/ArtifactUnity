@@ -149,7 +149,7 @@ public class AbilitiesManager : MonoBehaviour
 
     private void Expand()
     {
-        print(transform.position.x + " : " + Screen.width);
+        //print(transform.position.x + " : " + Screen.width);
         expanded = true;
         sibIndex = abilities.transform.GetSiblingIndex();
         //abilities.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.8f);
