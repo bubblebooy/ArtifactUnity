@@ -95,17 +95,26 @@ public class ModifierAbility : Ability, IModifier
 
     protected void OnStatRemoved()
     {
-        card.maxArmor -= maxArmor;
-        card.maxHealth -= maxHealth;
+        OnArmorRemoved(maxArmor);
+        OnHealthRemoved(maxHealth);
+    }
+    protected void OnArmorRemoved(int removedArmor)
+    {
+        card.maxArmor -= removedArmor;
         if (card.armor > card.maxArmor)
         {
-            card.armor = Mathf.Max(card.maxArmor, card.armor - maxArmor);
-        }
-        if (card.health > card.maxHealth)
-        {
-            card.health = Mathf.Max(card.maxHealth, card.health - maxHealth);
+            card.armor = Mathf.Max(card.maxArmor, card.armor - removedArmor);
         }
     }
+    protected void OnHealthRemoved(int removedHealth)
+    {
+        card.maxHealth -= removedHealth;
+        if (card.health > card.maxHealth)
+        {
+            card.health = Mathf.Max(card.maxHealth, card.health - removedHealth);
+        }
+    }
+
 
     protected override void OnDestroy()
     {

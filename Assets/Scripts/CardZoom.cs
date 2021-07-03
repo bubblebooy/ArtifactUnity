@@ -12,6 +12,7 @@ public class CardZoom : MonoBehaviour
     private GameObject placeholder;
     private GameObject cardFront;
     private int siblingIndex;
+    Card card;
 
     private bool hover = false;
 
@@ -20,6 +21,7 @@ public class CardZoom : MonoBehaviour
         Canvas = GameObject.Find("Main Canvas");
         cardFront = gameObject.transform.Find("CardFront").gameObject;
         placeholder = gameObject.transform.Find("Placeholder").gameObject;
+        card = GetComponent<Card>();
     }
 
     void Start()
@@ -49,6 +51,7 @@ public class CardZoom : MonoBehaviour
 
         if (isActiveAndEnabled && hover && !GetComponent<DragDrop>().isDragging) 
         {
+            card.CardUIUpdate(new GameUpdateUI_e());
             cardFront.transform.SetParent(Canvas.transform, true);
 
             (cardFront.transform as RectTransform).localScale = new Vector3(2, 2, 1);
@@ -70,6 +73,7 @@ public class CardZoom : MonoBehaviour
             cardFront.transform.SetSiblingIndex(siblingIndex);
             cardFront.GetComponent<RectTransform>().localPosition = placeholder.GetComponent<RectTransform>().localPosition;
             cardFront.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            card.CardUIUpdate(new GameUpdateUI_e());
         }       
     }
 

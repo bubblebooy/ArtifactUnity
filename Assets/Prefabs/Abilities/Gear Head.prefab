@@ -1,44 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4261799892028113182
+--- !u!1001 &702702408649241914
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: baseAbility
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: itemAbility
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1808626905470305494, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1808626905470305494, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2457531564740054034, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2457531564740054034, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2457531564740054034, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2457531564740054034, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -125,23 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 9190330887192631872, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9190330887192631872, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Color.b
-      value: 0.13333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 9190330887192631872, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Color.g
-      value: 0.47450984
-      objectReference: {fileID: 0}
-    - target: {fileID: 9190330887192631872, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7058824
+      value: Ability
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}

@@ -93,7 +93,9 @@ public class Item : Card, ITargets, IItem
     public override void Stage(CardPlayed_e e)
     {
         Hero hero = gameObject.transform.parent.GetComponentInChildren<Hero>();
+        hero.GetComponent<CardZoom>().OnHoverExit();
         gameObject.GetComponent<CardZoom>().enabled = false;
+        hero.GetComponent<CardZoom>().enabled = false;
         if (itemType != ItemType.Consumables && hero.items.transform.childCount >= hero.maxItemCount)
         {
             cardPlayed_e = e;
@@ -108,13 +110,14 @@ public class Item : Card, ITargets, IItem
 
     public override void OnPlay()
     {
-        base.OnPlay();
         if (itemType != ItemType.Consumables)
         {
             hero = gameObject.GetComponentInParent<Hero>();
             gameObject.transform.SetParent(hero.items.transform);
             ability = Instantiate(abilityPrefab, hero.GetComponent<AbilitiesManager>().abilities.transform);
+            hero.GetComponent<CardZoom>().enabled = true;
         }
+        base.OnPlay();
     }
 
     public virtual void TargetSelected(GameObject target)
