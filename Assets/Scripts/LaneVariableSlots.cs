@@ -42,7 +42,7 @@ public class LaneVariableSlots : MonoBehaviour
         UpdateSlots();
     }
 
-    void UpdateSlots()
+    public void UpdateSlots()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();

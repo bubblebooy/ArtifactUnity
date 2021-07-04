@@ -133,7 +133,7 @@ public class Unit : Card
         CardUpdate();
     }
 
-    public void CardUpdate()
+    public virtual void CardUpdate()
     {
         GetComponent<AbilitiesManager>().CardUpdate();
 
@@ -171,7 +171,7 @@ public class Unit : Card
             arrow = 0;
         }
     }
-    public void CheckAlive(GameUpdate_e e)
+    public virtual void CheckAlive(GameUpdate_e e)
     {
         if (e.checkAlive && health <= 0)
         {

@@ -38,8 +38,9 @@ public class Skewer : ActiveTargetAbility
 
         int targetIndex = Array.FindIndex(slots, slot => slot == targets[0].GetComponent<CardSlot>());
         int cardIndex = Array.FindIndex(slots, slot => slot == card.GetCardSlot());
+        //print("cardIndex: " + cardIndex + "//" + "targetIndex: " + targetIndex);
         targetSlots = targetSlots.Skip(Mathf.Min(cardIndex, targetIndex))
-            .Take(Mathf.Max(cardIndex, targetIndex)).ToArray();
+            .Take(Mathf.Max(cardIndex - targetIndex, targetIndex - cardIndex)+1).ToArray();
         if(cardIndex > targetIndex)
         {
             Array.Reverse(targetSlots);

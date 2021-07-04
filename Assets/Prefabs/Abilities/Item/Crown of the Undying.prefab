@@ -37,6 +37,7 @@ MonoBehaviour:
   trample: 0
   feeble: 0
   damageImmunity: 0
+  rooted: 0
   untargetable: 0
 --- !u!114 &5804181167472744766
 MonoBehaviour:
@@ -61,6 +62,7 @@ MonoBehaviour:
   temporary: 0
   baseAbility: 0
   itemAbility: 1
+  unitPlaceholder: {fileID: 2265735539493605509, guid: 0f3bc105d08e45f4ead482a46c0c6da2, type: 3}
 --- !u!1001 &1734176088644878313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +160,10 @@ PrefabInstance:
 
         After Combat: Summon a Zombie into the closest
         slot'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663366332680878167, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
+      propertyPath: m_fontSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4730271764289191223, guid: 1b61264c820356f4daee7b7f5ae0f90b, type: 3}
       propertyPath: abilityText
