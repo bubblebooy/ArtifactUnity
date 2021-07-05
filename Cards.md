@@ -92,6 +92,7 @@
 |✔️| Phantom Lancer | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
+|✔️| Tidehunter | Done | Max Garber |
 </details>
 
 ## Items

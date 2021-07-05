@@ -504,18 +504,22 @@ public class Unit : Card
 
     public Unit[] GetAdjacentEnemies()
     {
+        return GetAdjacentEnemies(1);
+    }
+    public Unit[] GetAdjacentEnemies(int range)
+    {
         int numberOfSlots = transform.parent.parent.GetComponentsInChildren<CardSlot>().Length;
         int slotNumber = transform.parent.GetSiblingIndex();
         bool player = GetSide() == "PlayerSide";
         Transform targetSlot;
         Unit target;
-        Unit[] AdjEnemies = new Unit[3] ;
-        for (int i = -1; i <= 1; i++)
+        Unit[] AdjEnemies = new Unit[1 + range * 2];
+        for (int i = -range; i <= range; i++)
         {
-            if (slotNumber + i < 0 || slotNumber + i >= numberOfSlots) {continue;}
+            if (slotNumber + i < 0 || slotNumber + i >= numberOfSlots) { continue; }
             targetSlot = GetLane().transform.Find(player ? "EnemySide" : "PlayerSide").GetChild(slotNumber + i);
             target = targetSlot.GetComponentInChildren<Unit>();
-            AdjEnemies[i + 1] = target;
+            AdjEnemies[i + range] = target;
         }
         return AdjEnemies;
     }

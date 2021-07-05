@@ -30,7 +30,7 @@ public class Juxtapose : Ability
             UnitPlaceholder placeholder = Instantiate(unitPlaceholder, slots[0].transform).GetComponent<UnitPlaceholder>();
             if (card.hasAuthority)
             {
-                placeholder.cardName = "Lancer Illusion";
+                placeholder.placeholderCard = "Lancer Illusion";
             }
         }
     }

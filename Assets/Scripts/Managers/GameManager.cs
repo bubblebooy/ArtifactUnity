@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System.Linq;
 
 public class GameManager : NetworkBehaviour
 {
@@ -208,6 +209,7 @@ public class GameManager : NetworkBehaviour
         SummonLaneCreeps();
         if(GameState == "GameOver") { yield break;  }
         PlayerManager.CmdEndCombat();
+        yield return new WaitForSeconds(0.2f);
         UIManager.ButtonInteractable(true);
     }
 
@@ -272,8 +274,27 @@ public class GameManager : NetworkBehaviour
         GameEventSystem.Event(new DeathEffects_e(), unregister: true);
         GameEventSystem.Event(new VariableSlotsUpdate_e());
         GameEventSystem.Event(new GameUpdateUI_e());
+
         if (updateloop) { GameUpdate(state, checkAlive); }
+        SummonPlacehoders();
         IsGameOver();
+    }
+
+    void SummonPlacehoders()
+    {
+        UnitPlaceholder[] unitPlaceholders = Board.GetComponentsInChildren<UnitPlaceholder>();
+        unitPlaceholders = unitPlaceholders.Where(placeholder => !string.IsNullOrEmpty(placeholder.placeholderCard)).ToArray();
+        List<string> units = unitPlaceholders.Select(placeholder => placeholder.placeholderCard).ToList();
+        List<List<string>> targetLineages = unitPlaceholders.Select(placeholder => Card.GetLineage(placeholder.transform.parent)).ToList();
+
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        PlayerManager.CmdSummonPlacehoders(units, targetLineages);
+
+        foreach(UnitPlaceholder placeholder in unitPlaceholders)
+        {
+            placeholder.placeholderCard = null;
+        }
     }
 
     private IEnumerator DelayedGameUpdate()

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
+using TMPro;
 
 public class UnitPlaceholder : Unit
 {
+    public string placeholderCard;
     public override void OnValidate()
     {
         base.OnValidate();
@@ -25,16 +26,19 @@ public class UnitPlaceholder : Unit
     public override void OnStartClient(){}
     public override void CardUpdate()
     {
-        if(!string.IsNullOrEmpty(cardName))
-        {
-            NetworkIdentity networkIdentity = NetworkClient.connection.identity;
-            PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-            PlayerManager.CmdSummon(cardName, GetLineage(GetCardSlot().transform));
-            cardName = null;
-        }
+        //if(!string.IsNullOrEmpty(placeholderCard))
+        //{
+        //    NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        //    PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+        //    PlayerManager.CmdSummon(placeholderCard, GetLineage(GetCardSlot().transform));
+        //    //cardName = null;
+        //}
     }
     public override void CheckAlive(GameUpdate_e e) { }
-    public override void CardUIUpdate(GameUpdateUI_e e) { }
+    public override void CardUIUpdate(GameUpdateUI_e e)
+    {
+        gameObject.transform.Find("CardFront/Card Name").GetComponent<TextMeshProUGUI>().text = placeholderCard;
+    }
     public override void OnPlay() { }
 
     public override void Bounce(bool ignoreRoot = false)

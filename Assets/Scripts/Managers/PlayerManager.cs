@@ -406,6 +406,20 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [Command]
+    public void CmdSummonPlacehoders(List<string> units, List<List<string>> targetLineages)
+    {
+        for (int i = 0; i < units.Count; i++)
+        {
+            GameObject card = Instantiate(CardList.cardDict[units[i]], new Vector2(0, 0), Quaternion.identity);
+            NetworkServer.Spawn(card, connectionToClient);
+            RpcPlaceCard(card, targetLineages[i]);
+            CardPlayed_e cardPlayed_e = new CardPlayed_e();
+            cardPlayed_e.card = card;
+            RpcPlayCard(cardPlayed_e, false);
+        }
+    }
+
+    [Command]
     public void CmdCloneToPlay(GameObject unit, List<string> targetLineage)
     {
         GameObject card;
