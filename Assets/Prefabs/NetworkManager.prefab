@@ -221,6 +221,7 @@ MonoBehaviour:
   - {fileID: 1714456494825114312, guid: 81582842c19fa494db522a582286bb92, type: 3}
   - {fileID: 2249745853583483432, guid: 5a8c8deb22fa5cb4eae8c4d3021a1b50, type: 3}
   hero:
+  - {fileID: 2913246841926440368, guid: f5676e2cd7ae2bf4cb8ebe15b57d9c81, type: 3}
   - {fileID: 2000645690236649667, guid: 41e4a1a8535d97340ac7af2cbabc0bac, type: 3}
   - {fileID: 8252431779858417670, guid: a13fec0570fd75c4b8d118b009e616be, type: 3}
   - {fileID: 228436043213230549, guid: 76ab69787027c3e4fa25bb90cb204593, type: 3}

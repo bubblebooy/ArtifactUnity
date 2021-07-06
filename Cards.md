@@ -95,6 +95,7 @@
 |✔️| Tidehunter | Done | Max Garber |
 |✔️| Timbersaw | Done | Max Garber |
 |✔️| Troll Warlord | Done | Max Garber |
+|✔️| Tusk | Done | Max Garber |
 </details>
 
 ## Items
