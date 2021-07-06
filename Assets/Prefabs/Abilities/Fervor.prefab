@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5118003312278806013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850029054237730884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a451fea134cf1074cad4432ba0cb7423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: 91f7dd27777c6c641b8480787c3bf1a4, type: 3}
+  abilityName: Ferver
+  abilityText: 'When Troll Warlord strikes a new target, set charges to 1. Whenever
+    Troll Warlord strikes that target again, add a charge. Troll Warlord deals +1
+    damage per charge when striking that target. Death Effect: Remove all charges.'
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
+  itemAbility: 0
+--- !u!1001 &6180762326028896663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 674893548972817602, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_text
+      value: 'When Troll Warlord strikes a new target, set charges to 1. Whenever
+        Troll Warlord strikes that target again, add a charge. Troll Warlord deals
+        +1 damage per charge when striking that target. Death Effect: Remove all
+        charges.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 674893548972817602, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574271089313146209, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283724250521725254, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91f7dd27777c6c641b8480787c3bf1a4, type: 3}
+    - target: {fileID: 6964948285913309651, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+      propertyPath: m_Name
+      value: Fervor
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8804006507028937122, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+--- !u!1 &3850029054237730884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6964948285913309651, guid: 5df7b0b14a5f8d54c88f9fd308119aea, type: 3}
+  m_PrefabInstance: {fileID: 6180762326028896663}
+  m_PrefabAsset: {fileID: 0}

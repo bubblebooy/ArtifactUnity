@@ -97,9 +97,10 @@ public class GameManager : NetworkBehaviour
                     PlayHeros();
                     UIManager.ZoomHand(true);
                     GameState = "Play";
+                    StartCoroutine(PlayStart());
                     //GameEventSystem.Event(new TurnStart_e());
-                    UIManager.UpdateButtonText("Pass");
-                    UIManager.ButtonInteractable();
+                    //UIManager.UpdateButtonText("Pass");
+                    //UIManager.ButtonInteractable();
                     break;
                 case "Combat":
                     GameUpdate(stateRequest);
@@ -304,9 +305,18 @@ public class GameManager : NetworkBehaviour
     }
 
     //
-    void RoundStart()
+    void RoundStart() // BEFORE HEROS ARE DEPLOYED
     {
         GameEventSystem.Event(new RoundStart_e());
+        GameUpdate();
+    }
+
+    IEnumerator PlayStart() // AFTER HEROS ARE DEPLOYED
+    {
+        yield return new WaitForSeconds(0.1f);
+        GameEventSystem.Event(new PlayStart_e());
+        UIManager.UpdateButtonText("Pass");
+        UIManager.ButtonInteractable();
         GameUpdate();
     }
 

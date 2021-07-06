@@ -300,9 +300,12 @@ public class Unit : Card
         return target.Damage(damage, piercing, physical: true);
     }
 
+    public delegate void StrikeTowerDelegate(TowerManager target, ref int damage, ref bool piercing);
+    public event StrikeTowerDelegate StrikeTowerEvent;
     public virtual void Strike(TowerManager target, int damage, bool piercing = false)
     {
         if (disarmed || stun) { return; }
+        StrikeTowerEvent?.Invoke(target, ref damage, ref piercing);
         if (target.retaliate > 0)
         {
             Damage(target.retaliate, physical: true);

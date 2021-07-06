@@ -93,6 +93,8 @@
 |✔️| Pugna | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
 |✔️| Tidehunter | Done | Max Garber |
+|✔️| Timbersaw | Done | Max Garber |
+|✔️| Troll Warlord | Done | Max Garber |
 </details>
 
 ## Items
