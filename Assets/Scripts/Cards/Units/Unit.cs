@@ -295,7 +295,8 @@ public class Unit : Card
         StrikeUnitEvent?.Invoke(target, ref damage, ref piercing);
         if (target.retaliate > 0)
         {
-            Damage(target.retaliate,physical: true);
+            target.Retaliate(this);
+            //Damage(target.retaliate,physical: true);
         }
         return target.Damage(damage, piercing, physical: true);
     }
@@ -308,9 +309,19 @@ public class Unit : Card
         StrikeTowerEvent?.Invoke(target, ref damage, ref piercing);
         if (target.retaliate > 0)
         {
-            Damage(target.retaliate, physical: true);
+            target.Retaliate(this);
+            //Damage(target.retaliate, physical: true);
         }
         target.Damage(damage, piercing, physical: true);
+    }
+
+    public delegate void RetaliateDelegate(Unit strikingUnit, ref int damage);
+    public event RetaliateDelegate RetaliateEvent;
+    public void Retaliate(Unit strikingUnit)
+    {
+        int damage = retaliate;
+        RetaliateEvent?.Invoke(strikingUnit, ref damage);
+        strikingUnit.Damage(damage, piercing: false, physical: true);
     }
 
     public virtual int CalculateDamage(int damage, bool piercing = false)

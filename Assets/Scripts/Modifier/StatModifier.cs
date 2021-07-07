@@ -69,7 +69,7 @@ public class StatModifier : MonoBehaviour
         if ((originalIModifier as UnitModifier).deathShield) { SetDeathShield(); }
     }
 
-    public void ModifyCard()
+    public virtual void ModifyCard()
     {
         unit = unit ?? GetComponentInParent<Unit>();
         unit.attack += attack;

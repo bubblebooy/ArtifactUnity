@@ -81,6 +81,11 @@ public class TowerManager : NetworkBehaviour
         mana = maxMana;
     }
 
+    public void Retaliate(Unit strikingUnit)
+    {
+        strikingUnit.Damage(retaliate, piercing: false, physical: true);
+    }
+
     public void Damage(int damage, bool piercing = false, bool physical = false)
     {
         bool destoyed = health <= 0;

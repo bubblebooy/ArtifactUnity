@@ -96,6 +96,7 @@
 |✔️| Timbersaw | Done | Max Garber |
 |✔️| Troll Warlord | Done | Max Garber |
 |✔️| Tusk | Done | Max Garber |
+|✔️| Ursa | Done | Max Garber |
 </details>
 
 ## Items
