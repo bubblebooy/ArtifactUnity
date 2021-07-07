@@ -293,6 +293,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 8.92
       objectReference: {fileID: 0}
+    - target: {fileID: 3317582372839933354, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f02020f3b0e927f4a96d2d6473b6178d, type: 3}
     - target: {fileID: 3426427280598444582, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -416,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 7110869911591806734, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
       propertyPath: m_Color.r
       value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212197837362955286, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}

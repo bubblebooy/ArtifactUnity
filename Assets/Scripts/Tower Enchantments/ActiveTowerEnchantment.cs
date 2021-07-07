@@ -65,6 +65,7 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         Unit targetUnit = target.GetComponent<Unit>();
         CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
         return (target.tag == vaildTargets[i].targetTag &&
+            (vaildTargets[i].targetCardInHand == (target.transform.parent.tag == "Hand")) &&
             (vaildTargets[i].crossLane || (targetSlot.GetLane() == LaneManager)) &&
             (!vaildTargets[i].targetCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
             (!vaildTargets[i].targetHero || targetUnit is Hero) &&

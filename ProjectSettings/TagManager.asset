@@ -11,6 +11,7 @@ TagManager:
   - Card
   - Unit
   - Tower Enchantment
+  - Hand
   layers:
   - Default
   - TransparentFX

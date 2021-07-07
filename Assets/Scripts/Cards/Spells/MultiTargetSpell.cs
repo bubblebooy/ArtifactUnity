@@ -22,6 +22,7 @@ public class MultiTargetSpell : Spell, ITargets
         Unit targetUnit = target.GetComponent<Unit>();
         CardSlot targetSlot = target.GetComponentInParent<CardSlot>();
         return (target.tag == vaildTargets[i].targetTag &&
+            (vaildTargets[i].targetCardInHand == (target.transform.parent.tag == "Hand")) &&
             (vaildTargets[i].crossLane || (targetSlot.GetLane() == transform.parent.gameObject.GetComponent<Unit>().GetLane())) &&
             (!vaildTargets[i].targetCaster || (targetUnit.caster && !targetUnit.stun && !targetUnit.silenced)) &&
             (!vaildTargets[i].targetHero || targetUnit is Hero) &&

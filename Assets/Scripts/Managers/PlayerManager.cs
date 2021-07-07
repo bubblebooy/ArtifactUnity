@@ -635,6 +635,7 @@ public class PlayerManager : NetworkBehaviour
         }
         if (type == "Dealt")
         {
+            card.GetComponent<Card>().revealed = false;
             if (hasAuthority)
             {
                 card.transform.SetParent(PlayerOverDraw.transform, false);

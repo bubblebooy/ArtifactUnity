@@ -71,6 +71,10 @@ public class ManaManager : MonoBehaviour
     }
     public int CurrentMana(LaneManager lane)
     {
+        if(lane == null)
+        {
+            return CurrentMana();
+        }
         return CurrentMana() + laneTowerDict[lane].CurrentMana();
     }
 

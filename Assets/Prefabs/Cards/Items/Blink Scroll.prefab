@@ -38,6 +38,7 @@ MonoBehaviour:
   vaildPlay:
     targetTag: Unit
     crossLane: 0
+    targetCardInHand: 0
     targetOnlyEnemySide: 0
     targetOnlyPlayerSide: 1
     targetCaster: 1
@@ -46,6 +47,7 @@ MonoBehaviour:
   vaildTargets:
   - targetTag: Card Slot
     crossLane: 1
+    targetCardInHand: 0
     targetOnlyEnemySide: 0
     targetOnlyPlayerSide: 1
     targetCaster: 0
