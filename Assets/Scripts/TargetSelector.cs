@@ -53,7 +53,7 @@ public class TargetSelector : MonoBehaviour
     }
     private void OnDestroy()
     {
-        (targetingLine.transform as RectTransform).position = new Vector2(-10,0);
+        (targetingLine.transform as RectTransform).position = new Vector2(-30,0);
         (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10, 100);
         (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0, 0, 0);
     }

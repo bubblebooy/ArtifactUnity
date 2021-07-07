@@ -10,6 +10,7 @@ public class Juxtapose : Ability
 
     public override void OnPlay()
     {
+        base.OnPlay();
         inPlayEvents.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
     }
     public void EndCombatPhase(EndCombatPhase_e e)

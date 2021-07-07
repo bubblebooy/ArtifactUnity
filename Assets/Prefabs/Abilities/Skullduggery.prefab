@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8284877063822880970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22224415371819649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e83d9227fcf3e49b3c6bfdcde8da3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: a1ff5186b24544e48a4adb989c1f5acb, type: 3}
+  abilityName: Skullduggery
+  abilityText: "Active 2\u25A0, 1 Mana: Discard a non-item card in either player's
+    hand. That player draws another card, and it is revealed to you."
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
+  itemAbility: 0
+  baseCooldown: 2
+  cooldown: 0
+  displayCooldown: {fileID: 472959295551278588}
+  mana: 1
+  quickcast: 0
+  PlayerManager: {fileID: 0}
+  vaildTargets:
+  - targetTag: Card
+    crossLane: 0
+    targetCardInHand: 1
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
+    cantTargetRooted: 0
 --- !u!1001 &6738581445958144453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,9 +127,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3764859104290567765, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_text
+      value: "Active 2\u25A0, 1 Mana: Discard a non-item card in either player's
+        hand. That player draws another card, and it is revealed to you."
+      objectReference: {fileID: 0}
     - target: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
       propertyPath: m_Name
-      value: Ability Active
+      value: Skullduggery
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7662459812701184977, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1ff5186b24544e48a4adb989c1f5acb, type: 3}
+    m_RemovedComponents:
+    - {fileID: -4599495931085897684, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+--- !u!1 &22224415371819649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_PrefabInstance: {fileID: 6738581445958144453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &472959295551278588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6562881441855839289, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_PrefabInstance: {fileID: 6738581445958144453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

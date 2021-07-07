@@ -38,6 +38,16 @@ public struct CardPlayed_e : IGameEventInfo
     public GameObject caster;
     public GameObject lane;
 }
+public struct CardRevealed_e : IGameEventInfo
+{
+    public CardRevealed_e(bool revealedByOpponent, Card card)
+    {
+        this.revealedByOpponent = revealedByOpponent;
+        this.card = card;
+    }
+    public bool revealedByOpponent;
+    public Card card;
+}
 public struct TowerDestroyed_e : IGameEventInfo
 {
     public TowerManager tower;

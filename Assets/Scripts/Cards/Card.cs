@@ -145,6 +145,12 @@ public abstract class Card : NetworkBehaviour
         gameObject.transform.SetParent(discard);
     }
 
+    public void Reveal(bool revealedByOpponent)
+    {
+        revealed = true;
+        GameEventSystem.Event(new CardRevealed_e(revealedByOpponent,this));
+    }
+
     public void PayMana()
     {
         // gameObject.GetComponentInParent<LaneManager>();
