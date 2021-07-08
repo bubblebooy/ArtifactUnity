@@ -15,7 +15,7 @@ public class WhirlingAxes : Ability
         Unit combatTarget = card.GetCombatTarget();
         if(combatTarget != null)
         {
-            card.Strike(card.GetCombatTarget(), 1);
+            card.Strike(combatTarget, 1);
         }
         else
         {
