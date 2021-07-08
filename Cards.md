@@ -84,6 +84,8 @@
 |✔️| Dark Seer | Done | Max Garber |
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Earthshaker | Done | Max Garber |
+|✔️| Imperia | Done | Max Garber |
+|✔️| J'Muy the Wise | Done | Max Garber |
 |✔️| Keefe the Bold | Done | Max Garber |
 |✔️| Legion Commander | Done | Max Garber |
 |✔️| Magnus | Done | Max Garber |
