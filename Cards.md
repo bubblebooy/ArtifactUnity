@@ -88,6 +88,8 @@
 |✔️| J'Muy the Wise | Done | Max Garber |
 |✔️| Keefe the Bold | Done | Max Garber |
 |✔️| Legion Commander | Done | Max Garber |
+|✔️| Lina | Done | Max Garber |
+|✔️| Luna | Done | Max Garber |
 |✔️| Magnus | Done | Max Garber |
 |✔️| Mazzie | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
