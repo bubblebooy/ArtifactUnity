@@ -48,7 +48,7 @@ public class OverDrawManager : MonoBehaviour
             if (handArea.transform.childCount >= maxHandSize) { return; }
             card.transform.rotation = Quaternion.identity;
             card.SetParent(handArea.transform, false);
-            card.GetComponent<Card>().revealed |= isPlayer;
+            card.GetComponent<Card>().faceup |= isPlayer;
         }
     }
 }

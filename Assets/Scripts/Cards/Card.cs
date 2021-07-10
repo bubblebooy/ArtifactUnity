@@ -31,7 +31,8 @@ public abstract class Card : NetworkBehaviour
     public string color;
 
     public int mana = 0;
-    public bool revealed = true;
+    public bool revealed = false;
+    public bool faceup = true;
     public int locked = 0;
     public bool quickcast = false;
     protected int baseMana;
@@ -55,6 +56,8 @@ public abstract class Card : NetworkBehaviour
 
     public virtual void OnValidate()
     {
+        //revealed = false;
+
         //if(!string.IsNullOrEmpty(cardName) && ID == 0)
         //{
         //    CardIDs IDs = FindObjectOfType<CardIDs>();
@@ -64,7 +67,7 @@ public abstract class Card : NetworkBehaviour
         //        ID = cid.ID; 
         //    }
         //}
-        if(CardFront == null)
+        if (CardFront == null)
         {
             CardFront = gameObject.transform.Find("CardFront").gameObject;
             CardBack = gameObject.transform.Find("CardBack").gameObject;
@@ -120,6 +123,7 @@ public abstract class Card : NetworkBehaviour
         Card originalCard = originalGameObject.GetComponent<Card>();
         mana = originalCard.mana;
         color = originalCard.color;
+        revealed = originalCard.revealed;
     }
 
     //public virtual void InitializeCard(){}
@@ -162,9 +166,9 @@ public abstract class Card : NetworkBehaviour
     {
         staged = false;
         isDraggable = false;
-        revealed = true;
-        CardFront.SetActive(revealed);
-        CardBack.SetActive(!revealed);
+        faceup = true;
+        CardFront.SetActive(faceup);
+        CardBack.SetActive(!faceup);
     }
 
     public delegate void IsVaildDelegate(ref bool valid, GameObject card);
@@ -200,13 +204,14 @@ public abstract class Card : NetworkBehaviour
 
     public virtual void CardUIUpdate(GameUpdateUI_e e)
     {
-        if (revealed)
+        if (revealed) { faceup = true; }
+        if (faceup)
         {
             if (displayMana != null) { displayMana.text = mana.ToString(); }
             if (!string.IsNullOrEmpty(cardText)) { displayCardText.text = cardText; }
         }
-        CardFront.SetActive(revealed);
-        CardBack.SetActive(!revealed);
+        CardFront.SetActive(faceup);
+        CardBack.SetActive(!faceup);
     }
 
     public void DecrementLock(RoundStart_e e)

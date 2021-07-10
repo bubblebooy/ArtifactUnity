@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   color: blue
   mana: 5
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: Clone a Card. This card is used to test the cloning function

@@ -36,7 +36,7 @@ public class CrownOfTheUndying : Ability
             UnitPlaceholder placeholder = Instantiate(unitPlaceholder, slots[0].transform).GetComponent<UnitPlaceholder>();
             if (card.hasAuthority)
             {
-                placeholder.cardName = "Zombie";
+                placeholder.placeholderCard = "Zombie";
                 //card.PlayerManager.CmdSummon("Zombie", Card.GetLineage(slots[0].transform));
             }
         }

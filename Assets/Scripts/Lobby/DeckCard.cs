@@ -44,7 +44,7 @@ public class DeckCard : MonoBehaviour
 
     public void IncreaseCount()
     {
-        if(count < 3)
+        if(count < 30)
         {
             count += 1;
             UpdateDeckCard();

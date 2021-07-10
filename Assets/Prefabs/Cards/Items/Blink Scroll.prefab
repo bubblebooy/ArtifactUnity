@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 58618134568910a4e8f39d5db1bfab1d, type: 3}
   color: item
   mana: 1
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: 'Move caster to an adjacent lane.

@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 1eecc9da545ee8a44adbfc142363a1c5, type: 3}
   color: black
   mana: 1
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: "Enchant Tower\r\n\r\nActive 1\u25A0, 1 Mana: Move one of your heroes

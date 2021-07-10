@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 2fc80534e041422459016b15100a7685, type: 3}
   color: blue
   mana: 1
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: 'Deal 4 piercing damage to caster''s combat target.

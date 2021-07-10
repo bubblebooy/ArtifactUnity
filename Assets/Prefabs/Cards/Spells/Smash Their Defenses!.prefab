@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: d08edfd042882124f8e584f0676c3096, type: 3}
   color: red
   mana: 2
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: "Dispel a tower enchantment.\r\n\r\n\u25A1 Draw a card."

@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 78c0e418893ab4649a4d88d9d8962e09, type: 3}
   color: black
   mana: 2
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: "Enchant Tower\r\nActive 1\u25A0, 1 Mana: Deal 2 piercing damage to a

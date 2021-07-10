@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 9a56ca5b2c844334cb50f5cae3d426a8, type: 3}
   color: blue
   mana: 6
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: "Repeat one time for each charge: \u25A1 Deal 2 piercing damage to a

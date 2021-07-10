@@ -236,7 +236,8 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   color: item
   mana: 1
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: Item text here <sprite=0> <sprite=1> <sprite=2>

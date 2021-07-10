@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 091a444c2e44e3e4498dcf0a7e95a7ef, type: 3}
   color: black
   mana: 2
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: Deal 2 damage to a unit and give it Feeble permanently.

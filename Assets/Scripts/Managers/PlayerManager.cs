@@ -451,13 +451,13 @@ public class PlayerManager : NetworkBehaviour
         item.transform.SetParent(hero.GetComponent<Hero>().items.transform, false);
     }
 
-    public void CloneToHand(GameObject unit, string color = null, bool ephemeral = false, GameObject validLane = null)
+    public void CloneToHand(GameObject unit, string color = null, bool ephemeral = false, bool revealed = true, GameObject validLane = null)
     {
-        CmdCloneToHand(unit, color, ephemeral, validLane);
+        CmdCloneToHand(unit, color, ephemeral, revealed, validLane);
     }
 
     [Command]
-    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral, GameObject validLane)
+    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral, bool revealed, GameObject validLane)
     {
         GameObject card;
         NetworkClient.GetPrefab(unit.GetComponent<NetworkIdentity>().assetId, out card);
@@ -465,7 +465,7 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         RpcClone(original: unit, clone: card);
         RpcShowCard(card, "Dealt");
-        RpcModifyCard(card, color, ephemeral, validLane);
+        RpcModifyCard(card, color, ephemeral, revealed, validLane);
     }
 
     [ClientRpc]
@@ -477,7 +477,7 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcModifyCard(GameObject card, string color, bool ephemeral, GameObject validLane)
+    public void RpcModifyCard(GameObject card, string color, bool ephemeral, bool revealed, GameObject validLane)
     {
         Card _card = card.GetComponent<Card>();
         if (!string.IsNullOrEmpty(color))
@@ -493,6 +493,11 @@ public class PlayerManager : NetworkBehaviour
         {
             VaildLane v = card.gameObject.AddComponent<VaildLane>();
             v.lane = validLane;
+        }
+        if (revealed)
+        {
+            _card.revealed = true;
+            _card.faceup = true;
         }
         
     }
@@ -621,7 +626,7 @@ public class PlayerManager : NetworkBehaviour
     {
         if (type == "Deck")
         {
-            card.GetComponent<Card>().revealed = false;
+            card.GetComponent<Card>().faceup = false;
             card.GetComponent<Card>().CardUIUpdate(new GameUpdateUI_e());
             if (hasAuthority)
             {
@@ -635,7 +640,7 @@ public class PlayerManager : NetworkBehaviour
         }
         if (type == "Dealt")
         {
-            card.GetComponent<Card>().revealed = false;
+            card.GetComponent<Card>().faceup = false;
             if (hasAuthority)
             {
                 card.transform.SetParent(PlayerOverDraw.transform, false);

@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: f9e5bc0b586044542b83c822f66b1ea5, type: 3}
   color: green
   mana: 1
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 1
   cardText: "Purge opponent's effects from a unit. Give it Untargetable.\r\n\u25A2Quickcast"

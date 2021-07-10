@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 3c39aaa1a35ec9745bdc161aa5c23fed, type: 3}
   color: green
   mana: 4
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: Stun a unit. Give it +2 Decay for two rounds.

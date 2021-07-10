@@ -35,7 +35,8 @@ public class Watchtower : TowerEnchantment
             e.caster.GetComponent<Unit>().GetSide() != GetSide())
         {
             Card c = e.card.GetComponent<Card>();
-            if (c is Spell || c is Enchantment)
+            if ((c is Spell || c is Enchantment ) &&
+                !(c is IItem))
             {
                 WatchtowerEffect();
             }

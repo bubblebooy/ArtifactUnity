@@ -65,7 +65,7 @@ public class DragDrop : NetworkBehaviour
 
     public void StartDrag()
     {
-        if (!card.isDraggable || !card.revealed) return;
+        if (!card.isDraggable || !card.faceup) return;
         startPosition = transform.position;
         startParent = transform.parent.gameObject;
         transform.SetParent(Canvas.transform, false);
@@ -75,7 +75,7 @@ public class DragDrop : NetworkBehaviour
 
     public void EndDrag()
     {
-        if (!card.isDraggable || !card.revealed) return;
+        if (!card.isDraggable || !card.faceup) return;
         isDragging = false;
 
         (targetingLine.transform as RectTransform).position = new Vector2(-10, 0);

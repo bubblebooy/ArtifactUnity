@@ -43,7 +43,7 @@ public class StatusIcons : MonoBehaviour
 
     void GameUpdateUI(GameUpdateUI_e e)
     {
-        if (card.revealed)
+        if (card?.faceup == true && statusIcons.bounty != null)
         {
             statusIcons.bounty.SetActive(card.bounty > (card is Hero ? 5 : 1));
             statusIcons.cleave.SetActive(card.cleave > 0);

@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: abbe7de7a4a02f0409a5d6a4668ce083, type: 3}
   color: blue
   mana: 2
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: Push caster and Summon a Melee Creep in its place.

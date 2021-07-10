@@ -192,7 +192,7 @@ public class Unit : Card
     public override void CardUIUpdate(GameUpdateUI_e e)
     {
         base.CardUIUpdate(e);
-        if (revealed)
+        if (faceup)
         {
             displayAttack.text = "<sprite=0>" + attack.ToString();
             displayArmor.text = "<sprite=1>" + armor.ToString();

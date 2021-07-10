@@ -26,7 +26,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 5f8d2adbff59994478580d306ca39ef9, type: 3}
   color: blue
   mana: 1
-  revealed: 1
+  revealed: 0
+  faceup: 1
   locked: 0
   quickcast: 0
   cardText: "Deal 1 damage\r\nRepeat three times: \u25A1 Jump left or right and deal
