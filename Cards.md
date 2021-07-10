@@ -91,9 +91,11 @@
 |✔️| Lina | Done | Max Garber |
 |✔️| Luna | Done | Max Garber |
 |✔️| Magnus | Done | Max Garber |
-|✔️| Mazzie | Done | Max Garber |
+|✔️| Mazzie | Done | Max Garber |\
+|✔️| Oger Magi | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Phantom Lancer | Done | Max Garber |
+|✔️| Pierpont | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
 |✔️| Tidehunter | Done | Max Garber |
