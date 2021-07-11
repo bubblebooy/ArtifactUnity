@@ -353,18 +353,17 @@ public class PlayerManager : NetworkBehaviour
         RpcGameChangeState(state);
     }
 
-    public void SpawnLaneCreeps(GameObject lane)
+    public void SpawnLaneCreeps(string meleeCreep , GameObject lane)
     {
-        CmdSpawnLaneCreeps(lane);
+        CmdSpawnLaneCreeps(meleeCreep, lane);
     }
 
     [Command]
-    void CmdSpawnLaneCreeps(GameObject lane)
+    void CmdSpawnLaneCreeps(string meleeCreep, GameObject lane)
     {
         //https://answers.unity.com/questions/1063917/command-cant-pass-gameobject-parameter-from-remote.html
-        GameObject card = Instantiate(CardList.cardDict["Melee Creep"], new Vector2(0, 0), Quaternion.identity);
+        GameObject card = Instantiate(CardList.cardDict[meleeCreep], new Vector2(0, 0), Quaternion.identity);
         NetworkServer.Spawn(card, connectionToClient);
-        //RpcOnSpawn(card);
         RpcSpawnLaneCreeps(lane, card);
         CardPlayed_e cardPlayed_e = new CardPlayed_e();
         cardPlayed_e.card = card;

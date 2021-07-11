@@ -8,6 +8,7 @@ public class LaneManager : NetworkBehaviour
 
     public bool combated = false;
     public GameManager GameManager;
+    public string meleeCreep = "Melee Creep";
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
 
@@ -16,6 +17,7 @@ public class LaneManager : NetworkBehaviour
         base.OnStartClient();
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         events.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
+        events.Add(GameEventSystem.Register<GameUpdate_e>(GameUpdate));
     }
 
     public IEnumerator Combat()
@@ -56,5 +58,10 @@ public class LaneManager : NetworkBehaviour
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         return networkIdentity.GetComponent<PlayerManager>();
+    }
+
+    void GameUpdate(GameUpdate_e e)
+    {
+        meleeCreep = "Melee Creep";
     }
 }

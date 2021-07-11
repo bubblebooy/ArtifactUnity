@@ -16,7 +16,7 @@ public class GameManager : NetworkBehaviour
     public GameObject PlayerMana;
     public GameObject EnemyMana;
     public ShopManager Shop;
-
+    LaneManager[] lanes;
 
     public string GameState = "Setup";
     //public int[] PlayerTowerHealth = new int[] { 40, 40, 40, 80};
@@ -44,6 +44,7 @@ public class GameManager : NetworkBehaviour
         GameHistory = GetComponent<GameHistory>();
         Shop = FindObjectOfType<ShopManager>(includeInactive: true);
         GameEventSystem.Register<TowerDestroyed_e>(TowerDestroyed);
+        lanes = Board.GetComponentsInChildren<LaneManager>();
     }
 
     public void ChangeGameState(string stateRequest)
@@ -192,7 +193,7 @@ public class GameManager : NetworkBehaviour
     {
         Debug.Log("COMBAT START");
         // Dont know if I need this // GameEventSystem.Event(new StartCombatPhase_e());
-        LaneManager[] lanes = Board.GetComponentsInChildren<LaneManager>();
+        //LaneManager[] lanes = Board.GetComponentsInChildren<LaneManager>();
         if (!CombatDirection) { Array.Reverse(lanes); }
         foreach (LaneManager lane in lanes)
         {
@@ -250,13 +251,13 @@ public class GameManager : NetworkBehaviour
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        LaneManager[] lanes = Board.GetComponentsInChildren<LaneManager>();
+        //LaneManager[] lanes = Board.GetComponentsInChildren<LaneManager>();
         foreach (LaneManager lane in lanes)
         {
             Transform side = lane.gameObject.transform.Find("PlayerSide");
             if (side.GetComponentsInChildren<Unit>().Length < side.GetComponentsInChildren<CardSlot>().Length)
             {
-                PlayerManager.SpawnLaneCreeps(lane.gameObject);
+                PlayerManager.SpawnLaneCreeps(lane.meleeCreep, lane.gameObject);
             }
         }
     }
