@@ -26,7 +26,7 @@ public class CreepReinforcements : Spell
         cardSlot.dontCollapse = true;
         if (hasAuthority)
         {
-            PlayerManager.CmdSummon(cardSlot.GetLane().meleeCreep,GetLineage(cardSlot.transform)); // not sure best way to generize this Cmd
+            PlayerManager.CmdSummon(cardSlot.GetLane().playerMeleeCreep,GetLineage(cardSlot.transform)); // not sure best way to generize this Cmd
         }
 
         DestroyCard();

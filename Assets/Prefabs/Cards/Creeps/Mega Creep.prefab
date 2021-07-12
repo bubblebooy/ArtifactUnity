@@ -1,66 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1447463395383107223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5606982541690348536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c766bf6a7a8ea4a87b54f650cc965c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  cardName: Melee Creep
-  ID: 1
-  PlayerManager: {fileID: 0}
-  GameManager: {fileID: 0}
-  ManaManager: {fileID: 0}
-  CardFront: {fileID: 570849467400766948}
-  CardBack: {fileID: 6932764533852930706}
-  staged: 0
-  isDraggable: 1
-  cardArt: {fileID: 0}
-  color: colorless
-  mana: 1
-  revealed: 0
-  faceup: 1
-  locked: 0
-  quickcast: 0
-  cardText: 
-  attack: 1
-  armor: 0
-  health: 1
-  maxArmor: 0
-  maxHealth: 0
-  baseMaxArmor: 0
-  baseMaxHealth: 0
-  arrow: 0
-  quickstrike: 0
-  cleave: 0
-  disarmed: 0
-  stun: 0
-  caster: 0
-  silenced: 0
-  piercing: 0
-  trample: 0
-  feeble: 0
-  deathShield: 0
-  damageImmunity: 0
-  rooted: 0
-  untargetable: 0
-  siege: 0
-  retaliate: 0
-  decay: 0
-  regeneration: 0
-  bounty: 1
-  inPlay: 0
-  direCreepArt: {fileID: 21300000, guid: 72a533fa4b315e6479a2fd2fc0d26b16, type: 3}
-  radiantCreepArt: {fileID: 21300000, guid: 9c5c2fe2b00e7064bbae604fdb7563af, type: 3}
---- !u!1001 &3959234090104648391
+--- !u!1001 &6327617639129846460
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -69,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 408883653956684635, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1011788425932796483, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Pivot.x
@@ -157,11 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030285483841519653, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: <sprite=0>1
+      value: <sprite=0>2
       objectReference: {fileID: 0}
     - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: Melee Creep
+      value: Mega Creep
       objectReference: {fileID: 0}
     - target: {fileID: 1883883531119826359, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_fontSize
@@ -173,11 +113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: ID
-      value: 1
+      value: 10990
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: mana
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: color
@@ -185,11 +125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: attack
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: health
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: cardArt
@@ -197,40 +137,12 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 1fabc3f8fcbb6794c94e9b29370201a9, type: 3}
     - target: {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: cardName
-      value: Melee Creep
+      value: Mega Creep
       objectReference: {fileID: 0}
-    - target: {fileID: 5799540982887977805, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Color.b
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5799540982887977805, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Color.g
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5799540982887977805, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Color.r
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884623638285614310, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+    - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1fabc3f8fcbb6794c94e9b29370201a9, type: 3}
-    - target: {fileID: 5884623638285614310, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884623638285614310, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884623638285614310, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -241,15 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7742918832098134591, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_Maskable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7934435837985257655, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_text
-      value: <sprite=2>1
+      value: <sprite=2>3
       objectReference: {fileID: 0}
     - target: {fileID: 8133886668873735030, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Color.b
@@ -265,27 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8872661395717017919, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
       propertyPath: m_Name
-      value: Melee Creep
+      value: Mega Creep
       objectReference: {fileID: 0}
-    - target: {fileID: 8946657103212382184, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4340405895978770757, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
---- !u!1 &5606982541690348536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8872661395717017919, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-  m_PrefabInstance: {fileID: 3959234090104648391}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &570849467400766948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3539291635188315939, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-  m_PrefabInstance: {fileID: 3959234090104648391}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6932764533852930706 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6252164999846228053, guid: a3e017aa8a1f3c74bb470cf4be5b0171, type: 3}
-  m_PrefabInstance: {fileID: 3959234090104648391}
-  m_PrefabAsset: {fileID: 0}

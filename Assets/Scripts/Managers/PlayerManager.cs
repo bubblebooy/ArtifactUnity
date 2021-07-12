@@ -33,6 +33,7 @@ public class PlayerManager : NetworkBehaviour
     System.Random rand = new System.Random();
 
     public bool IsMyTurn = true;
+    public bool radiantDire = true;
 
     private int cardSlotID = 0;
 
@@ -120,6 +121,7 @@ public class PlayerManager : NetworkBehaviour
         {
             pm.IsMyTurn = !pm.IsMyTurn;
         }
+        pm.radiantDire = pm.IsMyTurn;
     }
    
     [Command]

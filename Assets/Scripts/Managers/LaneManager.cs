@@ -8,7 +8,10 @@ public class LaneManager : NetworkBehaviour
 
     public bool combated = false;
     public GameManager GameManager;
-    public string meleeCreep = "Melee Creep";
+    public string playerMeleeCreep = "Melee Creep";
+    public string enemyMeleeCreep = "Melee Creep";
+    public bool playerCreepSummonDirection = true;
+    public bool enemyCreepSummonDirection = true;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
 
@@ -62,6 +65,9 @@ public class LaneManager : NetworkBehaviour
 
     void GameUpdate(GameUpdate_e e)
     {
-        meleeCreep = "Melee Creep";
+        playerMeleeCreep = "Melee Creep";
+        enemyMeleeCreep  = "Melee Creep";
+        playerCreepSummonDirection = true;
+        enemyCreepSummonDirection = true;
     }
 }

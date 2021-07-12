@@ -56,6 +56,8 @@ MonoBehaviour:
   EnemyFountain: {fileID: 0}
   PlayerMana: {fileID: 0}
   EnemyMana: {fileID: 0}
+  Shop: {fileID: 0}
+  unitPlaceholder: {fileID: 2265735539493605509, guid: 0f3bc105d08e45f4ead482a46c0c6da2, type: 3}
   GameState: Setup
   CombatDirection: 1
   flop: 0
