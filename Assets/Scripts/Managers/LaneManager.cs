@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System.Linq;
 
 public class LaneManager : NetworkBehaviour
 {
@@ -10,10 +11,14 @@ public class LaneManager : NetworkBehaviour
     public GameManager GameManager;
     public string playerMeleeCreep = "Melee Creep";
     public string enemyMeleeCreep = "Melee Creep";
-    public bool playerCreepSummonDirection = true;
-    public bool enemyCreepSummonDirection = true;
+    public bool playerCreepSummonForward = true;
+    public bool enemyCreepSummonForward = true;
+
+    public GameObject unitPlaceholder;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
+
+    PlayerManager PlayerManager;
 
     public override void OnStartClient()
     {
@@ -57,6 +62,51 @@ public class LaneManager : NetworkBehaviour
         combated = false;
     }
 
+    public void SummonCreeps()
+    {
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+
+        SummonCreeps(true);
+        SummonCreeps(false);
+    }
+
+    public void SummonCreeps(bool playerSide)
+    {
+        IEnumerable<Transform> slots = transform.Find(playerSide ? "PlayerSide" : "EnemySide")
+            .Cast<Transform>()
+            .Where(slot => slot.GetComponent<CardSlot>() != null);
+
+        if (PlayerManager.Settings.values.variableSlots)
+        {
+            int middleSlot = (slots.Count() - 1) / 2;
+            //bool summonDirection;
+            float orderSlots(Transform slot, bool summonDirection)
+            {
+                float value = Mathf.Abs(slot.GetSiblingIndex() - middleSlot + .1f);
+                if (!summonDirection) { value *= -1; }
+                if (!slot.gameObject.activeInHierarchy) { value += 1000; }
+                return value;
+            }
+            slots = slots.OrderBy(slot => orderSlots(slot, playerSide ? playerCreepSummonForward : enemyCreepSummonForward));
+        }
+        else
+        {
+            if (!( playerSide ? playerCreepSummonForward : enemyCreepSummonForward)) { slots = slots.Reverse(); }
+        }
+
+        foreach (Transform slot in slots)
+        {
+            if (slot.childCount == 0)
+            {
+                UnitPlaceholder placeholder = Instantiate(unitPlaceholder, slot).GetComponent<UnitPlaceholder>();
+                placeholder.placeholderCard = playerSide ? playerMeleeCreep : null;
+                break;
+            }
+        }
+    }
+
+
     public PlayerManager GetPlayerManager()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
@@ -67,7 +117,7 @@ public class LaneManager : NetworkBehaviour
     {
         playerMeleeCreep = "Melee Creep";
         enemyMeleeCreep  = "Melee Creep";
-        playerCreepSummonDirection = true;
-        enemyCreepSummonDirection = true;
+        playerCreepSummonForward = true;
+        enemyCreepSummonForward = true;
     }
 }

@@ -18,8 +18,6 @@ public class GameManager : NetworkBehaviour
     public ShopManager Shop;
     LaneManager[] lanes;
 
-    public GameObject unitPlaceholder;
-
     public string GameState = "Setup";
     //public int[] PlayerTowerHealth = new int[] { 40, 40, 40, 80};
     //public int[] EnemyTowerHealth = new int[] { 40, 40, 40, 80 };
@@ -260,58 +258,9 @@ public class GameManager : NetworkBehaviour
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-        //LaneManager[] lanes = Board.GetComponentsInChildren<LaneManager>();
         foreach (LaneManager lane in lanes)
         {
-            IEnumerable<Transform> playerSlots = lane.gameObject.transform.Find("PlayerSide")
-                .Cast<Transform>()
-                .Where(slot => slot.GetComponent<CardSlot>() != null);
-            IEnumerable<Transform> enemySlots = lane.gameObject.transform.Find("EnemySide")
-                .Cast<Transform>()
-                .Where(slot => slot.GetComponent<CardSlot>() != null);
-            if (PlayerManager.Settings.values.variableSlots)
-            {
-                int middleSlot = (playerSlots.Count() - 1) / 2;
-                //bool summonDirection;
-                float orderSlots(Transform slot, bool summonDirection)
-                {
-                    float value = Mathf.Abs(slot.GetSiblingIndex() - middleSlot + .1f);
-                    if (!summonDirection) { value *= -1; }
-                    if(!slot.gameObject.activeInHierarchy){ value += 1000; }
-                    return value;
-                }
-                //summonDirection = lane.playerCreepSummonDirection;
-                playerSlots = playerSlots.OrderBy(slot => orderSlots(slot, lane.playerCreepSummonDirection));
-                //summonDirection = lane.enemyCreepSummonDirection;
-                enemySlots = enemySlots.OrderBy(slot => orderSlots(slot, lane.enemyCreepSummonDirection));
-            }
-            else
-            {
-                if (!lane.playerCreepSummonDirection) { playerSlots = playerSlots.Reverse(); }
-                if (!lane.enemyCreepSummonDirection) { enemySlots = enemySlots.Reverse(); }
-            }
-
-            foreach (Transform slot in playerSlots)
-            {
-                if (slot.childCount == 0)
-                {
-                    UnitPlaceholder placeholder = Instantiate(unitPlaceholder, slot).GetComponent<UnitPlaceholder>();
-                    placeholder.placeholderCard = lane.playerMeleeCreep;
-                    break;
-                }
-            }
-            foreach (Transform slot in enemySlots)
-            {
-                if (slot.childCount == 0)
-                {
-                    UnitPlaceholder placeholder = Instantiate(unitPlaceholder, slot).GetComponent<UnitPlaceholder>();
-                    break;
-                }
-            }
-            //if (playerSide.GetComponentsInChildren<Unit>().Length < playerSide.GetComponentsInChildren<CardSlot>().Length)
-            //{
-            //    PlayerManager.SpawnLaneCreeps(lane.playerMeleeCreep, lane.gameObject);
-            //}
+            lane.SummonCreeps();
         }
     }
 

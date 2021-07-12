@@ -143,6 +143,11 @@ MonoBehaviour:
   syncInterval: 0.1
   combated: 0
   GameManager: {fileID: 0}
+  playerMeleeCreep: Melee Creep
+  enemyMeleeCreep: Melee Creep
+  playerCreepSummonDirection: 1
+  enemyCreepSummonDirection: 1
+  unitPlaceholder: {fileID: 2265735539493605509, guid: 0f3bc105d08e45f4ead482a46c0c6da2, type: 3}
 --- !u!114 &5208306890550340862
 MonoBehaviour:
   m_ObjectHideFlags: 0

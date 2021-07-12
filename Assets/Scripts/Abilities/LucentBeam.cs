@@ -17,7 +17,7 @@ public class LucentBeam : Ability
         Transform side = card.GetLane().transform
             .Find(card.GetSide() == "PlayerSide" ? "EnemySide" : "PlayerSide");
         Unit[] enemies = side.GetComponentsInChildren<Unit>();
-        print(enemies.Length);
+        //print(enemies.Length);
         if (enemies.Length > 0)
         {
             int rnd = Random.Range(0, enemies.Length);
