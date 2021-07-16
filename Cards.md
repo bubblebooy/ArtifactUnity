@@ -86,6 +86,7 @@
 |✔️| Earthshaker | Done | Max Garber |
 |✔️| Imperia | Done | Max Garber |
 |✔️| J'Muy the Wise | Done | Max Garber |
+|✔️| Kanna | Done | Max Garber |
 |✔️| Keefe the Bold | Done | Max Garber |
 |✔️| Legion Commander | Done | Max Garber |
 |✔️| Lina | Done | Max Garber |

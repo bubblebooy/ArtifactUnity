@@ -13,6 +13,8 @@ public class LaneManager : NetworkBehaviour
     public string enemyMeleeCreep = "Melee Creep";
     public bool playerCreepSummonForward = true;
     public bool enemyCreepSummonForward = true;
+    public int playerCreepSummonCount = 1;
+    public int enemyCreepSummonCount = 1;
 
     public GameObject unitPlaceholder;
 
@@ -66,9 +68,19 @@ public class LaneManager : NetworkBehaviour
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerManager = networkIdentity.GetComponent<PlayerManager>();
-
-        SummonCreeps(true);
-        SummonCreeps(false);
+        
+        for( int i = 0; i < Mathf.Max(playerCreepSummonCount, enemyCreepSummonCount); i++)
+        {
+            if(i < playerCreepSummonCount)
+            {
+                SummonCreeps(true);
+            }
+            if (i < enemyCreepSummonCount)
+            {
+                SummonCreeps(false);
+            }
+            GetComponent<LaneVariableSlots>()?.UpdateSlots();
+        }
     }
 
     public void SummonCreeps(bool playerSide)
@@ -119,5 +131,7 @@ public class LaneManager : NetworkBehaviour
         enemyMeleeCreep  = "Melee Creep";
         playerCreepSummonForward = true;
         enemyCreepSummonForward = true;
-    }
+        playerCreepSummonCount = 1;
+        enemyCreepSummonCount = 1;
+}
 }

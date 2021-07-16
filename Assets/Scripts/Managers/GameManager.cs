@@ -16,7 +16,7 @@ public class GameManager : NetworkBehaviour
     public GameObject PlayerMana;
     public GameObject EnemyMana;
     public ShopManager Shop;
-    LaneManager[] lanes;
+    public LaneManager[] lanes;
 
     public string GameState = "Setup";
     //public int[] PlayerTowerHealth = new int[] { 40, 40, 40, 80};
@@ -188,7 +188,7 @@ public class GameManager : NetworkBehaviour
         UIManager.ButtonInteractable();
         if(GameState != "Combat")
         {
-            //GameEventSystem.Event(new TurnStart_e());
+            GameEventSystem.Event(new TurnStart_e());
         }
 
     }
@@ -321,7 +321,9 @@ public class GameManager : NetworkBehaviour
         yield return new WaitForSeconds(0.1f);
         UIManager.UpdateButtonText("Pass");
         UIManager.ButtonInteractable();
+        GameEventSystem.Event(new TurnStart_e());
         GameUpdate();
+        
     }
 
     void TowerDestroyed(TowerDestroyed_e e)
