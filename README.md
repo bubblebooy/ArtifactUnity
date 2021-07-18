@@ -1,8 +1,11 @@
 # Artifact Unity
 
-Max Garber
+Max Garber  
+Unity Version 2021.1.7f1
 
 Used [How to Build a Multiplayer Card Game with Unity 2D and Mirror by M. S. Farzan](https://www.freecodecamp.org/news/how-to-build-a-multiplayer-card-game-with-unity-2d-and-mirror/) as a starting point for the project:
+
+
 
 ## Running the Game
 
