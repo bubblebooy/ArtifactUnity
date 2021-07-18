@@ -270,7 +270,7 @@ public class Unit : Card
 
     public void OnKilled()
     {
-        //bounty here?
+        GameEventSystem.Event(new UnitKilled_e(this));
         GetComponent<AbilitiesManager>().OnKilled();
         GameObject.Find(hasAuthority ? "EnemyGold" : "PlayerGold")
             .GetComponent<GoldManager>()

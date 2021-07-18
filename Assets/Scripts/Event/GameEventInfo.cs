@@ -53,6 +53,15 @@ public struct TowerDestroyed_e : IGameEventInfo
     public TowerManager tower;
     public TowerDestroyed_e(TowerManager tower) => this.tower = tower;
 }
+public struct UnitKilled_e : IGameEventInfo
+{
+    public UnitKilled_e(Card card)
+    {
+        this.card = card;
+    }
+    public Card card;
+}
+
 
 
 

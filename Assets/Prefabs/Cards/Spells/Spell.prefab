@@ -14,28 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cardName: 
+  ID: 0
   PlayerManager: {fileID: 0}
   GameManager: {fileID: 0}
   ManaManager: {fileID: 0}
+  CardFront: {fileID: 9206842226898776991}
+  CardBack: {fileID: 1738237955190945001}
   staged: 0
   isDraggable: 1
   cardArt: {fileID: 0}
   color: 
-  cardName: 
   mana: 0
+  revealed: 0
+  faceup: 1
+  locked: 0
   quickcast: 0
   cardText: 
-  targetTag: Lane
-  targetOnlyEnemySide: 0
-  targetOnlyPlayerSide: 0
-  targetCaster: 0
-  targetHero: 0
-  vailPlay:
-    targetTag: Lane
+  vaildPlay:
+    targetTag: 
+    crossLane: 0
+    targetCardInHand: 0
     targetOnlyEnemySide: 0
     targetOnlyPlayerSide: 0
     targetCaster: 0
     targetHero: 0
+    cantTargetRooted: 0
 --- !u!1001 &8937861359884693759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,5 +176,15 @@ PrefabInstance:
 --- !u!1 &3889234601033323907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5328039620299072892, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+  m_PrefabInstance: {fileID: 8937861359884693759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9206842226898776991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 273857237943042912, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
+  m_PrefabInstance: {fileID: 8937861359884693759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1738237955190945001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7212197837362955286, guid: 18a67df8d3ba3e443a6c5f54a9122122, type: 3}
   m_PrefabInstance: {fileID: 8937861359884693759}
   m_PrefabAsset: {fileID: 0}
