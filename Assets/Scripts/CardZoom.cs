@@ -35,7 +35,7 @@ public class CardZoom : MonoBehaviour
 
     public void OnHoverEnter()
     {
-        if (!isActiveAndEnabled) { return; }
+        if (!isActiveAndEnabled || !card.GameManager.zoomEnabled) { return; }
         if (cardFront.activeInHierarchy) 
         {
             hover = true;

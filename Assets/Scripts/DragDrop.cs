@@ -71,12 +71,14 @@ public class DragDrop : NetworkBehaviour
         transform.SetParent(Canvas.transform, false);
         transform.position = startPosition + 100f * Vector2.up;
         isDragging = true;
+        GameManager.zoomEnabled = false;
     }
 
     public void EndDrag()
     {
         if (!card.isDraggable || !card.faceup) return;
         isDragging = false;
+        GameManager.zoomEnabled = true;
 
         (targetingLine.transform as RectTransform).position = new Vector2(-30, 0);
         (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10, 100);

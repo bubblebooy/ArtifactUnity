@@ -537,6 +537,10 @@ public class Unit : Card
         }
         return AdjEnemies;
     }
+    public CardSlot GetAcrossCardSlot()
+    {
+        return GetCardSlot().GetAcrossCardSlot();
+    }
 
     public Unit[] GetNeighbors()
     {

@@ -80,6 +80,12 @@ public class CardSlot : NetworkBehaviour
         return transform.parent.name;
     }
 
+    public CardSlot GetAcrossCardSlot()
+    {
+        Transform otherSide = transform.parent.parent.Find(GetSide() == "PlayerSide" ? "EnemySide" : "PlayerSide");
+        return otherSide.GetChild(transform.GetSiblingIndex()).GetComponent<CardSlot>();
+    }
+
     public TowerManager GetTower()
     {
         return transform.parent.GetComponentInChildren<TowerManager>();

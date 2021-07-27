@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ActiveTargetAbility : ActiveAbility, ITargets
 {
 
     public TargetValidation[] vaildTargets;
-    protected List<List<string>> selectedTargets = new List<List<string>>();
+    //protected List<List<string>> selectedTargets = new List<List<string>>();
+    protected List<GameObject> selectedTargets = new List<GameObject>();
+
 
     public override void ActivateAbility()
     {
@@ -34,8 +37,9 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
 
     public void TargetSelected(GameObject target)
     {
-        selectedTargets.Add(Card.GetLineage(target.transform));
-        if(selectedTargets.Count < vaildTargets.Length)
+        //selectedTargets.Add(Card.GetLineage(target.transform));
+        selectedTargets.Add(target);
+        if (selectedTargets.Count < vaildTargets.Length)
         {
             TargetSelector targetSelector = gameObject.AddComponent<TargetSelector>();
         }
@@ -44,7 +48,7 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
             PlayerManager.ActivateTargetAbility(
                 card.gameObject,
                 transform.GetSiblingIndex(),
-                selectedTargets,
+                selectedTargets.Select(x => Card.GetLineage(x.transform)).ToList(),
                 quickcast: quickcast);
         }
     }

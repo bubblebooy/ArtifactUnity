@@ -29,6 +29,8 @@ public class GameManager : NetworkBehaviour
     private int ReadyClicks = 0; // should I make this a bool?
     public int flop = 0;
 
+    public bool zoomEnabled = true;
+
 
     // Start is called before the first frame update
     public override void OnStartClient()

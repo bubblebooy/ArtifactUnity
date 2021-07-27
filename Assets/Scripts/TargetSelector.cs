@@ -7,6 +7,7 @@ public class TargetSelector : MonoBehaviour
 {
     private GameObject targetingLine;
     private Canvas Canvas;
+    private GameManager GameManager;
 
     //// Update is called once per frame
 
@@ -14,6 +15,8 @@ public class TargetSelector : MonoBehaviour
     {
         targetingLine = GameObject.Find("TargetingArrow");
         Canvas = GameObject.Find("Main Canvas").GetComponent<Canvas>();
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameManager.zoomEnabled = false;
     }
     void Update()
     {
@@ -56,5 +59,6 @@ public class TargetSelector : MonoBehaviour
         (targetingLine.transform as RectTransform).position = new Vector2(-30,0);
         (targetingLine.transform as RectTransform).sizeDelta = new Vector2(10, 100);
         (targetingLine.transform as RectTransform).eulerAngles = new Vector3(0, 0, 0);
+        GameManager.zoomEnabled = true;
     }
 }
