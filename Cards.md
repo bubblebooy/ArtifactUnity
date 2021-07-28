@@ -56,13 +56,16 @@
 |✔️| Creep Reinforcements | Done | Max Garber |
 |✔️| Cunning Plan | Done | Max Garber |
 |✔️| Diabolic Conclusion | Done | Max Garber |
+|✔️| Divided We Stand | Done | Max Garber |
 |✔️| Divine Intervention | Done | Max Garber |
+|✔️| Eclipse | Done | Max Garber |
 |✔️| Gank | Done | Max Garber |
 |✔️| Lightning Strike | Done | Max Garber |
 |✔️| No Accident | Done | Max Garber |
 |✔️| Poised to Strike | Done | Max Garber |
 |✔️| Repel | Done | Max Garber |
 |✔️| Smash Their Defenses! | Done | Max Garber |
+|✔️| Spell Steal | Done | Max Garber |
 |✔️| Ventriloquy | Done | Max Garber |
 |✔️| Wraithfire Blast | Done | Max Garber |
 

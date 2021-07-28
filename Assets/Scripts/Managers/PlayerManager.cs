@@ -464,13 +464,13 @@ public class PlayerManager : NetworkBehaviour
         item.transform.SetParent(hero.GetComponent<Hero>().items.transform, false);
     }
 
-    public void CloneToHand(GameObject unit, string color = null, bool ephemeral = false, bool revealed = true, GameObject validLane = null)
+    public void CloneToHand(GameObject unit, string color = null, bool ephemeral = false, bool revealed = true, GameObject validLane = null, int manaModifier = 0)
     {
-        CmdCloneToHand(unit, color, ephemeral, revealed, validLane);
+        CmdCloneToHand(unit, color, ephemeral, revealed, validLane, manaModifier);
     }
 
     [Command]
-    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral, bool revealed, GameObject validLane)
+    public void CmdCloneToHand(GameObject unit, string color, bool ephemeral, bool revealed, GameObject validLane, int manaModifier)
     {
         GameObject card;
         NetworkClient.GetPrefab(unit.GetComponent<NetworkIdentity>().assetId, out card);
@@ -478,7 +478,7 @@ public class PlayerManager : NetworkBehaviour
         NetworkServer.Spawn(card, connectionToClient);
         RpcClone(original: unit, clone: card);
         RpcShowCard(card, "Dealt");
-        RpcModifyCard(card, color, ephemeral, revealed, validLane);
+        RpcModifyCard(card, color, ephemeral, revealed, validLane, manaModifier);
     }
 
     [ClientRpc]
@@ -490,7 +490,7 @@ public class PlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcModifyCard(GameObject card, string color, bool ephemeral, bool revealed, GameObject validLane)
+    public void RpcModifyCard(GameObject card, string color, bool ephemeral, bool revealed, GameObject validLane, int manaModifier)
     {
         Card _card = card.GetComponent<Card>();
         if (!string.IsNullOrEmpty(color))
@@ -511,6 +511,10 @@ public class PlayerManager : NetworkBehaviour
         {
             _card.revealed = true;
             _card.faceup = true;
+        }
+        if (manaModifier != 0)
+        {
+            _card.mana += manaModifier;
         }
         
     }

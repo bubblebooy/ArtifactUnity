@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: cardArt
       value: 
-      objectReference: {fileID: 21300000, guid: 9418b0e36dcb7474cac7bd6fadd5744c, type: 3}
+      objectReference: {fileID: 21300000, guid: ae7051104953be34687085896bddde51, type: 3}
     - target: {fileID: -8105710548197126746, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: cardName
       value: Rubick
@@ -259,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9418b0e36dcb7474cac7bd6fadd5744c, type: 3}
+      objectReference: {fileID: 21300000, guid: ae7051104953be34687085896bddde51, type: 3}
     - target: {fileID: 8796844663899647933, guid: 81fdca557d2d41449acc58e2e89a9276, type: 3}
       propertyPath: m_Color.b
       value: 1

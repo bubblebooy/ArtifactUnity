@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4313489010791852255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576525246008308066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f9170f0c0029f4fb1e7e427655b55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: Spell Steal
+  ID: 10670
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 6907643460533311358}
+  CardBack: {fileID: 4037144108651548680}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 21300000, guid: d0c35cd6baf5fe14a923bf157fa27027, type: 3}
+  color: blue
+  mana: 1
+  revealed: 0
+  faceup: 1
+  locked: 0
+  quickcast: 1
+  cardText: "Put a copy of the last non-item card your opponent played into your
+    hand. That card is blue and costs 1 less.\r\n\r\n\u25A2Quickcast"
+  vaildPlay:
+    targetTag: Lane
+    crossLane: 0
+    targetCardInHand: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
+    cantTargetRooted: 0
+--- !u!1001 &2313063608264516833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d0c35cd6baf5fe14a923bf157fa27027, type: 3}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715406020977577603, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325234172275670817, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_text
+      value: "Put a copy of the last non-item card your opponent played into your
+        hand. That card is blue and costs 1 less.\r\n\r\n\u25A2Quickcast"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Name
+      value: Spell Steal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483911842211962826, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483911842211962826, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670735233373730559, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438084732954496999, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018133980985613017, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_text
+      value: Spell Steal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124815039161176331, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664044145357954724, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3611571970488368778, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+--- !u!1 &1576525246008308066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3889234601033323907, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 2313063608264516833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6907643460533311358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206842226898776991, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 2313063608264516833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4037144108651548680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738237955190945001, guid: 66ebb359f49082e4986e35d1b4335a6e, type: 3}
+  m_PrefabInstance: {fileID: 2313063608264516833}
+  m_PrefabAsset: {fileID: 0}
