@@ -110,6 +110,7 @@
 |✔️| Troll Warlord | Done | Max Garber |
 |✔️| Tusk | Done | Max Garber |
 |✔️| Ursa | Done | Max Garber |
+|✔️| Vanessa | Done | Max Garber |
 </details>
 
 ## Items

@@ -19,18 +19,9 @@ public class GearHead : ModifierAbility
         base.CardUpdate();
         foreach(Item item in card.GetComponentsInChildren<Item>(true))
         {
-            switch (item.itemType)
-            {
-                case ItemType.Accessories:
-                    maxHealth += 1;
-                    break;
-                case ItemType.Weapon:
-                    attack += 1;
-                    break;
-                case ItemType.Armor:
-                    maxArmor += 1;
-                    break;
-            }
+            maxHealth += 1;
+            attack += 1;
+            maxArmor += 1;
         }
 
         if (maxHealth < _maxHealth)
