@@ -1,20 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7127714708285182457
+--- !u!114 &3892748710663998242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7622152960201757026}
+  m_GameObject: {fileID: 7576406318546942820}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b303d13f2fc2a14784aa0831071ab60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 21300000, guid: bdef87213bffb5d45a26752cfdb499dd, type: 3}
-  abilityName: 
-  abilityText: 
+  abilityName: Plague Ward
+  abilityText: 'Feeble.
+
+    Round Start: Strike a random adjacent enemy for 2 <sprite=0>.
+    If there are none, strike the enemy tower for 2 <sprite=0> instead.'
   broken: 0
   opponentEffect: 0
   temporary: 0
@@ -35,17 +38,24 @@ MonoBehaviour:
   caster: 0
   piercing: 0
   trample: 0
-  feeble: 0
+  feeble: 1
   damageImmunity: 0
   rooted: 0
   untargetable: 0
---- !u!1001 &702702408649241914
+--- !u!1001 &658403790740660028
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_text
+      value: 'Feeble.
+
+        Round Start: Strike a random adjacent enemy for 2
+        <sprite=0>. If there are none, strike the enemy tower for 2 <sprite=0> instead.'
+      objectReference: {fileID: 0}
     - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -136,13 +146,13 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: bdef87213bffb5d45a26752cfdb499dd, type: 3}
     - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Name
-      value: Gear Head
+      value: Plague Ward
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
---- !u!1 &7622152960201757026 stripped
+--- !u!1 &7576406318546942820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-  m_PrefabInstance: {fileID: 702702408649241914}
+  m_PrefabInstance: {fileID: 658403790740660028}
   m_PrefabAsset: {fileID: 0}

@@ -11,6 +11,8 @@ public class TowerManager : NetworkBehaviour
     public int mana = 3, maxMana = 3;
     public float manaGrowth = 1, growthRemainder;
     public int retaliate = 0;
+    public int decay = 0;
+    public int regeneration = 0;
     private int maxHealth, maxArmor;
     public bool ancient = false;
     public bool playerTower = false;
@@ -53,6 +55,8 @@ public class TowerManager : NetworkBehaviour
         ancientHealth = settings.values.ancientHealth;
     }
 
+    public delegate void TowerUpdateDelegate();
+    public event TowerUpdateDelegate TowerUpdateEvent;
     public void TowerUpdate(GameUpdateUI_e e)
     {
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
@@ -62,6 +66,11 @@ public class TowerManager : NetworkBehaviour
         displayMaxMana.text = maxMana.ToString();
         displayMaxMana.enabled = mana != maxMana && maxMana > 0;
         displayMana.enabled = mana != 0 || maxMana > 0;
+
+        decay = 0;
+        regeneration = 0;
+
+        TowerUpdateEvent?.Invoke();
     }
 
     public void RoundStart(RoundStart_e e)
@@ -108,6 +117,13 @@ public class TowerManager : NetworkBehaviour
             GameEventSystem.Event(new TowerDestroyed_e(this));
         }
         //return health;
+    }
+
+    public virtual void Combat(bool quick = false)
+    {
+        health = Mathf.Min(                     // dont over heal
+                health - decay + regeneration,
+                Mathf.Max(maxHealth, health));  // if currently has temp health
     }
 
     public int PayMana(int cost)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitModifier : StatModifier, IModifier
 {
-    // Moved all to StatModifier inorder so I can share code with an AuraModifier
+    // Moved all to StatModifier so I can share code with an AuraModifier
     public bool opponentEffect = false;
     public bool temporary = true;
     public int duration = 0;

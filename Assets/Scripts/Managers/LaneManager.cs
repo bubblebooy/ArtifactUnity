@@ -49,6 +49,7 @@ public class LaneManager : NetworkBehaviour
             //GameManager.GameUpdate(checkAlive: false);
             foreach (Unit unit in units) { unit.PreCombat(); }
             foreach (Unit unit in units) { unit.Combat(); }
+            foreach (TowerManager tower in towers) { tower.Combat(); }
 
             //Artifact Foundry checks for Game over here. Should it?
             //foreach (TowerManager tower in towers) { tower.TowerUpdate(); }

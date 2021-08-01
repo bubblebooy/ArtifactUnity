@@ -111,6 +111,7 @@
 |✔️| Tusk | Done | Max Garber |
 |✔️| Ursa | Done | Max Garber |
 |✔️| Vanessa | Done | Max Garber |
+|✔️| Venomancer | Done | Max Garber |
 </details>
 
 ## Items
