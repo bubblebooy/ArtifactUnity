@@ -141,6 +141,11 @@ public class TowerManager : NetworkBehaviour
         }
     }
 
+    public void BurnMana(int burn)
+    {
+        mana = Mathf.Max(0, mana - burn);
+    }
+
     public void RestoreMana(int restore)
     {
         mana = Mathf.Min(mana + restore, maxMana);

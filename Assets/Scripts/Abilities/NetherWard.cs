@@ -21,7 +21,7 @@ public class NetherWard : Ability
                 .Damage(1, piercing: true);
             GameObject.Find(card.GetSide() == "PlayerSide" ? "EnemyMana" : "PlayerMana")
                 .GetComponent<ManaManager>()
-                .Burn(1);
+                .Burn(1, card.GetLane());
         }
     }
 }

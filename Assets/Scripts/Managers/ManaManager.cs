@@ -65,6 +65,16 @@ public class ManaManager : MonoBehaviour
         mana = Mathf.Max(0, mana - burn);
     }
 
+    public void Burn(int burn, LaneManager lane)
+    {
+        mana -= burn;
+        if (mana < 0)
+        {
+            laneTowerDict[lane].BurnMana(-1 * mana);
+            mana = 0;
+        }
+    }
+
     public int CurrentMana()
     {
         return mana;

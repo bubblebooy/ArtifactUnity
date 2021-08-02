@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3301351498508155691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912325293126888669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec7312086542454bb70d182f9429547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: 465aa7682bc61954faac2067acb04c86, type: 3}
+  abilityName: Mana Break
+  abilityText: Whenever Anti-Mage deals physical damage to an enemy hero before combat,
+    burn 1 mana.
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
+  itemAbility: 0
+--- !u!1001 &1993162825900705925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_text
+      value: Whenever Anti-Mage deals physical damage to an enemy hero before combat,
+        burn 1 mana.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528210298575823082, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6312887639793151181, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 465aa7682bc61954faac2067acb04c86, type: 3}
+    - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+      propertyPath: m_Name
+      value: Mana Break
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+--- !u!1 &8912325293126888669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
+  m_PrefabInstance: {fileID: 1993162825900705925}
+  m_PrefabAsset: {fileID: 0}
