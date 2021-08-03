@@ -78,8 +78,10 @@
 
 | | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
+|✔️| Anti-Mage | Done | Max Garber |
 |✔️| Arc Warden | Done | Max Garber |
 |✔️| Axe | Done | Max Garber |
+|✔️| Bloodseeker | Done | Max Garber |
 |✔️| Beast Master | Done | Max Garber |
 |✔️| Bristleback | Done | Max Garber |
 |✔️| Centaur Warrunner | Done | Max Garber |
