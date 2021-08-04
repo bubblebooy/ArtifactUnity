@@ -88,6 +88,7 @@
 |✔️| Centaur Warrunner | Done | Max Garber |
 |✔️| Crystal Maiden | Done | Max Garber |
 |✔️| Dark Seer | Done | Max Garber |
+|✔️| Death Prophet | Done | Max Garber |
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Earthshaker | Done | Max Garber |
 |✔️| Imperia | Done | Max Garber |
