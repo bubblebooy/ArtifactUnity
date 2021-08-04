@@ -23,7 +23,7 @@ public class StaticField : Ability
         {
             foreach (Unit adjEnemy in card.GetAdjacentEnemies())
             {
-                adjEnemy?.Damage(1, piercing:true);
+                adjEnemy?.Damage(card, 1, piercing:true);
             }
         }
 

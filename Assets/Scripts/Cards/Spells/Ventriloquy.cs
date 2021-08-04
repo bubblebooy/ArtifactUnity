@@ -7,9 +7,9 @@ public class Ventriloquy : Spell
 
     public int damage = 1;
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Unit target = transform.parent.GetComponent<Unit>();
         Unit[] AdjacentEnemies = target.GetAdjacentEnemies();
         for (int i = 0; i < 3; i++)

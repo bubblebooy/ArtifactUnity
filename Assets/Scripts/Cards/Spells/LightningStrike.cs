@@ -6,21 +6,9 @@ public class LightningStrike : Spell
 {
     public int damage = 4;
 
-    //public override bool IsVaildPlay(GameObject target)
-    //{
-        
-    //    if (base.IsVaildPlay(target) && 
-    //        target.GetComponent<Unit>().caster == true &&
-    //        target.GetComponent<Unit>().GetSide() == "PlayerSide")
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         // should add a function onto CardSlot or Unit that does this (gets combat target)
         Unit caster = gameObject.transform.parent.GetComponentInChildren<Unit>();
 
@@ -32,7 +20,7 @@ public class LightningStrike : Spell
 
         if (target != null)
         {
-            target.Damage(damage,true);
+            target.Damage(cardPlayed_e.caster.GetComponent<Unit>(), damage,true);
         }
         else
         {

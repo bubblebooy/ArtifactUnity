@@ -6,9 +6,9 @@ public class SmashTheirDefenses : Spell
 {
     //Dispel a tower enchantment.
     // Draw a card.
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Destroy(transform.parent.GetComponent<TowerEnchantment>().gameObject);
 
         GameManager.GameUpdate();

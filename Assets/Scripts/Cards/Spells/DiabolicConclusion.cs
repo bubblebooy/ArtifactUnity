@@ -16,8 +16,9 @@ public class DiabolicConclusion : Spell
     //    return false;
     //}
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
+        base.OnPlay(cardPlayed_e);
         Unit target = transform.parent.GetComponent<Unit>();
         Transform side = target.transform.parent.parent;
         int attack = 0;

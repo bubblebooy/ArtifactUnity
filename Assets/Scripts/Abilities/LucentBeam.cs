@@ -21,7 +21,7 @@ public class LucentBeam : Ability
         if (enemies.Length > 0)
         {
             int rnd = Random.Range(0, enemies.Length);
-            enemies[rnd].Damage(1, piercing: true);
+            enemies[rnd].Damage(card, 1, piercing: true);
         }
         if (card.hasAuthority)
         {

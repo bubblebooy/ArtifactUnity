@@ -15,7 +15,7 @@ public class SpiritSiphon : ModifierAbility
         Unit combatTarget = card.GetCombatTarget();
         if (combatTarget != null)
         {
-            combatTarget.Damage(2);
+            combatTarget.Damage(card, 2);
             regeneration = 2;
         }
         else

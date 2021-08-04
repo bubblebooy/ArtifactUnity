@@ -8,11 +8,11 @@ public class NoAccident : Spell
     public GameObject Ability;
 
     // copied from EnchantUnit. should this be an EnchantUnit script? should Enchantment cards be spells?
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Unit unit = transform.parent.GetComponentInChildren<Unit>();
-        unit.Damage(2);
+        unit.Damage(cardPlayed_e.caster.GetComponent<Unit>(), 2);
         GameObject ability = Instantiate(Ability, unit.GetComponent<AbilitiesManager>().abilities.transform);
         ability.GetComponent<Ability>().opponentEffect = hasAuthority != unit.hasAuthority;
         DestroyCard();

@@ -162,7 +162,7 @@ public abstract class Card : NetworkBehaviour
             //mana -= mana;
     }
 
-    public virtual void OnPlay()
+    public virtual void OnPlay(CardPlayed_e cardPlayed_e)
     {
         staged = false;
         isDraggable = false;

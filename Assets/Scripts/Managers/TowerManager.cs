@@ -92,7 +92,7 @@ public class TowerManager : NetworkBehaviour
 
     public void Retaliate(Unit strikingUnit)
     {
-        strikingUnit.Damage(retaliate, piercing: false, physical: true);
+        strikingUnit.Damage(null, retaliate, piercing: false, physical: true);
     }
 
     public void Damage(int damage, bool piercing = false, bool physical = false)

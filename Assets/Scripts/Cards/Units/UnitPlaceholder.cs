@@ -39,7 +39,7 @@ public class UnitPlaceholder : Unit
     {
         gameObject.transform.Find("CardFront/Card Name").GetComponent<TextMeshProUGUI>().text = placeholderCard;
     }
-    public override void OnPlay() { }
+    public override void OnPlay(CardPlayed_e cardPlayed_e) { }
 
     public override void Bounce(bool ignoreRoot = false)
     {

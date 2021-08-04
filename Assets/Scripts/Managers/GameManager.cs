@@ -250,7 +250,7 @@ public class GameManager : NetworkBehaviour
                 //Do I bounce here?
                 print(hero.cardName);
                 GameHistory.HeroDeployed(hero.gameObject);
-                hero.OnPlay();
+                hero.OnPlay(new CardPlayed_e());
             }
             
         }

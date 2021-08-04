@@ -5,8 +5,8 @@ using UnityEngine;
 public class CreepReinforcements : Spell
 {
 
-    public override void OnPlay() {
-        base.OnPlay();
+    public override void OnPlay(CardPlayed_e cardPlayed_e) {
+        base.OnPlay(cardPlayed_e);
         CardSlot cardSlot = gameObject.GetComponentInParent<CardSlot>();
         Unit target = transform.parent.GetComponent<Unit>();
         Transform side = target.transform.parent.parent;

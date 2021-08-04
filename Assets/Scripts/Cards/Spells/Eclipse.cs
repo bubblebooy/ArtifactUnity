@@ -9,9 +9,9 @@ public class Eclipse : Spell
 
     public int charges = 1;
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         
         for (int i = 0; i < charges; i++)
         {
@@ -21,7 +21,7 @@ public class Eclipse : Spell
             if (enemies.Length > 0)
             {
                 int rnd = Random.Range(0, enemies.Length);
-                enemies[rnd].Damage(2, piercing: true);
+                enemies[rnd].Damage(cardPlayed_e.caster.GetComponent<Unit>(), 2, piercing: true);
                 GameManager.GameUpdate();
             }
             else { break; }

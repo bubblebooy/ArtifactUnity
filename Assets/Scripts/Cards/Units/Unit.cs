@@ -215,9 +215,9 @@ public class Unit : Card
     }
 
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         inPlay = true;
         inPlayEvents.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
         inPlayEvents.Add(GameEventSystem.Register<GameUpdate_e>(CheckAlive));
@@ -298,7 +298,7 @@ public class Unit : Card
             target.Retaliate(this);
             //Damage(target.retaliate,physical: true);
         }
-        return target.Damage(damage, piercing, physical: true);
+        return target.Damage(this, damage, piercing, physical: true);
     }
 
     public delegate void StrikeTowerDelegate(TowerManager target, ref int damage, ref bool piercing);
@@ -321,7 +321,7 @@ public class Unit : Card
     {
         int damage = retaliate;
         RetaliateEvent?.Invoke(strikingUnit, ref damage);
-        strikingUnit.Damage(damage, piercing: false, physical: true);
+        strikingUnit.Damage(this, damage, piercing: false, physical: true);
     }
 
     public virtual int CalculateDamage(int damage, bool piercing = false)
@@ -343,11 +343,11 @@ public class Unit : Card
         return damage;
     }
 
-    public delegate void DamageDelegate(ref int damage, bool piercing, bool physical);
+    public delegate void DamageDelegate(Unit sourceUnit, ref int damage, bool piercing, bool physical);
     public event DamageDelegate DamageEvent;
-    public virtual int Damage(int damage, bool piercing = false, bool physical = false)
+    public virtual int Damage(Unit sourceUnit, int damage, bool piercing = false, bool physical = false)
     {
-        DamageEvent?.Invoke(ref damage, piercing, physical);
+        DamageEvent?.Invoke(sourceUnit, ref damage, piercing, physical);
         health -= CalculateDamage(damage, piercing);
         return health;
     }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Repel : Spell
 {
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Unit target = transform.parent.GetComponent<Unit>();
         //quickcast set on prefab
 

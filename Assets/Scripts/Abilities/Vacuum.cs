@@ -15,7 +15,7 @@ public class Vacuum : ActiveTargetAbility
 
         foreach (Unit unit in side.GetComponentsInChildren<Unit>())
         {
-            unit.Damage(1);
+            unit.Damage(card, 1);
         }
 
         card.GameManager.GameUpdate();

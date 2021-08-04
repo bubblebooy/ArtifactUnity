@@ -108,7 +108,7 @@ public class Item : Card, ITargets, IItem
         }
     }
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
         if (itemType != ItemType.Consumables)
         {
@@ -117,7 +117,7 @@ public class Item : Card, ITargets, IItem
             ability = Instantiate(abilityPrefab, hero.GetComponent<AbilitiesManager>().abilities.transform);
             hero.GetComponent<CardZoom>().enabled = true;
         }
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
     }
 
     public virtual void TargetSelected(GameObject target)
@@ -129,11 +129,15 @@ public class Item : Card, ITargets, IItem
             selectedTargets);
     }
 
+    public virtual void OnActivate(CardPlayed_e cardPlayed_e, List<GameObject> targets)
+    {
+        OnActivate(targets);
+        OnPlay(cardPlayed_e);
+    }
     public virtual void OnActivate(List<GameObject> targets)
     {
         targets[0].GetComponent<Item>().locked = 1;
         targets[0].GetComponent<Item>().Bounce();
-        OnPlay();
     }
 
     public virtual void TargetCanceled()

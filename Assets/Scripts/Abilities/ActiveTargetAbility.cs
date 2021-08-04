@@ -53,6 +53,7 @@ public class ActiveTargetAbility : ActiveAbility, ITargets
         }
     }
 
+    public void OnActivate(CardPlayed_e cardPlayed_e, List<GameObject> targets) { }
     public virtual void OnActivate(List<GameObject> targets)
     {
         OnActivate();

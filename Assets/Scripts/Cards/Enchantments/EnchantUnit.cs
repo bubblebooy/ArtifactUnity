@@ -26,9 +26,9 @@ public class EnchantUnit : Enchantment
         return false;
     }
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Unit unit = transform.parent.GetComponentInChildren<Unit>();
         GameObject ability = Instantiate(Ability, unit.GetComponent<AbilitiesManager>().abilities.transform);
         ability.GetComponent<Ability>().opponentEffect = hasAuthority != unit.hasAuthority;

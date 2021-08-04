@@ -10,7 +10,7 @@ public class KeenfolkTurret : ActiveTowerEnchantment
     public override void OnActivate(List<GameObject> targets)
     {
         base.OnActivate(targets);
-        targets[0].GetComponent<Unit>().Damage(damage, true);
+        targets[0].GetComponent<Unit>().Damage(null, damage, true);
     }
 
 }

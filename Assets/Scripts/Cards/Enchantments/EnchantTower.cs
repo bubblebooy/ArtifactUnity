@@ -15,9 +15,9 @@ public class EnchantTower : Enchantment
         return false;
     }
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Transform enchantments = transform.parent.Find(hasAuthority ? "PlayerSide/Enchantments" : "EnemySide/Enchantments");
         GameObject towerEnchantment = Instantiate(Ability, enchantments);
         towerEnchantment.GetComponent<TowerEnchantment>().OnPlay();

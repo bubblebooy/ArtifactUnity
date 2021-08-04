@@ -16,8 +16,9 @@ public class SpellSteal : Spell
         GameHistory = GameManager.GetComponent<GameHistory>();
     }
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
+        base.OnPlay(cardPlayed_e);
         if (hasAuthority)
         {
             //GameHistory.EnemyHistory.Where(x => x.action == "Card Played").ToList();

@@ -5,9 +5,9 @@ using UnityEngine;
 public class WraithfireBlast : Spell
 {
     //Stun a unit. Give it +2 Decay for two rounds.
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         Unit target = transform.parent.GetComponent<Unit>();
 
         UnitModifier stunDecay = target.gameObject.AddComponent<UnitModifier>() as UnitModifier;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IonShell : EnchantUnit
 {
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
         Unit target = transform.parent.GetComponent<Unit>();
         Unit[] AdjacentEnemies = target.GetAdjacentEnemies();
@@ -16,6 +16,6 @@ public class IonShell : EnchantUnit
                 AdjacentEnemies[i].arrow = -1 * (i - 1);
             }
         }
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
     }
 }

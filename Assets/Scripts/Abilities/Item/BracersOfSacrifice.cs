@@ -13,7 +13,7 @@ public class BracersOfSacrifice : ActiveAbility
         {
             if(enemy != null)
             {
-                enemy.Damage(4);
+                enemy.Damage(card, 4);
             }
         }
         card.health = 0; // set health 0 to proc deathShield

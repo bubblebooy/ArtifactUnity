@@ -47,7 +47,7 @@ public class TimberChain : ActiveTargetAbility
         }
         foreach(Unit enemy in targetSlots.Select(slot => slot.GetComponentInChildren<Unit>()))
         {
-            enemy?.Damage(1);
+            enemy?.Damage(card, 1);
         }
 
         card.transform.SetParent(targets[0].transform, false);

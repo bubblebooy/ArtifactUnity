@@ -10,7 +10,7 @@ public class QuillSpray : ActiveAbility
         base.OnActivate();
         foreach(Unit adjEnemy in card.GetAdjacentEnemies())
         {
-            adjEnemy?.Damage(1);
+            adjEnemy?.Damage(card, 1);
         }
     }
 }

@@ -6,8 +6,9 @@ using System.Linq;
 public class PoisedToStrike : Spell
 {
     int damage = 1;
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
+        base.OnPlay(cardPlayed_e);
         Transform side = transform.parent.Find(hasAuthority ? "EnemySide" : "PlayerSide");
         for(int i = 0; i < 3; i++)
         {
@@ -16,7 +17,7 @@ public class PoisedToStrike : Spell
             int leastHP = units.Select(x => x.health).Min();
             units = units.Where(x => x.health == leastHP).ToList();
             Unit rndTarget = units[Random.Range(0, units.Count)];
-            rndTarget.Damage(damage, true);
+            rndTarget.Damage(cardPlayed_e.caster.GetComponent<Unit>(), damage, true);
 
             GameManager.GameUpdate();
         }

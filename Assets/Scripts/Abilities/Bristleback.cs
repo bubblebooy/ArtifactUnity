@@ -19,13 +19,13 @@ public class Bristleback : Ability
         base.OnDestroy();
     }
 
-    void Damage(ref int damage, bool piercing, bool physical)
+    void Damage(Unit sourceUnit, ref int damage, bool piercing, bool physical)
     {
         if (!physical)
         {
             foreach (Unit adjEnemy in card.GetAdjacentEnemies())
             {
-                adjEnemy?.Damage(1);
+                adjEnemy?.Damage(card, 1);
             }
             damage = 1;
         }

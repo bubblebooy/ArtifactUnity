@@ -112,6 +112,7 @@ public class ActiveTowerEnchantment : TowerEnchantment, ITargets
         ActivateAbility();
     }
 
+    public void OnActivate(CardPlayed_e cardPlayed_e, List<GameObject> targets) { }
     public virtual void OnActivate(List<GameObject> targets)
     {
         cooldown = baseCooldown;

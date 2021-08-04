@@ -560,7 +560,7 @@ public class PlayerManager : NetworkBehaviour
     [ClientRpc]
     void RpcPlayCard(CardPlayed_e cardPlayed_e, bool gameManagerCardPlayed)
     {
-        cardPlayed_e.card.GetComponent<Card>().OnPlay();
+        cardPlayed_e.card.GetComponent<Card>().OnPlay(cardPlayed_e);
         if (gameManagerCardPlayed)
         {
             StartCoroutine(GameManager.CardPlayed(cardPlayed_e));
@@ -571,7 +571,7 @@ public class PlayerManager : NetworkBehaviour
     void RpcPlayTargetedCard(CardPlayed_e cardPlayed_e, List<List<string>> targetLineages)
     {
         List<GameObject> targets = targetLineages.Select((lineage) => LineageToTransform(lineage).gameObject).ToList();
-        cardPlayed_e.card.GetComponent<ITargets>().OnActivate(targets);
+        cardPlayed_e.card.GetComponent<ITargets>().OnActivate(cardPlayed_e, targets);
         StartCoroutine(GameManager.CardPlayed(cardPlayed_e));
     }
 

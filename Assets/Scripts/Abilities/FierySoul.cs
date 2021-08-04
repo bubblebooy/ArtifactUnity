@@ -42,7 +42,7 @@ public class FierySoul : CooldownAbility
                 }
                 else
                 {
-                    combatTarget.Damage(charges);
+                    combatTarget.Damage(card, charges);
                 }
                 charges += 1;
                 cooldown = baseCooldown;

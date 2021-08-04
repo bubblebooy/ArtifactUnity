@@ -14,15 +14,16 @@ public class ArcBolt : Spell
     //    return false;
     //}
 
-    public override void OnPlay()
+    public override void OnPlay(CardPlayed_e cardPlayed_e)
     {
-        base.OnPlay();
+        base.OnPlay(cardPlayed_e);
         // should add a function onto CardSlot or Unit that does this (gets combat target)
         //Unit caster = gameObject.transform.parent.GetComponentInChildren<Unit>();
         Unit target = transform.parent.GetComponent<Unit>();
         int slotNumber;
         slotNumber = target.transform.parent.GetSiblingIndex();
-        target.Damage(damage, true);
+        Unit caster = cardPlayed_e.caster.GetComponent<Unit>();
+        target.Damage(caster, damage, true);
         GameManager.GameUpdate();
         Transform side = target.transform.parent.parent;
         int numberOfSlots = side.GetComponentsInChildren<CardSlot>().Length;
@@ -42,7 +43,7 @@ public class ArcBolt : Spell
                 if (target != null)
                 {
                     slotNumber = target.transform.parent.GetSiblingIndex();
-                    target.Damage(damage, true);
+                    target.Damage(caster, damage, true);
                     GameManager.GameUpdate();
                     break;
                 }
