@@ -1,0 +1,209 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2734225377869801475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8741225802382609243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558cbad22137f274fa6c9d13ea2bef76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cardName: Spiked Carapace
+  ID: 11058
+  PlayerManager: {fileID: 0}
+  GameManager: {fileID: 0}
+  ManaManager: {fileID: 0}
+  CardFront: {fileID: 3707310178868096327}
+  CardBack: {fileID: 6100463225755707953}
+  staged: 0
+  isDraggable: 1
+  cardArt: {fileID: 21300000, guid: 31adc69f6b23d99448e1917a73dd066a, type: 3}
+  color: black
+  mana: 2
+  revealed: 0
+  faceup: 1
+  locked: 0
+  quickcast: 0
+  cardText: Choose caster. When taking damage this round, reflect damage back, stun
+    its source until its next combat, then purge enemy effects from this unit.
+  Ability: {fileID: 2879126931698178387, guid: 949a3da763257844ab3f8a033e55df2f, type: 3}
+  enchantCaster: 1
+  enchantHero: 0
+  targetOnlyEnemySide: 0
+  targetOnlyPlayerSide: 0
+--- !u!1001 &6181555074269855781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2829669351377404215, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829669351377404215, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829669351377404215, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Name
+      value: Spiked Carapace
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988664816421315036, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_text
+      value: Choose caster. When taking damage this round, reflect damage back, stun
+        its source until its next combat, then purge enemy effects from this unit.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988664816421315036, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_fontSize
+      value: 6.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 31adc69f6b23d99448e1917a73dd066a, type: 3}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382002693028991102, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403118474984014884, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_text
+      value: Spiked Carapace
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584667548679606262, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911249495024554266, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462322050944690178, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296519827353632857, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1070878725135988414, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+--- !u!1 &8741225802382609243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208349758609476478, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 6181555074269855781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3707310178868096327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7402309620959620450, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 6181555074269855781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6100463225755707953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 99212704247376404, guid: 98d14c1c41eb1e64fbb30e41da946ba8, type: 3}
+  m_PrefabInstance: {fileID: 6181555074269855781}
+  m_PrefabAsset: {fileID: 0}

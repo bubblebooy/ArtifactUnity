@@ -18,6 +18,7 @@ public class Track : Ability
             UnitModifier track = unit.gameObject.AddComponent<TrackModifier>() as TrackModifier;
             track.bounty = 5;
             track.duration = 999;
+            track.opponentEffect = true;
         }
 
     }

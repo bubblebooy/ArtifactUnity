@@ -66,6 +66,7 @@
 |✔️| Repel | Done | Max Garber |
 |✔️| Smash Their Defenses! | Done | Max Garber |
 |✔️| Spell Steal | Done | Max Garber |
+|✔️| Spiked Carapace | Done | Max Garber |
 |✔️| Ventriloquy | Done | Max Garber |
 |✔️| Wraithfire Blast | Done | Max Garber |
 

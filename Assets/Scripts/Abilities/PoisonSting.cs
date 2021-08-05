@@ -21,6 +21,7 @@ public class PoisonSting : Ability
     {
         UnitModifier poisonSting = target.gameObject.AddComponent<UnitModifier>() as UnitModifier;
         poisonSting.decay = 1;
+        poisonSting.opponentEffect = true;
         if (card.GameManager.GameState == "Combat" || card.GameManager.GameState == "Shop")
         {
             poisonSting.duration = 2;
