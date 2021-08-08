@@ -13,12 +13,16 @@ public class TowerManager : NetworkBehaviour
     public int retaliate = 0;
     public int decay = 0;
     public int regeneration = 0;
-    private int maxHealth, maxArmor;
+    public int maxHealth, maxArmor;
     public bool ancient = false;
     public bool playerTower = false;
     private TextMeshProUGUI  displayHealth; //displayArmor,
     [SerializeField]
     private TextMeshProUGUI displayMana, displayMaxMana;
+    [SerializeField]
+    private GameObject displayArmorObject;
+    [SerializeField]
+    private TextMeshProUGUI displayArmorText;
 
     public List<(System.Type, GameEventSystem.EventListener)> events = new List<(System.Type, GameEventSystem.EventListener)>();
 
@@ -35,11 +39,13 @@ public class TowerManager : NetworkBehaviour
         maxHealth = health;
         //displayArmor = gameObject.transform.Find("TowerArmor").GetComponent<TextMeshProUGUI>();
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
-        //displayArmor.text = armor.ToString();
+        displayArmorText.text = armor.ToString();
         displayHealth.text = health.ToString();
+
 
         events.Add(GameEventSystem.Register<RoundStart_e>(RoundStart));
         events.Add(GameEventSystem.Register<GameUpdateUI_e>(TowerUpdate));
+        events.Add(GameEventSystem.Register<EndCombatPhase_e>(EndCombatPhase));
 
         playerTower = transform.parent.name == "PlayerSide";
     }
@@ -55,10 +61,21 @@ public class TowerManager : NetworkBehaviour
         ancientHealth = settings.values.ancientHealth;
     }
 
+    public void EndCombatPhase(EndCombatPhase_e e)
+    {
+        armor = maxArmor;
+    }
+
     public delegate void TowerUpdateDelegate();
     public event TowerUpdateDelegate TowerUpdateEvent;
     public void TowerUpdate(GameUpdateUI_e e)
     {
+        maxArmor = 0;
+        decay = 0;
+        regeneration = 0;
+
+        TowerUpdateEvent?.Invoke();
+
         displayHealth = gameObject.transform.Find("TowerHealth").GetComponent<TextMeshProUGUI>();
         displayHealth.text = health.ToString();
 
@@ -67,10 +84,8 @@ public class TowerManager : NetworkBehaviour
         displayMaxMana.enabled = mana != maxMana && maxMana > 0;
         displayMana.enabled = mana != 0 || maxMana > 0;
 
-        decay = 0;
-        regeneration = 0;
-
-        TowerUpdateEvent?.Invoke();
+        displayArmorObject.SetActive(maxArmor != 0);
+        displayArmorText.text = armor.ToString();
     }
 
     public void RoundStart(RoundStart_e e)

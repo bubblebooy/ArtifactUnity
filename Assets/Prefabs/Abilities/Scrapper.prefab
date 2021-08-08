@@ -1,27 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8184839487498478706
+--- !u!114 &5739703632981562051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8791857188044145552}
+  m_GameObject: {fileID: 8917529224189492957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952a15629505f3a41afe92b95058d072, type: 3}
+  m_Script: {fileID: 11500000, guid: 55764286bd737fe4cb33778b65009689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityIcon: {fileID: 21300000, guid: 3601489fbea5f774cab60fa34f97d2dd, type: 3}
-  abilityName: Track
-  abilityText: 'Bounty Hunter deals +3 damage when striking tracked heroes. Deploy:
-    Track Bounty Hunter''s target if it''s a hero. Tracked units have +5 Bounty.'
+  abilityIcon: {fileID: 21300000, guid: 1da48603175873e46b469a2347959884, type: 3}
+  abilityName: Scrapper
+  abilityText: "After Combat: If Debbi the Cunning dealt damage to a tower, give
+    the tower -1<sprite=1> and give Debbi +1<sprite=1> permanently.\r"
   broken: 0
   opponentEffect: 0
   temporary: 0
   baseAbility: 1
   itemAbility: 0
---- !u!1001 &1874940201198675912
+  attack: 0
+  maxArmor: 0
+  maxHealth: 0
+  cleave: 0
+  siege: 0
+  retaliate: 0
+  decay: 0
+  regeneration: 0
+  bounty: 0
+  quickstrike: 0
+  disarmed: 0
+  stun: 0
+  caster: 0
+  piercing: 0
+  trample: 0
+  feeble: 0
+  damageImmunity: 0
+  rooted: 0
+  untargetable: 0
+--- !u!1001 &2001496201188825733
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -30,8 +49,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_text
-      value: 'Bounty Hunter deals +3 damage when striking tracked heroes. Deploy:
-        Track Bounty Hunter''s target if it''s a hero. Tracked units have +5 Bounty.'
+      value: "After Combat: If Debbi the Cunning dealt damage to a tower, give the
+        tower -1<sprite=1> and give Debbi +1<sprite=1> permanently.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 716653083978103113, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_fontSize
@@ -124,16 +143,16 @@ PrefabInstance:
     - target: {fileID: 6312887639793151181, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3601489fbea5f774cab60fa34f97d2dd, type: 3}
+      objectReference: {fileID: 21300000, guid: 1da48603175873e46b469a2347959884, type: 3}
     - target: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
       propertyPath: m_Name
-      value: Track
+      value: Scrapper
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -395831399570588631, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
---- !u!1 &8791857188044145552 stripped
+--- !u!1 &8917529224189492957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919732061773096024, guid: f9efcbb125d248e49bea6ba65f299a9d, type: 3}
-  m_PrefabInstance: {fileID: 1874940201198675912}
+  m_PrefabInstance: {fileID: 2001496201188825733}
   m_PrefabAsset: {fileID: 0}

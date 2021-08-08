@@ -210,7 +210,7 @@ public class GameManager : NetworkBehaviour
 
         //any reason this should be one lane at a time?
         GameEventSystem.Event(new AfterCombat_e());
-        
+        GameUpdate();
         CombatDirection = !CombatDirection;
         GameEventSystem.Event(new EndCombatPhase_e());
         yield return new WaitForSeconds(0.1f);
