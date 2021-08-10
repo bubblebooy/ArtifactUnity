@@ -90,6 +90,7 @@
 |✔️| Crystal Maiden | Done | Max Garber |
 |✔️| Dark Seer | Done | Max Garber |
 |✔️| Death Prophet | Done | Max Garber |
+|✔️| Debbie the Cunning | Done | Max Garber |
 |✔️| Drow Ranger | Done | Max Garber |
 |✔️| Earthshaker | Done | Max Garber |
 |✔️| Imperia | Done | Max Garber |
@@ -97,6 +98,7 @@
 |✔️| Kanna | Done | Max Garber |
 |✔️| Keefe the Bold | Done | Max Garber |
 |✔️| Legion Commander | Done | Max Garber |
+|✔️| Lich | Done | Max Garber |
 |✔️| Lina | Done | Max Garber |
 |✔️| Luna | Done | Max Garber |
 |✔️| Magnus | Done | Max Garber |

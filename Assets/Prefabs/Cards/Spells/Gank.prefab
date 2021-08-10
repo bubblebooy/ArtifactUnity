@@ -41,6 +41,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 1
     targetCaster: 1
     targetHero: 0
+    cantTargetSelf: 0
     cantTargetRooted: 0
   vaildTargets:
   - targetTag: Unit
@@ -50,6 +51,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 0
     targetCaster: 0
     targetHero: 0
+    cantTargetSelf: 0
     cantTargetRooted: 0
 --- !u!1001 &1135359907789601933
 PrefabInstance:

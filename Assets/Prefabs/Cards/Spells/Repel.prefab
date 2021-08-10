@@ -39,6 +39,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 0
     targetCaster: 0
     targetHero: 0
+    cantTargetSelf: 0
     cantTargetRooted: 0
 --- !u!1001 &401220397189342539
 PrefabInstance:

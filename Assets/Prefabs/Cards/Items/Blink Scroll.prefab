@@ -44,6 +44,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 1
     targetCaster: 1
     targetHero: 1
+    cantTargetSelf: 0
     cantTargetRooted: 1
   vaildTargets:
   - targetTag: Card Slot
@@ -53,6 +54,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 1
     targetCaster: 0
     targetHero: 0
+    cantTargetSelf: 0
     cantTargetRooted: 0
   <level>k__BackingField: 0
   <gold>k__BackingField: 0

@@ -41,6 +41,7 @@ MonoBehaviour:
     targetOnlyPlayerSide: 1
     targetCaster: 1
     targetHero: 0
+    cantTargetSelf: 0
     cantTargetRooted: 0
   damage: 4
 --- !u!1001 &5464937186407181105
