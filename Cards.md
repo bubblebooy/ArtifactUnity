@@ -104,6 +104,7 @@
 |✔️| Magnus | Done | Max Garber |
 |✔️| Mazzie | Done | Max Garber |
 |✔️| Mirana | Done | Max Garber |
+|✔️| Necrophos | Done | Max Garber |
 |✔️| Oger Magi | Done | Max Garber |
 |✔️| Phantom Assassin | Done | Max Garber |
 |✔️| Phantom Lancer | Done | Max Garber |

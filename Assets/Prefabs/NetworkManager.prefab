@@ -227,10 +227,11 @@ MonoBehaviour:
   - {fileID: 2538983781199043761, guid: cc2cb82e4b17d394989bd06c162bfa4d, type: 3}
   - {fileID: 8741225802382609243, guid: e39253f8083a6cb45a43865d1d907377, type: 3}
   hero:
+  - {fileID: 3031934584768122215, guid: d4c10acbdec0fb74b91abf0e73dfeb0b, type: 3}
   - {fileID: 4379188969092217243, guid: 05e150c84366fa5449ab3a544e2191a2, type: 3}
+  - {fileID: 8984688986124509251, guid: f26c0c5eaac8cd248bff0cc310e9efa5, type: 3}
   - {fileID: 5226845701840884028, guid: 9a3af81d6f11d944a8f092228cae4da7, type: 3}
   - {fileID: 3820631556511920217, guid: 6548c629dbb8d474991a71940548f615, type: 3}
-  - {fileID: 8984688986124509251, guid: f26c0c5eaac8cd248bff0cc310e9efa5, type: 3}
   - {fileID: 7217796268396593809, guid: 28e9c3564e172ba4b8121f5355dac8d0, type: 3}
   - {fileID: 1063267552236228182, guid: 6e9fcb1585e8bb944b001aab518f1dec, type: 3}
   - {fileID: 8210579643966201360, guid: f632ab3e6a5f12f449ca926f77bd8e38, type: 3}
