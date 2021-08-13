@@ -18,6 +18,7 @@ public class StatModifier : MonoBehaviour
 
     public bool quickstrike = false;
     public bool disarmed = false;
+    public bool silenced = false;
     public bool stun = false;
     public bool caster = false;
     public bool piercing = false;
@@ -58,6 +59,7 @@ public class StatModifier : MonoBehaviour
 
         quickstrike = (originalIModifier as UnitModifier).quickstrike;
         disarmed = (originalIModifier as UnitModifier).disarmed;
+        silenced = (originalIModifier as UnitModifier).silenced;
         stun = (originalIModifier as UnitModifier).stun;
         caster = (originalIModifier as UnitModifier).caster;
         piercing = (originalIModifier as UnitModifier).piercing;
@@ -85,6 +87,7 @@ public class StatModifier : MonoBehaviour
 
         unit.quickstrike |= quickstrike;
         unit.disarmed |= disarmed;
+        unit.silenced |= silenced;
         unit.stun |= stun;
         unit.caster |= caster;
         unit.piercing |= piercing;

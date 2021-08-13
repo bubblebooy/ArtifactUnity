@@ -56,7 +56,7 @@ public class StatusIcons : MonoBehaviour
             //statusIcons.leathalToHeroes.SetActive();
             statusIcons.piercing.SetActive(card.piercing);
             statusIcons.quickstrike.SetActive(card.quickstrike);
-            //statusIcons.rapidDeploy.SetActive();
+            statusIcons.rapidDeploy.SetActive((card as Hero)?.rapidDeploy == true);
             statusIcons.regeneration.SetActive(card.regeneration > 0);
             statusIcons.retaliate.SetActive(card.retaliate > 0);
             statusIcons.rooted.SetActive(card.rooted);

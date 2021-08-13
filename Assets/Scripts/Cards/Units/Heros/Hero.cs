@@ -12,6 +12,8 @@ public class Hero : Unit
     public GameObject items;
     public int maxItemCount = 2;
 
+    [HideInInspector]
+    public bool rapidDeploy = false;
 
     public override void OnValidate()
     {
@@ -41,6 +43,12 @@ public class Hero : Unit
         }
     }
 
+    public override void CardUpdate()
+    {
+        rapidDeploy = false;
+        base.CardUpdate();
+    }
+
     public override void CardUIUpdate(GameUpdateUI_e e)
     {
         base.CardUIUpdate(e);
@@ -59,7 +67,7 @@ public class Hero : Unit
     {
         OnKilled();
         Bounce(ignoreRoot: true);
-        respawn = 2;
+        respawn = rapidDeploy ? 1 : 2;
     }
 
     public void ForceDestroyCard()

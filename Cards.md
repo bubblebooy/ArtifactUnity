@@ -112,6 +112,7 @@
 |✔️| Pierpont | Done | Max Garber |
 |✔️| Prellex | Done | Max Garber |
 |✔️| Pugna | Done | Max Garber |
+|✔️| Rix, Oathbound | Done | Max Garber |
 |✔️| Rubick | Done | Max Garber |
 |✔️| Skywrath Mage | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |

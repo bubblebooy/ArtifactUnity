@@ -17,6 +17,7 @@ public class ModifierAbility : Ability, IModifier
 
     public bool quickstrike = false;
     public bool disarmed = false;
+    public bool silenced = false;
     public bool stun = false;
     public bool caster = false;
     public bool piercing = false;
@@ -45,6 +46,7 @@ public class ModifierAbility : Ability, IModifier
 
         quickstrike = (originalAbilityAbility as ModifierAbility).quickstrike;
         disarmed = (originalAbilityAbility as ModifierAbility).disarmed;
+        silenced = (originalAbilityAbility as ModifierAbility).silenced;
         stun = (originalAbilityAbility as ModifierAbility).stun;
         caster = (originalAbilityAbility as ModifierAbility).caster;
         piercing = (originalAbilityAbility as ModifierAbility).piercing;
@@ -75,7 +77,8 @@ public class ModifierAbility : Ability, IModifier
         card.bounty += bounty;
 
         card.quickstrike |= quickstrike; 
-        card.disarmed |= disarmed; 
+        card.disarmed |= disarmed;
+        card.silenced |= silenced;
         card.stun |= stun; 
         card.caster |= caster; 
         card.piercing |= piercing; 

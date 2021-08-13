@@ -126,6 +126,7 @@ public class DragDrop : NetworkBehaviour
     public Unit GetCaster(GameObject dropZone)
     {
         if (card is Hero) { return card as Unit; }
+        if (card is Item) { return dropZone.GetComponent<Unit>(); }
 
         LaneManager lane = dropZone.GetComponentInParent<LaneManager>();
         Unit[] casters = lane.transform.Find("PlayerSide").GetComponentsInChildren<Unit>();

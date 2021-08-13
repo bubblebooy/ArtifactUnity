@@ -268,8 +268,11 @@ public class Unit : Card
         base.DestroyCard();
     }
 
+    //public delegate void OnKilledDelegate();
+    //public event OnKilledDelegate OnKilledEvent;
     public void OnKilled()
     {
+        //OnKilledEvent?.Invoke();
         GameEventSystem.Event(new UnitKilled_e(this));
         GetComponent<AbilitiesManager>().OnKilled();
         GameObject.Find(hasAuthority ? "EnemyGold" : "PlayerGold")
