@@ -114,6 +114,7 @@
 |✔️| Pugna | Done | Max Garber |
 |✔️| Rix, Oathbound | Done | Max Garber |
 |✔️| Rubick | Done | Max Garber |
+|✔️| Shadow Fiend | Done | Max Garber |
 |✔️| Skywrath Mage | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
 |✔️| Tidehunter | Done | Max Garber |
