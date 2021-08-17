@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1972267181984805475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041443139236025711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d635be7b0cda19840a6e030903140eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityIcon: {fileID: 21300000, guid: b9f4ea955d7640246b4c93056e2e15fc, type: 3}
+  abilityName: Headshot
+  abilityText: "Active 3\u25A0, 1 Mana: Deal 4 damage to another unit within range
+    5. Cross Lane."
+  broken: 0
+  opponentEffect: 0
+  temporary: 0
+  baseAbility: 1
+  itemAbility: 0
+  baseCooldown: 3
+  cooldown: 0
+  displayCooldown: {fileID: 4524052857510699538}
+  mana: 1
+  quickcast: 0
+  PlayerManager: {fileID: 0}
+  vaildTargets:
+  - targetTag: Unit
+    crossLane: 1
+    targetCardInHand: 0
+    targetOnlyEnemySide: 0
+    targetOnlyPlayerSide: 0
+    targetCaster: 0
+    targetHero: 0
+    cantTargetSelf: 0
+    cantTargetRooted: 0
+--- !u!1001 &7339921799357283883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223483649578840054, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764859104290567765, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_text
+      value: "Active 3\u25A0, 1 Mana: Deal 4 damage to another unit within range
+        5. Cross Lane."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Name
+      value: Headshot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662459812701184977, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9f4ea955d7640246b4c93056e2e15fc, type: 3}
+    m_RemovedComponents:
+    - {fileID: -4599495931085897684, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+--- !u!1 &4041443139236025711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6758413080285965124, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_PrefabInstance: {fileID: 7339921799357283883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4524052857510699538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6562881441855839289, guid: ba7ae3235532ca54893796c0d42e4b5f, type: 3}
+  m_PrefabInstance: {fileID: 7339921799357283883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

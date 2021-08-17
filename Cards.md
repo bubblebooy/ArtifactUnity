@@ -116,6 +116,7 @@
 |✔️| Rubick | Done | Max Garber |
 |✔️| Shadow Fiend | Done | Max Garber |
 |✔️| Skywrath Mage | Done | Max Garber |
+|✔️| Sniper | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
 |✔️| Tidehunter | Done | Max Garber |
 |✔️| Timbersaw | Done | Max Garber |
