@@ -50,6 +50,6 @@ public class TimberChain : ActiveTargetAbility
             enemy?.Damage(card, 1);
         }
 
-        card.transform.SetParent(targets[0].transform, false);
+        card.Move(targets[0].transform);
     }
 }

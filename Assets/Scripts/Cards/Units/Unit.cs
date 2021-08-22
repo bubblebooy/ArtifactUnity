@@ -253,6 +253,15 @@ public class Unit : Card
         //inPlayEvents.Clear();
     }
 
+    public delegate void MoveDelegate(Transform origin, Transform destination);
+    public event MoveDelegate MoveEvent;
+    public virtual void Move(Transform destination, bool swap = false)
+    {
+        MoveEvent?.Invoke(GetCardSlot().transform, destination);
+        transform.SetParent(destination, false);
+        //transform.position = GetCardSlot().transform.position;
+    }
+
     public override void DestroyCard()
     {
         DestroyCard(true);

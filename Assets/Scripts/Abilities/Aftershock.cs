@@ -16,7 +16,9 @@ public class Aftershock : Ability
         Card playedCard = e.card.GetComponent<Card>();
         Unit caster = e.caster.GetComponent<Unit>();
 
-        if (caster.GetSide() == card.GetSide() && (playedCard is Spell || playedCard is Enchantment) && card.GetLane() == caster.GetLane())
+        if (caster.GetSide() == card.GetSide() &&
+            (playedCard is Spell || playedCard is Enchantment) &&
+            card.GetLane() == caster.GetLane())
         {
             Transform enemySide = card.GetLane().transform.Find(card.GetSide() == "PlayerSide" ? "EnemySide" : "PlayerSide");
             foreach (Unit unit in enemySide.GetComponentsInChildren<Unit>())

@@ -22,7 +22,7 @@ public class BlinkScroll : MultiTargetSpell, IItem
     {
         CardSlot targetSlot = targets[0].GetComponent<CardSlot>();
         Unit card = transform.parent.GetComponent<Unit>();
-        card.transform.SetParent(targetSlot.transform, false);
+        card.Move(targetSlot.transform);
         base.OnActivate(targets);
     }
 }

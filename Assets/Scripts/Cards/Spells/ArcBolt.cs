@@ -24,8 +24,8 @@ public class ArcBolt : Spell
         slotNumber = target.transform.parent.GetSiblingIndex();
         Unit caster = cardPlayed_e.caster.GetComponent<Unit>();
         target.Damage(caster, damage, true);
-        GameManager.GameUpdate();
         Transform side = target.transform.parent.parent;
+        GameManager.GameUpdate();
         int numberOfSlots = side.GetComponentsInChildren<CardSlot>().Length;
         for (int i =0; i < 3; i++)
         {

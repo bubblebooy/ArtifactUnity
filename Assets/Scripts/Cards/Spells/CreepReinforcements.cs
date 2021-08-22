@@ -21,8 +21,9 @@ public class CreepReinforcements : Spell
             side.GetChild(slotNumber - rnd).GetComponentInChildren<Unit>() == null)
         {   destination = slotNumber - rnd; }
         else { DestroyCard(); return; }
-        target.transform.SetParent(side.GetChild(destination), false);
-        target.transform.position = side.GetChild(destination).position;
+        target.Move(side.GetChild(destination));
+        // Dont think I need this line
+        //target.transform.position = side.GetChild(destination).position;
         cardSlot.dontCollapse = true;
         if (hasAuthority)
         {

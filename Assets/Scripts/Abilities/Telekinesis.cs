@@ -52,8 +52,8 @@ public class Telekinesis : ActiveTargetAbility
         
         if(card.rooted != true && targetCard?.rooted != true)
         {
-            targetCard?.transform.SetParent(cardSlot.transform, false);
-            card.transform.SetParent(targetSlot.transform, false);
+            targetCard?.Move(cardSlot.transform, swap: true);
+            card.Move(targetSlot.transform, swap: true);
         }
 
         foreach ( Unit neighbor in card.GetNeighbors())

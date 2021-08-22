@@ -20,6 +20,6 @@ public class EscapeRoute : ActiveTowerEnchantment
     {
         base.OnActivate(targets);
 
-        targets[0].transform.SetParent(targets[1].transform, false);
+        targets[0].GetComponent<Unit>().Move(targets[1].transform);
     }
 }

@@ -31,8 +31,8 @@ public class Vacuum : ActiveTargetAbility
             slot += slot > slotNumber ? -1 : 1;
             while(side.GetChild(slot).GetComponentInChildren<Unit>() == null)
             {
-                unit.transform.SetParent(side.GetChild(slot), false);
-                unit.transform.position = side.GetChild(slot).position;
+                unit.Move(side.GetChild(slot));
+                //unit.transform.position = side.GetChild(slot).position;
                 if(slot != slotNumber)
                 {
                     slot += slot > slotNumber ? -1 : 1;

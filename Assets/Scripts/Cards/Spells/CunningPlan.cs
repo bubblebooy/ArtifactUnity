@@ -18,8 +18,8 @@ public class CunningPlan : MultiTargetSpell
 
         Unit card = transform.parent.GetComponent<Unit>();
 
-        targets[0].GetComponentInChildren<Unit>()?.transform.SetParent(cardSlot.transform, false);
-        card.transform.SetParent(targetSlot.transform, false);
+        targets[0].GetComponentInChildren<Unit>()?.Move(cardSlot.transform, swap: true);
+        card.Move(targetSlot.transform, swap: true);
 
         base.OnActivate(targets);
     }

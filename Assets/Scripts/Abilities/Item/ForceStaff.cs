@@ -27,7 +27,7 @@ public class ForceStaff : ActiveTargetAbility
         }
         else { return; }
 
-        target.transform.SetParent(side.GetChild(destination), false);
+        target.Move(side.GetChild(destination));
         target.transform.position = side.GetChild(destination).position;
     }
 }

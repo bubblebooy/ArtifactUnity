@@ -118,6 +118,7 @@
 |✔️| Skywrath Mage | Done | Max Garber |
 |✔️| Sniper | Done | Max Garber |
 |✔️| Sorla Khan | Done | Max Garber |
+|✔️| Storm Spirit | Done | Max Garber |
 |✔️| Sven | Done | Max Garber |
 |✔️| Tidehunter | Done | Max Garber |
 |✔️| Timbersaw | Done | Max Garber |

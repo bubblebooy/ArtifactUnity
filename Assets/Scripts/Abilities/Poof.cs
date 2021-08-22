@@ -20,6 +20,6 @@ public class Poof : ActiveTargetAbility
     public override void OnActivate(List<GameObject> targets)
     {
         base.OnActivate(targets);
-        card.transform.SetParent(targets[0].transform, false);
+        card.Move(targets[0].transform);
     }
 }

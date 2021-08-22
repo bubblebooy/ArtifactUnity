@@ -28,7 +28,7 @@ public class Leap : ActiveTargetAbility
     public override void OnActivate(List<GameObject> targets)
     {
         base.OnActivate(targets);
-        card.transform.SetParent(targets[0].transform, false);
+        card.Move(targets[0].transform);
 
         UnitModifier leap = card.gameObject.AddComponent<UnitModifier>() as UnitModifier;
         leap.attack = 2;

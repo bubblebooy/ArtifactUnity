@@ -51,10 +51,10 @@ public class Skewer : ActiveTargetAbility
         //print(emptySlot);
         if (firstEnemyHero != null && emptySlot != null)
         {
-            firstEnemyHero.transform.SetParent(emptySlot.transform, false);
+            firstEnemyHero.Move(emptySlot.transform);
         }
 
-        card.transform.SetParent(targets[0].transform, false);
+        card.Move(targets[0].transform);
     }
 }
 
