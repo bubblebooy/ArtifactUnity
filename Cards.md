@@ -122,6 +122,7 @@
 |✔️| Sven | Done | Max Garber |
 |✔️| Tidehunter | Done | Max Garber |
 |✔️| Timbersaw | Done | Max Garber |
+|✔️| Tinker | Done | Max Garber |
 |✔️| Troll Warlord | Done | Max Garber |
 |✔️| Tusk | Done | Max Garber |
 |✔️| Ursa | Done | Max Garber |
