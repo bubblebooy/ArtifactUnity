@@ -128,6 +128,7 @@
 |✔️| Ursa | Done | Max Garber |
 |✔️| Vanessa | Done | Max Garber |
 |✔️| Venomancer | Done | Max Garber |
+|✔️| Winter Wyvern | Done | Max Garber |
 |✔️| Zeus | Done | Max Garber |
 </details>
 
