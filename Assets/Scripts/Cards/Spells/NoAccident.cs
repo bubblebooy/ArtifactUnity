@@ -14,7 +14,7 @@ public class NoAccident : Spell
         Unit unit = transform.parent.GetComponentInChildren<Unit>();
         unit.Damage(cardPlayed_e.caster.GetComponent<Unit>(), 2);
         GameObject ability = Instantiate(Ability, unit.GetComponent<AbilitiesManager>().abilities.transform);
-        ability.GetComponent<Ability>().opponentEffect = hasAuthority != unit.hasAuthority;
+        ability.GetComponent<Ability>().opponentEffect = true; // hasAuthority != unit.hasAuthority;
         DestroyCard();
     }
 }

@@ -79,6 +79,7 @@
 
 | | Card | Current Status | Assigned to |
 |---|------|----------------|-------------|
+|✔️| Abaddon | Done | Max Garber |
 |✔️| Anti-Mage | Done | Max Garber |
 |✔️| Arc Warden | Done | Max Garber |
 |✔️| Axe | Done | Max Garber |

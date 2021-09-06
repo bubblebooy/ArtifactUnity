@@ -13,7 +13,9 @@ public class Laser : ActiveTargetAbility
         unit.Damage(card, 1, piercing: true);
         UnitModifier laserDisarm = unit.gameObject.AddComponent<UnitModifier>() as UnitModifier;
         laserDisarm.disarmed = true;
+        laserDisarm.opponentEffect = true;
         UnitModifier laserArmor = unit.gameObject.AddComponent<UnitModifier>() as UnitModifier;
+        laserArmor.opponentEffect = true;
         laserArmor.maxArmor = -2;
         laserArmor.duration = 2;
     }

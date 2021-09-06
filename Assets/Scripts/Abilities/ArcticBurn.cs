@@ -53,6 +53,7 @@ public class ArcticBurn : ActiveTargetAbility
             if (enemy != null)
             {
                 UnitModifier arcticBurn = enemy.gameObject.AddComponent<UnitModifier>() as UnitModifier;
+                arcticBurn.opponentEffect = true;
                 arcticBurn.decay = 2;
             }  
         }
